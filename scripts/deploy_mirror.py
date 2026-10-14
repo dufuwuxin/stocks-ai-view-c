@@ -39,6 +39,9 @@ MINUTE_SETS = {"B": "4,9,14,19,24,29,34,39,44,49,54,59",
 # 每个仓跑的分片 (A 仓不动, 由 shard-collect.yml 的默认值决定)
 SHARDS = {"B": "b", "C": "c"}
 
+# bulk-collect 的分片号 (md5(code)%3): A=0, B=1, C=2
+BULK_SHARDS = {"B": "1", "C": "2"}
+
 # 只在 A 仓跑的 workflow (单值数据, 多仓跑会 x3 请求量触发风控)
 A_ONLY = {"moneyflow-realtime.yml", "kline-backfill-full.yml",
           "nightly-backfill.yml", "dataset-archive.yml"}
@@ -137,6 +140,12 @@ def main():
                              "SHARD: ${{ github.event.inputs.shard || '%s' }}" % shard, new)
                 new = re.sub(r"SHARD_EXTRA: \$\{\{ github\.event\.inputs\.shard \|\| '[a-e]' \}\}",
                              "SHARD_EXTRA: ${{ github.event.inputs.shard || '' }}", new)
+                n_keep += 1
+            elif f == "bulk-collect.yml":
+                # 大批量补齐: 改 cron + 分片号 (A=0 B=1 C=2)
+                new = patch_cron_minutes(body, minutes)
+                new = re.sub(r"SHARD_IDX: \$\{\{ github\.event\.inputs\.shard \|\| '\d' \}\}",
+                             "SHARD_IDX: ${{ github.event.inputs.shard || '%s' }}" % BULK_SHARDS[L], new)
                 n_keep += 1
             else:
                 new = disable_schedule(body)
