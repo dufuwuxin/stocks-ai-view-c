@@ -16,7 +16,12 @@ import duckdb, json, datetime, urllib.request
 
 STOCKDB = os.environ.get("STOCKS_STOCKDB") or os.path.join(
     os.path.expanduser("~"), "stockdb")
-OUT = os.path.join(STOCKDB, "data", "loss_attr.json")
+HERE = os.path.dirname(os.path.abspath(__file__))
+try:
+    from paths import AI_VIEW_DATA as _AIVD
+except Exception:
+    _AIVD = os.path.join(os.path.dirname(HERE), "data")
+OUT = os.path.join(_AIVD, "loss_attr.json")
 
 # the ledger lives in the cloud warehouse as parquet; ledger_store materialises
 # it into an in-memory DuckDB with the same table name

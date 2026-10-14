@@ -17,10 +17,10 @@
 name: bulk-collect
 
 on:
-  schedule:
+  schedule:  # disabled on mirror
     # A 仓: 每周六 CST 03:00 (UTC 周六 19:00) — 与 kline-backfill-full 错开 30 分钟
     # B/C 仓部署时改成各自的分钟位 (实际是每周一次, 分钟位只影响首次触发)
-    - cron: '0,5,10,15,20,25,30,35,40,45,50,55 19 * * 6'
+    - cron: '0 19 * * 6'
   workflow_dispatch:
     inputs:
       kind:
@@ -50,7 +50,7 @@ jobs:
       TZ: Asia/Shanghai
       KIND: ${{ github.event.inputs.kind || 'kline' }}
       # 分片: A 仓默认 0; B 仓部署时改 1, C 仓改 2
-      SHARD_IDX: ${{ github.event.inputs.shard || '2' }}
+      SHARD_IDX: ${{ github.event.inputs.shard || '0' }}
       RESUME: ${{ github.event.inputs.resume || 'true' }}
     steps:
       - uses: actions/checkout@v4
@@ -126,32 +126,46 @@ jobs:
             || echo "::warning::bulk_collect 部分失败, 保留已拉部分"
 
       # ── 3. 推回 K 线仓 ────────────────────────────────────────
+      # 注意: 必须 fetch + rebase 再 push。三仓并发 + nightly-kline 也在写
+      # 同一个仓, 直接 push 会被拒 (实测 rejected: fetch first)。
       - name: Push kline bulk
         if: env.KIND == 'kline'
         working-directory: kline-repo
         run: |
           git config user.name "bulk-collect-bot"
           git config user.email "3576982374@qq.com"
-          git fetch origin main
-          git reset --soft origin/main
-          git add -A data/bulk/
-          ts=$(TZ=Asia/Shanghai date '+%Y%m%d_%H%M')
-          if git diff --quiet --cached HEAD; then
-            echo "no kline changes"
-          else
+          for i in 1 2 3; do
+            git fetch origin main
+            git reset --soft origin/main
+            git add -A data/bulk/
+            if git diff --cached --quiet HEAD; then
+              echo "no kline changes"; break
+            fi
+            ts=$(TZ=Asia/Shanghai date '+%Y%m%d_%H%M')
             git commit -m "kline: bulk backfill shard $SHARD_IDX ($ts)"
-            git push origin HEAD:main || echo "::warning::K线仓 push 失败 (并发), 下次重试"
-          fi
+            if git push origin HEAD:main; then
+              echo "pushed on try $i"; break
+            fi
+            echo "::warning::push rejected on try $i, retrying"
+            sleep 10
+          done
 
       # ── 4. 主仓记版本戳 ───────────────────────────────────────
       - name: Stamp and push
         run: |
           git config user.name "bulk-collect-bot"
           git config user.email "3576982374@qq.com"
-          git add "data/bulk_${KIND}_${SHARD_IDX}.json" 2>/dev/null || true
-          if git diff --cached --quiet HEAD; then
-            echo "nothing to commit"
-          else
+          for i in 1 2 3; do
+            git fetch origin main
+            git reset --soft origin/main
+            git add "data/bulk_${KIND}_${SHARD_IDX}.json" 2>/dev/null || true
+            if git diff --cached --quiet HEAD; then
+              echo "nothing to commit"; break
+            fi
             git commit -m "bulk(${KIND}) shard ${SHARD_IDX}: $(TZ=Asia/Shanghai date '+%m-%d %H:%M')"
-            git push origin HEAD:main || echo "::warning::push 失败, 下次重试"
-          fi
+            if git push origin HEAD:main; then
+              echo "pushed on try $i"; break
+            fi
+            echo "::warning::push rejected on try $i, retrying"
+            sleep 10
+          done
