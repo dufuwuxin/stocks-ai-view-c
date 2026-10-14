@@ -59,11 +59,11 @@ JISILU_DIVIDEND = ("/data/stock/dividend_rate_list/?rp=%d&page=1", "/data/stock/
 EM_HOSTS = ("push2.eastmoney.com", "push2delay.eastmoney.com", "push2his.eastmoney.com")
 
 
-def _jhttp(url, timeout=8, headers=None, method="GET", data=None):
+def _jhttp(url, timeout=8, headers=None, method="GET", data=None, retries=2):
     h = dict(UA)
     if headers:
         h.update(headers)
-    for _ in range(2):
+    for _ in range(retries):
         try:
             req = urllib.request.Request(url, headers=h, method=method, data=data)
             return urllib.request.urlopen(req, timeout=timeout).read()
@@ -82,6 +82,18 @@ def _jnum(v):
 def _jstr(v, limit=200):
     s = str(v if v is not None else "").strip()
     return s[:limit]
+
+
+def _keycode(code):
+    """去重主键用的代码口径: 输入带 sh/sz/bj 前缀时保留前缀, 否则裸码。
+
+    裸码会撞键: sh000001 (上证指数) 与 sz000001 (平安银行) 归一并后同为
+    000001, 同一批请求里两条记录互相覆盖 (2026-10-14 实测)。
+    """
+    c = str(code or "").strip().lower()
+    if c[:2] in ("sh", "sz", "bj"):
+        return c
+    return _bare(c)
 
 
 def _bare(code):
@@ -182,7 +194,7 @@ def f_jisilu_dividend_rate(ctx):
         if not code:
             continue
         rows.append({
-            "_key": code, "_src": "jisilu_dividend_rate",
+            "_key": _keycode(code), "_src": "jisilu_dividend_rate",
             "code": code, "name": _jstr(c.get("stock_nm"), 60),
             "dividend_rate": _jnum(c.get("dividend_rate")),
             "dividend_rate2": _jnum(c.get("dividend_rate2")),
@@ -213,7 +225,7 @@ def _mk_jisilu_fetcher(sid):
             code = _bare(c.get(key_field))
             if not code:
                 continue
-            rec = {"_key": code, "_src": sid, "code": code,
+            rec = {"_key": _keycode(code), "_src": sid, "code": code,
                    "name": _jstr(c.get("fund_nm") or c.get("bond_nm")
                                  or c.get("stock_nm"), 60)}
             if kind == "fund":
@@ -384,8 +396,8 @@ def _kline_records(sid, code, bars, adj=""):
         if len(r) < 6:
             continue
         out.append({
-            "_key": f"{_bare(code)}|{r[0]}", "_src": sid,
-            "code": _bare(code), "date": r[0],
+            "_key": f"{_keycode(code)}|{r[0]}", "_src": sid,
+            "code": _keycode(code), "date": r[0],
             "open": _jnum(r[1]), "close": _jnum(r[2]), "high": _jnum(r[3]),
             "low": _jnum(r[4]), "volume": _jnum(r[5]), "adj": adj,
         })
@@ -536,9 +548,9 @@ def f_tencent_index_history(ctx):
     codes = ctx.get("index_codes") or ["sh000001", "sz399001", "sh000300", "sz399006"]
     out, ok, errs = [], 0, []
     for code in codes[: int(ctx.get("kline_max_codes", 6) or 6)]:
-        bars = _tk_index_history(code, 800)
+        bars = _tk_index_history(code, 800) or []
         if not bars:
-            rows = _sina_kline(code, scale=240, datalen=1023, ma=5, vip=True)
+            rows = _sina_kline(code, scale=240, datalen=1023, ma=5, vip=True) or []
             bars = [[r.get("day"), r.get("open"), r.get("close"), r.get("high"),
                      r.get("low"), r.get("volume")] for r in rows if r.get("day")]
             if not bars:
@@ -567,8 +579,8 @@ def f_sina_kline_ma(ctx):
             if not re.match(r"^\d{4}-\d{2}-\d{2}$", d):
                 continue
             out.append({
-                "_key": f"{_bare(code)}|{d}", "_src": "sina_kline_ma",
-                "code": _bare(code), "date": d,
+                "_key": f"{_keycode(code)}|{d}", "_src": "sina_kline_ma",
+                "code": _keycode(code), "date": d,
                 "open": _jnum(r.get("open")), "close": _jnum(r.get("close")),
                 "high": _jnum(r.get("high")), "low": _jnum(r.get("low")),
                 "volume": _jnum(r.get("volume")),
@@ -600,8 +612,8 @@ def f_sina_vip_kline(ctx):
             if not re.match(r"^\d{4}-\d{2}-\d{2}$", d):
                 continue
             out.append({
-                "_key": f"{_bare(code)}|{d}", "_src": "sina_vip_kline",
-                "code": _bare(code), "date": d,
+                "_key": f"{_keycode(code)}|{d}", "_src": "sina_vip_kline",
+                "code": _keycode(code), "date": d,
                 "open": _jnum(r.get("open")), "close": _jnum(r.get("close")),
                 "high": _jnum(r.get("high")), "low": _jnum(r.get("low")),
                 "volume": _jnum(r.get("volume")),
@@ -630,8 +642,8 @@ def f_sina_kline_daily(ctx):
         for _, row in df.tail(60).iterrows():
             d = str(row.get("date"))[:10]
             out.append({
-                "_key": f"{_bare(code)}|{d}", "_src": "sina_kline_daily",
-                "code": _bare(code), "date": d,
+                "_key": f"{_keycode(code)}|{d}", "_src": "sina_kline_daily",
+                "code": _keycode(code), "date": d,
                 "open": _jnum(row.get("open")), "close": _jnum(row.get("close")),
                 "high": _jnum(row.get("high")), "low": _jnum(row.get("low")),
                 "volume": _jnum(row.get("volume")),
@@ -662,8 +674,8 @@ def f_sina_etf_hist(ctx):
         for _, row in df.tail(60).iterrows():
             d = str(row.get("date"))[:10]
             out.append({
-                "_key": f"{_bare(code)}|{d}", "_src": "sina_etf_hist",
-                "code": _bare(code), "date": d,
+                "_key": f"{_keycode(code)}|{d}", "_src": "sina_etf_hist",
+                "code": _keycode(code), "date": d,
                 "open": _jnum(row.get("open")), "close": _jnum(row.get("close")),
                 "high": _jnum(row.get("high")), "low": _jnum(row.get("low")),
                 "volume": _jnum(row.get("volume")),
@@ -691,8 +703,8 @@ def f_em_a_hist(ctx):
         for _, row in df.tail(60).iterrows():
             d = str(row.get("日期"))[:10]
             out.append({
-                "_key": f"{_bare(code)}|{d}", "_src": "em_a_hist",
-                "code": _bare(code), "date": d,
+                "_key": f"{_keycode(code)}|{d}", "_src": "em_a_hist",
+                "code": _keycode(code), "date": d,
                 "open": _jnum(row.get("开盘")), "close": _jnum(row.get("收盘")),
                 "high": _jnum(row.get("最高")), "low": _jnum(row.get("最低")),
                 "volume": _jnum(row.get("成交量")),
@@ -760,8 +772,8 @@ def f_em_fflow_history(ctx):
             if len(p) < 6:
                 continue
             out.append({
-                "_key": f"{_bare(code)}|{p[0]}", "_src": "em_fflow_history",
-                "code": _bare(code), "date": p[0],
+                "_key": f"{_keycode(code)}|{p[0]}", "_src": "em_fflow_history",
+                "code": _keycode(code), "date": p[0],
                 "main_net": _jnum(p[1]), "small_net": _jnum(p[2]),
                 "medium_net": _jnum(p[3]), "large_net": _jnum(p[4]),
                 "xlarge_net": _jnum(p[5]),
@@ -787,8 +799,8 @@ def f_em_quote_snapshot(ctx):
         r = d.get("data") or {}
         ok += 1
         out.append({
-            "_key": _bare(code), "_src": "em_quote_snapshot",
-            "code": _bare(code), "name": _jstr(r.get("f58"), 60),
+            "_key": _keycode(code), "_src": "em_quote_snapshot",
+            "code": _keycode(code), "name": _jstr(r.get("f58"), 60),
             "price": _jnum(r.get("f43")), "high": _jnum(r.get("f44")),
             "low": _jnum(r.get("f45")), "open": _jnum(r.get("f46")),
             "vol": _jnum(r.get("f47")), "amt": _jnum(r.get("f48")),
@@ -825,8 +837,8 @@ def f_em_tick_details(ctx):
             if len(p) < 5:
                 continue
             out.append({
-                "_key": f"{_bare(code)}|{p[0]}|{p[1]}", "_src": "em_tick_details",
-                "code": _bare(code), "time": _jstr(p[0], 12),
+                "_key": f"{_keycode(code)}|{p[0]}|{p[1]}", "_src": "em_tick_details",
+                "code": _keycode(code), "time": _jstr(p[0], 12),
                 "price": _jnum(p[1]), "deals": _jnum(p[2]),
                 "vol": _jnum(p[3]), "direction": _jstr(p[4], 4),
             })
@@ -848,19 +860,22 @@ def f_tx_tick_detail(ctx):
         if not b:
             errs.append(f"{code}: 无响应")
             continue
-        m = re.search(r'="([^"]*)"', b.decode("utf-8", "replace"))
-        if not m:
+        # 格式: v_detail_data_sh600519=[0,"0/09:25:02/1270.10/-0.10/83/10541830/S|1/..."]
+        # 数据段在第二组引号里 (第一组是页码 0), 用非贪婪匹配取所有引号段
+        segs = re.findall(r'"([^"]*)"', b.decode("utf-8", "replace"))
+        body = segs[1] if len(segs) > 1 else (segs[0] if segs else "")
+        if not body:
             errs.append(f"{code}: 无数据段")
             continue
         ok += 1
-        # 格式: 0/09:25:02/1270.10/-0.10/83/10541830/S|1/...
-        for seg in m.group(1).split("|"):
+        # 每笔: 序号/HH:MM:SS/价/价格变动/成交量(手)/成交额(元)/性质(B/S/M)
+        for seg in body.split("|"):
             p = seg.split("/")
             if len(p) < 6:
                 continue
             out.append({
-                "_key": f"{_bare(code)}|{p[1]}", "_src": "tx_tick_detail",
-                "code": _bare(code), "time": _jstr(p[1], 12),
+                "_key": f"{_keycode(code)}|{p[1]}", "_src": "tx_tick_detail",
+                "code": _keycode(code), "time": _jstr(p[1], 12),
                 "price": _jnum(p[2]), "chg": _jnum(p[3]),
                 "vol": _jnum(p[4]), "amt": _jnum(p[5]),
                 "direction": _jstr(p[6] if len(p) > 6 else "", 4),
@@ -900,8 +915,8 @@ def f_tx_minute(ctx):
                 continue
             v, a = _jnum(p[2]) or 0, _jnum(p[3]) or 0
             out.append({
-                "_key": f"{_bare(code)}|{p[0]}", "_src": "tx_minute",
-                "code": _bare(code), "hhmm": _jstr(p[0], 6),
+                "_key": f"{_keycode(code)}|{p[0]}", "_src": "tx_minute",
+                "code": _keycode(code), "hhmm": _jstr(p[0], 6),
                 "price": _jnum(p[1]),
                 "cum_vol": v, "cum_amt": a,
                 "vol": round(max(v - prev_v, 0.0), 2),
@@ -944,8 +959,8 @@ def f_sina_bill_sum(ctx):
                   "avgprice": _jnum(x.get("avgprice")),
                   "kuvolume": _jnum(x.get("kuvolume"))} for x in arr]
         out.append({
-            "_key": _bare(code), "_src": "sina_bill_sum",
-            "code": _bare(code), "name": _jstr(arr[0].get("name"), 60),
+            "_key": _keycode(code), "_src": "sina_bill_sum",
+            "code": _keycode(code), "name": _jstr(arr[0].get("name"), 60),
             "opendate": _jstr(arr[0].get("opendate"), 10),
             "tiers": tiers, "tier_n": len(tiers),
         })
@@ -975,8 +990,8 @@ def f_sina_trans_list(ctx):
             if len(p) < 4:
                 continue
             out.append({
-                "_key": f"{_bare(code)}|{p[0]}", "_src": "sina_trans_list",
-                "code": _bare(code), "time": _jstr(p[0], 12),
+                "_key": f"{_keycode(code)}|{p[0]}", "_src": "sina_trans_list",
+                "code": _keycode(code), "time": _jstr(p[0], 12),
                 "vol": _jnum(p[1]), "price": _jnum(p[2]),
                 "direction": _jstr(p[3], 8),
             })
@@ -1094,7 +1109,7 @@ def f_em_fund_etf_hist_min(ctx):
         for _, row in df.tail(30).iterrows():
             d = str(row.get("净值日期"))[:10]
             out.append({
-                "_key": f"{_bare(fc)}|{d}", "_src": "em_fund_etf_hist_min",
+                "_key": f"{_keycode(fc)}|{d}", "_src": "em_fund_etf_hist_min",
                 "code": _bare(fc), "date": d,
                 "nav": _jnum(row.get("单位净值")),
                 "acc_nav": _jnum(row.get("累计净值")),
@@ -1122,7 +1137,7 @@ def f_ths_financial_abstract_v2(ctx):
         for _, row in df.head(60).iterrows():
             metric = _jstr(row.get("metric_name"), 60)
             out.append({
-                "_key": f"{_bare(code)}|{_jstr(row.get('report_date'), 10)}|{metric}",
+                "_key": f"{_keycode(code)}|{_jstr(row.get('report_date'), 10)}|{metric}",
                 "_src": "ths_financial_abstract_v2",
                 "code": _bare(code),
                 "report_date": _jstr(row.get("report_date"), 10),
@@ -1155,8 +1170,8 @@ def f_ths_financial_abstract(ctx):
             rd = _jstr(row.get("报告期"), 24)
             if not rd:
                 continue
-            rec = {"_key": f"{_bare(code)}|{rd}", "_src": "ths_financial_abstract",
-                   "code": _bare(code), "report_date": rd}
+            rec = {"_key": f"{_keycode(code)}|{rd}", "_src": "ths_financial_abstract",
+                   "code": _keycode(code), "report_date": rd}
             for col in df.columns:
                 if col == "报告期":
                     continue
@@ -1256,7 +1271,12 @@ def f_ths_industry(ctx):
 # 新浪实时行情 (腾讯降级源) / 分钟线
 # ════════════════════════════════════════════════════════════════
 def f_sina_hq(ctx):
-    """新浪实时行情 (必带 Referer, 否则 403) → 按 code 主键。"""
+    """新浪实时行情 (必带 Referer, 否则 403) → 按 code 主键。
+
+    响应是 GBK 的 `var hq_str_sh000001="名称,开,昨,现,高,低,..."`, 字段顺序
+    与腾讯不同; 必须先 GBK 解码再 split(',') (用 _jstr 会按 utf-8 replace
+    把中文名打碎)。
+    """
     codes = ctx.get("codes") or ["sh000001", "sz399001", "sh600519", "sz000001"]
     out = []
     for i in range(0, len(codes), 40):
@@ -1265,14 +1285,19 @@ def f_sina_hq(ctx):
         b = _jhttp(u, timeout=8, headers={"Referer": "https://finance.sina.com.cn/"})
         if not b:
             continue
-        for line in _jstr(b).splitlines():
+        txt = b.decode("gbk", "replace")
+        for line in txt.splitlines():
             if "=" not in line:
                 continue
             sym, _, payload = line.partition("=")
             p = payload.strip().strip('";\n ').split(",")
             if len(p) < 32:
                 continue
-            bare = _bare(sym.strip().replace("hq_str_", "").replace("v_", ""))
+            # 变量名形如 var hq_str_sh000001 (先剥 var/hq_str_, 别再动内容)
+            sym_raw = re.sub(r"^(?:var\s+)?hq_str_", "", sym.strip()).strip().lower()
+            if not re.match(r"^(sh|sz|bj)?\d{6}$", sym_raw):
+                continue
+            bare = _keycode(sym_raw)
             out.append({
                 "_key": bare, "_src": "sina_hq", "code": bare,
                 "name": _jstr(p[0], 60),
@@ -1319,8 +1344,8 @@ def f_minute1(ctx):
             if len(day) < 16:
                 continue
             out.append({
-                "_key": f"{bare}|{day[:10]}|{day[11:16]}", "_src": "minute1",
-                "symbol": bare, "date": day[:10], "hhmm": day[11:16],
+                "_key": f"{_keycode(code)}|{day[:10]}|{day[11:16]}", "_src": "minute1",
+                "symbol": _keycode(code), "date": day[:10], "hhmm": day[11:16],
                 "open": _jnum(bar.get("open")), "close": _jnum(bar.get("close")),
                 "high": _jnum(bar.get("high")), "low": _jnum(bar.get("low")),
                 "volume": _jnum(bar.get("volume")),
@@ -1347,18 +1372,21 @@ def f_local_kline_bulk(ctx):
     want = {_bare(c) for c in (ctx.get("codes") or [])}
     max_codes = int(ctx.get("bulk_max_codes", 200) or 200)
     per_code_max = int(ctx.get("bulk_bars_per_code", 120) or 120)
-    seen_codes, out = set(), []
+    seen_codes, out = {}, []
     for fp in files:
         try:
             with open(fp, encoding="utf-8", errors="replace") as f:
                 for line in f:
                     if line.startswith("#") or "|" not in line:
                         continue
-                    parts = line.strip().split("|")
+                    # 两种行格式 (registry 已标注):
+                    #   code|date|o|c|h|l|v        与   code|date,o,c,h,l,v
+                    head, _, tail = line.strip().partition("|")
+                    parts = [head] + tail.replace("|", ",").split(",")
                     if len(parts) < 7:
                         continue
-                    code, d = parts[0], parts[1]
-                    if want and code not in want:
+                    code, d = parts[0].strip(), parts[1].strip()
+                    if want and code not in want and _bare(code) not in want:
                         continue
                     n = seen_codes.get(code, 0)
                     if n >= per_code_max:
@@ -1367,18 +1395,18 @@ def f_local_kline_bulk(ctx):
                         continue
                     seen_codes[code] = n + 1
                     out.append({
-                        "_key": f"{code}|{d}", "_src": "local_kline_bulk",
-                        "code": code, "date": d,
+                        "_key": f"{_bare(code)}|{d}", "_src": "local_kline_bulk",
+                        "code": _bare(code), "date": d,
                         "open": _jnum(parts[2]), "close": _jnum(parts[3]),
                         "high": _jnum(parts[4]), "low": _jnum(parts[5]),
                         "volume": _jnum(parts[6]), "adj": "qfq",
                     })
         except Exception:
             continue
-        if len(seen_codes) >= max_codes and not want:
+        if not want and len(seen_codes) >= max_codes:
             break
     if not out:
-        return [], {"reason": f"bulk 无可用行 (files={len(files)})"}
+        return [], {"reason": f"bulk 无可用行 (files={len(files)}, want={len(want)})"}
     return out, {"source": "local_kline_bulk", "n": len(out),
                  "codes": len(seen_codes), "files": len(files)}
 

@@ -39,36 +39,6 @@ sys.path.insert(0, HERE)
 from sources_registry import SOURCES, by_status, shard_ids as shard_ids_for
 from paths import SNAPSHOT_GLOB
 
-# 补充 fetcher 库 (把 registry 里「已探测未接入」的源补齐)
-from fetchers_extra import (  # noqa: F401  (按 group 在 FETCHERS 注册)
-    f_eastmoney_zt_pool, f_eastmoney_zdfenbu,
-    f_tencent_kline, f_eastmoney_kline, f_tencent_index_history,
-    f_sina_kline_ma, f_sina_vip_kline, f_sina_kline_daily, f_sina_etf_hist,
-    f_sina_hq, f_em_a_hist, f_em_fund_etf_hist_min,
-    f_em_fflow_history, f_em_quote_snapshot, f_em_tick_details,
-    f_tx_tick_detail, f_tx_minute, f_sina_bill_sum, f_sina_trans_list,
-    f_minute1,
-    f_jisilu_dividend_rate, f_jisilu_lof_index, f_jisilu_lof_stock,
-    f_jisilu_etf_list, f_jisilu_cb_list_new, f_jisilu_cb_adjust,
-    f_jisilu_cb_delisted, f_jisilu_new_stock_apply, f_jisilu_new_stock_hkipo,
-    f_jisilu_new_stock_sub, f_jisilu_new_stock_super,
-    f_em_fund_lsjz, f_em_lcpd_report,
-    f_ths_strong_stocks, f_ths_industry_list, f_ths_concept_list,
-    f_ths_industry, f_ths_financial_abstract, f_ths_financial_abstract_v2,
-    f_local_kline_bulk, f_local_snapshot, f_remote_news, f_industry_map_tv,
-    f_douyin_hot_search, f_toutiao_hot,
-    f_coingecko, f_sec_edgar, f_macro_china_cpi_gdp, f_tv_screener,
-    f_sse_market, f_szse_api, f_cninfo_announce,
-    f_em_ann_np, f_eastmoney_news,
-    f_em_push2delay_clist, f_em_push2his_clist, f_em_push2his_etf_onsite,
-    f_em_push2_clist, f_eastmoney_stock_get, f_em_push2his_kline_DEPRECATED,
-    f_tushare, f_iwencai_openapi, f_alpha_vantage, f_finnhub, f_twelvedata,
-    f_fmp, f_marketstack, f_yahoo_finance, f_stooq,
-    f_mootdx, f_xueqiu_hot, f_xiaohongshu_hot, f_cls_cn, f_kaipanla,
-    f_gitcode_api, f_akshare, f_baostock, f_cn_a_stock_data,
-    f_xueqiu_anon_token,
-)
-
 # 来源优先级 (冲突时越高越可信): 数字越大优先级越高
 SOURCE_PRIORITY = {
     "eastmoney_zt_pool": 90,      # 官方涨跌停, 家数权威
@@ -545,158 +515,28 @@ def fetch_fund_pingzhong(codes):
 
 
 # 源 → fetcher 映射
-#   quote    行情/快照/K线 (主键 code)
-#   event    龙虎榜/两融/涨停池/事件 (主键 code|theme|date)
-#   sector   板块/行业/概念 (主键 name)
-#   news     快讯/热搜 (主键 title hash)
-#   fund     基金/可转债/新股 (主键 code)
-#   macro    宏观/海外 (主键 indicator|period 或 symbol)
 FETCHERS = {
     "quote": [
         ("tencent_quote", lambda ctx: fetch_tencent_quote(ctx.get("codes"))),
-        # 涨停池/涨跌分布拆成两个源 id (与 sources_registry 对齐),
-        # 复用既有 fetch_eastmoney_pools 的解析逻辑
-        ("eastmoney_zt_pool", lambda ctx: (
-            [r for r in recs if r["_key"] in ("ZT", "DT", "ZB")]
-            if (recs := fetch_eastmoney_pools(ctx["date_str"])[0]) else [],
-            {"source": "eastmoney_zt_pool",
-             "n": len([r for r in recs if r["_key"] in ("ZT", "DT", "ZB")])})),
-        ("eastmoney_zdfenbu", lambda ctx: (
-            [r for r in recs if r["_key"] == "zdfenbu"]
-            if (recs := fetch_eastmoney_pools(ctx["date_str"])[0]) else [],
-            {"source": "eastmoney_zdfenbu",
-             "n": len([r for r in recs if r["_key"] == "zdfenbu"])})),
-        # ── 新增: K 线多源 (补齐「上市至今」) ──
-        ("tencent_kline", lambda ctx: f_tencent_kline(ctx)),
-        ("eastmoney_kline", lambda ctx: f_eastmoney_kline(ctx)),
-        ("tencent_index_history", lambda ctx: f_tencent_index_history(ctx)),
-        ("sina_kline_ma", lambda ctx: f_sina_kline_ma(ctx)),
-        ("sina_vip_kline", lambda ctx: f_sina_vip_kline(ctx)),
-        ("sina_kline_daily", lambda ctx: f_sina_kline_daily(ctx)),
-        ("sina_etf_hist", lambda ctx: f_sina_etf_hist(ctx)),
-        ("em_a_hist", lambda ctx: f_em_a_hist(ctx)),
-        ("minute1", lambda ctx: f_minute1(ctx)),
-        # ── 新增: 实时行情降级源 / 快照 / Tick / 资金流 ──
-        ("sina_hq", lambda ctx: f_sina_hq(ctx)),
-        ("em_quote_snapshot", lambda ctx: f_em_quote_snapshot(ctx)),
-        ("em_fflow_history", lambda ctx: f_em_fflow_history(ctx)),
-        ("em_tick_details", lambda ctx: f_em_tick_details(ctx)),
-        ("tx_tick_detail", lambda ctx: f_tx_tick_detail(ctx)),
-        ("tx_minute", lambda ctx: f_tx_minute(ctx)),
-        ("sina_bill_sum", lambda ctx: f_sina_bill_sum(ctx)),
-        ("sina_trans_list", lambda ctx: f_sina_trans_list(ctx)),
-        # ── 新增: push2 实时系 (b 分片, 容器内常被 WAF, 三域轮询+熔断) ──
-        ("em_push2delay_clist", lambda ctx: f_em_push2delay_clist(ctx)),
-        ("em_push2his_clist", lambda ctx: f_em_push2his_clist(ctx)),
-        ("em_push2his_etf_onsite", lambda ctx: f_em_push2his_etf_onsite(ctx)),
-        ("em_push2_clist", lambda ctx: f_em_push2_clist(ctx)),
-        ("eastmoney_stock_get", lambda ctx: f_eastmoney_stock_get(ctx)),
-        ("em_push2his_kline_DEPRECATED",
-         lambda ctx: f_em_push2his_kline_DEPRECATED(ctx)),
-        # ── 新增: 本地/远端 零网络源 ──
-        ("local_snapshot", lambda ctx: f_local_snapshot(ctx)),
-        ("industry_map_tv", lambda ctx: f_industry_map_tv(ctx)),
-        ("tv_screener", lambda ctx: f_tv_screener(ctx)),
+        ("eastmoney_pools", lambda ctx: fetch_eastmoney_pools(ctx["date_str"])),
     ],
     "event": [
         ("eastmoney_datacenter", lambda ctx: fetch_eastmoney_datacenter(ctx["date_dash"])),
         ("eastmoney_margin", lambda ctx: fetch_eastmoney_margin()),
         ("ths_strong", lambda ctx: fetch_ths_strong(ctx["date_dash"])),
-        # ── 新增: 涨停池明细同时是打板事件 (ZT 连板/封板时间) ──
-        ("eastmoney_zt_pool_events", lambda ctx: (
-            [{"_key": f"{x['code']}|zt|{ctx['date_dash']}",
-              "_src": "eastmoney_zt_pool", "type": "zt_pool",
-              "code": x["code"], "name": x["name"],
-              "price": x["price"], "chg_pct": x["chg_pct"],
-              "lianban": x["lianban"], "zt_time": x["zt_time"],
-              "industry": x["industry"], "trade_date": ctx["date_dash"]}
-             for r in (fetch_eastmoney_pools(ctx["date_str"])[0])
-             for x in (r.get("detail") or [])],
-            {"source": "eastmoney_zt_pool_events",
-             "n": sum(len(r.get("detail") or [])
-                      for r in fetch_eastmoney_pools(ctx["date_str"])[0])})),
-        # ── 新增: 同花顺强势股 (题材归因独家) ──
-        ("ths_strong_stocks", lambda ctx: f_ths_strong_stocks(ctx)),
-        # ── 新增: 公告 (交易所官方 + 东财) ──
-        ("em_ann_np", lambda ctx: f_em_ann_np(ctx)),
-        ("cninfo_announce", lambda ctx: f_cninfo_announce(ctx)),
-        ("sse_market", lambda ctx: f_sse_market(ctx)),
-        ("szse_api", lambda ctx: f_szse_api(ctx)),
-        # ── 新增: 业绩快报 (全市场财务事件) ──
-        ("em_lcpd_report", lambda ctx: f_em_lcpd_report(ctx)),
     ],
     "sector": [
         ("tencent_mktHs", lambda ctx: fetch_tv_ranking(ctx.get("limit", 20))),
-        # ── 新增: 同花顺行业/概念名录 (概念代码作事件驱动标签) ──
-        ("ths_industry_list", lambda ctx: f_ths_industry_list(ctx)),
-        ("ths_concept_list", lambda ctx: f_ths_concept_list(ctx)),
-        ("ths_industry", lambda ctx: f_ths_industry(ctx)),
     ],
     # 抖音热榜不放 news 组: 实测返回的是全站热搜 (体育/娱乐占多数),
     # 混进 news_digest 会让「24h 热点资讯流」被无关内容淹没。
     # 它作为情绪参考单独走 social 组。
     "news": [
         ("sina_news", lambda ctx: fetch_sina_news()),
-        # ── 新增: 远端 news 仓兜底 + 东财 7x24 ──
-        ("remote_news", lambda ctx: f_remote_news(ctx)),
-        ("eastmoney_news", lambda ctx: f_eastmoney_news(ctx)),
-        ("toutiao_hot", lambda ctx: f_toutiao_hot(ctx)),
-        ("douyin_hot_search", lambda ctx: f_douyin_hot_search(ctx)),
     ],
     "fund": [
         ("eastmoney_fund_rank", lambda ctx: fetch_fund_rank()),
         ("eastmoney_fund_pingzhong", lambda ctx: fetch_fund_pingzhong(ctx.get("fund_codes"))),
-        # ── 新增: 集思录 11 源 (可转债/ETF/LOF/新股申购, 全市场最全) ──
-        ("jisilu_dividend_rate", lambda ctx: f_jisilu_dividend_rate(ctx)),
-        ("jisilu_lof_index", lambda ctx: f_jisilu_lof_index(ctx)),
-        ("jisilu_lof_stock", lambda ctx: f_jisilu_lof_stock(ctx)),
-        ("jisilu_etf_list", lambda ctx: f_jisilu_etf_list(ctx)),
-        ("jisilu_cb_list_new", lambda ctx: f_jisilu_cb_list_new(ctx)),
-        ("jisilu_cb_adjust", lambda ctx: f_jisilu_cb_adjust(ctx)),
-        ("jisilu_cb_delisted", lambda ctx: f_jisilu_cb_delisted(ctx)),
-        ("jisilu_new_stock_apply", lambda ctx: f_jisilu_new_stock_apply(ctx)),
-        ("jisilu_new_stock_hkipo", lambda ctx: f_jisilu_new_stock_hkipo(ctx)),
-        ("jisilu_new_stock_sub", lambda ctx: f_jisilu_new_stock_sub(ctx)),
-        ("jisilu_new_stock_super", lambda ctx: f_jisilu_new_stock_super(ctx)),
-        # ── 新增: 基金净值 (静默鉴权) / ETF 历史净值 ──
-        ("em_fund_lsjz", lambda ctx: f_em_fund_lsjz(ctx)),
-        ("em_fund_etf_hist_min", lambda ctx: f_em_fund_etf_hist_min(ctx)),
-    ],
-    # 宏观/海外/库封装: 与 A 股主流程解耦, 单独一组便于按需跑
-    "macro": [
-        ("macro_china_cpi_gdp", lambda ctx: f_macro_china_cpi_gdp(ctx)),
-        ("coingecko", lambda ctx: f_coingecko(ctx)),
-        ("sec_edgar", lambda ctx: f_sec_edgar(ctx)),
-        ("tushare", lambda ctx: f_tushare(ctx)),
-        ("iwencai_openapi", lambda ctx: f_iwencai_openapi(ctx)),
-        ("alpha_vantage", lambda ctx: f_alpha_vantage(ctx)),
-        ("finnhub", lambda ctx: f_finnhub(ctx)),
-        ("twelvedata", lambda ctx: f_twelvedata(ctx)),
-        ("fmp", lambda ctx: f_fmp(ctx)),
-        ("marketstack", lambda ctx: f_marketstack(ctx)),
-        ("yahoo_finance", lambda ctx: f_yahoo_finance(ctx)),
-        ("stooq", lambda ctx: f_stooq(ctx)),
-        ("akshare", lambda ctx: f_akshare(ctx)),
-        ("baostock", lambda ctx: f_baostock(ctx)),
-        ("cn_a_stock_data", lambda ctx: f_cn_a_stock_data(ctx)),
-        # 财务摘要 (同花顺, 长表可直接入库)
-        ("ths_financial_abstract", lambda ctx: f_ths_financial_abstract(ctx)),
-        ("ths_financial_abstract_v2", lambda ctx: f_ths_financial_abstract_v2(ctx)),
-    ],
-    # 本地 K 线 bulk 单独一组: 行数极大, 避免与网络源混在一个 group 里
-    # 把 quote 组的 raw/merged 计数冲爆
-    "kline": [
-        ("local_kline_bulk", lambda ctx: f_local_kline_bulk(ctx)),
-    ],
-    # 明确不实现的源 (SPA/反爬/TCP/需装库) — 进组只为在报告里给出原因
-    "unsupported": [
-        ("mootdx", lambda ctx: f_mootdx(ctx)),
-        ("xueqiu_hot", lambda ctx: f_xueqiu_hot(ctx)),
-        ("xueqiu_anon_token", lambda ctx: f_xueqiu_anon_token(ctx)),
-        ("xiaohongshu_hot", lambda ctx: f_xiaohongshu_hot(ctx)),
-        ("cls_cn", lambda ctx: f_cls_cn(ctx)),
-        ("kaipanla", lambda ctx: f_kaipanla(ctx)),
-        ("gitcode_api", lambda ctx: f_gitcode_api(ctx)),
     ],
 }
 
