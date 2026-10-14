@@ -507,8 +507,10 @@ def _default_codes(ctx, limit=8, skip_index=False):
         picked = list(codes)[: int(ctx.get("kline_max_codes", limit) or limit)]
     else:
         picked = []
+        # 优先本地快照 (SNAPSHOT_GLOB), 没有再从 all_sources.json 的 quote 组取
+        # (容器内没有 snapshot, 只有 CI 采集产出 all_sources.json)
         try:
-            from paths import SNAPSHOT_GLOB
+            from paths import SNAPSHOT_GLOB, AI_VIEW_DATA
             snaps = sorted(glob.glob(SNAPSHOT_GLOB))
             if snaps:
                 d = json.load(open(snaps[-1], encoding="utf-8"))
@@ -516,11 +518,27 @@ def _default_codes(ctx, limit=8, skip_index=False):
                                                key=lambda kv: -(kv[1].get("mktcap") or 0))]
         except Exception:
             pass
-        picked = picked[: int(ctx.get("kline_max_codes", limit) or limit)]
+        if not picked:
+            # all_sources.quote 常只有指数, industry_map_tv 未必落盘;
+            # 最稳的是从历史预测快照取 (那里每天有 top 股票代码)
+            try:
+                pdir = os.path.join(AI_VIEW_DATA, "predictions")
+                if os.path.isdir(pdir):
+                    import glob as _g
+                    snaps = sorted(_g.glob(os.path.join(pdir, "engine_v5_*.json")))
+                    if snaps:
+                        d = json.load(open(snaps[-1], encoding="utf-8"))
+                        picked = [str(r.get("code")) for r in (d.get("top") or [])
+                                  if r.get("code")]
+            except Exception:
+                pass
     if skip_index:
         # 指数: 沪 000/950/899 开头, 深 399 开头
+        # 必须在截断之前过滤, 否则 snapshot 里指数 mktcap 最大,
+        # 先截断会把这几个全留下, 再过滤就空了 (2026-10-14 实测踩坑)
         picked = [c for c in picked
                   if _bare(c) and not _bare(c).startswith(("000", "399", "950", "899"))]
+    picked = picked[: int(ctx.get("kline_max_codes", limit) or limit)]
     return picked
 
 
@@ -1569,11 +1587,18 @@ def f_sse_market(ctx):
     except Exception:
         return [], {"reason": "上交所返回非 JSON"}
     rows = d.get("pageHelp") or d.get("result") or []
-    if not rows:
+    # pageHelp 可能是 dict(含 data 键) 或 list; 统一成 list
+    if isinstance(rows, dict):
+        rows = rows.get("data") or rows.get("results") or []
+    if not rows or not isinstance(rows, list):
         return [], {"reason": "上交所 data=null (sqlId/会话无效, 上游已标注未验证)"}
     out = []
     for r in rows[:20]:
-        key = _jstr(r.get("SECURITY_CODE") or r.get("id") or r, 20)
+        if not isinstance(r, dict):
+            continue
+        key = _jstr(r.get("SECURITY_CODE") or r.get("id") or "", 20)
+        if not key:
+            continue
         out.append({"_key": key, "_src": "sse_market", "raw": r})
     return out, {"source": "sse_market", "n": len(out)}
 
@@ -1879,14 +1904,24 @@ def f_tv_screener(ctx):
     for r in rows:
         s = r.get("s") or {}
         vals = r.get("d") or []
-        code = _bare(s.get("name", ""))
+        # TradingView 的 s 可能是 dict 或字符串, 都兼容
+        if isinstance(s, str):
+            code = _bare(s)
+        elif isinstance(s, dict):
+            code = _bare(s.get("name", ""))
+        else:
+            continue
+        # 剥掉 sse:/szse: 市场前缀, 只留 6 位代码
+        code = code.split(":")[-1]
         if not code or len(vals) < 3:
             continue
+        # columns = [name, description, close, change, volume]
+        # vals[0]=代码名(str) vals[1]=中文名(str) vals[2]=收盘 vals[3]=涨跌% vals[4]=成交量
         out.append({
             "_key": code, "_src": "tv_screener", "code": code,
-            "name_en": _jstr(vals[0], 120),
-            "close": _jnum(vals[1]), "change": _jnum(vals[2]),
-            "volume": _jnum(vals[3] if len(vals) > 3 else None),
+            "name": _jstr(vals[1], 120) or _jstr(vals[0], 120),
+            "close": _jnum(vals[2]), "chg_pct": _jnum(vals[3]),
+            "volume": _jnum(vals[4] if len(vals) > 4 else None),
         })
     if not out:
         return [], {"reason": "TradingView 扫描返回空"}
