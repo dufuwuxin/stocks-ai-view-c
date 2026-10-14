@@ -1,0 +1,18 @@
+# 运行时备份: slim_latest.py 生成, 不入库
+data/latest.full.json
+# 本地调试产物
+*.log
+__pycache__/
+.DS_Store
+
+# ── 大文件: 本地不存, 网站实时查 GitHub/gitcode (2026-10-13 用户要求) ──
+# 全市场复权 bulk (单只 qfq+hfq 两个 JSON, 5268 只 → 81MB)
+data/adjusted/bulk/
+# 全历史/大快照: 只从 GitHub raw 读
+data/adjusted/index_full.json
+# all_sources.json 不排除: CI 的 Commit & push 会 git add 它, 被 ignore 时
+# add 报 "pathspec did not match any files" → 整条 pipeline exit 1,
+# 采集成果一个都提交不上去 (2026-10-14 实测复现)。文件实际 ~160KB, 可入账。
+# 本地 DuckDB (二进制, 不入库; 采集在 Actions/独立服务器跑)
+*.duckdb
+*.duckdb.wal
