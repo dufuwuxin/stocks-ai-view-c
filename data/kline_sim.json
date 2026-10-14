@@ -1,0 +1,90 @@
+{
+  "ts": "2026-10-14T17:59:08+08:00",
+  "sources": {
+    "predictions": {
+      "dir": "/home/runner/work/stocks-ai-view-c/stocks-ai-view-c/data/predictions",
+      "files": 0,
+      "n": 0
+    }
+  },
+  "params": {
+    "days": [
+      1,
+      3,
+      5,
+      10
+    ],
+    "max_positions": 20,
+    "slippage_pct": 0.03,
+    "limit_up_down": false,
+    "entry": "信号日后首个K线交易日开盘价",
+    "exit": "入场日起第N个交易日收盘价"
+  },
+  "n_signals_total": 0,
+  "n_simulated": 0,
+  "n_held": 0,
+  "skipped": {
+    "no_kline": 0,
+    "no_forward_data": 0,
+    "limit_up_at_entry": 0,
+    "bad_price": 0
+  },
+  "overall": {
+    "win_rate": null,
+    "avg_return_pct": null,
+    "max_drawdown_pct": 0.0,
+    "n_pairs": 0
+  },
+  "by_horizon": {
+    "1": {
+      "n": 0,
+      "win_rate": null,
+      "avg_ret_pct": null,
+      "median_ret_pct": null,
+      "stdev_pct": null
+    },
+    "3": {
+      "n": 0,
+      "win_rate": null,
+      "avg_ret_pct": null,
+      "median_ret_pct": null,
+      "stdev_pct": null
+    },
+    "5": {
+      "n": 0,
+      "win_rate": null,
+      "avg_ret_pct": null,
+      "median_ret_pct": null,
+      "stdev_pct": null
+    },
+    "10": {
+      "n": 0,
+      "win_rate": null,
+      "avg_ret_pct": null,
+      "median_ret_pct": null,
+      "stdev_pct": null
+    }
+  },
+  "equity_curve": {
+    "max_day": 10,
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "top_signals": [],
+  "coverage": {
+    "bulk_max_date": null,
+    "bulk_rows_loaded": 0
+  },
+  "note": "无有效收益样本: 可入场信号 0 个, 但各持有期出场日超出 bulk K线数据范围 (截至 None)。更新 bulk K线后重跑。"
+}

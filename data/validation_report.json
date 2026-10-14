@@ -1,0 +1,140 @@
+{
+  "ts": "2026-10-14T18:01:05+08:00",
+  "engine": "numeric_validator v1",
+  "n_files": 27,
+  "n_issues": 2,
+  "by_severity": {
+    "critical": 0,
+    "warning": 2,
+    "info": 0
+  },
+  "issues": [
+    {
+      "file": "all_sources.json",
+      "field": "data.fund[0].ret_3m",
+      "severity": "warning",
+      "msg": "越界 222.64 不在 [-100, 200]"
+    },
+    {
+      "file": "all_sources.json",
+      "field": "data.fund[0].ret_1m",
+      "severity": "warning",
+      "msg": "越界 222.19 不在 [-100, 100]"
+    }
+  ],
+  "rules": {
+    "price": [
+      0.0001,
+      100000
+    ],
+    "close": [
+      0.0001,
+      100000
+    ],
+    "nav": [
+      0.0001,
+      100000
+    ],
+    "intrinsic_value": [
+      0.0001,
+      100000
+    ],
+    "ret_pct": [
+      -35,
+      35
+    ],
+    "daily_chg_pct": [
+      -35,
+      35
+    ],
+    "ret_1y": [
+      -100,
+      500
+    ],
+    "ret_6m": [
+      -100,
+      300
+    ],
+    "ret_3m": [
+      -100,
+      200
+    ],
+    "ret_1m": [
+      -100,
+      100
+    ],
+    "volume": [
+      0,
+      1000000000000000.0
+    ],
+    "turnover": [
+      0,
+      10000000.0
+    ],
+    "mktcap": [
+      0,
+      1e+16
+    ],
+    "floatcap": [
+      0,
+      1e+16
+    ],
+    "pe": [
+      -10000,
+      100000
+    ],
+    "pb": [
+      -10000,
+      100000
+    ],
+    "composite": [
+      -100,
+      100
+    ],
+    "score": [
+      -1000,
+      1000
+    ],
+    "n_samples": [
+      0,
+      1000000000.0
+    ],
+    "win_rate": [
+      0,
+      100
+    ],
+    "zt_next_rate": [
+      0,
+      100
+    ],
+    "zhaban_next_rate": [
+      0,
+      100
+    ],
+    "raw_win_rate": [
+      0,
+      100
+    ],
+    "limit_up": [
+      0,
+      10000
+    ],
+    "limit_down": [
+      0,
+      10000
+    ],
+    "advance": [
+      0,
+      10000
+    ],
+    "decline": [
+      0,
+      10000
+    ],
+    "chg_pct_period": [
+      -1000,
+      1000
+    ]
+  },
+  "caveat": "数值域检查拦不住逻辑错误, 只拦明显脏数据"
+}
