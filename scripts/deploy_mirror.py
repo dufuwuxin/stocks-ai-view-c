@@ -54,18 +54,10 @@ def run(cmd, cwd=None, check=True):
     return r
 
 
-def patch_cron(path, minutes):
-    """把 schedule cron 的分钟字段替换成错峰集合。"""
-    src = open(path, encoding="utf-8").read()
-
-    def repl(m):
-        return "cron: '" + minutes + m.group(1) + "'"
-
-    # 只替换「分钟字段 + 其余四段」, 保留 day-of-week 等
-    new = re.sub(r"cron: '([^']*)'", lambda m: "cron: '" + m.group(1) + "'", src)
-    # 精确: 逐行把 cron 的分钟段替换
+def patch_cron(src, minutes):
+    """把 schedule cron 的分钟字段替换成错峰集合。src = 文件内容, 返回新内容。"""
     out = []
-    for line in new.split("\n"):
+    for line in src.split("\n"):
         m = re.match(r"^(\s*-?\s*cron:\s*')([0-9,*/\-]+)(\s+.*)$", line)
         if m:
             line = m.group(1) + minutes + m.group(3)
@@ -73,10 +65,8 @@ def patch_cron(path, minutes):
     return "\n".join(out)
 
 
-def disable_schedule(path):
-    """把 on.schedule 移除, 只留 workflow_dispatch。"""
-    src = open(path, encoding="utf-8").read()
-    # 简单处理: 注释掉 schedule 块
+def disable_schedule(src):
+    """把 on.schedule 移除, 只留 workflow_dispatch。src = 文件内容, 返回新内容。"""
     lines = src.split("\n")
     out, in_sched = [], False
     for line in lines:
@@ -144,13 +134,13 @@ def main():
             if not f.endswith(".yml"):
                 continue
             if f in DISABLE:
-                open(p, "w", encoding="utf-8").write(disable_schedule(p) if False else disable_schedule(f and p))
+                open(p, "w", encoding="utf-8").write(disable_schedule(open(p, encoding="utf-8").read()))
                 n_dis += 1
             elif f in KEEP_SCHEDULE:
-                open(p, "w", encoding="utf-8").write(patch_cron(p, minutes))
+                open(p, "w", encoding="utf-8").write(patch_cron(open(p, encoding="utf-8").read(), minutes))
                 n_keep += 1
             else:
-                open(p, "w", encoding="utf-8").write(disable_schedule(p))
+                open(p, "w", encoding="utf-8").write(disable_schedule(open(p, encoding="utf-8").read()))
                 n_dis += 1
         print("  workflow: %d 个错峰保留, %d 个禁用 schedule" % (n_keep, n_dis))
 
