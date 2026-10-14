@@ -102,8 +102,16 @@ def _bare(code):
 
 
 def _tk(code):
-    """6 位代码 → 腾讯前缀代码 (sh/sz/bj)。"""
-    c = _bare(code)
+    """6 位代码 → 腾讯前缀代码 (sh/sz/bj)。
+
+    已带前缀的原样返回 —— 不能先 _bare 再按首位猜: sh000001 (上证指数)
+    与 sz000001 (平安银行) 裸码同为 000001, 猜市场会把指数误判成深市
+    (2026-10-14 实测踩坑)。
+    """
+    raw = str(code or "").strip().lower()
+    if raw[:2] in ("sh", "sz", "bj"):
+        return raw
+    c = _bare(raw)
     if not c:
         return ""
     if c.startswith(("5", "6", "9")):
@@ -115,7 +123,12 @@ def _tk(code):
 
 def _secid(code):
     """6 位代码 → 东财 secid (1=沪 0=深)。"""
-    c = _bare(code)
+    raw = str(code or "").strip().lower()
+    if raw[:2] in ("sh", "bj"):
+        return "1." + raw[2:]
+    if raw[:2] == "sz":
+        return "0." + raw[2:]
+    c = _bare(raw)
     return ("1." if c.startswith(("5", "6", "9")) else "0.") + c
 
 
@@ -482,22 +495,33 @@ def _sina_kline(code, scale=240, datalen=1023, ma=5, vip=False):
         return []
 
 
-def _default_codes(ctx, limit=8):
-    """未显式给 codes 时: 本地快照里取成交额最大的前 N 只 + 主要指数。"""
+def _default_codes(ctx, limit=8, skip_index=False):
+    """未显式给 codes 时: 本地快照里取市值最大的前 N 只。
+
+    skip_index=True 时剔除指数代码 (sh000001/ sz399001/ sh000300/ sz399006 ...):
+    大单分档/分笔明细这类接口只支持个股, 传指数会返回空
+    (2026-10-14 实测 sina_bill_sum / tx_tick_detail 踩坑)。
+    """
     codes = ctx.get("codes")
     if codes:
-        return list(codes)[: int(ctx.get("kline_max_codes", limit) or limit)]
-    try:
-        from paths import SNAPSHOT_GLOB
-        snaps = sorted(glob.glob(SNAPSHOT_GLOB))
-        if snaps:
-            d = json.load(open(snaps[-1], encoding="utf-8"))
-            picked = sorted(d.items(),
-                            key=lambda kv: -(kv[1].get("mktcap") or 0))[:limit]
-            codes = [k for k, _ in picked]
-    except Exception:
-        pass
-    return (codes or [])[: int(ctx.get("kline_max_codes", limit) or limit)]
+        picked = list(codes)[: int(ctx.get("kline_max_codes", limit) or limit)]
+    else:
+        picked = []
+        try:
+            from paths import SNAPSHOT_GLOB
+            snaps = sorted(glob.glob(SNAPSHOT_GLOB))
+            if snaps:
+                d = json.load(open(snaps[-1], encoding="utf-8"))
+                picked = [k for k, _ in sorted(d.items(),
+                                               key=lambda kv: -(kv[1].get("mktcap") or 0))]
+        except Exception:
+            pass
+        picked = picked[: int(ctx.get("kline_max_codes", limit) or limit)]
+    if skip_index:
+        # 指数: 沪 000/950/899 开头, 深 399 开头
+        picked = [c for c in picked
+                  if _bare(c) and not _bare(c).startswith(("000", "399", "950", "899"))]
+    return picked
 
 
 def f_tencent_kline(ctx):
@@ -734,19 +758,27 @@ def _em_multi(path_tmpl, **kw):
         return None, "circuit_open (push2 连续失败, 本周期跳过)"
     last = "unknown"
     for host in EM_HOSTS:
-        u = f"https://{host}" + path_tmpl.format(**kw)
-        b = _jhttp(u, timeout=6, headers={"Referer": "https://quote.eastmoney.com/"})
+        for attempt in range(3):
+            u = f"https://{host}" + path_tmpl.format(**kw)
+            b = _jhttp(u, timeout=6, retries=1,
+                       headers={"Referer": "https://quote.eastmoney.com/"})
+            if b:
+                break
+            last = f"{host} 无响应"
+            time.sleep(0.3 * (attempt + 1))
         if b:
             try:
                 d = json.loads(b.decode("utf-8"))
             except Exception as e:
                 last = f"json: {type(e).__name__}"
+                b = b""
                 continue
             if d.get("data"):
                 _EM_CB["fails"] = 0
                 _EM_CB["tripped"] = False
                 return d, None
             last = "empty data"
+            b = b""
         else:
             last = "no response"
     _EM_CB["fails"] += 1
@@ -849,8 +881,11 @@ def f_em_tick_details(ctx):
 
 
 def f_tx_tick_detail(ctx):
-    """腾讯分笔 (比东财多成交额字段) → 按 code|time 主键。"""
-    codes = _default_codes(ctx, limit=2)
+    """腾讯分笔 (比东财多成交额字段) → 按 code|time 主键。
+
+    只支持个股: 默认代码要剔除指数, 否则接口返回空。
+    """
+    codes = _default_codes(ctx, limit=2, skip_index=True)
     out, ok, errs = [], 0, []
     for code in codes:
         tk = _tk(code)
@@ -931,8 +966,11 @@ def f_tx_minute(ctx):
 
 
 def f_sina_bill_sum(ctx):
-    """新浪大单分档汇总 (茅台28档) → 按 code 主键 (一票一档位数组)。"""
-    codes = _default_codes(ctx, limit=2)
+    """新浪大单分档汇总 (茅台28档) → 按 code 主键 (一票一档位数组)。
+
+    只支持个股: 默认代码要剔除指数, 否则接口返回空。
+    """
+    codes = _default_codes(ctx, limit=2, skip_index=True)
     out, ok, errs = [], 0, []
     for code in codes:
         tk = _tk(code)
@@ -985,8 +1023,10 @@ def f_sina_trans_list(ctx):
             continue
         txt = b.decode("utf-8", "replace")
         ok += 1
-        for m in re.finditer(r"new Array\('([^']*)'\)", txt):
-            p = m.group(1).split("', '")
+        # 响应是 JS: trade_item_list[0] = new Array('15:00:00', '72200', '1286.000', 'UP')
+        # 必须匹配整个 Array(...) 再按 ', ' 拆 —— 只抓第一组引号会丢字段
+        for m in re.finditer(r"new Array\(([^)]*)\)", txt):
+            p = [x.strip().strip("'") for x in m.group(1).split(",")]
             if len(p) < 4:
                 continue
             out.append({
