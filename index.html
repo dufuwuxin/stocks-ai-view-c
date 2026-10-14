@@ -230,8 +230,10 @@ td:nth-child(n+3),th:nth-child(n+3){text-align:right}
       <button class="c-tab" data-c="9">场景推股</button>
       <button class="c-tab" data-c="10">海外实时</button>
       <button class="c-tab" data-c="11">因子引擎</button>
-      <button class="c-tab" data-c="12">复盘验证</button>
+      <button class="c-tab" data-c="12">指标回溯</button>
       <button class="c-tab" data-c="13">质量审查</button>
+      <button class="c-tab" data-c="14">每日复盘</button>
+      <button class="c-tab" data-c="15">主力资金</button>
     </div>
     <div class="card c-card" data-ci="0">
       <div class="hd">AI 推荐标的 <span class="sub">多维评分 · 点击行看K线/资金流</span></div>
@@ -378,6 +380,23 @@ td:nth-child(n+3),th:nth-child(n+3){text-align:right}
         <div class="hd" style="border-top:1px solid var(--border);padding:6px 0">数值校验 (越界/脏值) <span class="sub" id="nvSub"></span></div>
         <div id="validationBox"><div class="fl">加载中…</div></div>
       </div>
+    </div>
+    <div class="card c-card" data-ci="14" style="display:none">
+      <div class="hd">每日复盘 <span class="sub">昨日对账 · 上午实际 · 下午可执行 · 历史归档</span></div>
+      <div style="padding:8px 12px;overflow-y:auto;max-height:calc(100vh - 235px)">
+        <div class="hd" style="border-top:none;padding:6px 0">昨日推股 · 今日对账 <span class="sub">已收盘事实</span></div>
+        <div id="pkYesterday"><div class="fl">加载中…</div></div>
+        <div class="hd" style="border-top:1px solid var(--border);padding:6px 0">上午推股 · 实际表现 <span class="sub">盘中已发生</span></div>
+        <div id="pkMorning"><div class="fl">加载中…</div></div>
+        <div class="hd" style="border-top:1px solid var(--border);padding:6px 0">下午可执行 <span class="sub">含买点/止损/理由</span></div>
+        <div id="pkAfternoon"><div class="fl">加载中…</div></div>
+        <div class="hd" style="border-top:1px solid var(--border);padding:6px 0">历史复盘记录 <span class="sub">每日收盘归档 · 云端 JSONL</span></div>
+        <div id="pkHistory"><div class="fl">加载中…</div></div>
+      </div>
+    </div>
+    <div class="card c-card" data-ci="15" style="display:none">
+      <div class="hd">主力资金实时监控 <span class="sub" id="mfSub">净流入/流出 · 分钟级 · 大盘+个股</span></div>
+      <div id="moneyflowBox" style="padding:8px 12px;overflow-y:auto;max-height:calc(100vh - 235px)"><div class="fl" style="text-align:center">加载中…</div></div>
     </div>
   </div>
   <!-- RIGHT: 主题 + 24h资讯流 -->
@@ -1196,6 +1215,147 @@ function renderScenario(d){
   h+='<div class="fl" style="padding:8px 0 2px;font-size:9px">'+esc((d.meta||{}).detect_rules)+'</div>';
   box.innerHTML=h;
 }
+// 主力资金渲染 (moneyflow.json)
+// 兼容三种历史结构:
+//   A. 初版: {indices, stocks:{code:{main_net_today,main_net_5d(数值),minute_series}}, top_inflow, top_outflow}
+//   B. 旧版: {flows:{code:{net_main_wan, r0_wan, turnover_wan, net3_wan}}} 单位万元
+//   C. collect_moneyflow v2: {index_flow, sector_flow, stocks:{code:{main_net_today,
+//      main_net_5d(数组!), daily_series, minute_delta}}, top_inflow, top_outflow, realtime, reason}
+function fmtYi(v){
+  if(v==null||isNaN(v))return '—';
+  var a=Math.abs(v);
+  if(a>=1e8)return (v/1e8).toFixed(2)+'亿';
+  if(a>=1e4)return (v/1e4).toFixed(1)+'万';
+  return Math.round(v)+'';
+}
+// main_net_5d 可能是数值(初版)或数组(v2); 数组取和
+function sum5d(v){
+  if(v==null)return null;
+  if(Array.isArray(v)){var s=0;v.forEach(function(x){if(typeof x==='number')s+=x});return s;}
+  return typeof v==='number'?v:null;
+}
+function renderMoneyFlow(d){
+  const box=document.getElementById('moneyflowBox');
+  if(!box) return;
+  if(!d){box.innerHTML='<div class="no-data">暂无资金数据</div>';return}
+  const esc=s=>String(s==null?'—':s);
+  const sub=document.getElementById('mfSub');
+  if(sub&&d.ts){
+    var rt=d.realtime===false?' · 非实时(降级源)':'';
+    sub.textContent=(d.ts||'').replace('T',' ').slice(5,16)+rt+' · '+esc(d.source);
+  }
+  let h='';
+  // 降级提示: v2 的 reason 记录了每个源失败原因
+  if(d.reason&&d.source&&d.source.indexOf('dc_')>=0){
+    var staleTxt='';
+    if(d.stale_days!=null&&d.stale_days>0) staleTxt=' 数据日期 '+esc(d.data_date)+' (滞后 '+d.stale_days+' 日)';
+    else if(d.data_date) staleTxt=' 数据日期 '+esc(d.data_date);
+    h+='<div class="fl" style="font-size:9px;padding:2px 0 6px;line-height:1.5;color:var(--amber)">'
+      +'⚠️ push2 实时源不可达, 已降级到 datacenter'+staleTxt+'<br>'+esc(d.reason).slice(0,180)+'</div>';
+  }
+  // ── 结构 B (旧版 flows) ──
+  if(d.flows&&!d.stocks){
+    const arr=Object.keys(d.flows).map(function(code){
+      const f=d.flows[code]||{};
+      return {code:code.replace(/^(sh|sz|bj)/,''), raw:code,
+              name:((window._searchIdx&&window._searchIdx[code.replace(/^(sh|sz|bj)/,'')])||{}).n||'',
+              main_net:(f.net_main_wan||0)*1e4,
+              r0:(f.r0_wan||0)*1e4,
+              net3:(f.net3_wan||0)*1e4,
+              turnover:(f.turnover_wan||0)*1e4,
+              pct:f.pct, close:f.close, date:f.date};
+    });
+    arr.sort(function(a,b){return b.main_net-a.main_net});
+    h+='<div class="fl" style="font-size:9px;margin-bottom:4px">旧版结构 (flows, 万元口径) · '+(d.ts||'').replace('T',' ').slice(0,16)+' · '+arr.length+' 只</div>';
+    h+='<table><thead><tr><th>代码</th><th>名称</th><th>收盘</th><th>涨跌%</th><th>主力净额</th><th>当日流入</th><th>3日净额</th><th>成交额</th></tr></thead><tbody>';
+    arr.slice(0,40).forEach(function(x){
+      const c=x.main_net>=0?'var(--up)':'var(--dn)';
+      h+='<tr class="clk" data-code="'+esc(x.code)+'"><td>'+esc(x.code)+'</td><td><b>'+esc(x.name||x.code)+'</b></td>'
+        +'<td>'+esc(x.close)+'</td><td class="'+(x.pct>=0?'up':'dn')+'">'+(x.pct>=0?'+':'')+esc(x.pct)+'%</td>'
+        +'<td style="color:'+c+';font-weight:700">'+fmtYi(x.main_net)+'</td>'
+        +'<td style="color:'+(x.r0>=0?'var(--up)':'var(--dn)')+'">'+fmtYi(x.r0)+'</td>'
+        +'<td style="color:'+(x.net3>=0?'var(--up)':'var(--dn)')+'">'+fmtYi(x.net3)+'</td>'
+        +'<td class="fl">'+fmtYi(x.turnover)+'</td></tr>';
+    });
+    h+='</tbody></table>';
+    h+='<div class="fl" style="padding:8px 0 2px;font-size:9px">数据源: '+esc(d.source||'—')+' · Research reference only, not investment advice.</div>';
+    box.innerHTML=h;
+    return;
+  }
+  // ── 结构 A / C (stocks) ──
+  // 大盘: A 用 indices, C 用 index_flow
+  const idx=(d.indices||d.index_flow||[]);
+  if(idx.length){
+    h+='<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">';
+    idx.forEach(x=>{
+      const c=x.main_net>=0?'var(--up)':'var(--dn)';
+      var ratio=x.main_net_pct!=null?x.main_net_pct:x.main_net_ratio;
+      var ratioTxt=(ratio==null||isNaN(ratio))?'':('('+(ratio>=0?'+':'')+Number(ratio).toFixed(2)+'%)');
+      h+='<span class="bdg" style="background:rgba(137,87,229,.14);color:var(--tx2)">'
+        +esc(x.name)+' <b style="color:'+c+'">'+fmtYi(x.main_net)+'</b>'
+        +' <span class="fl">'+ratioTxt+'</span></span>';
+    });
+    h+='</div>';
+  }
+  // 板块资金流 (v2 新增)
+  const sec=(d.sector_flow||[]);
+  if(sec.length){
+    h+='<div class="fl" style="font-size:9px;margin:2px 0 4px">板块主力净额 TOP</div>';
+    h+='<div class="chips" style="margin-bottom:6px">';
+    sec.slice(0,12).forEach(function(x){
+      const c=x.main_net>=0?'var(--up)':'var(--dn)';
+      h+='<span class="chip">'+esc(x.name)+' <b style="color:'+c+'">'+fmtYi(x.main_net)+'</b></span>';
+    });
+    h+='</div>';
+  }
+  // 2. 个股实时主力净额
+  const st=d.stocks||{};
+  const codes=Object.keys(st);
+  if(codes.length){
+    h+='<div class="fl" style="font-size:9px;margin:2px 0 4px">个股主力净额 (实时累计)</div>';
+    h+='<table><thead><tr><th>代码</th><th>名称</th><th>现价</th><th>主力净额</th><th>5日累计</th><th>最新分钟</th></tr></thead><tbody>';
+    codes.slice(0,30).forEach(code=>{
+      const s=st[code]||{};
+      const c=(s.main_net_today||0)>=0?'var(--up)':'var(--dn)';
+      // 分钟序列: v2 用 minute_delta (每分钟净流入, diff 后)
+      var ms=s.minute_series||s.minute_delta||[];
+      var lastMin=ms.length?ms[ms.length-1]:null;
+      var lastTxt='—';
+      if(lastMin){ lastTxt=esc(lastMin.time||'')+' '+fmtYi(lastMin.main_net!=null?lastMin.main_net:lastMin.delta); }
+      else if((s.daily_series||[]).length){ var ds=s.daily_series[s.daily_series.length-1]; lastTxt=esc(ds.date)+' 日级'; }
+      var px=(s.close!=null?s.close:(s.price!=null?s.price:null));
+      h+='<tr class="clk" data-code="'+esc(code)+'">'
+        +'<td>'+esc(code)+'</td><td><b>'+esc(s.name||code)+'</b></td>'
+        +'<td>'+esc(px)+'</td>'
+        +'<td style="color:'+c+';font-weight:700">'+fmtYi(s.main_net_today)+'</td>'
+        +'<td style="color:'+((sum5d(s.main_net_5d)||0)>=0?'var(--up)':'var(--dn)')+'">'+fmtYi(sum5d(s.main_net_5d))+'</td>'
+        +'<td class="fl" style="font-size:9px">'+lastTxt+'</td></tr>';
+    });
+    h+='</tbody></table>';
+  }
+  // 3. 净流入 / 净流出排行
+  const topIn=(d.top_inflow||[]), topOut=(d.top_outflow||[]);
+  if(topIn.length||topOut.length){
+    h+='<div style="display:flex;gap:10px;margin-top:8px">';
+    [['主力净流入 TOP',topIn,'var(--up)'],['主力净流出 TOP',topOut,'var(--dn)']].forEach(function(pair){
+      const title=pair[0], arr=pair[1], col=pair[2];
+      h+='<div style="flex:1;min-width:0"><div class="fl" style="font-size:9px;margin-bottom:3px">'+title+' ('+arr.length+')</div>';
+      h+='<table><thead><tr><th>代码</th><th>名称</th><th>主力净额</th></tr></thead><tbody>';
+      arr.slice(0,15).forEach(function(x){
+        h+='<tr class="clk" data-code="'+esc(x.code)+'"><td>'+esc(x.code)+'</td><td><b>'+esc(x.name)+'</b></td>'
+          +'<td style="color:'+col+';font-weight:700">'+fmtYi(x.main_net)+'</td></tr>';
+      });
+      h+='</tbody></table></div>';
+    });
+    h+='</div>';
+  }
+  if(!idx.length&&!codes.length&&!topIn.length&&!topOut.length){
+    h+='<div class="no-data">暂无资金数据</div>';
+    if(d.reason) h+='<div class="fl" style="font-size:9px;margin-top:4px">'+esc(d.reason)+'</div>';
+  }
+  h+='<div class="fl" style="padding:8px 0 2px;font-size:9px">数据源: '+esc(d.source||'—')+' · 东财 push2his 分钟级资金流 · Research reference only, not investment advice.</div>';
+  box.innerHTML=h;
+}
 function renderDecision(d){
   const box=document.getElementById('decisionBox');
   if(!box) return;
@@ -1532,6 +1692,9 @@ function renderReview(){
 
 /* ─── tab 13: 质量审查 ─── */
 let qaRendered = false;
+let ovRendered = false;
+let pkRendered = false;
+let mfRendered = false;
 function renderQA(){
   const g = window._data || {};
 
@@ -1658,11 +1821,16 @@ document.getElementById('cTabs').addEventListener('click', e=>{
   if(b.dataset.c==='7' && !fdRendered){ fdRendered=true; renderFlowDivergence(window._fdData||null); }
   if(b.dataset.c==='8' && !decRendered){ decRendered=true; renderDecision(window._decData||null); }
   if(b.dataset.c==='10' && window.Overseas){ window.Overseas.render(); }
+  if(b.dataset.c==='14' && window.Picks){ window.Picks.render(); }
   if(b.dataset.c==='9' && !scenRendered){ scenRendered=true; renderScenario(window._scenData||null); }
+  if(b.dataset.c==='15' && !mfRendered){ mfRendered=true; renderMoneyFlow(window._mfData||null); }
   // 新增三个 tab 首次切入时懒渲染 (数据已在 render() 里并行拉好)
   if(b.dataset.c==='11' && !feRendered){ feRendered=true; _safe(renderFactorEngines,'engineV5'); }
   if(b.dataset.c==='12' && !rvRendered){ rvRendered=true; _safe(renderReview,'reflect'); }
   if(b.dataset.c==='13' && !qaRendered){ qaRendered=true; _safe(renderQA,'edge'); }
+  if(b.dataset.c==='10' && window.Overseas){ ovRendered=true; _safe(()=>window.Overseas.render(),'overseas'); }
+  if(b.dataset.c==='14' && window.Picks){ pkRendered=true; _safe(()=>window.Picks.render(),'picks'); }
+  if(b.dataset.c==='15'){ mfRendered=true; if(typeof renderMoneyFlow==='function') _safe(renderMoneyFlow,'moneyflow'); }
 });
 // 默认显示第一张卡
 document.querySelector('.c-card[data-ci="0"]').classList.add('on');
@@ -1684,6 +1852,7 @@ const SOURCES = [
   'data/flow_divergence.json', // 资金流背离
   'data/decision.json',        // 决策卡
   'data/scenario.json',        // 场景化推股
+  'data/moneyflow.json',       // 主力资金实时
   'data/daily_brief.json',     // 盘前日报
   'data/news_digest.json',     // 24h 资讯流
   'data/enrich.json',          // 强势股/龙虎榜/大宗
@@ -1810,6 +1979,7 @@ async function render(){
   window._fdData = g.flow_divergence; if(g.flow_divergence) renderFlowDivergence(g.flow_divergence);
   window._decData = g.decision;     if(g.decision && decRendered)     renderDecision(g.decision);
   window._scenData = g.scenario;    if(g.scenario && scenRendered)    renderScenario(g.scenario);
+  window._mfData = g.moneyflow;      if(g.moneyflow && mfRendered)      renderMoneyFlow(g.moneyflow);
   if(g.daily_brief) renderDailyBrief(g.daily_brief);
   window._engineV5 = g.engine_v5;
   window._multidim = g.multidim;
@@ -1827,6 +1997,12 @@ async function render(){
   if(feRendered) _safe(renderFactorEngines,'engineV5');
   if(rvRendered) _safe(renderReview,'reflect');
   if(qaRendered) _safe(renderQA,'edge');
+  // overseas / daily review / moneyflow panels only rendered on click before,
+  // so they went stale the moment the tab was opened. Same rule: redraw only
+  // when the tab has been opened at least once.
+  if(ovRendered && window.Overseas) _safe(()=>window.Overseas.render(),'overseas');
+  if(pkRendered && window.Picks) _safe(()=>window.Picks.render(),'picks');
+  if(mfRendered && typeof renderMoneyFlow==='function') _safe(renderMoneyFlow,'moneyflow');
   _failCount = 0;
 }
 // 轮询: 90s 起步, 连续失败则指数退避到 5min, 恢复后回落
@@ -1994,6 +2170,7 @@ document.addEventListener('click', e=>{
 <script src="realtime.js" defer></script>
 <script src="db-client.js" defer></script>
 <script src="overseas.js" defer></script>
+<script src="picks.js" defer></script>
 <script src="gh_sources.js"></script>
 <script src="data_origin_patch.js"></script>
 <script src="stock-detail.js" defer></script>

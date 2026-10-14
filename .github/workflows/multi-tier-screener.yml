@@ -4,7 +4,7 @@
 # 轮次 3: GitHub Models (ghc) deepseek-v4.1-flash 综合判断
 name: multi-tier-screener-daily
 on:
-  schedule:  # disabled on mirror (avoid duplicate runs)
+  schedule:  # disabled on mirror
     # - cron: '15 8 * * 1-5'   # 16:15 CST
   workflow_dispatch: {}
 permissions:

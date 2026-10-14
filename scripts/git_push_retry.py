@@ -45,14 +45,14 @@ def sh(args, check=False):
 
 def stage(paths, dirs, all_changes):
     """只 add 真实存在的路径: git add 不存在的 pathspec 会 fatal (exit 1)。"""
-    exist = [p for p in paths if os.path.exists(p)]
+    exist = [p for p in paths if p and os.path.exists(p)]
     for p in paths:
-        if p not in exist:
+        if p and p not in exist:
             print(f"skip (not generated): {p}")
     for d in dirs:
-        if os.path.isdir(d):
+        if d and os.path.isdir(d):
             exist.append(d)
-        else:
+        elif d:
             print(f"skip (no dir): {d}")
     if all_changes:
         exist.append("-A")
@@ -61,6 +61,47 @@ def stage(paths, dirs, all_changes):
         return False
     sh(["git", "add", "-A", "--"] + exist)
     return True
+
+
+def commit_only(paths, dirs, all_changes, msg):
+    """只提交指定路径, 不把 index 里其他内容带进去。
+
+    为什么必须这样: git add 是增量的, 而 git commit 提交整个 index。
+    refresh_from_remote 里的 git checkout <ref> -- <path> 会同时写 index,
+    于是 index 里混进了本不该由本轮提交的文件, git commit 一并带走
+    (2026-10-14 实测: full-pipeline 提交里出现 realtime_minute.json /
+    market_now.json / enrich.json, 全都不在它的显式列表内, 把别的
+    工作流刚推的新数据覆盖成旧版)。
+
+    做法: git commit -- <paths> 只提交这些路径的已暂存改动。
+
+    路径必须已存在于 index (git 知道它), 否则 git 报
+    "pathspec did not match any file(s) known to git" 并失败 —
+    未生成的可选产出 (如 loss_attribution.json) 必须在这里过滤掉,
+    与 stage() 的过滤保持一致。
+    """
+    if all_changes:
+        args = ["git", "commit", "-m", msg]
+    else:
+        targets = []
+        for p in paths:
+            if p and os.path.exists(p):
+                targets.append(p)
+        for d in dirs:
+            if d and os.path.isdir(d):
+                targets.append(d)
+        if not targets:
+            return None
+        # 只保留 git 已知的路径, 避免 pathspec 报错
+        known = sh(["git", "ls-files", "--"] + targets).stdout.split()
+        known_set = set(known)
+        # 目录形式 (data/) 没有 ls-files 输出时要保留, 让 git 自己判断
+        keep = [t for t in targets
+                if t in known_set or os.path.isdir(t)]
+        if not keep:
+            return None
+        args = ["git", "commit", "-m", msg, "--"] + keep
+    return sh(args)
 
 
 def staged_paths(paths, dirs, all_changes):
@@ -103,15 +144,68 @@ def refresh_from_remote(paths, dirs, all_changes, branch, protect):
     protect = 本轮刚生成、绝不能被远端旧版冲掉的文件。调用方通过
     --protect 传入 (可多次)。其余路径一律以远端为准。
     """
-    protect = set(protect or [])
+def refresh_from_remote(paths, dirs, all_changes, branch, protect,
+                       base_ref=None):
+    """把远端最新版 checkout 到工作区, 然后恢复 protect 里本轮改过的文件。
+
+    为什么必须这一步: 6 个工作流同时推 main, 每个都在 run 开始时 checkout。
+    若 A 在 11:34 推了新的 latest.json, B 的工作区里仍是 10:49 的旧副本,
+    B 直接 add 就会把 A 的新版覆盖回旧版 (2026-10-14 实测: ai-update 推的
+    11:34 版本被随后 4 个 run 覆盖成 10:49)。
+
+    protect = 本轮刚生成、绝不能被远端旧版冲掉的文件。因为调用方常用
+    --dir data 这种粗粒度路径, 而 protect 是具体文件, 单靠"跳过匹配项"
+    挡不住目录级 checkout (data/ 会把 data/realtime_minute.json 一并覆盖)。
+
+    判定"本轮是否改过"用 base_ref (默认 HEAD): 若 protect 文件与 base_ref
+    版本逐字节相同, 说明它只是 run 开始时 checkout 来的旧副本, 不是本轮
+    成果, 不该保护 — 否则会把旧副本推上去, 覆盖别人刚推的新版
+    (2026-10-14 实测: rebuild-pools 把 ai-update 13:19 的 latest.json
+    覆盖回 10:49, 正因如此)。
+    """
+    protect = [p for p in (protect or []) if p]
     if all_changes:
         want = ['.']
     else:
         want = [p for p in paths if p] + [d for d in dirs if d]
+    if not want:
+        return
+    ref = base_ref or 'HEAD'
+    backup = {}
+    for p in protect:
+        if os.path.isfile(p):
+            try:
+                with open(p, 'rb') as f:
+                    content = f.read()
+            except OSError:
+                continue
+            base = sh(["git", "show", f"{ref}:{p}"])
+            if base.returncode == 0 and base.stdout.encode() == content:
+                print(f"protect: {p} 本轮未改动, 不作为成果保护")
+                continue
+            backup[p] = content
+        elif os.path.isdir(p):
+            base_dir = p.rstrip('/')
+            for root, _dirs, files in os.walk(base_dir):
+                for fn in files:
+                    fp = os.path.join(root, fn)
+                    try:
+                        with open(fp, 'rb') as f:
+                            content = f.read()
+                    except OSError:
+                        continue
+                    b = sh(["git", "show", f"{ref}:{fp}"])
+                    if b.returncode == 0 and b.stdout.encode() == content:
+                        continue
+                    backup[fp] = content
+    # 取回远端最新版 (目录级 checkout 会冲掉工作区)
     for w in want:
-        if w in protect or any(w.startswith(p.rstrip('/') + '/') for p in protect):
-            continue
         sh(["git", "checkout", f"origin/{branch}", "--", w])
+    # 把本轮成果写回去
+    for p, content in backup.items():
+        os.makedirs(os.path.dirname(os.path.abspath(p)), exist_ok=True)
+        with open(p, 'wb') as f:
+            f.write(content)
 
 
 def main():
@@ -132,11 +226,15 @@ def main():
 
     for i in range(1, MAX_TRIES + 1):
         sh(["git", "fetch", "origin", args.branch])
+        # 本 run 开始时的基线 (checkout 得到的版本), 用于判定 protect 文件
+        # 本轮是否真的被改过。必须在 reset --soft 之前取, 之后 HEAD 就指向
+        # 将要提交的基点了。
+        base_ref = sh(["git", "rev-parse", "HEAD"]).stdout.strip() or "HEAD"
         sh(["git", "reset", "--soft", f"origin/{args.branch}"])
         # 关键: 先把远端最新版取回工作区, 防止用本 run 开始时的旧副本
         # 覆盖其他工作流刚推送的新数据。
         refresh_from_remote(args.paths, args.dir, args.all, args.branch,
-                             args.protect)
+                             args.protect, base_ref)
         if not stage(args.paths, args.dir, args.all):
             print("no changes to push")
             return 0
@@ -145,8 +243,8 @@ def main():
             print("no staged changes in our scope (remote already up to date)")
             return 0
         ts = datetime.now(CST).strftime("%Y%m%d_%H%M")
-        r = sh(["git", "commit", "-m", f"{args.msg}: {ts}"])
-        if r.returncode != 0:
+        r = commit_only(args.paths, args.dir, args.all, f"{args.msg}: {ts}")
+        if r is None or r.returncode != 0:
             print(f"commit failed: {r.stderr.strip()[:200]}")
             return 1
         p = sh(["git", "push", "origin", f"HEAD:{args.branch}"])

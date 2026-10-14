@@ -72,6 +72,10 @@
       return get(REPOS.market + 'sector/' + kind + '_kline/' + bk + '.csv', 600000)
         .then(function (txt) { return api.parseCsv(txt); });
     },
+    // TradingView grouping: the usable membership source when the eastmoney
+    // board endpoint is unreachable.
+    tvGroups: function () { return get(REPOS.market + 'sector/tv_groups.json', 600000); },
+    stockToBoard: function () { return get(REPOS.market + 'sector/stock_to_board.json', 600000); },
 
     // ── overseas ──
     overseas: function () { return get(REPOS.market + 'overseas/live.json', 60000); },
@@ -79,6 +83,31 @@
     overseasNews: function () { return get(REPOS.market + 'overseas/news.json', 300000); },
     overseasSentiment: function () { return get(REPOS.market + 'overseas/sentiment.json', 300000); },
     overseasOvernight: function () { return get(REPOS.market + 'overseas/overnight.json', 300000); },
+
+    // ── picks, per session ──
+    todayPicks: function () { return get(REPOS.market + 'market/today_picks.json', 120000); },
+    morningReview: function () { return get(REPOS.market + 'market/morning_review.json', 120000); },
+    afternoonPicks: function () { return get(REPOS.market + 'market/afternoon_picks.json', 120000); },
+    entryPlans: function () { return get(REPOS.market + 'market/entry_plans.json', 120000); },
+    yesterdayReview: function () { return get(REPOS.market + 'market/review_today.json', 120000); },
+    closeReview: function () { return get(REPOS.market + 'market/close_review.json', 120000); },
+    stopAnalysis: function () { return get(REPOS.market + 'market/stop_analysis.json', 120000); },
+    engineWeights: function () { return get(REPOS.market + 'market/engine_weights.json', 600000); },
+    // JSONL: one row per closed day
+    reviewHistory: function () {
+      return fetch(REPOS.market + 'market/review_history.jsonl', { cache: 'no-store' })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+        .then(function (txt) {
+          var out = [];
+          txt.split('\n').forEach(function (line) {
+            line = line.trim();
+            if (!line) return;
+            try { out.push(JSON.parse(line)); } catch (e) {}
+          });
+          return out;
+        })
+        .catch(function () { return []; });
+    },
     usStocks: function () { return get(REPOS.market + 'overseas/us_stocks.json', 300000); },
     hkStocks: function () { return get(REPOS.market + 'overseas/hk_stocks.json', 300000); },
 

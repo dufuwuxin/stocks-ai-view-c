@@ -14,11 +14,11 @@
 #   - data/predictions/ 快照由本工作流落盘 (复盘闭环的时间基准)
 name: full-pipeline
 on:
-  schedule:
+  schedule:  # disabled on mirror
     # 交易时段每 5 分钟 (UTC 1,2,3,5,6,7 时的 :02/:07/:12/...
     # = CST 09:02-15:57)。实测一整轮 (采集 ~12s + 22 引擎) 只要 ~60s,
     # 所以 5 分钟粒度有余量; 配 concurrency group 防止偶发慢轮自我重叠。
-    - cron: '0,5,10,15,20,25,30,35,40,45,50,55 1,2,3,5,6,7 * * 1-5'
+    - cron: '2,7,12,17,22,27,32,37,42,47,52,57 1,2,3,5,6,7 * * 1-5'
   workflow_dispatch: {}
 permissions:
   contents: write
@@ -67,8 +67,8 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install duckdb
-        run: pip install duckdb -q
+      - name: Install dependencies
+        run: pip install -q -r requirements.txt
 
       # ── 1. 数据源注册表快照 ──
       - name: Snapshot sources registry

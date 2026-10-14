@@ -11,7 +11,7 @@
 # concurrency group 保护不会重叠。下游的 cron 保留作兜底。
 name: scheduler
 on:
-  schedule:  # disabled on mirror (avoid duplicate runs)
+  schedule:  # disabled on mirror
     # 交易时段每 5 分钟 (UTC 1,2,3,5,6,7 的 :02/:07/:12/... = CST 09:02-15:57)
     - cron: '2,7,12,17,22,27,32,37,42,47,52,57 1,2,3,5,6,7 * * 1-5'
   workflow_dispatch:
