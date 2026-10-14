@@ -1,0 +1,295 @@
+# full-pipeline — 采集 + 计算全链路 (GitHub Actions 一站式)
+#
+# 2026-10-14 职责收敛 (用户决定: 停用 GitCode Space, 全迁 GitHub Actions):
+#   Actions (本工作流) : 采集 → 合并去重 → 26 引擎计算 → 产出 → push
+#   GitCode            : 只留 4 个 dataset 仓做零核时归档 (dataset-archive.yml)
+#
+# 为什么不用 Space:
+#   - Space 30 分钟无 HTTP 访问就休眠, 需人工网页激活, 无法自动开关
+#   - 本仓是公开仓, Actions 免费无限分钟; 单轮实测 60s, 远低于 6h 上限
+#   - 引擎代码唯一事实源是 scripts/, 无跨平台同步分叉问题
+#
+# 本工作流保留在 Actions 的原因:
+#   - collect_all_sources 要多个出口 IP 采国内源 (容器内被墙的源)
+#   - data/predictions/ 快照由本工作流落盘 (复盘闭环的时间基准)
+name: full-pipeline
+on:
+  schedule:
+    # 交易时段每 5 分钟 (UTC 1,2,3,5,6,7 时的 :02/:07/:12/...
+    # = CST 09:02-15:57)。实测一整轮 (采集 ~12s + 22 引擎) 只要 ~60s,
+    # 所以 5 分钟粒度有余量; 配 concurrency group 防止偶发慢轮自我重叠。
+    - cron: '0,5,10,15,20,25,30,35,40,45,50,55 1,2,3,5,6,7 * * 1-5'
+  workflow_dispatch: {}
+permissions:
+  contents: write
+# 并发控制: 一轮完整链路 (采集 ~12s + 22 引擎) 实测 59 秒, 而心跳每 5 分钟
+# 触发一次, 正常不会重叠。万一某轮变慢, cancel-in-progress=true 让新一轮
+# 顶掉旧轮 — 实时数据场景下"最新的那轮"比"跑完旧轮"更有价值, 且旧的
+# 写了半份 data/ 反而更糟。
+concurrency:
+  group: full-pipeline
+  cancel-in-progress: true
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    # 一轮完整链路 (采集 ~12s + 26 引擎) 实测最长 ~20 分钟, 留 50% 余量
+    timeout-minutes: 30
+    env:
+      TZ: Asia/Shanghai
+      STOCKS_DB: ${{ github.workspace }}/stocks.duckdb
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+      - name: Sync remote main
+        run: |
+          git fetch origin main
+          git merge --ff-only origin/main || echo "already up to date"
+
+      - name: Checkout kline repo (sparse)
+        uses: actions/checkout@v4
+        with:
+          repository: qwerzxcva/stocks-data-kline
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: kline-repo
+          sparse-checkout: |
+            data/bulk
+          sparse-checkout-cone-mode: false
+
+      - name: Link kline bulk
+        run: |
+          mkdir -p ../stocks-data-kline/data
+          cp -r kline-repo/data/bulk ../stocks-data-kline/data/ 2>/dev/null || true
+          echo "bulk files: $(ls ../stocks-data-kline/data/bulk/ | wc -l)"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install duckdb
+        run: pip install duckdb -q
+
+      # ── 1. 数据源注册表快照 ──
+      - name: Snapshot sources registry
+        run: |
+          python3 scripts/sources_registry.py --json data/sources_registry.json
+
+      # ── 2. 并发采集 + 合并去重 ──
+      - name: Collect all sources
+        run: |
+          python3 scripts/collect_all_sources.py --out /tmp/collected.json --workers 8
+
+      # ── 3. 数据库导入 (采集侧质量门) ──
+      - name: Init DB + load
+        run: |
+          python3 scripts/db_layer.py --init
+          python3 scripts/db_layer.py --load /tmp/collected.json
+
+      - name: Query benchmark
+        run: python3 scripts/db_layer.py --bench 2>&1 | tee /tmp/bench.txt
+
+      # ── 4. 合并去重结果落盘 (供前端查询 + 引擎消费) ──
+      - name: Save merged sources to data/
+        run: |
+          cp /tmp/collected.json data/all_sources.json
+          python3 - <<'PY'
+          import json
+          d = json.load(open('data/all_sources.json'))
+          s = d['summary']
+          print(f"data/all_sources.json: raw={s['total_raw']} merged={s['total_merged']} groups={list(s['groups'].keys())}")
+          PY
+
+      # ── 4b. 生成 24h 热点资讯流 (前端 news_digest.json) ─────────
+      # 仓库里此前没有任何脚本生成 news_digest.json, 只有消费方
+      # (index.html renderNews), 导致该面板永远停在最后一次本地手跑的时间
+      # (线上实测 2026-10-13 08:30, 20 小时不更新)。
+      # 必须在 Collect all sources 之后: 输入是 all_sources.json 的 news 组。
+      - name: Build news digest
+        run: |
+          python3 scripts/build_news_digest.py --keep-hours 24 || \
+            echo "::warning::news_digest 生成失败, 保留上一版"
+
+      # ── 5. 预测快照持久化 ─────────────────────────────────────
+      # 复盘闭环的时间基准: 今天存, 明天验证 1 日, 后天验证 3 日…
+      # 文件名必须是 engine_v5_<date>.json — reflect_engine 用
+      #   glob('engine_v5*.json') 匹配, kline_sim 用
+      #   glob('engine_v5_*.json') 匹配, 改名会让两边都读不到。
+      # 快照由本工作流的引擎链产出 engine_v5.json 后拷贝而来;
+      # 若 Space 尚未产出, 则用采集行情构造一个最小快照 (保住时间基准)。
+      - name: Persist prediction snapshot
+        run: |
+          mkdir -p data/predictions
+          ts=$(TZ=Asia/Shanghai date +%Y-%m-%d)
+          if [ -f data/engine_v5.json ]; then
+            # 引擎链已算出当日评分 → 直接快照 (复盘要的 top/votes 都在)
+            cp data/engine_v5.json "data/predictions/engine_v5_${ts}.json"
+            echo "prediction snapshot <- engine_v5.json ($(ls -la data/engine_v5.json | awk '{print $5}') bytes)"
+          else
+            echo "::notice::engine_v5.json 尚未生成, 本次不建快照"
+          fi
+          echo "predictions/: $(ls data/predictions | wc -l) 份"
+
+      # ── 6. 全局 FX (轻量, 前端常驻展示) ──
+      - name: Global FX
+        run: python3 scripts/build_global_fx.py --out data/global_fx.json || true
+
+      # ── 6b. 样本均衡 (EB 收缩: 修复连板层级 99.7% 样本集中首板) ──
+      - name: Sample balancer
+        run: python3 scripts/sample_balancer.py --write-back || echo "balancer skipped (no ban_prob)"
+
+      # ── 6c. 场景化推股 (四象限: 牛/熊/震荡/极端) ──
+      # 轻量 (只读已有 json 重排), GitHub 侧直接跑, 不等 Space
+      - name: Scenario engine
+        run: python3 scripts/scenario_engine.py || echo "scenario skipped (no multidim)"
+
+      # ── 6c2. 权重校准 (特征重要性 → engine_v5 权重, 防过拟合) ──
+      - name: Weight calibrator
+        run: python3 scripts/weight_calibrator.py || echo "calibrator skipped (no reflect)"
+
+      # ── 6c3. 信号审核 (发布前: 逻辑矛盾/数值异常/集中度/翻烧饼) ──
+      - name: Signal auditor
+        run: python3 scripts/signal_auditor.py || echo "auditor skipped (no decision)"
+
+      # ── 6c4. 优势挖掘 (找优点: 指标/环境/维度 的统计显著优势) ──
+      - name: Edge miner
+        run: python3 scripts/edge_miner.py || echo "edge_miner skipped"
+
+      # ── 6c5. 异常检测 (时序/分布: 数据断更/覆盖下跌/分布漂移) ──
+      - name: Anomaly detector
+        run: python3 scripts/anomaly_detector.py || echo "anomaly skipped"
+
+      # ── 6d. 引擎计算链 (26 引擎, Actions 一站式跑完) ──────────────
+      # 主算力设计在 GitCode Space (1000 核时/月)。但 Space 需要人工在网页
+      # 激活并选服务器配置; 未激活时 space-pull 拉不到任何产出, 网站就会
+      # 一直是旧数据。所以这里放一份**完整**引擎链作兜底:
+      #   · Space 已激活 → space-pull 拉回更新鲜的产出, 覆盖这里的
+      #   · Space 未激活 → 这里的产出就是网站的数据源
+      # 两个工作流写同一批文件, 但都在自己 commit 前 fetch+reset --soft,
+      # 后跑的覆盖先跑的, 不会写坏。
+      #
+      # 与 Space ENGINE_CHAIN (/tmp/org-space/app.py) 保持同一套脚本/参数
+      # (单一事实源 = scripts/)。顺序按 tier 依赖:
+      #   tier0 估值/市场阶段 → tier1 共振/AI推荐/RPS → tier2 9维/决策/打板
+      #   → tier3 回测/复盘/胜率/前推 → tier4 因子/样本均衡/归因
+      #   → tier5 校准/反思/优势 → tier6 验证/场景/审核/风险 → tier7 组合/异常
+      # 单个引擎失败不阻断后面 (|| echo), 也不让整个 job 失败。
+      # 本地已全链验证 (2026-10-14): 24 个脚本逐一 exit=0。
+      - name: Engine chain (fallback when Space inactive)
+        run: |
+          set +e
+          echo "--- tier 0: valuation + market phase ---"
+          python3 scripts/valuation_engine.py --inject || echo "valuation skipped"
+          python3 scripts/phase_runner.py --days 90 --out data/market_phase.json || echo "phase skipped"
+          echo "--- tier 1: resonance + AI pick + rotation ---"
+          python3 scripts/engine_v5.py --out data/engine_v5.json --limit 500 || echo "engine_v5 skipped"
+          python3 scripts/ai_pick_v4.py --out data/ai_pick_v4.json || echo "ai_pick_v4 skipped"
+          python3 scripts/rps_rotation.py --top 30 --out data/rps_rotation.json || echo "rps skipped"
+          echo "--- tier 2: 9-dim factors + decision + limit-up audit ---"
+          python3 scripts/multidim_engine.py --out data/multidim.json --limit 300 || echo "multidim skipped"
+          python3 scripts/decision_engine.py --out data/decision.json || echo "decision skipped"
+          python3 scripts/ban_prob.py --out data/ban_prob.json || echo "ban_prob skipped"
+          python3 scripts/ban_pick.py --out data/ban_pick.json || echo "ban_pick skipped"
+          python3 scripts/patterns.py --out data/patterns_smoke.json || echo "patterns skipped"
+          echo "--- tier 3: backtest + reflection + winrate + walkforward ---"
+          python3 scripts/kline_sim.py --source predictions --out data/kline_sim.json --days 1,3,5,10 --max-signals 3000 || echo "kline_sim skipped"
+          python3 scripts/reflect_engine.py --pred-dir data/predictions --horizons 1,3,5,10 --out data/reflect_latest.json || echo "reflect skipped"
+          python3 scripts/winrate_matrix.py --out data/winrate_matrix.json || echo "winrate skipped"
+          python3 scripts/walkforward.py --train-days 120 --test-days 20 --step-days 20 --horizon 5 --out data/walkforward.json || echo "walkforward skipped"
+          echo "--- tier 4: factors + sample balance + loss attribution ---"
+          python3 scripts/factor_lib.py --out data/factor_smoke.json || echo "factor_lib skipped"
+          python3 scripts/flow_divergence.py --out data/flow_divergence.json || echo "flow_divergence skipped"
+          python3 scripts/sample_balancer.py --in data/ban_prob.json --out data/ban_prob_balanced.json --write-back || echo "balancer skipped"
+          python3 scripts/loss_attribution.py || echo "loss_attribution skipped (no pick ledger)"
+          echo "--- tier 5: calibration + self-improvement + edge mining ---"
+          python3 scripts/weight_calibrator.py || echo "calibrator skipped"
+          python3 scripts/edge_miner.py || echo "edge_miner skipped"
+          python3 scripts/self_reflect.py --out data/self_reflect.json || echo "self_reflect skipped"
+          echo "--- tier 6: validation + scenario + signal audit + risk budget ---"
+          python3 scripts/numeric_validator.py --out data/validation_report.json || echo "validator skipped"
+          python3 scripts/scenario_engine.py || echo "scenario skipped"
+          python3 scripts/signal_auditor.py || echo "auditor skipped"
+          python3 scripts/risk_engine.py || echo "risk skipped"
+          echo "--- tier 7: portfolio optimization + anomaly detection ---"
+          python3 scripts/portfolio_optimizer.py || echo "portfolio skipped"
+          python3 scripts/anomaly_detector.py || echo "anomaly skipped"
+          echo "--- engine chain done ---"
+
+      # ── 6e. 瘦身预测快照 (votes 瘦成 dict, 107M -> 22M, 防仓库膨胀) ──
+      - name: Slim prediction snapshots
+        run: |
+          python3 scripts/slim_predictions.py --dir data/predictions || echo "slim skipped"
+          du -sh data/predictions/
+
+      # ── 7. 数据校验 (采集侧) ──
+      - name: Audit collected data
+        run: |
+          python3 scripts/audit_data.py > data/audit_data_report.txt 2>&1 || true
+          python3 scripts/numeric_validator.py --out data/validation_report.json || true
+
+      # ── 9. 采集摘要 ──
+      - name: Summary
+        run: |
+          python3 - <<'PY'
+          import json
+          d = json.load(open('/tmp/collected.json'))
+          s = d['summary']
+          print('## full-pipeline 采集摘要 (计算引擎已移至 GitCode Space)')
+          print(f"- 源: {s['registry']}")
+          print(f"- 原始 {s['total_raw']} → 合并 {s['total_merged']} (去重 {s['dedup_removed']})")
+          print(f"- 冲突 {s['conflicts']} 个, 错误 {len(s['errors'])} 个")
+          print(f"- 耗时 {s['elapsed_s']}s")
+          for g, v in s['groups'].items():
+              print(f"  - {g}: {v['raw']} → {v['merged']}")
+          PY
+
+      # ── 10. 提交 ──────────────────────────────────────────────
+      # 只提交采集侧产物。引擎产出 (engine_v5/multidim/decision/reflect/
+      # kline_sim/self_reflect/valuation/…) 由 space-pull.yml 拉回后提交,
+      # 两个工作流写不同的文件, 不会互相覆盖。
+      #
+      # 用 "git add -A -- <存在的路径>" 而非直接 add 字面量:
+      #   `git add` 遇到不存在的 pathspec 会 fatal 退出 (exit 1),
+      #   曾导致每次 pipeline 都在最后一步崩掉, 采集成果全部丢失
+      #   (2026-10-13 20:57 与 2026-10-14 05:12 两次 run 均因此失败)。
+      - name: Commit & push
+        # 复用 scripts/git_push_retry.py: fetch+reset+add+commit+push,
+        # push 失败退避 5/10/20/40s 重试最多 5 次。仓库有 6+ 个 bot 同时推
+        # main, 单次重试在高峰期不够 — 曾出现工作流 success 但数据从未上台。
+        # --protect 列出本轮刚生成的文件: 6 个工作流并发推 main 时,
+        # 若不先把远端最新版取回工作区, 本 run 开始时的旧副本会把别的
+        # 工作流刚推的新数据覆盖掉 (2026-10-14 实测: ai-update 推的 11:34
+        # latest.json 被随后 4 个 run 覆盖回 10:49)。
+        run: |
+          python3 scripts/git_push_retry.py --msg "pipeline(collect)" \
+            data/sources_registry.json data/all_sources.json data/news_digest.json \
+            data/predictions data/global_fx.json data/audit_data_report.txt \
+            data/valuation.json data/market_phase.json data/engine_v5.json \
+            data/ai_pick_v4.json data/rps_rotation.json data/multidim.json \
+            data/decision.json data/ban_prob.json data/ban_prob_balanced.json \
+            data/ban_pick.json data/patterns_smoke.json data/kline_sim.json \
+            data/reflect_latest.json data/winrate_matrix.json data/walkforward.json \
+            data/factor_smoke.json data/sample_balance.json data/loss_attribution.json \
+            data/flow_divergence.json \
+            data/engine_weights.json data/weights_history.json data/edge_report.json \
+            data/validation_report.json data/scenario.json data/signal_audit.json \
+            data/self_reflect.json data/risk_plan.json data/portfolio_plan.json \
+            data/anomaly_report.json \
+            --protect data/sources_registry.json --protect data/all_sources.json \
+            --protect data/news_digest.json --protect data/predictions \
+            --protect data/global_fx.json --protect data/audit_data_report.txt \
+            --protect data/valuation.json --protect data/market_phase.json \
+            --protect data/engine_v5.json --protect data/ai_pick_v4.json \
+            --protect data/rps_rotation.json --protect data/multidim.json \
+            --protect data/decision.json --protect data/ban_prob.json \
+            --protect data/ban_prob_balanced.json --protect data/ban_pick.json \
+            --protect data/patterns_smoke.json --protect data/kline_sim.json \
+            --protect data/reflect_latest.json --protect data/winrate_matrix.json \
+            --protect data/walkforward.json --protect data/factor_smoke.json \
+            --protect data/sample_balance.json --protect data/loss_attribution.json \
+            --protect data/flow_divergence.json --protect data/engine_weights.json \
+            --protect data/weights_history.json --protect data/edge_report.json \
+            --protect data/validation_report.json --protect data/scenario.json \
+            --protect data/signal_audit.json --protect data/self_reflect.json \
+            --protect data/risk_plan.json --protect data/portfolio_plan.json \
+            --protect data/anomaly_report.json

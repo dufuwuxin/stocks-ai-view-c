@@ -133,15 +133,23 @@ def main():
             p = os.path.join(wf_dir, f)
             if not f.endswith(".yml"):
                 continue
+        for f in sorted(os.listdir(wf_dir)):
+            p = os.path.join(wf_dir, f)
+            if not f.endswith(".yml"):
+                continue
+            with open(p, encoding="utf-8") as fh:
+                body = fh.read()          # 先读
             if f in DISABLE:
-                open(p, "w", encoding="utf-8").write(disable_schedule(open(p, encoding="utf-8").read()))
+                new_body = disable_schedule(body)
                 n_dis += 1
             elif f in KEEP_SCHEDULE:
-                open(p, "w", encoding="utf-8").write(patch_cron(open(p, encoding="utf-8").read(), minutes))
+                new_body = patch_cron(body, minutes)
                 n_keep += 1
             else:
-                open(p, "w", encoding="utf-8").write(disable_schedule(open(p, encoding="utf-8").read()))
+                new_body = disable_schedule(body)
                 n_dis += 1
+            with open(p, "w", encoding="utf-8") as fh:   # 后写
+                fh.write(new_body)
         print("  workflow: %d 个错峰保留, %d 个禁用 schedule" % (n_keep, n_dis))
 
         # 标记镜像身份
