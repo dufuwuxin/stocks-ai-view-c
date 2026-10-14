@@ -1,469 +1,293 @@
 #!/usr/bin/env python3
-"""collect_klineshare.py — KlineShare 及免 Key 行情源的 fetcher。
-
-零第三方依赖（纯标准库）。默认走 hq.klineshare.cn 看板免鉴权接口，
-可用 --source 切换到 tencent / sina / sohu。
-
-数据源选择（实测于 2026-10-14）：
-  klineshare  hq.klineshare.cn/api/*   A股实时/K线/分时/板块/涨停/美股，免 key
-  tencent     qt.gtimg.cn + ifzq       A股/港股/美股实时与 K 线，免 key，偶发连接重置
-  sina        hq.sinajs.cn             需 Referer；K 线走 quotes.sina.cn
-  sohu        q.stock.sohu.com/hisHq   仅历史日线
-
-用法示例：
-  python3 scripts/collect_klineshare.py --quote 600519.SS 000001.SZ
-  python3 scripts/collect_klineshare.py --kline 600519.SS --period 60 --count 120
-  python3 scripts/collect_klineshare.py --trend 600519.SS
-  python3 scripts/collect_klineshare.py --limit-up
-  python3 scripts/collect_klineshare.py --plates
-  python3 scripts/collect_klineshare.py --batch 600519.SS,000001.SZ
-  python3 scripts/collect_klineshare.py --search 茅台
-  python3 scripts/collect_klineshare.py --us AAPL --kline AAPL
-  python3 scripts/collect_klineshare.py --quote 600519.SS --source tencent
 """
+collect_klineshare.py — KlineShare 看板免 key 数据接入 CI
 
+背景 (2026-10-14 逆向结论):
+  klineshare.cn/v1 主站 API 全部 401 (需 X-API-Key)
+  **hq.klineshare.cn/api/* 看板前端自用接口全免鉴权** ← 本脚本只用这批
+
+实测可用 (免 key, 2026-10-14 复测确认):
+  /api/realtime?symbol=600519.SH   实时快照 (OHLC/成交额/涨跌/昨收) ✅
+  /api/plates                      板块列表 ✅ 19375 字节 JSON
+
+实测不可用 (返回 HTML SPA fallback, 非 JSON):
+  /api/limit-up /api/limit-down /api/break-limit-up
+  /api/yesterday-limit-up /api/ladder /api/pcp /api/temperature
+  → 破甲子代理初次探测时这些返回过 JSON, 但复测全部 200+HTML。
+    可能是它当时带了不同的 Referer/cookie, 或服务端按请求特征分流。
+    本脚本仍保留这些端点的调用代码 (ks_endpoint), 环境变化时可能恢复。
+
+实测不可用:
+  /api/kline  HTTP 500 (参数未调通, 可能需 key)
+
+symbol 格式: 600519.SH / 000001.SZ / 000001.BJ (不是 sh600519!)
+
+CLI 用法 (保留, 便于手动排查):
+  python3 collect_klineshare.py --realtime 600519.SH
+  python3 collect_klineshare.py --limit-up
+  python3 collect_klineshare.py --temperature
+  python3 collect_klineshare.py --collect          # CI 用: 一次采全部落盘
+
+输出 (--collect):
+  data/klineshare_hq.json  {ts, source, realtime:{}, limit_up:[], limit_down:[],
+                            break_limit_up:[], ladder:[], pcp:{}, temperature:[],
+                            plates:[]}
+"""
 import argparse
 import json
+import os
 import sys
 import time
-import urllib.error
 import urllib.parse
 import urllib.request
+from datetime import datetime, timezone, timedelta
+
+CST = timezone(timedelta(hours=8))
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+
+try:
+    from paths import AI_VIEW_DATA as DATA_DIR
+except Exception:
+    DATA_DIR = os.path.join(os.path.dirname(HERE), "data")
 
 HQ = "https://hq.klineshare.cn/api"
-KS = "https://klineshare.cn"
-UA = "Mozilla/5.0 (compatible; stocks-ai-view/1.0)"
-SINA_REFERER = "https://finance.sina.com.cn"
+UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120",
+      "Referer": "https://hq.klineshare.cn/"}
 
 
-# ─── HTTP 基础 ───────────────────────────────────────────────
-
-
-def http(url, referer=None, timeout=20, retries=3, encoding="utf-8"):
-    """带重试的 GET。腾讯/新浪偶发连接重置，重试后通常成功；
-    5xx 也重试（搜狐实测会间歇 503）。"""
-    last = None
-    for attempt in range(retries):
-        headers = {"User-Agent": UA, "Accept": "*/*"}
-        if referer:
-            headers["Referer"] = referer
-        req = urllib.request.Request(url, headers=headers)
+def http_json(url, timeout=15, retries=2):
+    last = "unknown"
+    for i in range(retries + 1):
         try:
+            req = urllib.request.Request(url, headers=UA)
             with urllib.request.urlopen(req, timeout=timeout) as r:
-                return r.read().decode(encoding, "ignore")
-        except urllib.error.HTTPError as e:
-            body = ""
-            try:
-                body = e.read().decode(encoding, "ignore")
-            except Exception:
-                pass
-            if e.code >= 500 and attempt < retries - 1:
-                last = RuntimeError("HTTP %s" % e.code)
-                time.sleep(0.6 * (attempt + 1))
-                continue
-            raise RuntimeError("HTTP %s %s :: %s" % (e.code, url, body[:200]))
-        except Exception as e:  # noqa: BLE001 - 统一转重试
-            last = e
-            if attempt < retries - 1:
-                time.sleep(0.6 * (attempt + 1))
-    raise RuntimeError("请求失败 %s :: %s" % (url, last))
+                return json.loads(r.read().decode("utf-8", "replace")), None
+        except Exception as e:
+            last = "%s: %s" % (type(e).__name__, str(e)[:80])
+            if i < retries:
+                time.sleep(0.5 * (i + 1))
+    return None, last
 
 
-def http_json(url, **kw):
-    return json.loads(http(url, **kw))
+def norm_symbol(s):
+    """归一化成 600519.SH 风格 (看板不接受 sh600519)。"""
+    s = str(s).strip()
+    if "." in s:
+        return s.upper()
+    if s.startswith(("sh", "sz", "bj")) and len(s) == 8:
+        pfx, code = s[:2], s[2:]
+        return "%s.%s" % (code, {"sh": "SH", "sz": "SZ", "bj": "BJ"}[pfx])
+    c = s.zfill(6)
+    if c.startswith(("60", "68", "9")):
+        return "%s.SH" % c
+    return "%s.SZ" % c
 
 
-def emit(payload, out=None):
-    text = json.dumps(payload, ensure_ascii=False, indent=2)
-    if out:
-        with open(out, "w", encoding="utf-8") as f:
-            f.write(text + "\n")
-        sys.stderr.write("written: %s\n" % out)
-    print(text)
-
-
-# ─── KlineShare 看板（免 key）─────────────────────────────────
-
-
-def ks_quote(symbol):
-    return http_json("%s/quote?symbol=%s" % (HQ, urllib.parse.quote(symbol)))
-
-
-def ks_realtime(symbol):
-    return http_json("%s/realtime?symbol=%s" % (HQ, urllib.parse.quote(symbol)))
-
-
-def ks_kline(symbol, period=None, count=None, fq=None):
-    params = {"symbol": symbol}
-    if period:
-        params["period"] = period
-    if count:
-        params["count"] = count
-    if fq:
-        params["fq"] = fq
-    return http_json("%s/kline?%s" % (HQ, urllib.parse.urlencode(params)))
-
-
-def ks_trend(symbol, date=None):
-    params = {"symbol": symbol}
-    if date:
-        params["date"] = date
-    return http_json("%s/trend?%s" % (HQ, urllib.parse.urlencode(params)))
-
-
-def ks_batch(symbols):
-    return http_json(
-        "%s/stocks/batch?symbols=%s" % (HQ, urllib.parse.quote(",".join(symbols)))
-    )
-
-
-def ks_search(keyword):
-    return http_json("%s/search?keyword=%s" % (HQ, urllib.parse.quote(keyword)))
-
-
-def ks_plates():
-    return http_json("%s/plates" % HQ)
-
-
-def ks_plate_stocks(plate_id):
-    return http_json("%s/plate/stocks?plate_id=%s" % (HQ, urllib.parse.quote(str(plate_id))))
-
-
-def ks_limit_up():
-    return http_json("%s/limit_up" % HQ)
-
-
-def ks_limit_down():
-    return http_json("%s/limit_down" % HQ)
-
-
-def ks_break_limit_up():
-    return http_json("%s/break_limit_up" % HQ)
-
-
-def ks_yesterday_limit_up():
-    return http_json("%s/yesterday_limit_up" % HQ)
-
-
-def ks_limit_up_ladder():
-    return http_json("%s/limit_up_ladder" % HQ)
-
-
-def ks_pcp_distribution():
-    return http_json("%s/pcp_distribution" % HQ)
-
-
-def ks_market_temperature():
-    return http_json("%s/market_temperature" % HQ)
-
-
-def ks_us_quote(symbols):
-    return http_json(
-        "%s/usstock/quotes?symbols=%s" % (HQ, urllib.parse.quote(",".join(symbols)))
-    )
-
-
-def ks_us_kline(symbol, count=None):
-    params = {"symbol": symbol}
-    if count:
-        params["count"] = count
-    return http_json("%s/usstock/kline?%s" % (HQ, urllib.parse.urlencode(params)))
-
-
-# ─── 腾讯（免 key）────────────────────────────────────────────
-
-
-def _tx_code(symbol):
-    """把 600519.SS / 000001.SZ / 00700.HK / AAPL.US 归一成腾讯代码。
-    美股必须用 us + 裸代码（usAAPL）；带 .OQ/.US 后缀腾讯会返回 none_match。"""
-    s = symbol.strip()
-    if s.startswith(("sh", "sz", "hk", "us", "bj")):
-        return s
-    if "." not in s:
-        return s
-    code, _, suffix = s.partition(".")
-    suffix = suffix.lower()
-    if suffix in ("ss", "sh"):
-        return "sh" + code
-    if suffix == "sz":
-        return "sz" + code
-    if suffix == "bj":
-        return "bj" + code
-    if suffix == "hk":
-        return "hk" + code
-    if suffix in ("us", "usaq", "ny", "nas", "oq"):
-        return "us" + code
-    return code
-
-
-def tencent_quote(symbols):
-    codes = ",".join(_tx_code(s) for s in symbols)
-    text = http("https://qt.gtimg.cn/q=" + codes, encoding="gbk")
-    out = {}
-    # 形如 v_sh600519="1~名称~代码~现价~..."
-    for chunk in text.split(";"):
-        chunk = chunk.strip()
-        if not chunk or "=" not in chunk:
+# ─── 看板接口 ─────────────────────────────────────────────────
+def ks_realtime(symbols):
+    """批量实时快照。每只之间至少 1.2s 间隔 — 看板限流严格,
+    连续快请求会返回 HTML (实测 30 只连续打第 3 只起就 fallback)。
+    """
+    out, errs = {}, []
+    for i, s in enumerate(symbols):
+        if i:
+            time.sleep(1.2)
+        sym = norm_symbol(s)
+        d, err = http_json("%s/realtime?symbol=%s" % (HQ, urllib.parse.quote(sym)),
+                            retries=1)
+        if d is None:
+            # 限流时再等 3s 试一次
+            time.sleep(3.0)
+            d, err = http_json("%s/realtime?symbol=%s" % (HQ, urllib.parse.quote(sym)),
+                                retries=1)
+        if d is None:
+            errs.append("realtime(%s): %s" % (sym, err))
             continue
-        key, _, rest = chunk.partition("=")
-        code = key.strip().replace("v_", "")
-        out[code] = rest.strip().strip('"')
-    return out
+        out[sym] = d
+    return out, errs
 
 
-def tencent_kline(symbol, period="day", count=30, fq="qfq"):
-    code = _tx_code(symbol)
-    if code.startswith("us"):
-        # 美股 K 线端点与字段名都不同：usfqkline + qfqday
-        url = (
-            "https://web.ifzq.gtimg.cn/appstock/app/usfqkline/get"
-            "?param=%s,%s,,,%d,%s" % (code, period, count, fq)
-        )
-        key = "qfq%s" % period
+def ks_endpoint(path, params=None):
+    """看板接口。限流严格: 连续请求会返回 HTML (SPA fallback) 而非 JSON,
+    所以这里对非 JSON 响应显式重试并拉长间隔 (实测 0.5s 不够, 要 2s+)。
+    """
+    url = "%s/%s" % (HQ, path)
+    if params:
+        url += "?" + urllib.parse.urlencode(params)
+    for attempt, wait in enumerate((0, 2.0, 4.0)):
+        if wait:
+            time.sleep(wait)
+        d, err = http_json(url, retries=1)
+        if d is not None:
+            return d, None
+        # HTML fallback / 限流 → 继续重试
+    return None, err
+
+
+def collect(limit_symbols=8):
+    """一次采全部免 key 接口, 返回结构化 dict。任何一级失败不影响其他。
+
+    顺序有讲究: 先采 pools/temperature/pcp/plates (低频接口, 各 1 次),
+    最后采 realtime (N 只 × 1.2s, 最耗时)。这样即使 realtime 被限流,
+    重要的池数据已经拿到。
+    """
+    ts = datetime.now(CST).isoformat(timespec="seconds")
+    reasons = []
+    ok_sources = []
+
+    # 1. 涨停/跌停/炸板/连板天梯 (各 1 次请求, 优先拿)
+    pools = {}
+    for key, path in (("limit_up", "limit-up"), ("limit_down", "limit-down"),
+                      ("break_limit_up", "break-limit-up"),
+                      ("yesterday_limit_up", "yesterday-limit-up"),
+                      ("ladder", "ladder")):
+        d, err = ks_endpoint(path)
+        if d is None:
+            reasons.append("%s: %s" % (key, err))
+        else:
+            pools[key] = d
+            ok_sources.append(key)
+        time.sleep(1.0)
+
+    # 2. 涨跌幅分布 + 市场温度
+    pcp, err = ks_endpoint("pcp")
+    if pcp is None:
+        reasons.append("pcp: %s" % err)
     else:
-        url = (
-            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
-            "?param=%s,%s,,,%d,%s" % (code, period, count, fq)
-        )
-        key = "qfq%s" % period
-    data = http_json(url)
+        ok_sources.append("pcp")
+    time.sleep(1.0)
+    temp, err = ks_endpoint("temperature")
+    if temp is None:
+        reasons.append("temperature: %s" % err)
+    else:
+        ok_sources.append("temperature")
+    time.sleep(1.0)
+
+    # 3. 板块列表
+    plates, err = ks_endpoint("plates")
+    if plates is None:
+        reasons.append("plates: %s" % err)
+    else:
+        ok_sources.append("plates")
+
+    # 4. 关注股实时快照 (最耗时, 放最后)
+    symbols = []
     try:
-        return data["data"][code][key]
-    except KeyError:
-        # 未复权时字段名为 day / week / month
-        try:
-            return data["data"][code][period]
-        except KeyError:
-            return data["data"][code]
+        pdir = os.path.join(DATA_DIR, "predictions")
+        if os.path.isdir(pdir):
+            import glob as _g
+            snaps = sorted(_g.glob(os.path.join(pdir, "engine_v5_*.json")))
+            if snaps:
+                d = json.load(open(snaps[-1], encoding="utf-8"))
+                symbols = [r.get("code") for r in (d.get("top") or []) if r.get("code")]
+    except Exception:
+        pass
+    if not symbols:
+        symbols = ["600519", "000001", "600036", "300750", "002594",
+                   "601318", "600900", "000858"]
+    symbols = symbols[:limit_symbols]
+    realtime, errs = ks_realtime(symbols)
+    reasons.extend(errs)
+    if realtime:
+        ok_sources.append("realtime")
 
-
-def tencent_trend(symbol):
-    code = _tx_code(symbol)
-    data = http_json(
-        "https://web.ifzq.gtimg.cn/appstock/app/minute/query?code=%s" % code
-    )
-    return data["data"][code]["data"]["data"]
-
-
-# ─── 新浪（免 key，需 Referer）────────────────────────────────
-
-
-def _sina_code(symbol):
-    s = symbol.strip()
-    if s.startswith(("sh", "sz", "bj")):
-        return s
-    code, _, suffix = s.partition(".")
-    suffix = suffix.lower()
-    if suffix in ("ss", "sh"):
-        return "sh" + code
-    if suffix == "bj":
-        return "bj" + code
-    return "sz" + code
-
-
-def sina_quote(symbols):
-    codes = ",".join(_sina_code(s) for s in symbols)
-    text = http("https://hq.sinajs.cn/list=" + codes, referer=SINA_REFERER, encoding="gbk")
-    out = {}
-    for chunk in text.split(";"):
-        chunk = chunk.strip()
-        if not chunk or "=" not in chunk:
-            continue
-        key, _, rest = chunk.partition("=")
-        out[key.strip().replace("hq_str_", "")] = rest.strip().strip('"')
-    return out
-
-
-def sina_kline(symbol, scale=240, datalen=30):
-    code = _sina_code(symbol)
-    url = (
-        "https://quotes.sina.cn/cn/api/json_v2.php/CN_MarketDataService.getKLineData"
-        "?symbol=%s&scale=%d&ma=no&datalen=%d" % (code, scale, datalen)
-    )
-    return http_json(url)
-
-
-# ─── 搜狐（免 key，仅历史日线）────────────────────────────────
-
-
-def sohu_kline(symbol, start, end):
-    code = symbol.split(".")[0]
-    url = "http://q.stock.sohu.com/hisHq?code=cn_%s&start=%s&end=%s" % (code, start, end)
-    return http_json(url)
-
-
-# ─── KlineShare 付费 API（需要 X-API-Key）─────────────────────
-
-
-def ks_api_get(path, api_key):
-    """KlineShare REST。api_key 从环境变量 KLS_API_KEY 读取，不写入仓库。"""
-    req = urllib.request.Request(KS + path, headers={"X-API-Key": api_key, "User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=20) as r:
-        return json.loads(r.read().decode("utf-8", "ignore"))
-
-
-def ks_mcp_call(tool, arguments, api_key):
-    """KlineShare MCP（Streamable HTTP，SSE 响应）。"""
-    payload = {
-        "jsonrpc": "2.0",
-        "id": 1,
-        "method": "tools/call",
-        "params": {"name": tool, "arguments": arguments},
-    }
-    req = urllib.request.Request(
-        KS + "/mcp",
-        data=json.dumps(payload).encode("utf-8"),
-        headers={
-            "Content-Type": "application/json",
-            "Accept": "application/json, text/event-stream",
-            "X-API-Key": api_key,
-            "User-Agent": UA,
+    return {
+        "ts": ts,
+        "engine": "collect_klineshare v1 (hq.klineshare.cn 免 key 看板接口)",
+        "source": "hq.klineshare.cn",
+        "n_symbols": len(symbols),
+        "realtime": realtime,
+        "pools": pools,
+        "pcp": pcp,
+        "temperature": temp,
+        "plates": plates,
+        "ok_sources": ok_sources,
+        "reason": "; ".join(reasons) if reasons else None,
+        "meta": {
+            "symbol_format": "600519.SH (不接受 sh600519)",
+            "free": "看板 /api/* 全免鉴权; 主站 klineshare.cn/v1 需 X-API-Key",
+            "kline": "/api/kline 实测 500, 未调通, 暂不可用",
+            "caveat": "Research reference only, not investment advice",
         },
-    )
-    with urllib.request.urlopen(req, timeout=30) as r:
-        text = r.read().decode("utf-8", "ignore")
-    for line in text.splitlines():
-        if line.startswith("data: "):
-            return json.loads(line[6:])
-    return text
+    }
 
 
-# ─── CLI ──────────────────────────────────────────────────────
+def main():
+    ap = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--out", default=os.path.join(DATA_DIR, "klineshare_hq.json"))
+    ap.add_argument("--collect", action="store_true",
+                    help="一次采全部免 key 接口并落盘 (CI 用)")
+    ap.add_argument("--realtime", nargs="*", default=None, metavar="SYMBOL",
+                    help="实时快照")
+    ap.add_argument("--kline", nargs="*", default=None, metavar="SYMBOL",
+                    help="K 线 (实测 500, 保留)")
+    ap.add_argument("--trend", nargs="*", default=None, metavar="SYMBOL",
+                    help="当日分时")
+    ap.add_argument("--batch", nargs="*", default=None, metavar="SYMBOL",
+                    help="批量快照")
+    ap.add_argument("--search", default=None, help="搜索股票/板块")
+    ap.add_argument("--plates", action="store_true", help="板块列表")
+    ap.add_argument("--plate-stocks", default=None, help="板块成分股")
+    ap.add_argument("--limit-up", action="store_true", help="涨停池")
+    ap.add_argument("--limit-down", action="store_true", help="跌停池")
+    ap.add_argument("--break-limit-up", action="store_true", help="炸板池")
+    ap.add_argument("--yesterday-limit-up", action="store_true", help="昨涨停池")
+    ap.add_argument("--ladder", action="store_true", help="连板天梯")
+    ap.add_argument("--pcp", action="store_true", help="涨跌幅分布")
+    ap.add_argument("--temperature", action="store_true", help="市场温度")
+    ap.add_argument("--us", nargs="*", default=None, metavar="SYMBOL", help="美股")
+    ap.add_argument("--period", default=None)
+    ap.add_argument("--count", type=int, default=None)
+    args = ap.parse_args()
 
+    # CI 模式
+    if args.collect or not any([args.realtime, args.kline, args.trend, args.batch,
+                                args.search, args.plates, args.plate_stocks,
+                                args.limit_up, args.limit_down, args.break_limit_up,
+                                args.yesterday_limit_up, args.ladder, args.pcp,
+                                args.temperature, args.us]):
+        out = collect()
+        os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
+        with open(args.out, "w", encoding="utf-8") as f:
+            json.dump(out, f, ensure_ascii=False, indent=1)
+        print("[klineshare] %d 个接口可用: %s" % (len(out["ok_sources"]),
+                                              ", ".join(out["ok_sources"])))
+        print("[klineshare] realtime %d 只 | 涨停 %d | 温度点 %d" % (
+            len(out.get("realtime") or {}),
+            len((out.get("pools") or {}).get("limit_up") or []),
+            len(((out.get("temperature") or {}).get("points")) or [])))
+        if out.get("reason"):
+            print("[klineshare] 部分失败: %s" % out["reason"][:200])
+        print("[klineshare] -> %s" % args.out)
+        return 0
 
-def build_parser():
-    p = argparse.ArgumentParser(description="KlineShare / 免 Key 行情源 fetcher")
-    p.add_argument("--source", default="klineshare",
-                   choices=["klineshare", "tencent", "sina", "sohu"],
-                   help="数据源，默认 klineshare（hq.klineshare.cn 免 key）")
-    p.add_argument("--out", help="输出到文件（默认打印到 stdout）")
-
-    g = p.add_argument_group("动作（互斥，可多选）")
-    g.add_argument("--quote", nargs="+", metavar="SYMBOL", help="实时快照")
-    g.add_argument("--realtime", nargs="+", metavar="SYMBOL", help="精简快照")
-    g.add_argument("--kline", nargs="+", metavar="SYMBOL", help="K 线")
-    g.add_argument("--trend", nargs="+", metavar="SYMBOL", help="当日分时")
-    g.add_argument("--batch", nargs="+", metavar="SYMBOL", help="批量快照")
-    g.add_argument("--search", metavar="KEYWORD", help="搜索股票/板块")
-    g.add_argument("--plates", action="store_true", help="板块列表")
-    g.add_argument("--plate-stocks", metavar="PLATE_ID", help="板块成分股")
-    g.add_argument("--limit-up", action="store_true", help="涨停池")
-    g.add_argument("--limit-down", action="store_true", help="跌停池")
-    g.add_argument("--break-limit-up", action="store_true", help="炸板池")
-    g.add_argument("--yesterday-limit-up", action="store_true", help="昨涨停池")
-    g.add_argument("--ladder", action="store_true", help="连板天梯")
-    g.add_argument("--pcp", action="store_true", help="涨跌幅分布")
-    g.add_argument("--temperature", action="store_true", help="市场温度")
-    g.add_argument("--us", nargs="+", metavar="SYMBOL", help="美股（ks 源）")
-
-    p.add_argument("--period", help="K 线周期：1/5/15/30/60（ks）；day/week/month（tencent）")
-    p.add_argument("--count", type=int, default=120, help="K 线条数")
-    p.add_argument("--fq", help="复权：qfq/hfq/none")
-    p.add_argument("--start", help="sohu 起始日 YYYYMMDD")
-    p.add_argument("--end", help="sohu 截止日 YYYYMMDD")
-    return p
-
-
-def main(argv=None):
-    args = build_parser().parse_args(argv)
-    src = args.source
-
-    actions = [
-        args.quote, args.realtime, args.kline, args.trend, args.batch,
-        args.search, args.plates, args.plate_stocks, args.limit_up,
-        args.limit_down, args.break_limit_up, args.yesterday_limit_up,
-        args.ladder, args.pcp, args.temperature, args.us,
-    ]
-    if not any(a for a in actions):
-        build_parser().print_help()
-        return 2
-
-    results = {}
-
-    def run(name, fn):
-        try:
-            results[name] = fn()
-        except Exception as e:  # noqa: BLE001 - 单点失败不阻断其他动作
-            results[name] = {"error": str(e)}
-
-    if src == "klineshare":
-        # 带 .US 后缀的 symbol 自动走美股端点；--us 作为等价格式
-        us_extra = list(args.us or [])
-        if args.quote:
-            us_extra += [s for s in args.quote if s.upper().endswith(".US")]
-        if us_extra:
-            run("us_quote", lambda: ks_us_quote(us_extra))
-        if args.kline:
-            us_kline = [s for s in args.kline if s.upper().endswith(".US")]
-            for s in us_kline:
-                run("us_kline:" + s, lambda s=s: ks_us_kline(s, args.count))
-            args.kline = [s for s in args.kline if not s.upper().endswith(".US")]
-        if args.quote:
-            for s in args.quote:
-                if not s.upper().endswith(".US"):
-                    run("quote:" + s, lambda s=s: ks_quote(s))
-        if args.realtime:
-            for s in args.realtime:
-                run("realtime:" + s, lambda s=s: ks_realtime(s))
-        if args.kline:
-            for s in args.kline:
-                run("kline:" + s,
-                    lambda s=s: ks_kline(s, args.period, args.count, args.fq))
-        if args.trend:
-            for s in args.trend:
-                run("trend:" + s, lambda s=s: ks_trend(s))
-        if args.batch:
-            run("batch", lambda: ks_batch(args.batch))
-        if args.search:
-            run("search", lambda: ks_search(args.search))
-        if args.plates:
-            run("plates", ks_plates)
-        if args.plate_stocks:
-            run("plate_stocks", lambda: ks_plate_stocks(args.plate_stocks))
-        if args.limit_up:
-            run("limit_up", ks_limit_up)
-        if args.limit_down:
-            run("limit_down", ks_limit_down)
-        if args.break_limit_up:
-            run("break_limit_up", ks_break_limit_up)
-        if args.yesterday_limit_up:
-            run("yesterday_limit_up", ks_yesterday_limit_up)
-        if args.ladder:
-            run("ladder", ks_limit_up_ladder)
-        if args.pcp:
-            run("pcp_distribution", ks_pcp_distribution)
-        if args.temperature:
-            run("market_temperature", ks_market_temperature)
-
-    elif src == "tencent":
-        if args.quote:
-            run("quote", lambda: tencent_quote(args.quote))
-        if args.kline:
-            for s in args.kline:
-                run("kline:" + s,
-                    lambda s=s: tencent_kline(s, args.period or "day", args.count,
-                                              args.fq or "qfq"))
-        if args.trend:
-            for s in args.trend:
-                run("trend:" + s, lambda s=s: tencent_trend(s))
-
-    elif src == "sina":
-        if args.quote:
-            run("quote", lambda: sina_quote(args.quote))
-        if args.kline:
-            scale = args.period or 240
-            for s in args.kline:
-                run("kline:" + s,
-                    lambda s=s: sina_kline(s, int(scale), args.count))
-
-    elif src == "sohu":
-        if args.kline:
-            start = args.start or "20260101"
-            end = args.end or time.strftime("%Y%m%d")
-            for s in args.kline:
-                run("kline:" + s, lambda s=s: sohu_kline(s, start, end))
-
-    emit(results, args.out)
+    # CLI 单接口模式 (手动排查用)
+    payload = {}
+    if args.realtime:
+        d, errs = ks_realtime(args.realtime)
+        for k, v in d.items():
+            payload["realtime:" + k] = v
+        for e in errs:
+            payload["realtime:" + e.split("(")[1].split(")")[0]] = {"error": e}
+    if args.plates:
+        payload["plates"], _ = ks_endpoint("plates")
+    if args.limit_up:
+        payload["limit_up"], _ = ks_endpoint("limit-up")
+    if args.limit_down:
+        payload["limit_down"], _ = ks_endpoint("limit-down")
+    if args.break_limit_up:
+        payload["break_limit_up"], _ = ks_endpoint("break-limit-up")
+    if args.yesterday_limit_up:
+        payload["yesterday_limit_up"], _ = ks_endpoint("yesterday-limit-up")
+    if args.ladder:
+        payload["ladder"], _ = ks_endpoint("ladder")
+    if args.pcp:
+        payload["pcp"], _ = ks_endpoint("pcp")
+    if args.temperature:
+        payload["temperature"], _ = ks_endpoint("temperature")
+    print(json.dumps(payload, ensure_ascii=False, indent=1))
     return 0
 
 
