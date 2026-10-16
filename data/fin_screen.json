@@ -1,0 +1,184 @@
+{
+ "ts": "2026-10-16T12:40:59",
+ "algo": "fin_screen",
+ "rule": "db-fin-0财务5维等权zscore(ROE/营收YoY/净利YoY/毛利率/-负债率), 报告期新鲜度降权",
+ "n_scored": 220,
+ "dist": {
+  "count": 220.0,
+  "mean": 58.48,
+  "std": 17.68,
+  "min": 0.0,
+  "25%": 49.38,
+  "50%": 59.9,
+  "75%": 69.3,
+  "max": 100.0
+ },
+ "picks": [
+  {
+   "symbol": "sz002670",
+   "name": "",
+   "close": 10.72,
+   "ret": -0.01,
+   "score": 100.0,
+   "fin_z": 1.099,
+   "n_dims": 4,
+   "report_date": "2026-06-30",
+   "why": "ROE 1.9 · 营收YoY 214% · 净利YoY 14580% · 负债率 78%"
+  },
+  {
+   "symbol": "sz002749",
+   "name": "",
+   "close": 8.54,
+   "ret": 0.012,
+   "score": 99.3,
+   "fin_z": 1.081,
+   "n_dims": 5,
+   "report_date": "2026-06-30",
+   "why": "ROE 9.8 · 毛利 44% · 营收YoY 190% · 净利YoY 205% · 负债率 16%"
+  },
+  {
+   "symbol": "sz002690",
+   "name": "",
+   "close": 14.94,
+   "ret": 0.018,
+   "score": 97.7,
+   "fin_z": 1.038,
+   "n_dims": 5,
+   "report_date": "2026-06-30",
+   "why": "ROE 11.0 · 毛利 54% · 营收YoY 165% · 净利YoY 172% · 负债率 20%"
+  },
+  {
+   "symbol": "sh600519",
+   "name": "",
+   "close": 1312.97,
+   "ret": 0.021,
+   "score": 95.6,
+   "fin_z": 0.98,
+   "n_dims": 5,
+   "report_date": "2026-06-30",
+   "why": "ROE 16.8 · 毛利 90% · 营收YoY 69% · 净利YoY 63% · 负债率 15%"
+  },
+  {
+   "symbol": "sz002773",
+   "name": "",
+   "close": 19.94,
+   "ret": 0.006,
+   "score": 95.6,
+   "fin_z": 0.981,
+   "n_dims": 5,
+   "report_date": "2026-06-30",
+   "why": "ROE 6.0 · 毛利 88% · 营收YoY 108% · 净利YoY 84% · 负债率 8%"
+  },
+  {
+   "symbol": "sz002767",
+   "name": "",
+   "close": 18.04,
+   "ret": 0.1,
+   "score": 94.8,
+   "fin_z": 0.96,
+   "n_dims": 5,
+   "report_date": "2026-06-30",
+   "why": "ROE 1.6 · 毛利 31% · 营收YoY 149% · 净利YoY 3928% · 负债率 32%"
+  },
+  {
+   "symbol": "sz002653",
+   "name": "",
+   "close": 58.14,
+   "ret": 0.038,
+   "score": 94.0,
+   "fin_z": 0.937,
+   "n_dims": 5,
+   "report_date": "2026-06-30",
+   "why": "ROE 18.3 · 毛利 80% · 营收YoY 98% · 净利YoY 53% · 负债率 39%"
+  },
+  {
+   "symbol": "sh600276",
+   "name": "",
+   "close": 46.6,
+   "ret": 0.024,
+   "score": 93.8,
+   "fin_z": 0.932,
+   "n_dims": 5,
+   "report_date": "2026-06-30",
+   "why": "ROE 8.0 · 毛利 86% · 营收YoY 90% · 净利YoY 96% · 负债率 8%"
+  },
+  {
+   "symbol": "sh603259",
+   "name": "",
+   "close": 154.5,
+   "ret": 0.002,
+   "score": 90.1,
+   "fin_z": 0.832,
+   "n_dims": 5,
+   "report_date": "2026-06-30",
+   "why": "ROE 13.2 · 毛利 54% · 营收YoY 132% · 净利YoY 138% · 负债率 28%"
+  },
+  {
+   "symbol": "sz002732",
+   "name": "",
+   "close": 14.12,
+   "ret": 0.01,
+   "score": 89.7,
+   "fin_z": 0.822,
+   "n_dims": 5,
+   "report_date": "2026-06-30",
+   "why": "ROE 0.9 · 毛利 26% · 营收YoY 125% · 净利YoY 28249% · 负债率 24%"
+  },
+  {
+   "symbol": "sz002738",
+   "name": "",
+   "close": 35.63,
+   "ret": -0.001,
+   "score": 89.4,
+   "fin_z": 0.814,
+   "n_dims": 5,
+   "report_date": "2026-06-30",
+   "why": "ROE 8.7 · 毛利 53% · 营收YoY 166% · 净利YoY 119% · 负债率 36%"
+  },
+  {
+   "symbol": "sz002826",
+   "name": "",
+   "close": 16.76,
+   "ret": 0.017,
+   "score": 88.9,
+   "fin_z": 0.799,
+   "n_dims": 5,
+   "report_date": "2026-06-30",
+   "why": "ROE 7.8 · 毛利 82% · 营收YoY 97% · 净利YoY 239% · 负债率 28%"
+  },
+  {
+   "symbol": "sz002818",
+   "name": "",
+   "close": 12.07,
+   "ret": -0.004,
+   "score": 88.1,
+   "fin_z": 0.778,
+   "n_dims": 5,
+   "report_date": "2026-06-30",
+   "why": "ROE 10.6 · 毛利 63% · 营收YoY 95% · 净利YoY 61% · 负债率 11%"
+  },
+  {
+   "symbol": "sz002724",
+   "name": "",
+   "close": 7.65,
+   "ret": 0.101,
+   "score": 84.9,
+   "fin_z": 0.692,
+   "n_dims": 5,
+   "report_date": "2026-06-30",
+   "why": "ROE 1.0 · 毛利 58% · 营收YoY 156% · 净利YoY -219% · 负债率 19%"
+  },
+  {
+   "symbol": "sz002763",
+   "name": "",
+   "close": 7.27,
+   "ret": 0.011,
+   "score": 83.8,
+   "fin_z": 0.663,
+   "n_dims": 5,
+   "report_date": "2026-06-30",
+   "why": "ROE 7.6 · 毛利 69% · 营收YoY 101% · 净利YoY 50% · 负债率 26%"
+  }
+ ],
+ "observe_only": false
+}
