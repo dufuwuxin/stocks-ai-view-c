@@ -1,1 +1,37 @@
-{"ts": "2026-10-16 08:30 CST", "source": "tencent qt.gtimg.cn realtime", "watchlist": [{"name": "贵州茅台", "code": "600519", "price": 1312.97, "chg_pct": 2.1}, {"name": "宁德时代", "code": "300750", "price": 278.5, "chg_pct": -0.58}, {"name": "比亚迪", "code": "002594", "price": 82.24, "chg_pct": 0.98}, {"name": "腾讯控股", "code": "00700.HK", "price": 417.8, "chg_pct": -1.32}, {"name": "中国移动", "code": "600941", "price": 101.5, "chg_pct": 1.01}], "note": "realtime snapshot, not advice"}
+{
+ "ts": "2026-10-16 09:36 CST (盘中)",
+ "source": "tencent realtime",
+ "watchlist": [
+  {
+   "name": "贵州茅台",
+   "code": "600519",
+   "price": 1314.95,
+   "chg_pct": 0.15
+  },
+  {
+   "name": "宁德时代",
+   "code": "300750",
+   "price": 278.62,
+   "chg_pct": 0.04
+  },
+  {
+   "name": "比亚迪",
+   "code": "002594",
+   "price": 83.06,
+   "chg_pct": 1.0
+  },
+  {
+   "name": "腾讯控股",
+   "code": "00700",
+   "price": 424.0,
+   "chg_pct": 1.48
+  },
+  {
+   "name": "中国移动",
+   "code": "600941",
+   "price": 101.44,
+   "chg_pct": -0.06
+  }
+ ],
+ "note": "realtime snapshot, not advice"
+}
