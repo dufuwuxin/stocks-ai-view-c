@@ -1,0 +1,659 @@
+{
+ "ts": "2026-10-16T13:49:12+08:00",
+ "engine": "premarket_picks v1 (多引擎共振 + 隔夜增量 + 市况闸门)",
+ "date": "2026-10-16",
+ "session": "premarket",
+ "gate": {
+  "state": "defensive",
+  "reason": "全球情绪 -17.6 (偏空) — 建议空仓/轻仓; 仍给出候选, 单票试错、严设止损",
+  "pos_cap": 0.1
+ },
+ "global": {
+  "score": -17.6,
+  "mood": "偏空",
+  "vix": 21.67,
+  "signals": [
+   "A50期货 -0.05% — 夜盘/早盘外资对大A的最直接定价",
+   "中概KWEB +0.40% — 隔夜中概情绪",
+   "VIX 21.67 (警惕) — 中性偏谨慎",
+   "离岸人民币 6.6926 (-0.03%) — 升值利好外资流入",
+   "费半ETF -2.13% — A股半导体链情绪锚",
+   "★ 全球K线动量: usIXIC:-1.5%/5d | usINX:-0.3%/5d | hkHSI:+0.3%/5d | hkHSTECH:-2.0%/5d",
+   "★ 全球情绪综合分: -17.62 (偏空) → 大A开盘预期"
+  ]
+ },
+ "n_candidates": 160,
+ "tiers": {
+  "A_buy": [
+   {
+    "code": "000937",
+    "name": "",
+    "price": 4.45,
+    "score": 57.7,
+    "parts": {
+     "resonance": 24,
+     "engine_avg": 21.735,
+     "valuation": 0,
+     "position": 0,
+     "flow": 12
+    },
+    "sources": [
+     "multidim",
+     "flow_div_buy"
+    ],
+    "entry_zone": [
+     4.38,
+     4.47
+    ],
+    "stop": 4.25,
+    "target": 4.72,
+    "risk_reward": 0.11,
+    "intrinsic_value": null,
+    "value_dev_pct": null,
+    "value_tag": null,
+    "pos240_pct": null,
+    "dims": {
+     "技术面": 73.3,
+     "资金面": 50,
+     "高低位": 30,
+     "基本面": 50,
+     "板块面": 50,
+     "市场面": 25.2,
+     "情绪面": 56,
+     "周期面": 34,
+     "消息面": 50,
+     "海外面": 42.0
+    },
+    "dims_why": {
+     "技术面": "17指标共振 73.3",
+     "资金面": "无资金流数据",
+     "高低位": "20日位100% 60日位77% 乖离+2.4% 高位区",
+     "基本面": "无快照",
+     "板块面": "无行业映射",
+     "市场面": "涨417/跌4925 上涨占比7.8% 涨停45",
+     "情绪面": "封板率—% 晋级率—% 热点主题3个",
+     "周期面": "周期综合-2.0 (偏空)",
+     "消息面": "关联热点0个 主题[]",
+     "海外面": "全球情绪 -1.99% · 最相关: 恒生科技 (corr 0.47 / beta 0.35)"
+    },
+    "reasons": [
+     "⚠️ 弱市逆势标的 — 建议轻仓试错, 止损 4.25",
+     "1 个引擎共振提名 (multidim/flow_div_buy)",
+     "资金吸筹背离"
+    ],
+    "weak_market": true,
+    "tier": "A"
+   },
+   {
+    "code": "688156",
+    "name": "",
+    "price": 27.0,
+    "score": 43.0,
+    "parts": {
+     "resonance": 24,
+     "engine_avg": 18.99,
+     "valuation": 0,
+     "position": 0,
+     "flow": 0
+    },
+    "sources": [
+     "engine_v5",
+     "multidim"
+    ],
+    "entry_zone": [
+     26.59,
+     27.13
+    ],
+    "stop": 25.79,
+    "target": 28.62,
+    "risk_reward": 0.11,
+    "intrinsic_value": null,
+    "value_dev_pct": null,
+    "value_tag": null,
+    "pos240_pct": null,
+    "dims": {
+     "技术面": 76.3,
+     "资金面": 50,
+     "高低位": 30,
+     "基本面": 50,
+     "板块面": 50,
+     "市场面": 25.2,
+     "情绪面": 56,
+     "周期面": 34,
+     "消息面": 50,
+     "海外面": 42.0
+    },
+    "dims_why": {
+     "技术面": "17指标共振 76.3",
+     "资金面": "无资金流数据",
+     "高低位": "20日位89% 60日位89% 乖离+12.9% 高位区",
+     "基本面": "无快照",
+     "板块面": "无行业映射",
+     "市场面": "涨417/跌4925 上涨占比7.8% 涨停45",
+     "情绪面": "封板率—% 晋级率—% 热点主题3个",
+     "周期面": "周期综合-2.0 (偏空)",
+     "消息面": "关联热点0个 主题[]",
+     "海外面": "全球情绪 -1.99% · 最相关: 恒生科技 (corr 0.47 / beta 0.35)"
+    },
+    "reasons": [
+     "⚠️ 弱市逆势标的 — 建议轻仓试错, 止损 25.79",
+     "1 个引擎共振提名 (engine_v5/multidim)"
+    ],
+    "weak_market": true,
+    "tier": "A"
+   },
+   {
+    "code": "688353",
+    "name": "",
+    "price": 91.1,
+    "score": 41.6,
+    "parts": {
+     "resonance": 24,
+     "engine_avg": 17.58,
+     "valuation": 0,
+     "position": 0,
+     "flow": 0
+    },
+    "sources": [
+     "engine_v5",
+     "multidim"
+    ],
+    "entry_zone": [
+     89.73,
+     91.56
+    ],
+    "stop": 87.0,
+    "target": 96.57,
+    "risk_reward": 0.11,
+    "intrinsic_value": null,
+    "value_dev_pct": null,
+    "value_tag": null,
+    "pos240_pct": null,
+    "dims": {
+     "技术面": 46.0,
+     "资金面": 50,
+     "高低位": 53.5,
+     "基本面": 50,
+     "板块面": 50,
+     "市场面": 25.2,
+     "情绪面": 56,
+     "周期面": 34,
+     "消息面": 50,
+     "海外面": 42.0
+    },
+    "dims_why": {
+     "技术面": "17指标共振 46.0",
+     "资金面": "无资金流数据",
+     "高低位": "20日位32% 60日位32% 乖离-0.4% 位置32%",
+     "基本面": "无快照",
+     "板块面": "无行业映射",
+     "市场面": "涨417/跌4925 上涨占比7.8% 涨停45",
+     "情绪面": "封板率—% 晋级率—% 热点主题3个",
+     "周期面": "周期综合-2.0 (偏空)",
+     "消息面": "关联热点0个 主题[]",
+     "海外面": "全球情绪 -1.99% · 最相关: 恒生科技 (corr 0.47 / beta 0.35)"
+    },
+    "reasons": [
+     "⚠️ 弱市逆势标的 — 建议轻仓试错, 止损 87.00",
+     "1 个引擎共振提名 (engine_v5/multidim)"
+    ],
+    "weak_market": true,
+    "tier": "A"
+   }
+  ],
+  "B_watch": [],
+  "C_avoid": [
+   {
+    "code": "601098",
+    "name": "",
+    "price": 11.06,
+    "score": 35.6,
+    "parts": {
+     "resonance": 12,
+     "engine_avg": 23.639999999999997,
+     "valuation": 0,
+     "position": 0,
+     "flow": 0
+    },
+    "sources": [
+     "engine_v5"
+    ],
+    "entry_zone": [
+     10.89,
+     11.12
+    ],
+    "stop": 10.56,
+    "target": 11.72,
+    "risk_reward": 0.11,
+    "intrinsic_value": null,
+    "value_dev_pct": null,
+    "value_tag": null,
+    "pos240_pct": null,
+    "dims": null,
+    "dims_why": null,
+    "reasons": [
+     "⚠️ 弱市逆势标的 — 建议轻仓试错, 止损 10.56"
+    ],
+    "weak_market": true,
+    "tier": "C"
+   },
+   {
+    "code": "002242",
+    "name": "",
+    "price": 16.3,
+    "score": 35.1,
+    "parts": {
+     "resonance": 12,
+     "engine_avg": 23.07,
+     "valuation": 0,
+     "position": 0,
+     "flow": 0
+    },
+    "sources": [
+     "engine_v5"
+    ],
+    "entry_zone": [
+     16.06,
+     16.38
+    ],
+    "stop": 15.57,
+    "target": 17.28,
+    "risk_reward": 0.11,
+    "intrinsic_value": null,
+    "value_dev_pct": null,
+    "value_tag": null,
+    "pos240_pct": null,
+    "dims": null,
+    "dims_why": null,
+    "reasons": [
+     "⚠️ 弱市逆势标的 — 建议轻仓试错, 止损 15.57"
+    ],
+    "weak_market": true,
+    "tier": "C"
+   },
+   {
+    "code": "600085",
+    "name": "",
+    "price": 24.4,
+    "score": 35.0,
+    "parts": {
+     "resonance": 12,
+     "engine_avg": 22.979999999999997,
+     "valuation": 0,
+     "position": 0,
+     "flow": 0
+    },
+    "sources": [
+     "engine_v5"
+    ],
+    "entry_zone": [
+     24.03,
+     24.52
+    ],
+    "stop": 23.3,
+    "target": 25.86,
+    "risk_reward": 0.11,
+    "intrinsic_value": null,
+    "value_dev_pct": null,
+    "value_tag": null,
+    "pos240_pct": null,
+    "dims": null,
+    "dims_why": null,
+    "reasons": [
+     "⚠️ 弱市逆势标的 — 建议轻仓试错, 止损 23.30"
+    ],
+    "weak_market": true,
+    "tier": "C"
+   },
+   {
+    "code": "002675",
+    "name": "",
+    "price": 13.78,
+    "score": 34.8,
+    "parts": {
+     "resonance": 12,
+     "engine_avg": 22.8,
+     "valuation": 0,
+     "position": 0,
+     "flow": 0
+    },
+    "sources": [
+     "engine_v5"
+    ],
+    "entry_zone": [
+     13.57,
+     13.85
+    ],
+    "stop": 13.16,
+    "target": 14.61,
+    "risk_reward": 0.11,
+    "intrinsic_value": null,
+    "value_dev_pct": null,
+    "value_tag": null,
+    "pos240_pct": null,
+    "dims": null,
+    "dims_why": null,
+    "reasons": [
+     "⚠️ 弱市逆势标的 — 建议轻仓试错, 止损 13.16"
+    ],
+    "weak_market": true,
+    "tier": "C"
+   },
+   {
+    "code": "301190",
+    "name": "",
+    "price": 48.45,
+    "score": 34.7,
+    "parts": {
+     "resonance": 12,
+     "engine_avg": 22.71,
+     "valuation": 0,
+     "position": 0,
+     "flow": 0
+    },
+    "sources": [
+     "engine_v5"
+    ],
+    "entry_zone": [
+     47.72,
+     48.69
+    ],
+    "stop": 46.27,
+    "target": 51.36,
+    "risk_reward": 0.11,
+    "intrinsic_value": null,
+    "value_dev_pct": null,
+    "value_tag": null,
+    "pos240_pct": null,
+    "dims": null,
+    "dims_why": null,
+    "reasons": [
+     "⚠️ 弱市逆势标的 — 建议轻仓试错, 止损 46.27"
+    ],
+    "weak_market": true,
+    "tier": "C"
+   },
+   {
+    "code": "002467",
+    "name": "",
+    "price": 5.28,
+    "score": 34.7,
+    "parts": {
+     "resonance": 12,
+     "engine_avg": 22.679999999999996,
+     "valuation": 0,
+     "position": 0,
+     "flow": 0
+    },
+    "sources": [
+     "engine_v5"
+    ],
+    "entry_zone": [
+     5.2,
+     5.31
+    ],
+    "stop": 5.04,
+    "target": 5.6,
+    "risk_reward": 0.11,
+    "intrinsic_value": null,
+    "value_dev_pct": null,
+    "value_tag": null,
+    "pos240_pct": null,
+    "dims": null,
+    "dims_why": null,
+    "reasons": [
+     "⚠️ 弱市逆势标的 — 建议轻仓试错, 止损 5.04"
+    ],
+    "weak_market": true,
+    "tier": "C"
+   },
+   {
+    "code": "600323",
+    "name": "",
+    "price": 30.42,
+    "score": 34.7,
+    "parts": {
+     "resonance": 12,
+     "engine_avg": 22.679999999999996,
+     "valuation": 0,
+     "position": 0,
+     "flow": 0
+    },
+    "sources": [
+     "engine_v5"
+    ],
+    "entry_zone": [
+     29.96,
+     30.57
+    ],
+    "stop": 29.05,
+    "target": 32.25,
+    "risk_reward": 0.11,
+    "intrinsic_value": null,
+    "value_dev_pct": null,
+    "value_tag": null,
+    "pos240_pct": null,
+    "dims": null,
+    "dims_why": null,
+    "reasons": [
+     "⚠️ 弱市逆势标的 — 建议轻仓试错, 止损 29.05"
+    ],
+    "weak_market": true,
+    "tier": "C"
+   },
+   {
+    "code": "601398",
+    "name": "",
+    "price": 8.5,
+    "score": 34.7,
+    "parts": {
+     "resonance": 12,
+     "engine_avg": 22.679999999999996,
+     "valuation": 0,
+     "position": 0,
+     "flow": 0
+    },
+    "sources": [
+     "engine_v5"
+    ],
+    "entry_zone": [
+     8.37,
+     8.54
+    ],
+    "stop": 8.12,
+    "target": 9.01,
+    "risk_reward": 0.11,
+    "intrinsic_value": null,
+    "value_dev_pct": null,
+    "value_tag": null,
+    "pos240_pct": null,
+    "dims": null,
+    "dims_why": null,
+    "reasons": [
+     "⚠️ 弱市逆势标的 — 建议轻仓试错, 止损 8.12"
+    ],
+    "weak_market": true,
+    "tier": "C"
+   },
+   {
+    "code": "605089",
+    "name": "",
+    "price": 22.9,
+    "score": 34.6,
+    "parts": {
+     "resonance": 12,
+     "engine_avg": 22.56,
+     "valuation": 0,
+     "position": 0,
+     "flow": 0
+    },
+    "sources": [
+     "engine_v5"
+    ],
+    "entry_zone": [
+     22.56,
+     23.01
+    ],
+    "stop": 21.87,
+    "target": 24.27,
+    "risk_reward": 0.11,
+    "intrinsic_value": null,
+    "value_dev_pct": null,
+    "value_tag": null,
+    "pos240_pct": null,
+    "dims": null,
+    "dims_why": null,
+    "reasons": [
+     "⚠️ 弱市逆势标的 — 建议轻仓试错, 止损 21.87"
+    ],
+    "weak_market": true,
+    "tier": "C"
+   },
+   {
+    "code": "300781",
+    "name": "",
+    "price": 30.95,
+    "score": 34.5,
+    "parts": {
+     "resonance": 12,
+     "engine_avg": 22.5,
+     "valuation": 0,
+     "position": 0,
+     "flow": 0
+    },
+    "sources": [
+     "engine_v5"
+    ],
+    "entry_zone": [
+     30.49,
+     31.1
+    ],
+    "stop": 29.56,
+    "target": 32.81,
+    "risk_reward": 0.11,
+    "intrinsic_value": null,
+    "value_dev_pct": null,
+    "value_tag": null,
+    "pos240_pct": null,
+    "dims": null,
+    "dims_why": null,
+    "reasons": [
+     "⚠️ 弱市逆势标的 — 建议轻仓试错, 止损 29.56"
+    ],
+    "weak_market": true,
+    "tier": "C"
+   },
+   {
+    "code": "603883",
+    "name": "",
+    "price": 14.42,
+    "score": 34.3,
+    "parts": {
+     "resonance": 12,
+     "engine_avg": 22.349999999999998,
+     "valuation": 0,
+     "position": 0,
+     "flow": 0
+    },
+    "sources": [
+     "engine_v5"
+    ],
+    "entry_zone": [
+     14.2,
+     14.49
+    ],
+    "stop": 13.77,
+    "target": 15.29,
+    "risk_reward": 0.11,
+    "intrinsic_value": null,
+    "value_dev_pct": null,
+    "value_tag": null,
+    "pos240_pct": null,
+    "dims": null,
+    "dims_why": null,
+    "reasons": [
+     "⚠️ 弱市逆势标的 — 建议轻仓试错, 止损 13.77"
+    ],
+    "weak_market": true,
+    "tier": "C"
+   },
+   {
+    "code": "600970",
+    "name": "",
+    "price": 7.89,
+    "score": 34.1,
+    "parts": {
+     "resonance": 12,
+     "engine_avg": 22.11,
+     "valuation": 0,
+     "position": 0,
+     "flow": 0
+    },
+    "sources": [
+     "engine_v5"
+    ],
+    "entry_zone": [
+     7.77,
+     7.93
+    ],
+    "stop": 7.53,
+    "target": 8.36,
+    "risk_reward": 0.11,
+    "intrinsic_value": null,
+    "value_dev_pct": null,
+    "value_tag": null,
+    "pos240_pct": null,
+    "dims": null,
+    "dims_why": null,
+    "reasons": [
+     "⚠️ 弱市逆势标的 — 建议轻仓试错, 止损 7.53"
+    ],
+    "weak_market": true,
+    "tier": "C"
+   }
+  ]
+ },
+ "outlook": {
+  "tomorrow": {
+   "phase": {
+    "stage": "repair",
+    "score": null,
+    "desc": null
+   },
+   "cycle": {
+    "index": null,
+    "date": null,
+    "bias": null,
+    "composite": null,
+    "n_days": 8567
+   },
+   "walkforward": {
+    "is": null,
+    "oos": null,
+    "decay_pct": null,
+    "verdict": null
+   },
+   "recent_winrate": {
+    "h1_bull": null,
+    "h1_bear": null,
+    "n": 16756
+   }
+  },
+  "day_after": {
+   "note": "后日展望由次日盘后的 reflect/winrate 闭环修正, 此处给基准预期",
+   "basis": "当前市场相位 + walkforward OOS 胜率"
+  }
+ },
+ "meta": {
+  "sources_used": [
+   "ai_pick_v4",
+   "ban_pick",
+   "engine_v5",
+   "flow_div_buy",
+   "multidim"
+  ],
+  "scoring": "共振36 + 引擎均分30 + 估值±15 + 位置15 + 资金±12",
+  "entry_rule": "入场区间=昨收±1.5%; 止损-4.5%; 目标+6%; 盈亏比1.62",
+  "caveat": "Research reference only, not investment advice. 历史胜率不代表未来; 空仓也是一种决策。"
+ }
+}
