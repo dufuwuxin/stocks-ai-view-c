@@ -1,0 +1,26 @@
+name: pages-data-sync
+# 同步 A 仓 + db-market 数据到本仓 data/ (GitHub Pages 同源), 保持前端数据新鲜
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: pages-sync
+  cancel-in-progress: true
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Sync data files
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SYNC_TOKEN: ${{ secrets.PAGES_SYNC_TOKEN }}
+        run: |
+          chmod +x scripts/sync_data.sh
+          # GITHUB_TOKEN 只能写本仓, 但跨仓读取 raw 是匿名的, 所以够用
+          bash scripts/sync_data.sh "${SYNC_TOKEN:-$GH_TOKEN}"
