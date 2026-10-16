@@ -570,7 +570,8 @@ function renderZt(zts){
     <td class="fl">${fmtTime(z.zt_time)}</td></tr>`).join('')||'<tr><td colspan="4" class="fl">暂无</td></tr>';
 }
 function renderFundRank(fr){
-  document.getElementById('fundBody').innerHTML=(fr||[]).slice(0,15).map(r=>`<tr>
+  const _fb=document.getElementById('fundBody'); if(!_fb) return;
+  _fb.innerHTML=(fr||[]).slice(0,15).map(r=>`<tr>
     <td>${r.code}</td><td>${r.name}</td><td>${fmt(r.nav)}</td>
     <td class="${cls(r.daily_chg_pct)}">${sign(r.daily_chg_pct)}%</td>
     <td class="${cls(r.ret_1m)}">${sign(r.ret_1m)}%</td>
@@ -2118,10 +2119,10 @@ async function render(){
   renderFundRank((d.fund_rank && d.fund_rank.length) ? d.fund_rank
                  : ((mn && mn.fund_rank) ? mn.fund_rank : []));
   renderNews((newsList && newsList.length) ? newsList : d.news_recent, nd);
-  renderSummary(d.summary);
-  renderTicker(d);
-  if(g.hot_impact) renderHotImpactData(g.hot_impact);
-  if(d.commentary) renderCommentary(d.commentary);
+  _safe(()=>renderSummary(d.summary),'summary');
+  _safe(()=>renderTicker(d),'ticker');
+  if(g.hot_impact) _safe(()=>renderHotImpactData(g.hot_impact),'hi');
+  if(d.commentary) _safe(()=>renderCommentary(d.commentary),'cm');
   // 强势股/龙虎榜/大宗: enrich.json 是独立文件, 不被 latest.json 的远端
   // sync 覆盖; 缺失或为空时才回退 latest.json 内嵌的旧数据。
   const en = g.enrich;
