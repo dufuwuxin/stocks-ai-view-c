@@ -1,0 +1,140 @@
+{
+ "ts": "2026-10-16T14:49:30+08:00",
+ "engine": "cloud_analysis v1 (纯统计, 不构成投资建议)",
+ "index_forecast": {
+  "as_of": "2026-10-16",
+  "close": 3700.75,
+  "chg_pct": -0.18,
+  "streak": "连跌3天",
+  "streak_continue_prob": 0.0,
+  "next_weekday_stat": null,
+  "month_stat": {
+   "avg": -0.101,
+   "n": 59
+  },
+  "mom20": -6.1,
+  "composite": 0,
+  "bias": "中性",
+  "note": "统计外推, 历史规律不保证未来, 不构成投资建议"
+ },
+ "sentiment": {
+  "limit_up": 112,
+  "limit_down": 14,
+  "phase": "修复",
+  "global_score": null,
+  "zt_rate": 76.7
+ },
+ "theme_heat": [
+  [
+   "人工智能",
+   14,
+   1
+  ],
+  [
+   "货币政策",
+   6,
+   1
+  ],
+  [
+   "财政政策",
+   5,
+   1
+  ],
+  [
+   "低空经济",
+   5,
+   1
+  ],
+  [
+   "汽车",
+   4,
+   2
+  ],
+  [
+   "半导体",
+   3,
+   0
+  ],
+  [
+   "消费",
+   2,
+   2
+  ],
+  [
+   "机器人",
+   2,
+   0
+  ]
+ ],
+ "zt_theme_hits": 1,
+ "sector_top": [],
+ "sector_bottom": [],
+ "global_pulse": [
+  {
+   "name": "离岸人民币",
+   "pct": 0.027
+  }
+ ],
+ "watchlist": [
+  {
+   "code": "sh603352",
+   "score": 0.748,
+   "vratio": 1.71,
+   "pos240": 0.036
+  },
+  {
+   "code": "sh601717",
+   "score": 0.722,
+   "vratio": 1.72,
+   "pos240": 0.063
+  },
+  {
+   "code": "sz002615",
+   "score": 0.712,
+   "vratio": 2.4,
+   "pos240": 0.114
+  },
+  {
+   "code": "sh600143",
+   "score": 0.7,
+   "vratio": 1.94,
+   "pos240": 0.064
+  },
+  {
+   "code": "sh603877",
+   "score": 0.688,
+   "vratio": 1.96,
+   "pos240": 0.125
+  },
+  {
+   "code": "sz002756",
+   "score": 0.681,
+   "vratio": 2.25,
+   "pos240": 0.062
+  },
+  {
+   "code": "sz002183",
+   "score": 0.679,
+   "vratio": 1.94,
+   "pos240": 0.09
+  },
+  {
+   "code": "sz002009",
+   "score": 0.671,
+   "vratio": 1.56,
+   "pos240": 0.047
+  },
+  {
+   "code": "sz002777",
+   "score": 0.664,
+   "vratio": 2.01,
+   "pos240": 0.109
+  },
+  {
+   "code": "sz002405",
+   "score": 0.664,
+   "vratio": 1.67,
+   "pos240": 0.046
+  }
+ ]
+}
