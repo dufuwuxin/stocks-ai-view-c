@@ -1,0 +1,68 @@
+{
+  "ts": "2026-10-14T19:45:48+08:00",
+  "source": "reflect_latest.json",
+  "source_ts": "2026-10-14T19:45:48+08:00",
+  "horizons": {
+    "1": {
+      "overall": 0.436,
+      "avg_ret_pct": -0.1,
+      "n": 16682,
+      "by_regime": {
+        "bull": 0.438,
+        "bear": 0.544
+      },
+      "regime_n": {
+        "bull": 14381,
+        "bear": 2092
+      },
+      "sufficient": true
+    },
+    "3": {
+      "overall": 0.433,
+      "avg_ret_pct": -0.12,
+      "n": 16664,
+      "by_regime": {
+        "bull": 0.435,
+        "bear": 0.544
+      },
+      "regime_n": {
+        "bull": 14363,
+        "bear": 2092
+      },
+      "sufficient": true
+    },
+    "5": {
+      "overall": 0.424,
+      "avg_ret_pct": -0.28,
+      "n": 16648,
+      "by_regime": {
+        "bull": 0.423,
+        "bear": 0.543
+      },
+      "regime_n": {
+        "bull": 14347,
+        "bear": 2092
+      },
+      "sufficient": true
+    },
+    "10": {
+      "overall": 0.416,
+      "avg_ret_pct": -0.47,
+      "n": 16591,
+      "by_regime": {
+        "bull": 0.409,
+        "bear": 0.519
+      },
+      "regime_n": {
+        "bull": 14291,
+        "bear": 2092
+      },
+      "sufficient": true
+    }
+  },
+  "meta": {
+    "method": "预测时点的多空票 vs 预测后 N 日实际涨跌, 无前视偏差; Wilson 95% CI 标注胜率可信度",
+    "evidence": "样本<30 标 insufficient, 结论不可信",
+    "min_sample_hint": "样本>=30 方可信"
+  }
+}
