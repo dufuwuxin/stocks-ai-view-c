@@ -202,7 +202,7 @@ td:nth-child(n+3),th:nth-child(n+3){text-align:right}
       <div id="klineSim" style="display:none;font-size:11px;padding:6px 12px;border-top:1px dashed var(--bd)"></div>
       <div id="globalKline" style="display:none;font-size:11px;padding:6px 12px;border-top:1px dashed var(--bd)"></div>
       <div class="hd" style="border-top:1px solid var(--border)">📋 每日总结 <span class="sub" id="sumTs"></span></div>
-      <div id="dailySummary" style="padding:8px 14px;font-size:12px;line-height:1.7;max-height:300px;overflow-y:auto"><div class="fl" style="text-align:center">加载中…</div></div>
+      <div id="dailySummaryM" style="padding:8px 14px;font-size:12px;line-height:1.7;max-height:300px;overflow-y:auto"><div class="fl" style="text-align:center">加载中…</div></div>
       <div id="selfReflectBox" style="padding:8px 14px;border-top:1px dashed var(--bd)"></div>
       <div id="aiReviewBox" style="padding:8px 14px;border-top:1px dashed var(--bd)"></div>
     </div>
@@ -489,6 +489,7 @@ function renderSummary(s){
     if(b) return '<div style="padding-left:10px">• '+b[1]+'</div>';
     return '<div>'+l+'</div>';
   }).join('');
+  const elM=document.getElementById('dailySummaryM'); if(elM) elM.innerHTML = el.innerHTML;
 }
 // 自我反思 + 总括改进 (self_reflect.json: 结论/问题/改进建议)
 async function renderSelfReflect(){
