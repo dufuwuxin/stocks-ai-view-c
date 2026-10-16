@@ -1,0 +1,204 @@
+{
+ "generated_at": "2026-10-14T17:18:47+08:00",
+ "engine": "weight_calibrator_v2",
+ "source": "reflect_latest.json",
+ "n_records": 64250,
+ "min_n": 5000,
+ "bull": [
+  {
+   "indicator": "SuperTrend",
+   "n": 60862,
+   "win_rate": 43.8,
+   "edge": -6.2,
+   "raw": 0.0,
+   "weight": 0.0
+  },
+  {
+   "indicator": "MA5/MA20",
+   "n": 60019,
+   "win_rate": 43.7,
+   "edge": -6.3,
+   "raw": 0.0,
+   "weight": 0.0
+  },
+  {
+   "indicator": "RSI",
+   "n": 12461,
+   "win_rate": 42.6,
+   "edge": -7.4,
+   "raw": 0.0,
+   "weight": 0.0
+  },
+  {
+   "indicator": "MACD",
+   "n": 58922,
+   "win_rate": 43.6,
+   "edge": -6.4,
+   "raw": 0.0,
+   "weight": 0.0
+  },
+  {
+   "indicator": "KDJ(RSV)",
+   "n": 60504,
+   "win_rate": 43.8,
+   "edge": -6.2,
+   "raw": 0.0,
+   "weight": 0.0
+  },
+  {
+   "indicator": "BOLL/Keltner",
+   "n": 57575,
+   "win_rate": 44.0,
+   "edge": -6.0,
+   "raw": 0.0,
+   "weight": 0.0
+  },
+  {
+   "indicator": "Donchian20",
+   "n": 20502,
+   "win_rate": 44.6,
+   "edge": -5.4,
+   "raw": 0.0,
+   "weight": 0.0
+  },
+  {
+   "indicator": "CMO",
+   "n": 55088,
+   "win_rate": 44.1,
+   "edge": -5.9,
+   "raw": 0.0,
+   "weight": 0.0
+  },
+  {
+   "indicator": "Vortex",
+   "n": 60894,
+   "win_rate": 43.7,
+   "edge": -6.3,
+   "raw": 0.0,
+   "weight": 0.0
+  },
+  {
+   "indicator": "UltimateOsc",
+   "n": 53445,
+   "win_rate": 44.2,
+   "edge": -5.8,
+   "raw": 0.0,
+   "weight": 0.0
+  },
+  {
+   "indicator": "Choppiness",
+   "n": 23634,
+   "win_rate": 44.2,
+   "edge": -5.8,
+   "raw": 0.0,
+   "weight": 0.0
+  },
+  {
+   "indicator": "HullMA",
+   "n": 53772,
+   "win_rate": 43.8,
+   "edge": -6.2,
+   "raw": 0.0,
+   "weight": 0.0
+  },
+  {
+   "indicator": "ElderForce",
+   "n": 61946,
+   "win_rate": 43.7,
+   "edge": -6.3,
+   "raw": 0.0,
+   "weight": 0.0
+  },
+  {
+   "indicator": "A/D Line",
+   "n": 56503,
+   "win_rate": 43.7,
+   "edge": -6.3,
+   "raw": 0.0,
+   "weight": 0.0
+  },
+  {
+   "indicator": "Pivot",
+   "n": 49825,
+   "win_rate": 43.9,
+   "edge": -6.1,
+   "raw": 0.0,
+   "weight": 0.0
+  },
+  {
+   "indicator": "VWMA",
+   "n": 61178,
+   "win_rate": 43.8,
+   "edge": -6.2,
+   "raw": 0.0,
+   "weight": 0.0
+  }
+ ],
+ "bear": [
+  {
+   "indicator": "UltimateOsc",
+   "n": 5435,
+   "win_rate": 60.3,
+   "edge": 10.3,
+   "raw": 10.3,
+   "weight": 0.2418
+  },
+  {
+   "indicator": "RSI",
+   "n": 20686,
+   "win_rate": 57.0,
+   "edge": 7.0,
+   "raw": 7.0,
+   "weight": 0.1643
+  },
+  {
+   "indicator": "HullMA",
+   "n": 10348,
+   "win_rate": 56.8,
+   "edge": 6.8,
+   "raw": 6.8,
+   "weight": 0.1596
+  },
+  {
+   "indicator": "Pivot",
+   "n": 14295,
+   "win_rate": 56.8,
+   "edge": 6.8,
+   "raw": 6.8,
+   "weight": 0.1596
+  },
+  {
+   "indicator": "A/D Line",
+   "n": 7617,
+   "win_rate": 56.2,
+   "edge": 6.2,
+   "raw": 6.2,
+   "weight": 0.1455
+  },
+  {
+   "indicator": "MACD",
+   "n": 5198,
+   "win_rate": 55.5,
+   "edge": 5.5,
+   "raw": 5.5,
+   "weight": 0.1291
+  }
+ ],
+ "skipped": [
+  {
+   "indicator": "ConnorsRSI",
+   "reason": "bull n=1115 < 5000"
+  }
+ ],
+ "mean_bull_edge": 0.0,
+ "mean_bear_edge": 7.1,
+ "usage": "engine_v5.py --weights data/engine_weights.json; the engine still runs with equal weights when the file is absent",
+ "disclaimer": "Weights derived from historical records. Past performance does not imply future results.",
+ "merge_note": {
+  "resolved_from": "weight_calibrator_v2",
+  "reason": "v2 scores bull and bear separately; the old calibrator averaged them and hid that every bull edge is negative",
+  "regression_guard": {
+   "mean_bear_edge_min": 5.0
+  }
+ }
+}
