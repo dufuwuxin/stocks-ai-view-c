@@ -1,0 +1,24 @@
+{
+  "ts": "2026-10-14T19:48:47+08:00",
+  "engine": "portfolio_optimizer v1 (空仓)",
+  "n_positions": 0,
+  "weights": {},
+  "weights_detail": [],
+  "sector_exposure": {},
+  "sector_exposure_pct": {},
+  "iterations": 0,
+  "converged": true,
+  "corr_matrix": {},
+  "high_corr_pairs": [],
+  "limits": {
+    "max_single": 0.25,
+    "max_sector": 0.4
+  },
+  "total_weight": 0,
+  "steps": [],
+  "reason": "extreme 场景硬规则滤掉全部候选",
+  "meta": {
+    "method": "空仓, 无优化可做",
+    "caveat": "熊市/极端场景下不持仓是正确的风险控制, 非系统故障"
+  }
+}
