@@ -2122,6 +2122,8 @@ async function render(){
   _safe(()=>renderSummary(d.summary),'summary');
   _safe(()=>renderTicker(d),'ticker');
   if(g.hot_impact) _safe(()=>renderHotImpactData(g.hot_impact),'hi');
+  _safe(()=>renderCloud(),'cloud');
+  _safe(()=>renderDailyBrief(g.daily_brief),'brief');
   if(d.commentary) _safe(()=>renderCommentary(d.commentary),'cm');
   // 强势股/龙虎榜/大宗: enrich.json 是独立文件, 不被 latest.json 的远端
   // sync 覆盖; 缺失或为空时才回退 latest.json 内嵌的旧数据。
