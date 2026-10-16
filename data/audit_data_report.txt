@@ -1,8 +1,8 @@
-审计时间: 2026-10-16 13:21 CST
+审计时间: 2026-10-16 13:27 CST
 
 ! ai_pick_v4.json            ts=2026-10-14T17:57:45 age=   43h 过时(43h)
    ai_pick_v5.json            ts=2026-10-16 09:15    age=   13h
-! ai_picks.json              ts=2026-10-16T09:45:46 age=    4h   [空:picks]
+! ai_picks.json              ts=2026-10-16T13:21:20 age=  0.1h   [空:picks]
    all_sources.json           ts=                    age=     -
 ! anomaly_report.json        ts=2026-10-14T18:01:05 age=   43h 过时(43h)
 ! ban_pick.json              ts=2026-10-14T17:59:01 age=   43h 过时(43h)
@@ -11,19 +11,19 @@
 ! bulk_kline_2.json          ts=2026-10-15T02:27:34 age=   35h 过时(35h)
 ! decision.json              ts=2026-10-14T17:58:49 age=   43h 过时(43h)
 ! edge_report.json           ts=2026-10-14T18:01:00 age=   43h 过时(43h)
-! engine_v5.json             ts=2026-10-14T17:57:39 age=   43h 过时(43h)
-   enrich.json                ts=2026-10-16T09:44:57 age=    4h
+! engine_v5.json             ts=2026-10-14T17:57:39 age=   44h 过时(44h)
+   enrich.json                ts=2026-10-16T13:20:44 age=  0.1h
    fin_screen.json            ts=2026-10-16T12:40:59 age=     ?
 ! flow_divergence.json       ts=2026-10-14T17:59:08 age=   43h 过时(43h)   [空:sell_side]
-   global_fx.json             ts=2026-10-16T13:21:35 age=  0.0h
+   global_fx.json             ts=2026-10-16T13:27:37 age=  0.0h
    global_markets.json        ts=2026-10-15T18:18:34 age=   19h
-   hot_impact.json            ts=2026-10-16T09:44:18 age=    4h
+   hot_impact.json            ts=2026-10-16T13:20:11 age=  0.1h
 ! kline_sim.json             ts=2026-10-14T17:59:08 age=   43h 过时(43h)
    klineshare_hq.json         ts=2026-10-15T18:18:34 age=   19h
-   market_now.json            ts=2026-10-16T09:44:39 age=    4h
+   market_now.json            ts=2026-10-16T13:20:27 age=  0.1h
    market_phase.json          ts=2026-10-14T17:57:05 age=     ?
 ! multidim.json              ts=2026-10-14T17:58:49 age=   43h 过时(43h)
-   news_digest.json           ts=2026-10-16T13:21:34 age=  0.0h
+   news_digest.json           ts=2026-10-16T13:27:37 age=  0.0h
    news_extra.json            ts=2026-10-15T18:18:30 age=   19h
    realtime_minute.json       ts=2026-10-16          age=   13h
    risk_plan.json             ts=                    age=     -
@@ -45,7 +45,7 @@
   [STALE] bulk_kline_2.json: age=35h
   [STALE] decision.json: age=43h
   [STALE] edge_report.json: age=43h
-  [STALE] engine_v5.json: age=43h
+  [STALE] engine_v5.json: age=44h
   [EMPTY] flow_divergence.json: sell_side
   [STALE] flow_divergence.json: age=43h
   [STALE] kline_sim.json: age=43h
