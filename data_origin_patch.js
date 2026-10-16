@@ -89,8 +89,12 @@
 
   window.fetchJSON = function (p) {
     var r = resolve(p);
-    return remote(r[0])
+    // 同源优先 (GitHub Pages: data/ 与站点同域, 国内可直连, raw.githubusercontent 常被墙)
+    var sameOrigin = p.replace(/^\/+/, '');
+    return remote(sameOrigin, 6000)
+      .catch(function () { return remote(r[0]); })
       .then(function (j) {
+        if (j === null || j === undefined) throw new Error('all origins failed');
         tag('CLOUD', 'Data served live from the GitHub warehouse');
         return j;
       })
@@ -102,8 +106,11 @@
 
   window.fetchJSONMinute = function (p) {
     var r = resolve(p);
-    return remote(r[0], 8000).catch(function () {
-      return r[1] ? remote(r[1], 8000) : null;
+    var sameOrigin = p.replace(/^\/+/, '');
+    return remote(sameOrigin, 5000).catch(function () {
+      return remote(r[0], 8000).catch(function () {
+        return r[1] ? remote(r[1], 8000) : null;
+      });
     });
   };
 
