@@ -480,7 +480,7 @@ function renderMainlines(mls,themes){
 }
 function renderSummary(s){
   const el=document.getElementById('dailySummary');
-  if(!s||!s.text){el.innerHTML='<span class="fl">今日总结生成中（收盘后16:00自动生成）</span>';return}
+  if(!s||!s.text){el.innerHTML='<span class="fl">今日总结生成中（收盘后16:00自动生成）</span>';const elM=document.getElementById('dailySummaryM'); if(elM) elM.innerHTML=el.innerHTML;return}
   document.getElementById('sumTs').textContent=s.ts||'';
   el.innerHTML=(s.text||'').split('\n').filter(x=>x.trim()).map(l=>{
     const h=l.match(/^#{1,4}\s*(.+)/);
