@@ -20,6 +20,7 @@
 name: shard-collect
 
 on:
+  schedule:
     - cron: '0,5,10,15,20,25,30,35,40,45,50,55 1,2,3,5,6,7 * * 1-5'
   workflow_dispatch:
     inputs:
@@ -29,7 +30,6 @@ on:
       workers:
         description: '并发数'
         default: '6'
-
 permissions:
   contents: write
 
