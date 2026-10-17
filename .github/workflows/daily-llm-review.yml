@@ -2,8 +2,6 @@
 # 两种模式: --llm ghc (GitHub Models 免费额度, GPT-4o-mini/Llama) / --llm none (确定性规则)
 name: daily-llm-review
 on:
-  schedule:  # disabled on mirror
-    # - cron: '15 8 * * 1-5'   # 16:15 CST 收盘后
   workflow_dispatch: {}
 permissions:
   contents: write
