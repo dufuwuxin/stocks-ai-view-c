@@ -17,6 +17,7 @@
 name: bulk-collect
 
 on:
+  schedule:
     - cron: '0,5,10,15,20,25,30,35,40,45,50,55 19 * * 6'
   workflow_dispatch:
     inputs:
@@ -31,7 +32,6 @@ on:
       resume:
         description: '断点续传 (跳过已有)'
         default: 'true'
-
 permissions:
   contents: write
 
