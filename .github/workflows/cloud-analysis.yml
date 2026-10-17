@@ -1,8 +1,6 @@
 name: cloud-analysis
 # 云端自动分析/推演/预测 — 纯统计引擎, 无AI. 每30分
 on:
-  schedule:  # disabled on mirror
-    # - cron: "*/30 * * * *"
   workflow_dispatch:
 permissions:
   contents: write
