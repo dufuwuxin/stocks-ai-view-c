@@ -1,10 +1,10 @@
 {
-  "ts": "2026-10-14T17:59:08+08:00",
+  "ts": "2026-10-17T19:54:11+08:00",
   "sources": {
     "predictions": {
       "dir": "/home/runner/work/stocks-ai-view-c/stocks-ai-view-c/data/predictions",
-      "files": 0,
-      "n": 0
+      "files": 2,
+      "n": 100
     }
   },
   "params": {
@@ -20,11 +20,11 @@
     "entry": "信号日后首个K线交易日开盘价",
     "exit": "入场日起第N个交易日收盘价"
   },
-  "n_signals_total": 0,
+  "n_signals_total": 100,
   "n_simulated": 0,
   "n_held": 0,
   "skipped": {
-    "no_kline": 0,
+    "no_kline": 100,
     "no_forward_data": 0,
     "limit_up_at_entry": 0,
     "bad_price": 0
