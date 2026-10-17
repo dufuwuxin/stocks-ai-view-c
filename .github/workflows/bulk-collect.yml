@@ -17,9 +17,6 @@
 name: bulk-collect
 
 on:
-  schedule:
-    # A 仓: 每周六 CST 03:00 (UTC 周六 19:00) — 与 kline-backfill-full 错开 30 分钟
-    # B/C 仓部署时改成各自的分钟位 (实际是每周一次, 分钟位只影响首次触发)
     - cron: '0,5,10,15,20,25,30,35,40,45,50,55 19 * * 6'
   workflow_dispatch:
     inputs:
