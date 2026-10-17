@@ -16,6 +16,7 @@
 name: kline-backfill-full
 
 on:
+  schedule:
     - cron: '30 18 * * 6'
   workflow_dispatch:
     inputs:
@@ -28,7 +29,6 @@ on:
       codes:
         description: '定向补齐的裸码 (逗号分隔, 留空=自动找缺口)'
         default: ''
-
 permissions:
   contents: write
 
