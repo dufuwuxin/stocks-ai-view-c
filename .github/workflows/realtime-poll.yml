@@ -19,16 +19,14 @@ jobs:
         run: |
           git fetch origin main
           git merge --ff-only origin/main || echo "already up to date"
-
+      - uses: actions/checkout@v4
+        with:
           repository: qwerzxcva/stocks-tools
           path: tools-repo
       - uses: actions/checkout@v4
         with:
           repository: qwerzxcva/stocks-data-live
           path: data-repo
-      - uses: actions/checkout@v4
-        with:
-          path: .
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
