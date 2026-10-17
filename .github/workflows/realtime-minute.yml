@@ -13,8 +13,6 @@
 # 额度: 私有仓 2000 分钟/月; 每轮 ~1.5 分钟 × 4 轮/时 × 4 交易小时 × 22 天 ≈ 528 分钟/月 ✅
 name: realtime-minute
 on:
-  schedule:  # disabled on mirror
-    # CST 09:27~11:32 / 13:00~15:02 (UTC 1:27~3:32 / 5:00~7:02), 每 3 分钟
     - cron: '*/3 1,2,3,5,6,7 * * 1-5'
   workflow_dispatch:
     inputs:
