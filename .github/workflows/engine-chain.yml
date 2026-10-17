@@ -17,8 +17,6 @@
 # this one, so the default GITHUB_TOKEN cannot do it.
 name: engine-chain
 on:
-  schedule:  # disabled on mirror
-    # 09:05 CST weekdays: after the pre-open data lands, before the session
     - cron: '5 1 * * 1-5'
     # 15:30 CST weekdays: after the close and the 15:05 settle
     - cron: '30 7 * * 1-5'
