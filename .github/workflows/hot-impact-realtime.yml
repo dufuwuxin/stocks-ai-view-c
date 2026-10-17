@@ -5,6 +5,7 @@
 # 热点源用同花顺强势股题材归因 (实时) + 新闻词频。
 name: hot-impact-realtime
 on:
+  schedule:
     - cron: '3,13,23,33,43,53 * * * 1-5'
   workflow_dispatch: {}
 permissions:
