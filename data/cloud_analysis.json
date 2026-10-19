@@ -1,72 +1,76 @@
 {
- "ts": "2026-10-18T22:49:06+08:00",
+ "ts": "2026-10-19T13:51:57+08:00",
  "engine": "cloud_analysis v1 (纯统计, 不构成投资建议)",
  "index_forecast": {
-  "as_of": "2026-10-16",
-  "close": 3716.28,
-  "chg_pct": 0.24,
-  "streak": "连涨1天",
+  "as_of": "2026-10-19",
+  "close": 3739.9,
+  "chg_pct": 0.64,
+  "streak": "连涨2天",
   "streak_continue_prob": 0.0,
-  "next_weekday_stat": null,
-  "month_stat": {
-   "avg": -0.094,
-   "n": 59
+  "next_weekday_stat": {
+   "avg": 0.118,
+   "win": 52.5,
+   "n": 162
   },
-  "mom20": -5.6,
-  "composite": 0,
+  "month_stat": {
+   "avg": -0.082,
+   "n": 60
+  },
+  "mom20": -3.8,
+  "composite": 1,
   "bias": "中性",
   "note": "统计外推, 历史规律不保证未来, 不构成投资建议"
  },
  "sentiment": {
-  "limit_up": 61,
-  "limit_down": 10,
-  "phase": "退潮",
+  "limit_up": 28,
+  "limit_down": 9,
+  "phase": "发酵",
   "global_score": null,
-  "zt_rate": 55.5
+  "zt_rate": 57.1
  },
  "theme_heat": [
   [
-   "汽车",
-   7,
-   1
-  ],
-  [
-   "消费",
-   6,
-   2
-  ],
-  [
    "人工智能",
-   5,
-   -2
-  ],
-  [
-   "低空经济",
-   4,
-   -1
+   10,
+   2
   ],
   [
    "贵金属",
-   3,
-   1
+   6,
+   3
+  ],
+  [
+   "半导体",
+   6,
+   -1
+  ],
+  [
+   "券商",
+   6,
+   -2
   ],
   [
    "财政政策",
-   3,
+   5,
    2
   ],
   [
-   "货币政策",
-   3,
+   "军工",
+   4,
    1
   ],
   [
-   "军工",
-   3,
+   "汽车",
+   2,
+   1
+  ],
+  [
+   "算力",
+   2,
    0
   ]
  ],
- "zt_theme_hits": 3,
+ "zt_theme_hits": 1,
  "sector_top": [],
  "sector_bottom": [],
  "global_pulse": [
