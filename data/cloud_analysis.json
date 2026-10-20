@@ -1,76 +1,76 @@
 {
- "ts": "2026-10-19T19:25:54+08:00",
+ "ts": "2026-10-20T13:44:36+08:00",
  "engine": "cloud_analysis v1 (纯统计, 不构成投资建议)",
  "index_forecast": {
-  "as_of": "2026-10-19",
-  "close": 3730.92,
-  "chg_pct": 0.39,
-  "streak": "连涨2天",
+  "as_of": "2026-10-20",
+  "close": 3711.91,
+  "chg_pct": -0.51,
+  "streak": "连跌1天",
   "streak_continue_prob": 0.0,
   "next_weekday_stat": {
-   "avg": 0.118,
-   "win": 52.5,
+   "avg": 0.009,
+   "win": 54.9,
    "n": 162
   },
   "month_stat": {
-   "avg": -0.086,
-   "n": 60
+   "avg": -0.093,
+   "n": 61
   },
-  "mom20": -4.1,
-  "composite": 1,
+  "mom20": -4.5,
+  "composite": 0,
   "bias": "中性",
   "note": "统计外推, 历史规律不保证未来, 不构成投资建议"
  },
  "sentiment": {
-  "limit_up": 46,
-  "limit_down": 22,
+  "limit_up": 59,
+  "limit_down": 1,
   "phase": "发酵",
   "global_score": null,
-  "zt_rate": 68.7
+  "zt_rate": 80.8
  },
  "theme_heat": [
   [
-   "监管政策",
-   26,
-   -3
+   "机器人",
+   7,
+   1
   ],
   [
-   "人工智能",
-   8,
+   "财政政策",
+   7,
    0
   ],
   [
-   "券商",
-   3,
+   "人工智能",
+   6,
    0
   ],
   [
    "半导体",
+   5,
+   1
+  ],
+  [
+   "消费",
+   4,
+   2
+  ],
+  [
+   "医药",
    3,
    0
   ],
   [
-   "消费",
-   2,
-   2
-  ],
-  [
-   "货币政策",
-   2,
-   0
-  ],
-  [
-   "算力",
-   2,
+   "低空经济",
+   3,
    0
   ],
   [
    "汽车",
-   2,
+   3,
    1
   ]
  ],
- "zt_theme_hits": 1,
+ "zt_theme_hits": 0,
  "sector_top": [],
  "sector_bottom": [],
  "global_pulse": [
