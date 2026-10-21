@@ -1,4 +1,4 @@
-审计时间: 2026-10-21 13:47 CST
+审计时间: 2026-10-21 13:49 CST
 
 ! afternoon_picks.json       ts=2026-10-14          age=    8d 过时(8d)
 ! ai_pick_v4.json            ts=2026-10-14T17:57:45 age=    7d 过时(7d)
@@ -34,7 +34,7 @@
    fin_screen.json            ts=2026-10-16T12:40:59 age=     ?
 ! flow_divergence.json       ts=2026-10-14T19:45:53 age=    7d 过时(7d)   [空:sell_side]
 ! freshness_audit.json       ts=2026-10-16T10:51:43 age=    5d 过时(5d)
-   global_fx.json             ts=2026-10-21T13:47:54 age=  0.0h
+   global_fx.json             ts=2026-10-21T13:49:54 age=  0.0h
 ! global_kline.json          ts=2026-10-16T13:49:05 age=    5d 过时(5d)
 ! global_kline_src.json      ts=2026-10-15T02:30:32 age=    6d 过时(6d)
    global_markets.json        ts=2026-10-21T13:43:10 age=  0.1h
@@ -63,7 +63,7 @@
    morning_review.json        ts=                    age=     -
    multi_v4.json              ts=1031                age=     ?
 ! multidim.json              ts=2026-10-16T05:13:31 age=    5d 过时(5d)
-   news_digest.json           ts=2026-10-21T13:47:54 age=  0.0h
+   news_digest.json           ts=2026-10-21T13:49:54 age=  0.0h
    news_extra.json            ts=2026-10-21T13:43:06 age=  0.1h
 ! news_impact.json           ts=2026-10-16T13:48:35 age=    5d 过时(5d)
 ! news_transmission.json     ts=2026-10-15T20:10:41 age=    6d 过时(6d)
