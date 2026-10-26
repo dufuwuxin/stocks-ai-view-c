@@ -1,16 +1,16 @@
 {
   "summary": {
-    "ts": "2026-10-27T00:51:11+08:00",
+    "ts": "2026-10-27T05:15:13+08:00",
     "date": "20261027",
-    "elapsed_s": 41.6,
+    "elapsed_s": 27.2,
     "groups": {
-      "event": {
-        "raw": 189,
-        "merged": 171
-      },
       "sector": {
         "raw": 20,
         "merged": 20
+      },
+      "event": {
+        "raw": 189,
+        "merged": 171
       },
       "quote": {
         "raw": 10,
@@ -68,6 +68,308 @@
     }
   },
   "data": {
+    "sector": [
+      {
+        "_key": "油服工程",
+        "sector": "油服工程",
+        "chg_pct": 3.38,
+        "chg_5d": 2.3,
+        "chg_20d": 1.18,
+        "leader": "中海油服",
+        "leader_pct": 7.23,
+        "sources": [
+          "tencent_mktHs"
+        ],
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "房地产服务",
+        "sector": "房地产服务",
+        "chg_pct": 2.98,
+        "chg_5d": -0.85,
+        "chg_20d": -2.74,
+        "leader": "*ST皇庭",
+        "leader_pct": 7.91,
+        "sources": [
+          "tencent_mktHs"
+        ],
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "休闲食品",
+        "sector": "休闲食品",
+        "chg_pct": 2.93,
+        "chg_5d": 1.02,
+        "chg_20d": 0.25,
+        "leader": "桂发祥",
+        "leader_pct": 10.04,
+        "sources": [
+          "tencent_mktHs"
+        ],
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "医药商业",
+        "sector": "医药商业",
+        "chg_pct": 2.73,
+        "chg_5d": 1.6,
+        "chg_20d": 2.91,
+        "leader": "百洋医药",
+        "leader_pct": 10.62,
+        "sources": [
+          "tencent_mktHs"
+        ],
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "国有大型银行Ⅱ",
+        "sector": "国有大型银行Ⅱ",
+        "chg_pct": 2.23,
+        "chg_5d": -0.83,
+        "chg_20d": 7.57,
+        "leader": "工商银行",
+        "leader_pct": 3.13,
+        "sources": [
+          "tencent_mktHs"
+        ],
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "游戏Ⅱ",
+        "sector": "游戏Ⅱ",
+        "chg_pct": 2.11,
+        "chg_5d": 0.45,
+        "chg_20d": -7.09,
+        "leader": "盛天网络",
+        "leader_pct": 14.62,
+        "sources": [
+          "tencent_mktHs"
+        ],
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "医疗器械",
+        "sector": "医疗器械",
+        "chg_pct": 2.05,
+        "chg_5d": 5.57,
+        "chg_20d": 2.52,
+        "leader": "山外山",
+        "leader_pct": 12.49,
+        "sources": [
+          "tencent_mktHs"
+        ],
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "炼化及贸易",
+        "sector": "炼化及贸易",
+        "chg_pct": 1.99,
+        "chg_5d": 0.76,
+        "chg_20d": 2.4,
+        "leader": "统一股份",
+        "leader_pct": 4.99,
+        "sources": [
+          "tencent_mktHs"
+        ],
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "物流",
+        "sector": "物流",
+        "chg_pct": 1.96,
+        "chg_5d": -0.31,
+        "chg_20d": -0.25,
+        "leader": "*ST瑞茂",
+        "leader_pct": 9.82,
+        "sources": [
+          "tencent_mktHs"
+        ],
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "航运港口",
+        "sector": "航运港口",
+        "chg_pct": 1.92,
+        "chg_5d": -3.01,
+        "chg_20d": -7.92,
+        "leader": "中远海能",
+        "leader_pct": 3.75,
+        "sources": [
+          "tencent_mktHs"
+        ],
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "专业连锁Ⅱ",
+        "sector": "专业连锁Ⅱ",
+        "chg_pct": 1.91,
+        "chg_5d": -0.74,
+        "chg_20d": -3.28,
+        "leader": "天音控股",
+        "leader_pct": 6.45,
+        "sources": [
+          "tencent_mktHs"
+        ],
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "摩托车及其他",
+        "sector": "摩托车及其他",
+        "chg_pct": 1.88,
+        "chg_5d": 2.68,
+        "chg_20d": -2.89,
+        "leader": "征和工业",
+        "leader_pct": 5.26,
+        "sources": [
+          "tencent_mktHs"
+        ],
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "数字媒体",
+        "sector": "数字媒体",
+        "chg_pct": 1.83,
+        "chg_5d": 4.01,
+        "chg_20d": 10.32,
+        "leader": "凡拓数创",
+        "leader_pct": 10.43,
+        "sources": [
+          "tencent_mktHs"
+        ],
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "保险Ⅱ",
+        "sector": "保险Ⅱ",
+        "chg_pct": 1.82,
+        "chg_5d": 1.3,
+        "chg_20d": -3.25,
+        "leader": "中国太保",
+        "leader_pct": 3.5,
+        "sources": [
+          "tencent_mktHs"
+        ],
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "酒店餐饮",
+        "sector": "酒店餐饮",
+        "chg_pct": 1.74,
+        "chg_5d": 0.62,
+        "chg_20d": -3.71,
+        "leader": "首旅酒店",
+        "leader_pct": 2.69,
+        "sources": [
+          "tencent_mktHs"
+        ],
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "城商行Ⅱ",
+        "sector": "城商行Ⅱ",
+        "chg_pct": 1.68,
+        "chg_5d": -2.77,
+        "chg_20d": -0.86,
+        "leader": "南京银行",
+        "leader_pct": 2.98,
+        "sources": [
+          "tencent_mktHs"
+        ],
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "白酒Ⅱ",
+        "sector": "白酒Ⅱ",
+        "chg_pct": 1.59,
+        "chg_5d": 1.59,
+        "chg_20d": 6.29,
+        "leader": "皇台酒业",
+        "leader_pct": 10.04,
+        "sources": [
+          "tencent_mktHs"
+        ],
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "房地产开发",
+        "sector": "房地产开发",
+        "chg_pct": 1.58,
+        "chg_5d": -0.41,
+        "chg_20d": -3.95,
+        "leader": "大名城",
+        "leader_pct": 10.02,
+        "sources": [
+          "tencent_mktHs"
+        ],
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "农商行Ⅱ",
+        "sector": "农商行Ⅱ",
+        "chg_pct": 1.5,
+        "chg_5d": -0.33,
+        "chg_20d": 2.2,
+        "leader": "渝农商行",
+        "leader_pct": 2.11,
+        "sources": [
+          "tencent_mktHs"
+        ],
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "互联网电商",
+        "sector": "互联网电商",
+        "chg_pct": 1.5,
+        "chg_5d": 0.83,
+        "chg_20d": -6.61,
+        "leader": "赛维时代",
+        "leader_pct": 8.54,
+        "sources": [
+          "tencent_mktHs"
+        ],
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
+        "conflict": false
+      }
+    ],
     "event": [
       {
         "_key": "2026-10-23",
@@ -79,8 +381,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -93,8 +395,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -107,8 +409,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -121,8 +423,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -135,8 +437,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -149,8 +451,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -163,8 +465,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -177,8 +479,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -191,8 +493,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -205,8 +507,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -219,8 +521,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -233,8 +535,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -247,8 +549,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -261,8 +563,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -275,8 +577,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -289,8 +591,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -303,8 +605,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -317,8 +619,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -331,8 +633,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -345,8 +647,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -359,8 +661,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -373,8 +675,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -387,8 +689,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -401,8 +703,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -415,8 +717,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -429,8 +731,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -443,8 +745,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -457,8 +759,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -471,8 +773,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -485,8 +787,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -497,8 +799,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -509,8 +811,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -521,8 +823,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -533,8 +835,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -545,8 +847,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -557,8 +859,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -569,8 +871,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -581,8 +883,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -593,8 +895,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -605,8 +907,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -617,8 +919,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -629,8 +931,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -641,8 +943,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -653,8 +955,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -665,8 +967,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -677,8 +979,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -689,8 +991,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -701,8 +1003,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -713,8 +1015,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -725,8 +1027,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -737,8 +1039,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -749,8 +1051,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -761,8 +1063,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -773,8 +1075,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -785,8 +1087,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -797,8 +1099,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -809,8 +1111,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -821,8 +1123,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -833,8 +1135,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -845,8 +1147,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -857,8 +1159,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -869,8 +1171,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -881,8 +1183,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -893,8 +1195,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -905,8 +1207,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -917,8 +1219,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -929,8 +1231,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -941,8 +1243,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -953,8 +1255,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -965,8 +1267,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -977,8 +1279,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -989,8 +1291,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1001,8 +1303,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1013,8 +1315,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1025,8 +1327,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1037,8 +1339,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1049,8 +1351,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1061,8 +1363,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1073,8 +1375,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1085,8 +1387,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1097,8 +1399,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1109,8 +1411,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1121,8 +1423,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1133,8 +1435,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1145,8 +1447,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1157,8 +1459,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1169,8 +1471,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1181,8 +1483,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1193,8 +1495,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1210,8 +1512,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1227,8 +1529,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1244,8 +1546,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1261,8 +1563,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1278,8 +1580,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1295,8 +1597,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1312,8 +1614,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1329,8 +1631,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1346,8 +1648,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1363,8 +1665,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1380,8 +1682,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1397,8 +1699,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1414,8 +1716,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1431,8 +1733,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1448,8 +1750,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1465,8 +1767,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1483,8 +1785,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1500,8 +1802,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1517,8 +1819,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1534,8 +1836,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1551,8 +1853,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1568,8 +1870,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1585,8 +1887,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1602,8 +1904,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1619,8 +1921,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1636,8 +1938,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1653,8 +1955,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1670,8 +1972,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1687,8 +1989,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1704,8 +2006,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1721,8 +2023,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1738,8 +2040,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1756,8 +2058,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1773,8 +2075,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1790,8 +2092,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1807,8 +2109,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1824,8 +2126,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1841,8 +2143,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1858,8 +2160,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1875,8 +2177,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1892,8 +2194,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1909,8 +2211,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1927,8 +2229,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1944,8 +2246,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1961,8 +2263,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1978,8 +2280,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -1995,8 +2297,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2013,8 +2315,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": true,
         "conflicting_fields": [
           "amt",
@@ -2038,8 +2340,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2055,8 +2357,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2072,8 +2374,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2089,8 +2391,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2106,8 +2408,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2124,8 +2426,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2141,8 +2443,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2158,8 +2460,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2175,8 +2477,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2192,8 +2494,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2209,8 +2511,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2226,8 +2528,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2243,8 +2545,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2260,8 +2562,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2277,8 +2579,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2295,8 +2597,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": true,
         "conflicting_fields": [
           "amt",
@@ -2321,8 +2623,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": true,
         "conflicting_fields": [
           "amt",
@@ -2347,8 +2649,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": true,
         "conflicting_fields": [
           "amt",
@@ -2372,8 +2674,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2389,8 +2691,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2407,8 +2709,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": true,
         "conflicting_fields": [
           "amt",
@@ -2432,8 +2734,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2449,8 +2751,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2466,8 +2768,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2483,8 +2785,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2500,8 +2802,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2517,8 +2819,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2534,8 +2836,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2551,8 +2853,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2568,8 +2870,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2585,8 +2887,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2602,8 +2904,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2619,8 +2921,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2636,310 +2938,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
-        "conflict": false
-      }
-    ],
-    "sector": [
-      {
-        "_key": "油服工程",
-        "sector": "油服工程",
-        "chg_pct": 3.38,
-        "chg_5d": 2.3,
-        "chg_20d": 1.18,
-        "leader": "中海油服",
-        "leader_pct": 7.23,
-        "sources": [
-          "tencent_mktHs"
-        ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "房地产服务",
-        "sector": "房地产服务",
-        "chg_pct": 2.98,
-        "chg_5d": -0.85,
-        "chg_20d": -2.74,
-        "leader": "*ST皇庭",
-        "leader_pct": 7.91,
-        "sources": [
-          "tencent_mktHs"
-        ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "休闲食品",
-        "sector": "休闲食品",
-        "chg_pct": 2.93,
-        "chg_5d": 1.02,
-        "chg_20d": 0.25,
-        "leader": "桂发祥",
-        "leader_pct": 10.04,
-        "sources": [
-          "tencent_mktHs"
-        ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "医药商业",
-        "sector": "医药商业",
-        "chg_pct": 2.73,
-        "chg_5d": 1.6,
-        "chg_20d": 2.91,
-        "leader": "百洋医药",
-        "leader_pct": 10.62,
-        "sources": [
-          "tencent_mktHs"
-        ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "国有大型银行Ⅱ",
-        "sector": "国有大型银行Ⅱ",
-        "chg_pct": 2.23,
-        "chg_5d": -0.83,
-        "chg_20d": 7.57,
-        "leader": "工商银行",
-        "leader_pct": 3.13,
-        "sources": [
-          "tencent_mktHs"
-        ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "游戏Ⅱ",
-        "sector": "游戏Ⅱ",
-        "chg_pct": 2.11,
-        "chg_5d": 0.45,
-        "chg_20d": -7.09,
-        "leader": "盛天网络",
-        "leader_pct": 14.62,
-        "sources": [
-          "tencent_mktHs"
-        ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "医疗器械",
-        "sector": "医疗器械",
-        "chg_pct": 2.05,
-        "chg_5d": 5.57,
-        "chg_20d": 2.52,
-        "leader": "山外山",
-        "leader_pct": 12.49,
-        "sources": [
-          "tencent_mktHs"
-        ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "炼化及贸易",
-        "sector": "炼化及贸易",
-        "chg_pct": 1.99,
-        "chg_5d": 0.76,
-        "chg_20d": 2.4,
-        "leader": "统一股份",
-        "leader_pct": 4.99,
-        "sources": [
-          "tencent_mktHs"
-        ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "物流",
-        "sector": "物流",
-        "chg_pct": 1.96,
-        "chg_5d": -0.31,
-        "chg_20d": -0.25,
-        "leader": "*ST瑞茂",
-        "leader_pct": 9.82,
-        "sources": [
-          "tencent_mktHs"
-        ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "航运港口",
-        "sector": "航运港口",
-        "chg_pct": 1.92,
-        "chg_5d": -3.01,
-        "chg_20d": -7.92,
-        "leader": "中远海能",
-        "leader_pct": 3.75,
-        "sources": [
-          "tencent_mktHs"
-        ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "专业连锁Ⅱ",
-        "sector": "专业连锁Ⅱ",
-        "chg_pct": 1.91,
-        "chg_5d": -0.74,
-        "chg_20d": -3.28,
-        "leader": "天音控股",
-        "leader_pct": 6.45,
-        "sources": [
-          "tencent_mktHs"
-        ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "摩托车及其他",
-        "sector": "摩托车及其他",
-        "chg_pct": 1.88,
-        "chg_5d": 2.68,
-        "chg_20d": -2.89,
-        "leader": "征和工业",
-        "leader_pct": 5.26,
-        "sources": [
-          "tencent_mktHs"
-        ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "数字媒体",
-        "sector": "数字媒体",
-        "chg_pct": 1.83,
-        "chg_5d": 4.01,
-        "chg_20d": 10.32,
-        "leader": "凡拓数创",
-        "leader_pct": 10.43,
-        "sources": [
-          "tencent_mktHs"
-        ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "保险Ⅱ",
-        "sector": "保险Ⅱ",
-        "chg_pct": 1.82,
-        "chg_5d": 1.3,
-        "chg_20d": -3.25,
-        "leader": "中国太保",
-        "leader_pct": 3.5,
-        "sources": [
-          "tencent_mktHs"
-        ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "酒店餐饮",
-        "sector": "酒店餐饮",
-        "chg_pct": 1.74,
-        "chg_5d": 0.62,
-        "chg_20d": -3.71,
-        "leader": "首旅酒店",
-        "leader_pct": 2.69,
-        "sources": [
-          "tencent_mktHs"
-        ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "城商行Ⅱ",
-        "sector": "城商行Ⅱ",
-        "chg_pct": 1.68,
-        "chg_5d": -2.77,
-        "chg_20d": -0.86,
-        "leader": "南京银行",
-        "leader_pct": 2.98,
-        "sources": [
-          "tencent_mktHs"
-        ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "白酒Ⅱ",
-        "sector": "白酒Ⅱ",
-        "chg_pct": 1.59,
-        "chg_5d": 1.59,
-        "chg_20d": 6.29,
-        "leader": "皇台酒业",
-        "leader_pct": 10.04,
-        "sources": [
-          "tencent_mktHs"
-        ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "房地产开发",
-        "sector": "房地产开发",
-        "chg_pct": 1.58,
-        "chg_5d": -0.41,
-        "chg_20d": -3.95,
-        "leader": "大名城",
-        "leader_pct": 10.02,
-        "sources": [
-          "tencent_mktHs"
-        ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "农商行Ⅱ",
-        "sector": "农商行Ⅱ",
-        "chg_pct": 1.5,
-        "chg_5d": -0.33,
-        "chg_20d": 2.2,
-        "leader": "渝农商行",
-        "leader_pct": 2.11,
-        "sources": [
-          "tencent_mktHs"
-        ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "互联网电商",
-        "sector": "互联网电商",
-        "chg_pct": 1.5,
-        "chg_5d": 0.83,
-        "chg_20d": -6.61,
-        "leader": "赛维时代",
-        "leader_pct": 8.54,
-        "sources": [
-          "tencent_mktHs"
-        ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       }
     ],
@@ -2964,8 +2964,8 @@
         "sources": [
           "tencent_quote"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -2988,8 +2988,8 @@
         "sources": [
           "tencent_quote"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -3012,8 +3012,8 @@
         "sources": [
           "tencent_quote"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -3036,8 +3036,8 @@
         "sources": [
           "tencent_quote"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -3060,8 +3060,8 @@
         "sources": [
           "tencent_quote"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -3084,8 +3084,8 @@
         "sources": [
           "tencent_quote"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -3593,8 +3593,8 @@
         "sources": [
           "eastmoney_zt_pool"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -3606,8 +3606,8 @@
         "sources": [
           "eastmoney_zt_pool"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -3827,8 +3827,8 @@
         "sources": [
           "eastmoney_zt_pool"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -3864,8 +3864,8 @@
         "sources": [
           "eastmoney_zdfenbu"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       }
     ],
@@ -3890,8 +3890,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -3914,8 +3914,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -3938,8 +3938,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -3962,8 +3962,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -3986,8 +3986,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4010,8 +4010,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4034,8 +4034,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4058,8 +4058,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4082,8 +4082,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4106,8 +4106,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4130,8 +4130,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4154,8 +4154,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4178,8 +4178,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4202,8 +4202,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4226,8 +4226,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4250,8 +4250,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4274,8 +4274,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4298,8 +4298,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4322,8 +4322,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4346,8 +4346,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4370,8 +4370,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4394,8 +4394,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4418,8 +4418,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4442,8 +4442,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4466,8 +4466,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4490,8 +4490,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4514,8 +4514,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4538,8 +4538,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4562,8 +4562,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4586,8 +4586,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4610,8 +4610,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4634,8 +4634,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4658,8 +4658,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4682,8 +4682,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4706,8 +4706,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4730,8 +4730,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4754,8 +4754,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4778,8 +4778,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4802,8 +4802,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4826,8 +4826,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4850,8 +4850,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4874,8 +4874,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4898,8 +4898,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4922,8 +4922,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4946,8 +4946,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4970,8 +4970,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -4994,8 +4994,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5018,8 +5018,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5042,8 +5042,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5066,8 +5066,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5078,22 +5078,22 @@
         "fund_source_rate": 1.5,
         "fund_minsg": 10.0,
         "holdings": [
-          "sh688200",
-          "sz002371",
-          "sh688233",
-          "sh688521",
+          "sh603259",
+          "sh601899",
+          "sh601168",
+          "sh600188",
+          "sz002444",
+          "sh603979",
+          "sh600031",
           "sh688256",
-          "sh688361",
-          "sh688372",
-          "sh688652",
-          "sh688409",
-          "sz301018"
+          "sz300759",
+          "sh601699"
         ],
         "sources": [
           "eastmoney_fund_pingzhong"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5104,22 +5104,22 @@
         "fund_source_rate": 1.5,
         "fund_minsg": 10.0,
         "holdings": [
-          "sh688200",
-          "sz002371",
+          "sh603259",
+          "sh601899",
+          "sh601168",
+          "sh600188",
+          "sz002444",
+          "sh603979",
           "sh688256",
-          "sh688521",
-          "sh688233",
-          "sh688361",
-          "sh688372",
-          "sh688652",
-          "sh688409",
-          "sz301018"
+          "sz300759",
+          "sh600348",
+          "sh601699"
         ],
         "sources": [
           "eastmoney_fund_pingzhong"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5130,22 +5130,22 @@
         "fund_source_rate": 0.0,
         "fund_minsg": 10.0,
         "holdings": [
-          "sh688200",
-          "sz002371",
+          "sh603259",
+          "sh601899",
+          "sh601168",
+          "sh600188",
+          "sz002444",
+          "sh603979",
           "sh688256",
-          "sh688521",
-          "sh688233",
-          "sh688361",
-          "sh688372",
-          "sh688652",
-          "sh688409",
-          "sz301018"
+          "sz300759",
+          "sh600348",
+          "sh601699"
         ],
         "sources": [
           "eastmoney_fund_pingzhong"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5170,8 +5170,8 @@
         "sources": [
           "eastmoney_fund_pingzhong"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5196,8 +5196,8 @@
         "sources": [
           "eastmoney_fund_pingzhong"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5222,8 +5222,8 @@
         "sources": [
           "eastmoney_fund_pingzhong"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5248,8 +5248,8 @@
         "sources": [
           "eastmoney_fund_pingzhong"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5274,8 +5274,8 @@
         "sources": [
           "eastmoney_fund_pingzhong"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5300,8 +5300,8 @@
         "sources": [
           "eastmoney_fund_pingzhong"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5326,450 +5326,450 @@
         "sources": [
           "eastmoney_fund_pingzhong"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       }
     ],
     "news": [
       {
-        "_key": "83623f2a1d9a",
-        "title": "【苹果iPhone Duo屏幕开裂引发投诉】不少用户投诉iPhone Duo折叠屏仅使用数小时或数天就发生开裂，用户称展开时会听到碎裂声响，折痕中线位置出现大口裂痕。用户反馈打开设备时听到类似碎裂的声响，随后屏幕右侧出现白斑或其他显示故障，",
-        "ts": "2026-10-27 00:50:11",
+        "_key": "792a023c0420",
+        "title": "美国司法部称科米指示非法共享国防信息。",
+        "ts": "2026-10-27 05:14:20",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "422c1436c62a",
-        "title": "美上诉法院否决美联储借记卡刷卡手续费规则。",
-        "ts": "2026-10-27 00:46:18",
+        "_key": "416bd7a51c19",
+        "title": "美国联邦调查局前局长詹姆斯・科米称：“我仍然是清白的”，他表示其律师将出庭，应对这起最新指控。",
+        "ts": "2026-10-27 05:13:51",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "a51ce8ffe0d9",
-        "title": "微软就Teams故障问题发布声明：服务已恢复至正常水平。",
-        "ts": "2026-10-27 00:38:38",
+        "_key": "8076dff5a206",
+        "title": "【约旦称轰炸叙利亚南部恐怖组织据点】约旦武装部队26日发表声明说，经同叙利亚政府协调，约旦皇家空军当天轰炸了叙南部恐怖组织据点。叙利亚媒体称，叙南部德拉省乡村地区当晚传出数次爆炸声，多名平民死伤。声明说，约旦皇家空军战斗机摧毁多个恐怖组织据",
+        "ts": "2026-10-27 05:09:50",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "7e4c394ca1b8",
-        "title": "荷兰皇家航空飞往利雅得和达曼的航班已取消，取消措施持续至11月27日。",
-        "ts": "2026-10-27 00:31:50",
+        "_key": "ab7fe2e42e8d",
+        "title": "法院解封美国司法部对前联邦调查局局长科米的新指控。",
+        "ts": "2026-10-27 05:08:36",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "23c37d0a39d0",
-        "title": "美国天然气期货缩减跌幅，在合约本周晚些时候到期前的震荡交易中价格一度转涨。",
-        "ts": "2026-10-27 00:30:57",
+        "_key": "a16cb3fb60ce",
+        "title": "叙利亚声明称已对约旦空袭展开调查，并强调边境地区开展实地与安全协同的重要性。",
+        "ts": "2026-10-27 05:08:25",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "65f1b03a23e0",
-        "title": "WTI原油突破103美元/桶，日内跌0.25%。",
-        "ts": "2026-10-27 00:29:58",
+        "_key": "3c802066b022",
+        "title": "法拉第未来旗下FF EAI Robotics：预计在独立完整财年口径下，其收购的机器人业务本财年机器人销售额与出货量约2000台。预计 2027 年营收约 4520 万美元，EAI 设备销量 7400 台。 预计五年累计营收约 19.8 亿",
+        "ts": "2026-10-27 05:06:38",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "7e28e11bae96",
-        "title": "3R GAMES SA与Meta公司达成协议，自2027年1月1日起，将《Besiege VR》纳入Meta Horizon+订阅服务。",
-        "ts": "2026-10-27 00:29:35",
+        "_key": "b6823eb5bda9",
+        "title": "叙利亚：在约旦发动空袭之前，双方并未进行事先协调。",
+        "ts": "2026-10-27 05:04:28",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "30bb3bab75c7",
-        "title": "费埃哲公司股价跌幅扩大至15%。",
-        "ts": "2026-10-27 00:28:06",
+        "_key": "fd9bd25b7564",
+        "title": "韩国10月消费者信心指数 105.4，前值106.6。",
+        "ts": "2026-10-27 05:00:14",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "8b2cc9145f2f",
-        "title": "奥迪：代表团赴佐治亚州推进拟建工厂的相关谈判，谈判过程中，我方被要求与美国总统特朗普一同对外公布方案。",
-        "ts": "2026-10-27 00:26:51",
+        "_key": "79a8d82df3a0",
+        "title": "【国际金价涨0.5%，窄幅震荡于4000美元整数位心理关口附近】周一（10月26日）纽约尾盘，现货黄金涨0.53%，报4017.14美元/盎司，在震荡上行行情中，整体交投区间为3978.32-4029.84美元，北京时间21:58前后呈现出",
+        "ts": "2026-10-27 04:58:48",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "c3ca8434dbe7",
-        "title": "法国国防部长：坚定支持乌克兰，这不会停止。",
-        "ts": "2026-10-27 00:23:37",
+        "_key": "436bd0f9aaed",
+        "title": "民调显示，在美国注册选民中，47%支持民主党，36%支持共和党，民主党在国会通用选票上领先。",
+        "ts": "2026-10-27 04:52:57",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "608449ecf7c7",
-        "title": "【德国总统抵达安徽开启访华行程】应国家主席习近平邀请，德国总统施泰因迈尔于10月27日至31日对中国进行国事访问。今天（27日）凌晨，施泰因迈尔总统乘机抵达合肥新桥国际机场，开启访华行程，这是他时隔近8年再次访华。（央视新闻）",
-        "ts": "2026-10-27 00:23:08",
+        "_key": "82037e556766",
+        "title": "民调显示，美国总统特朗普的公众支持率升至32%，较一周前创下的历史低点有所回升。",
+        "ts": "2026-10-27 04:52:32",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "61a739692b34",
-        "title": "奥迪发言人称，CEO出席佐治亚州活动的决定是经过慎重考虑后做出的，完全符合公司的最佳利益。",
-        "ts": "2026-10-27 00:21:06",
+        "_key": "2a11047d9163",
+        "title": "房地美：多户住宅拖欠率从8月的0.64%降至9月的0.58%。",
+        "ts": "2026-10-27 04:49:18",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "5ca4127d297e",
-        "title": "奥迪发言人表示，政治中立是奥迪的一项重要原则，将继续坚持这一原则。",
-        "ts": "2026-10-27 00:19:53",
+        "_key": "b2e2dc3a54d2",
+        "title": "房地美：9月单户住宅拖欠率从8月的0.60%升至0.61%。",
+        "ts": "2026-10-27 04:48:55",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "910638aee741",
-        "title": "荷兰投资者或将因财富税豁免条款撤出加密资产。",
-        "ts": "2026-10-27 00:19:32",
+        "_key": "3960e7905d4f",
+        "title": "环球音乐集团曾与收购机构洽谈私有化事宜。",
+        "ts": "2026-10-27 04:46:30",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "0a30dbb0a542",
-        "title": "土耳其总统埃尔多安表示，那些试图将土耳其排除在地中海东部之外的国家必须尊重土耳其和利比亚的意愿。",
-        "ts": "2026-10-27 00:15:03",
+        "_key": "921be453cc08",
+        "title": "加拿大总理卡尼：加方打算迅速针对主权财富基金起草技术性文件。",
+        "ts": "2026-10-27 04:45:35",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "90213e672a12",
-        "title": "土耳其总统埃尔多安表示，土耳其无意在地中海东部地区针对任何一方占上风。",
-        "ts": "2026-10-27 00:15:01",
+        "_key": "b8e540574d0f",
+        "title": "加拿大总理卡尼：加拿大在美国贸易谈判中的立场没有改变。",
+        "ts": "2026-10-27 04:42:04",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "85148d1f6c49",
-        "title": "【我国拟新增34家领航级智能工厂】工业和信息化部26日发布通知，公示拟入选2026年度领航级智能工厂项目培育名单。小米汽车科技有限公司的AI驱动的敏捷制造高端新能源汽车超级智能工厂等34家工厂名列其中。智能工厂是智能制造的主要载体，是制造业",
-        "ts": "2026-10-27 00:13:09",
+        "_key": "215ebbdabf95",
+        "title": "【伊拉克否认按美方指令关闭对伊朗边境口岸】当地时间26日晚，伊拉克总理发言人表示，伊拉克各民兵组织已同意在明年6月30日前将所有武器纳入国家管控，其中有多个民兵组织已解除武装，其成员已并入伊拉克武装部队。他强调，有关美国指示关闭伊拉克南部米",
+        "ts": "2026-10-27 04:41:49",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "9247583cac85",
-        "title": "摩根大通将蔚来汽车的目标股价从每股4.50美元下调至3.70美元，维持蔚来汽车中性评级。",
-        "ts": "2026-10-27 00:11:01",
+        "_key": "91ebf5062961",
+        "title": "加拿大总理卡尼：与美国的贸易谈判略有加强。",
+        "ts": "2026-10-27 04:41:04",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "d0aea4db29c1",
-        "title": "土耳其总统埃尔多安表示，欧盟及其他各方对批准利比亚海事协议的反应没有合法依据。",
-        "ts": "2026-10-27 00:10:23",
+        "_key": "b53f25eba225",
+        "title": "加拿大总理卡尼：如果说美加贸易谈判取得了任何进展，那是因为美方正越来越接近加方的立场。",
+        "ts": "2026-10-27 04:40:25",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "c9eb33dbbe2c",
-        "title": "美国联邦住房金融局局长普尔特：抵押贷款市场不允许滥用垄断。",
-        "ts": "2026-10-27 00:06:35",
+        "_key": "f6db2f09d057",
+        "title": "【报道：斡旋方推美伊5日互让协议，重开海峡换解除海上封锁】在外界普遍担忧美以可能很快对伊朗发动新一轮袭击之际，沙特、土耳其和巴基斯坦的高级代表周一在德黑兰与伊朗官员举行会谈。此次访问是近期地区调解方密集展开外交努力的最新举措。海湾地区官员表",
+        "ts": "2026-10-27 04:36:01",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "7d089684ae77",
-        "title": "【俄乌今天在阿列什基停火】俄乌日前达成在赫尔松地区阿列什基停火。按照安排，这一停火将从莫斯科时间今天（10月27日）凌晨4点、基辅时间凌晨3点，也就是北京时间上午9点开始生效，届时将开通人道走廊，运入援助物资并疏散当地居民。俄罗斯总统新闻秘",
-        "ts": "2026-10-27 00:06:07",
+        "_key": "e75925800163",
+        "title": "加拿大总理卡尼：不愿签署美国8月提出的贸易条款。",
+        "ts": "2026-10-27 04:34:33",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "cc1dd90abb09",
-        "title": "俄罗斯谢韦尔钢铁公司表示，别尔哥罗德地区的采矿和加工厂在遭到无人机袭击后部分断电，矿工已撤离。",
-        "ts": "2026-10-27 00:05:41",
+        "_key": "0893f902aee0",
+        "title": "【古巴常驻联合国代表：联大将审议要求美结束对古封锁的决议草案】古巴常驻联合国代表埃内斯托·索韦龙·古斯曼接受拉美通讯社采访时表示，联合国大会将于27日至28日审议“必须终止美国对古巴的经济、商业和金融封锁”决议草案。古方将通过具体事例说明美",
+        "ts": "2026-10-27 04:34:09",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "6f1f809bcaa7",
-        "title": "布伦特原油突破112美元/桶，日内涨0.27%。",
-        "ts": "2026-10-27 00:05:04",
+        "_key": "c4c5ef3d87d1",
+        "title": "房地美：9月抵押贷款总组合年化增速为1.4%。",
+        "ts": "2026-10-27 04:33:58",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "e8f61b591dd2",
-        "title": "洲际交易所(ICE)原糖期货早盘下跌5%，至每吨510.60美元。",
-        "ts": "2026-10-27 00:03:46",
+        "_key": "6c265ae84201",
+        "title": "应用材料宣布将增加对荷兰半导体封装设备商BE Semiconductor Industries（Besi）的战略投资，将其持股比例提升至约20%。",
+        "ts": "2026-10-27 04:33:08",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "00a892164210",
-        "title": "美国联邦住房金融局普尔特：承诺将进一步采取行动降低抵押贷款成本。",
-        "ts": "2026-10-27 00:01:46",
+        "_key": "6588bc204201",
+        "title": "博索纳罗：将领导针对卢拉政府的反对派阵营。",
+        "ts": "2026-10-27 04:32:45",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "da973e772961",
-        "title": "美元指数突破102关口，日内涨0.25%。",
-        "ts": "2026-10-27 00:00:00",
+        "_key": "9c6ac0c08e34",
+        "title": "英特尔：与Classiq合作打造全栈量子计算平台。",
+        "ts": "2026-10-27 04:30:49",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "f97ef5af8329",
-        "title": "Netflix股价下跌3.3%，跌至2024年以来的最低水平。",
-        "ts": "2026-10-26 23:58:29",
+        "_key": "abae47db0ed8",
+        "title": "【墨西哥总统称多次拒绝美方入境开展缉毒行动的要求】当地时间10月26日，墨西哥总统辛鲍姆表示，自美国总统特朗普上任以来，美方曾多次要求派遣人员进入墨西哥境内，参与打击贩毒集团的行动，但墨方始终予以拒绝。辛鲍姆当天在晨间新闻发布会上表示，墨西",
+        "ts": "2026-10-27 04:29:24",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "a6393d895bbf",
-        "title": "伊朗官方媒体称，伊朗与《麦加协议》签署国同意继续开展对话，以加强地区安全与和平等领域的合作。",
-        "ts": "2026-10-26 23:57:57",
+        "_key": "7e29654bbcb7",
+        "title": "【巴西股市六年多来首次触发熔断机制】当地时间10月26日，巴西金融市场出现剧烈波动，主要股指大幅下跌，巴西证券交易所启动熔断机制。这是巴西股市自2020年3月以来首次触发熔断。当天上午，巴西主要股指伊博维斯帕指数较上一交易日收盘下跌10%，",
+        "ts": "2026-10-27 04:28:24",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "aeab4916916b",
-        "title": "CEMEX计划至2028年回购至多5亿美元股份。",
-        "ts": "2026-10-26 23:56:00",
+        "_key": "e1deecea55f4",
+        "title": "【泽连斯基下令加强乌克兰城市环形防御体系建设】乌克兰总统泽连斯基26日签署总统令，批准实施乌克兰国家安全与国防委员会关于加强城市环形防御的决议。根据决议，乌克兰将推进城市周边工程障碍地带建设，完善相关防御措施及实施机制。决议全文被列为仅供公",
+        "ts": "2026-10-27 04:28:21",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "dfabddbbc3b6",
-        "title": "布伦特原油扭转跌势，交易价格接近每桶117美元。",
-        "ts": "2026-10-26 23:54:49",
+        "_key": "6d5f1e73e225",
+        "title": "白宫经济顾问哈塞特：所谓可负担性危机是虚构之说。",
+        "ts": "2026-10-27 04:26:57",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "e2584495c4f7",
-        "title": "【联合国调查委员会：以色列犯下战争罪及危害人类罪】联合国巴勒斯坦被占领土（包括东耶路撒冷）和以色列问题独立国际调查委员会26日发布报告说，以色列在巴勒斯坦被占领土犯下战争罪及危害人类罪，并在加沙地带持续实施种族灭绝。（新华社）",
-        "ts": "2026-10-26 23:51:15",
+        "_key": "e57873ba3fe1",
+        "title": "捷蓝航空：有信心在2028年实现正向自由现金流。",
+        "ts": "2026-10-27 04:25:04",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "5d66557e1144",
-        "title": "墨西哥航空表示，从墨西哥城国际机场出发的新航线将飞往加州橙县约翰·韦恩机场、佛罗里达州劳德代尔堡‑好莱坞国际机场以及俄勒冈州波特兰国际机场。",
-        "ts": "2026-10-26 23:51:01",
+        "_key": "be29f0b9f480",
+        "title": "博通的XPU人工智能加速芯片将租赁给Anthropic。",
+        "ts": "2026-10-27 04:20:46",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "0e6e0cdd495f",
-        "title": "墨西哥航空与达美航空宣布，自墨西哥城国际机场新开三条航线。",
-        "ts": "2026-10-26 23:49:56",
+        "_key": "7d8facf13bcc",
+        "title": "博通为第一留置权份额提供残值支持。博通将自2027年起通过特殊目的载体（SPV）供应XPU人工智能加速芯片。",
+        "ts": "2026-10-27 04:20:30",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "5a5801b6f0d1",
-        "title": "【联合国秘书长：巴勒斯坦问题仍然是中东核心问题】当地时间26日，埃及总统塞西同到访的联合国秘书长古特雷斯举行会谈。古特雷斯强调，巴勒斯坦问题仍然是中东的核心问题。如果不能公正解决巴勒斯坦问题，中东地区就不可能实现持久和可持续的和平。他敦促国",
-        "ts": "2026-10-26 23:48:03",
+        "_key": "e9a522aa3f30",
+        "title": "美国银行、黑石、花旗、摩根士丹利与博通敲定 630 亿美元人工智能融资方案。",
+        "ts": "2026-10-27 04:18:43",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "07e84d186418",
-        "title": "伊朗、土耳其、巴基斯坦和沙特阿拉伯同意继续进行谈判。",
-        "ts": "2026-10-26 23:47:19",
+        "_key": "4e4cc407b8d4",
+        "title": "巴西股市因卢拉胜选暴跌 13.9%，创 2020 年以来最差单日表现。",
+        "ts": "2026-10-27 04:17:28",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "02b175413a5e",
-        "title": "【普京将会见伊朗卡塔尔领导人】俄罗斯总统助理乌沙科夫今天（10月26日）证实，俄罗斯总统普京将于10月27日在莫斯科分别会见伊朗总统佩泽希齐扬和卡塔尔埃米尔（国家元首）塔米姆。佩泽希齐扬今天在赴俄前表示，他将与普京就如何加强双边关系以及两国",
-        "ts": "2026-10-26 23:47:08",
+        "_key": "bc1fc33b2729",
+        "title": "捷蓝航空：相信公司拥有流动性和融资选择，能够为至少实现每股收益1美元以及2028年自由现金流为正搭建坚实过渡。2026财年平均燃油价格指引为每加仑3.95美元。",
+        "ts": "2026-10-27 04:16:55",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "07233e26f9f9",
-        "title": "奥迪发言人表示，大众汽车首席执行官布卢姆事先知晓奥迪首席执行官与特朗普同台亮相一事。",
-        "ts": "2026-10-26 23:44:50",
+        "_key": "842daea8fa8b",
+        "title": "捷蓝航空第三季度调整后每股亏损60美分，市场预期每股亏损55美分。",
+        "ts": "2026-10-27 04:16:30",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "a5bd01087c6e",
-        "title": "微软：自愿离职买断方案将面向加拿大、印度、英国和美国参与团队中职级70及以下符合条件的员工。",
-        "ts": "2026-10-26 23:44:35",
+        "_key": "96b557f2c4c1",
+        "title": "以色列总理内塔尼亚胡：选举前夕，12 频道和 13 频道又发布假新闻。我无意解除参谋长职务，我们将继续为以色列的安全协同工作。但我打算彻底消除伊朗核威胁，我将与我的好友特朗普一同完成此事，我们还将和其他国家签署和平协议。",
+        "ts": "2026-10-27 04:16:22",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "5d05c3c3e71c",
-        "title": "对冲基金Capula正考虑在希腊设立办公室。",
-        "ts": "2026-10-26 23:41:20",
+        "_key": "78ca8c3bec7f",
+        "title": "思科：推出基础设施特权访问方案，以身份绑定的加密管控机制替代永久管理员访问权限。",
+        "ts": "2026-10-27 04:12:23",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
-        "_key": "2e55b8eaf45e",
-        "title": "【俄称沃罗涅日遭无人机袭击 死亡人数升至3人】当地时间10月26日，俄罗斯沃罗涅日州州长古谢夫通报，该州遭乌克兰无人机袭击，死亡人数升至3人，受伤人数增至39人。目前仍有12人在医院接受救治，其中3人在重症监护室。",
-        "ts": "2026-10-26 23:40:21",
+        "_key": "79695a5db77c",
+        "title": "Amkor Technology Inc.（AMKR）三季度净销售19.9亿美元，分析师预期20.4亿美元。三季度调整后每股收益（EPS）为0.76美元，上年同期预期0.51美元。预计四季度净销售19亿-20亿美元，分析师预期20.5亿美元",
+        "ts": "2026-10-27 04:10:30",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5779,8 +5779,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5790,8 +5790,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5801,8 +5801,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5812,8 +5812,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5823,8 +5823,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5834,8 +5834,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5845,8 +5845,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5856,8 +5856,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5867,8 +5867,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5878,8 +5878,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       },
       {
@@ -5889,8 +5889,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T00:51:11+08:00",
-        "last_seen": "2026-10-27T00:51:11+08:00",
+        "first_seen": "2026-10-27T05:15:13+08:00",
+        "last_seen": "2026-10-27T05:15:13+08:00",
         "conflict": false
       }
     ]
