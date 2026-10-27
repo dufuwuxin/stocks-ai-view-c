@@ -1,9 +1,13 @@
 {
   "summary": {
-    "ts": "2026-10-27T20:01:16+08:00",
+    "ts": "2026-10-27T20:02:43+08:00",
     "date": "20261027",
-    "elapsed_s": 27.4,
+    "elapsed_s": 17.5,
     "groups": {
+      "event": {
+        "raw": 172,
+        "merged": 155
+      },
       "sector": {
         "raw": 20,
         "merged": 20
@@ -12,21 +16,17 @@
         "raw": 10,
         "merged": 10
       },
-      "event": {
-        "raw": 172,
-        "merged": 155
-      },
       "fund": {
         "raw": 60,
         "merged": 60
       },
       "news": {
-        "raw": 50,
-        "merged": 50
+        "raw": 51,
+        "merged": 51
       }
     },
-    "total_raw": 312,
-    "total_merged": 295,
+    "total_raw": 313,
+    "total_merged": 296,
     "dedup_removed": 17,
     "conflicts": 4,
     "errors": [],
@@ -68,6 +68,2381 @@
     }
   },
   "data": {
+    "event": [
+      {
+        "_key": "2026-10-26",
+        "date": "2026-10-26",
+        "rzye": 2397069156543,
+        "rqye": 29110049550,
+        "rzrqye": 2426179206093,
+        "rzmre": 126742825143,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-10-23",
+        "date": "2026-10-23",
+        "rzye": 2402663182353,
+        "rqye": 29096133241,
+        "rzrqye": 2431759315594,
+        "rzmre": 155740532283,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-10-22",
+        "date": "2026-10-22",
+        "rzye": 2426914425349,
+        "rqye": 28777421640,
+        "rzrqye": 2455691846989,
+        "rzmre": 118451602064,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-10-21",
+        "date": "2026-10-21",
+        "rzye": 2450277179446,
+        "rqye": 28854097703,
+        "rzrqye": 2479131277149,
+        "rzmre": 117341770922,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-10-20",
+        "date": "2026-10-20",
+        "rzye": 2451244937988,
+        "rqye": 29101691183,
+        "rzrqye": 2480346629171,
+        "rzmre": 121023885098,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-10-19",
+        "date": "2026-10-19",
+        "rzye": 2453374239917,
+        "rqye": 29167627323,
+        "rzrqye": 2482541867240,
+        "rzmre": 118238604318,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-10-16",
+        "date": "2026-10-16",
+        "rzye": 2459705595593,
+        "rqye": 29151419724,
+        "rzrqye": 2488857015317,
+        "rzmre": 121857375394,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-10-15",
+        "date": "2026-10-15",
+        "rzye": 2474195587769,
+        "rqye": 28996128605,
+        "rzrqye": 2503191716374,
+        "rzmre": 124282324291,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-10-14",
+        "date": "2026-10-14",
+        "rzye": 2505555275811,
+        "rqye": 29536246305,
+        "rzrqye": 2535091522116,
+        "rzmre": 112736766884,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-10-13",
+        "date": "2026-10-13",
+        "rzye": 2516278399553,
+        "rqye": 29566658809,
+        "rzrqye": 2545845058362,
+        "rzmre": 135866862600,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-10-12",
+        "date": "2026-10-12",
+        "rzye": 2525295724136,
+        "rqye": 29719628819,
+        "rzrqye": 2555015352955,
+        "rzmre": 121723905960,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-10-09",
+        "date": "2026-10-09",
+        "rzye": 2530054744718,
+        "rqye": 29601729054,
+        "rzrqye": 2559656473772,
+        "rzmre": 150415428516,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-10-08",
+        "date": "2026-10-08",
+        "rzye": 2544596119081,
+        "rqye": 29563438604,
+        "rzrqye": 2574159557685,
+        "rzmre": 139125330065,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-09-30",
+        "date": "2026-09-30",
+        "rzye": 2540456896977,
+        "rqye": 29395734489,
+        "rzrqye": 2569852631466,
+        "rzmre": 113981166716,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-09-29",
+        "date": "2026-09-29",
+        "rzye": 2579689104835,
+        "rqye": 29301342270,
+        "rzrqye": 2608990447105,
+        "rzmre": 123856102646,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-09-28",
+        "date": "2026-09-28",
+        "rzye": 2581694483903,
+        "rqye": 28999803561,
+        "rzrqye": 2610694287464,
+        "rzmre": 137286067155,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-09-24",
+        "date": "2026-09-24",
+        "rzye": 2607870593077,
+        "rqye": 29432703005,
+        "rzrqye": 2637303296082,
+        "rzmre": 141977528021,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-09-23",
+        "date": "2026-09-23",
+        "rzye": 2625313310665,
+        "rqye": 29694790073,
+        "rzrqye": 2655008100738,
+        "rzmre": 161077759463,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-09-22",
+        "date": "2026-09-22",
+        "rzye": 2626356590753,
+        "rqye": 29951569305,
+        "rzrqye": 2656308160058,
+        "rzmre": 209935071691,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-09-21",
+        "date": "2026-09-21",
+        "rzye": 2622962017725,
+        "rqye": 29842813951,
+        "rzrqye": 2652804831676,
+        "rzmre": 186678525906,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-09-18",
+        "date": "2026-09-18",
+        "rzye": 2608695463728,
+        "rqye": 29528168120,
+        "rzrqye": 2638223631848,
+        "rzmre": 188212224932,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-09-17",
+        "date": "2026-09-17",
+        "rzye": 2609863623661,
+        "rqye": 29234374391,
+        "rzrqye": 2639097998052,
+        "rzmre": 162132099285,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-09-16",
+        "date": "2026-09-16",
+        "rzye": 2607539489374,
+        "rqye": 29261418839,
+        "rzrqye": 2636800908213,
+        "rzmre": 169491288649,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-09-15",
+        "date": "2026-09-15",
+        "rzye": 2598287417098,
+        "rqye": 29183370707,
+        "rzrqye": 2627470787805,
+        "rzmre": 134998998484,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-09-14",
+        "date": "2026-09-14",
+        "rzye": 2597655692830,
+        "rqye": 29197864859,
+        "rzrqye": 2626853557689,
+        "rzmre": 130250543973,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-09-11",
+        "date": "2026-09-11",
+        "rzye": 2602594698547,
+        "rqye": 29031180338,
+        "rzrqye": 2631625878885,
+        "rzmre": 159872168313,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-09-10",
+        "date": "2026-09-10",
+        "rzye": 2617188985364,
+        "rqye": 29179841560,
+        "rzrqye": 2646368826924,
+        "rzmre": 136310836326,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-09-09",
+        "date": "2026-09-09",
+        "rzye": 2619403032246,
+        "rqye": 29197596297,
+        "rzrqye": 2648600628543,
+        "rzmre": 154967337224,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-09-08",
+        "date": "2026-09-08",
+        "rzye": 2622633728335,
+        "rqye": 28867150528,
+        "rzrqye": 2651500878863,
+        "rzmre": 171021890743,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "2026-09-07",
+        "date": "2026-09-07",
+        "rzye": 2620741936139,
+        "rqye": 28736818370,
+        "rzrqye": 2649478754509,
+        "rzmre": 174649112315,
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "601086",
+        "code": "601086",
+        "name": "国芳集团",
+        "reason": "连锁零售+消费场景+区域优势",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "600785",
+        "code": "600785",
+        "name": "新华百货",
+        "reason": "零售促销+股份回购+硬折扣",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "301314",
+        "code": "301314",
+        "name": "科瑞思",
+        "reason": "重大重组+光通信+磁性元器件",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "600626",
+        "code": "600626",
+        "name": "申达股份",
+        "reason": "汽车内饰+整车配套+中报扭亏+上海国资",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002623",
+        "code": "002623",
+        "name": "亚玛顿",
+        "reason": "玻璃基板+光伏玻璃+钙钛矿玻璃",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603037",
+        "code": "603037",
+        "name": "凯众股份",
+        "reason": "机器人零部件+汽车减震+拟收购拓盛",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "000888",
+        "code": "000888",
+        "name": "峨眉山A",
+        "reason": "景区索道+文旅产业+冰雪旅游",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "300504",
+        "code": "300504",
+        "name": "天邑股份",
+        "reason": "三季报扭亏+通信设备+MPO跳线",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002823",
+        "code": "002823",
+        "name": "凯中精密",
+        "reason": "精密零组件+机器人布局+汽车连接器",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603370",
+        "code": "603370",
+        "name": "华新精科",
+        "reason": "人形机器人+关节电机铁芯+新能源车铁芯",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002205",
+        "code": "002205",
+        "name": "国统股份",
+        "reason": "PCCP管道+风电混塔+央企控股",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603813",
+        "code": "603813",
+        "name": "原尚股份",
+        "reason": "汽车物流+仓储资源",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603843",
+        "code": "603843",
+        "name": "*ST正平",
+        "reason": "绿色算力+有色矿业+基建工程",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "605333",
+        "code": "605333",
+        "name": "沪光股份",
+        "reason": "具身智能+机器人量产+汽车线束",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002820",
+        "code": "002820",
+        "name": "桂发祥",
+        "reason": "休闲食品+非遗麻花+全国拓展",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "001318",
+        "code": "001318",
+        "name": "阳光乳业",
+        "reason": "乳制品+绿色食品+冷链物流+“羊”字辈",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002724",
+        "code": "002724",
+        "name": "海洋王",
+        "reason": "三季报增长+专业照明+AI智慧照明+“羊”字辈",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "300539",
+        "code": "300539",
+        "name": "横河精密",
+        "reason": "减速器+精密模具+汽车零部件",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "301479",
+        "code": "301479",
+        "name": "弘景光电",
+        "reason": "机器人视觉+全景相机+光通信",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002249",
+        "code": "002249",
+        "name": "大洋电机",
+        "reason": "机器人关节+电机业务+数据中心风机+“羊”字辈",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "301682",
+        "code": "301682",
+        "name": "宏明电子",
+        "reason": "精密零组件+人形机器人+特种电容",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603376",
+        "code": "603376",
+        "name": "大明电子",
+        "reason": "汽车电子+驾驶辅助+新能源车型",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002187",
+        "code": "002187",
+        "name": "广百股份",
+        "reason": "百货零售+免税退税+新零售业态",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "600715",
+        "code": "600715",
+        "name": "文投控股",
+        "reason": "AI漫剧+游戏运营+影院运营",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "600828",
+        "code": "600828",
+        "name": "茂业商业",
+        "reason": "百货零售+全渠道运营+自有物业",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "001331",
+        "code": "001331",
+        "name": "胜通能源",
+        "reason": "工业机器人+LNG运贸",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "001400",
+        "code": "001400",
+        "name": "江顺科技",
+        "reason": "3D打印+液冷+商业航天+铝挤压模具",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "000678",
+        "code": "000678",
+        "name": "襄阳轴承",
+        "reason": "机器人轴承+汽车轴承+“羊”字辈",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603758",
+        "code": "603758",
+        "name": "秦安股份",
+        "reason": "柔性压力传感器+参投墨现科技+真空镀膜+汽车零部件",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "601956",
+        "code": "601956",
+        "name": "东贝集团",
+        "reason": "汽车零部件+机器人电机+制冷压缩机",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "600303",
+        "code": "600303",
+        "name": "曙光股份",
+        "reason": "汽车车桥+新能源客车+军用方舱",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603565",
+        "code": "603565",
+        "name": "中谷物流",
+        "reason": "三季报增长+股权激励+集装箱物流",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "601566",
+        "code": "601566",
+        "name": "九牧王",
+        "reason": "羊毛羊绒+男裤+太空裤+海峡两岸",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "600838",
+        "code": "600838",
+        "name": "上海九百",
+        "reason": "商贸零售+商业地产+洗染服务",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002708",
+        "code": "002708",
+        "name": "光洋股份",
+        "reason": "人形机器人+PCB+汽车零部件+“羊”字辈",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002284",
+        "code": "002284",
+        "name": "亚太股份",
+        "reason": "股权受让+业绩增长+汽车制动+机器人模组",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002093",
+        "code": "002093",
+        "name": "国脉科技",
+        "reason": "AI应用+养老AI+身联网+通信服务",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002011",
+        "code": "002011",
+        "name": "盾安环境",
+        "reason": "三季报增长+数据中心温控+半导体温控+汽车热管理",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603028",
+        "code": "603028",
+        "name": "赛福天",
+        "reason": "机器人钢丝绳+高端特种钢索",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "001219",
+        "code": "001219",
+        "name": "青岛食品",
+        "reason": "三季报增长+饼干食品+渠道拓展",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603528",
+        "code": "603528",
+        "name": "多伦科技",
+        "reason": "交通机器人+具身智能+智慧交通",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "000058",
+        "code": "000058",
+        "name": "深赛格",
+        "reason": "布局半导体检测+罗山基地+检验检测+电子市场",
+        "sources": [
+          "ths_strong_stocks"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "688203|2家机构卖出，成功率45.41%|2026-10-27",
+        "type": "lhb",
+        "code": "688203",
+        "name": "海正生材",
+        "close": 13.4,
+        "chg": -16.5629,
+        "deal_amt": 180313176.02,
+        "expl": "2家机构卖出，成功率45.41%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "600127|卖一主卖，成功率44.87%|2026-10-27",
+        "type": "lhb",
+        "code": "600127",
+        "name": "金健米业",
+        "close": 10.38,
+        "chg": -6.9892,
+        "deal_amt": 474134866.14,
+        "expl": "卖一主卖，成功率44.87%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "688306|1家机构买入，成功率43.24%|2026-10-27",
+        "type": "lhb",
+        "code": "688306",
+        "name": "均普智能",
+        "close": 10.9,
+        "chg": 6.1344,
+        "deal_amt": 443743877.73,
+        "expl": "1家机构买入，成功率43.24%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "920157|主力做T，成功率47.17%|2026-10-27",
+        "type": "lhb",
+        "code": "920157",
+        "name": "宇特光电",
+        "close": 53.6,
+        "chg": -2.8986,
+        "deal_amt": 59014585.9,
+        "expl": "主力做T，成功率47.17%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "688386|1家机构买入，成功率45.47%|2026-10-27",
+        "type": "lhb",
+        "code": "688386",
+        "name": "泛亚微透",
+        "close": 49.3,
+        "chg": 5.8849,
+        "deal_amt": 347864230.38,
+        "expl": "1家机构买入，成功率45.47%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603758|买一主买，成功率42.97%|2026-10-27",
+        "type": "lhb",
+        "code": "603758",
+        "name": "秦安股份",
+        "close": 10.73,
+        "chg": 10.0513,
+        "deal_amt": 87945518,
+        "expl": "买一主买，成功率42.97%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "600626|普通席位买入，成功率44.73%|2026-10-27",
+        "type": "lhb",
+        "code": "600626",
+        "name": "申达股份",
+        "close": 3.94,
+        "chg": 10.0559,
+        "deal_amt": 135168780.17,
+        "expl": "普通席位买入，成功率44.73%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603110|2家机构卖出，成功率46.48%|2026-10-27",
+        "type": "lhb",
+        "code": "603110",
+        "name": "东方材料",
+        "close": 20.25,
+        "chg": -10,
+        "deal_amt": 205087091,
+        "expl": "2家机构卖出，成功率46.48%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "600838|普通席位买入，成功率41.21%|2026-10-27",
+        "type": "lhb",
+        "code": "600838",
+        "name": "上海九百",
+        "close": 13.31,
+        "chg": 10,
+        "deal_amt": 142288215,
+        "expl": "普通席位买入，成功率41.21%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "600785|普通席位买入，成功率40.27%|2026-10-27",
+        "type": "lhb",
+        "code": "600785",
+        "name": "新华百货",
+        "close": 13.9,
+        "chg": 9.9684,
+        "deal_amt": 352776362.91,
+        "expl": "普通席位买入，成功率40.27%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "920285|西藏自治区资金卖出，成功率37.47%|2026-10-27",
+        "type": "lhb",
+        "code": "920285",
+        "name": "远大健科",
+        "close": 23.91,
+        "chg": -4.3982,
+        "deal_amt": 27722072.76,
+        "expl": "西藏自治区资金卖出，成功率37.47%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "300539|主力做T，成功率24.99%|2026-10-27",
+        "type": "lhb",
+        "code": "300539",
+        "name": "横河精密",
+        "close": 19.68,
+        "chg": 20,
+        "deal_amt": 224261102.28,
+        "expl": "主力做T，成功率24.99%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "301488|3家机构卖出，成功率37.60%|2026-10-27",
+        "type": "lhb",
+        "code": "301488",
+        "name": "豪恩汽电",
+        "close": 81.56,
+        "chg": -15.9089,
+        "deal_amt": 124715724.99,
+        "expl": "3家机构卖出，成功率37.60%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "301052|5家机构买入，成功率18.91%|2026-10-27",
+        "type": "lhb",
+        "code": "301052",
+        "name": "果麦文化",
+        "close": 32.45,
+        "chg": 3.5088,
+        "deal_amt": 246117307.28,
+        "expl": "5家机构买入，成功率18.91%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "300756|4家机构卖出，成功率13.51%|2026-10-27",
+        "type": "lhb",
+        "code": "300756",
+        "name": "金马游乐",
+        "close": 18.4,
+        "chg": -14.0187,
+        "deal_amt": 770279037.89,
+        "expl": "4家机构卖出，成功率13.51%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "300618|2家机构卖出，成功率37.60%|2026-10-27",
+        "type": "lhb",
+        "code": "300618",
+        "name": "寒锐钴业",
+        "close": 24.18,
+        "chg": -16.3322,
+        "deal_amt": 241786027.9,
+        "expl": "2家机构卖出，成功率37.60%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "920196|1家机构卖出，成功率25.16%|2026-10-27",
+        "type": "lhb",
+        "code": "920196",
+        "name": "南方乳业",
+        "close": 17.06,
+        "chg": -3.4522,
+        "deal_amt": 36924448.64,
+        "expl": "1家机构卖出，成功率25.16%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "920091|主力做T，成功率46.19%|2026-10-27",
+        "type": "lhb",
+        "code": "920091",
+        "name": "大鹏工业",
+        "close": 31.38,
+        "chg": -13.3867,
+        "deal_amt": 50385212.8,
+        "expl": "主力做T，成功率46.19%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "920201|买一主买，成功率34.45%|2026-10-27",
+        "type": "lhb",
+        "code": "920201",
+        "name": "百瑞吉",
+        "close": 35.66,
+        "chg": 8.0606,
+        "deal_amt": 35542963.48,
+        "expl": "买一主买，成功率34.45%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "300976|2家机构买入，成功率49.49%|2026-10-27",
+        "type": "lhb",
+        "code": "300976",
+        "name": "达瑞电子",
+        "close": 57.13,
+        "chg": 6.985,
+        "deal_amt": 468950531.25,
+        "expl": "2家机构买入，成功率49.49%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "301682|普通席位买入，成功率39.28%|2026-10-27",
+        "type": "lhb",
+        "code": "301682",
+        "name": "宏明电子",
+        "close": 102.1,
+        "chg": 20.0047,
+        "deal_amt": 188870282.1,
+        "expl": "普通席位买入，成功率39.28%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "600293|普通席位卖出，成功率40.38%|2026-10-27",
+        "_src": "eastmoney_datacenter",
+        "type": "lhb",
+        "code": "600293",
+        "name": "三峡新材",
+        "close": 4.27,
+        "chg": -3.3937,
+        "deal_amt": 203998071.14,
+        "expl": "普通席位卖出，成功率40.38%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "605333|普通席位买入，成功率41.61%|2026-10-27",
+        "type": "lhb",
+        "code": "605333",
+        "name": "沪光股份",
+        "close": 19.91,
+        "chg": 10,
+        "deal_amt": 186143903.23,
+        "expl": "普通席位买入，成功率41.61%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "600865|上海资金买入，成功率45.63%|2026-10-27",
+        "type": "lhb",
+        "code": "600865",
+        "name": "百大集团",
+        "close": 12.62,
+        "chg": 10.0262,
+        "deal_amt": 480823225.52,
+        "expl": "上海资金买入，成功率45.63%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603657|上海资金卖出，成功率48.27%|2026-10-27",
+        "type": "lhb",
+        "code": "603657",
+        "name": "春光科技",
+        "close": 30.85,
+        "chg": -8.9433,
+        "deal_amt": 186741236.22,
+        "expl": "上海资金卖出，成功率48.27%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603337|2家机构买入，成功率41.71%|2026-10-27",
+        "type": "lhb",
+        "code": "603337",
+        "name": "杰克科技",
+        "close": 44.39,
+        "chg": 2.7784,
+        "deal_amt": 1061879220.69,
+        "expl": "2家机构买入，成功率41.71%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "600828|买一主买，成功率42.81%|2026-10-27",
+        "type": "lhb",
+        "code": "600828",
+        "name": "茂业商业",
+        "close": 4.47,
+        "chg": 10.0985,
+        "deal_amt": 56706559,
+        "expl": "买一主买，成功率42.81%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603683|买一主买，成功率46.33%|2026-10-27",
+        "type": "lhb",
+        "code": "603683",
+        "name": "晶华新材",
+        "close": 17.3,
+        "chg": 0.8159,
+        "deal_amt": 349435835.13,
+        "expl": "买一主买，成功率46.33%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "601086|买一主买，成功率42.97%|2026-10-27",
+        "type": "lhb",
+        "code": "601086",
+        "name": "国芳集团",
+        "close": 12.62,
+        "chg": 10.0262,
+        "deal_amt": 342395553,
+        "expl": "买一主买，成功率42.97%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "605058|1家机构卖出，成功率46.81%|2026-10-27",
+        "type": "lhb",
+        "code": "605058",
+        "name": "澳弘电子",
+        "close": 49.28,
+        "chg": -8.6731,
+        "deal_amt": 734881463.48,
+        "expl": "1家机构卖出，成功率46.81%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603677|卖一主卖，成功率30.30%|2026-10-27",
+        "type": "lhb",
+        "code": "603677",
+        "name": "奇精机械",
+        "close": 15.02,
+        "chg": -10.006,
+        "deal_amt": 24963734.55,
+        "expl": "卖一主卖，成功率30.30%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "600241|普通席位买入，成功率46.30%|2026-10-27",
+        "type": "lhb",
+        "code": "600241",
+        "name": "时代万恒",
+        "close": 9.69,
+        "chg": 3.8585,
+        "deal_amt": 138122002.4,
+        "expl": "普通席位买入，成功率46.30%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603956|普通席位卖出，成功率47.11%|2026-10-27",
+        "type": "lhb",
+        "code": "603956",
+        "name": "威派格",
+        "close": 6.28,
+        "chg": -10.0287,
+        "deal_amt": 86473906,
+        "expl": "普通席位卖出，成功率47.11%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603278|普通席位买入，成功率42.77%|2026-10-27",
+        "type": "lhb",
+        "code": "603278",
+        "name": "大业股份",
+        "close": 17.4,
+        "chg": 0.8696,
+        "deal_amt": 238276377.55,
+        "expl": "普通席位买入，成功率42.77%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603933|1家机构卖出，成功率36.61%|2026-10-27",
+        "type": "lhb",
+        "code": "603933",
+        "name": "睿能科技",
+        "close": 18.33,
+        "chg": -10.0147,
+        "deal_amt": 79070542,
+        "expl": "1家机构卖出，成功率36.61%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "600826|1家机构买入，成功率41.54%|2026-10-27",
+        "type": "lhb",
+        "code": "600826",
+        "name": "兰生股份",
+        "close": 9.04,
+        "chg": 9.9757,
+        "deal_amt": 197978009.94,
+        "expl": "1家机构买入，成功率41.54%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603186|2家机构卖出，成功率30.51%|2026-10-27",
+        "type": "lhb",
+        "code": "603186",
+        "name": "华正新材",
+        "close": 163.34,
+        "chg": -10.0006,
+        "deal_amt": 812939735.05,
+        "expl": "2家机构卖出，成功率30.51%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "600506|普通席位买入，成功率42.44%|2026-10-27",
+        "type": "lhb",
+        "code": "600506",
+        "name": "统一股份",
+        "close": 18.09,
+        "chg": 2.3769,
+        "deal_amt": 115248386.36,
+        "expl": "普通席位买入，成功率42.44%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603028|普通席位买入，成功率47.81%|2026-10-27",
+        "type": "lhb",
+        "code": "603028",
+        "name": "赛福天",
+        "close": 10.33,
+        "chg": 10.0106,
+        "deal_amt": 138260022.3,
+        "expl": "普通席位买入，成功率47.81%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603528|普通席位买入，成功率43.20%|2026-10-27",
+        "type": "lhb",
+        "code": "603528",
+        "name": "多伦科技",
+        "close": 9.85,
+        "chg": 10.0559,
+        "deal_amt": 258037218.25,
+        "expl": "普通席位买入，成功率43.20%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603089|1家机构卖出，成功率38.33%|2026-10-27",
+        "type": "lhb",
+        "code": "603089",
+        "name": "正裕工业",
+        "close": 11.77,
+        "chg": -10.0153,
+        "deal_amt": 180568222.43,
+        "expl": "1家机构卖出，成功率38.33%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603528|普通席位买入，成功率44.84%|2026-10-27",
+        "type": "lhb",
+        "code": "603528",
+        "name": "多伦科技",
+        "close": 9.85,
+        "chg": 10.0559,
+        "deal_amt": 280788118.25,
+        "expl": "普通席位买入，成功率44.84%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "300504|3家机构买入，成功率21.93%|2026-10-27",
+        "type": "lhb",
+        "code": "300504",
+        "name": "天邑股份",
+        "close": 17.69,
+        "chg": 20.0136,
+        "deal_amt": 175921496.72,
+        "expl": "3家机构买入，成功率21.93%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "001331|主力做T，成功率36.39%|2026-10-27",
+        "type": "lhb",
+        "code": "001331",
+        "name": "胜通能源",
+        "close": 38.52,
+        "chg": 9.9943,
+        "deal_amt": 305618556.9,
+        "expl": "主力做T，成功率36.39%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002249|普通席位买入，成功率41.07%|2026-10-27",
+        "type": "lhb",
+        "code": "002249",
+        "name": "大洋电机",
+        "close": 7.7,
+        "chg": 10,
+        "deal_amt": 469607776.81,
+        "expl": "普通席位买入，成功率41.07%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "001331|1家机构买入，成功率33.02%|2026-10-27",
+        "type": "lhb",
+        "code": "001331",
+        "name": "胜通能源",
+        "close": 38.52,
+        "chg": 9.9943,
+        "deal_amt": 517448576.56,
+        "expl": "1家机构买入，成功率33.02%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002811|5家机构买入，成功率35.12%|2026-10-27",
+        "type": "lhb",
+        "code": "002811",
+        "name": "郑中设计",
+        "close": 20.11,
+        "chg": 0.7011,
+        "deal_amt": 294770310.1,
+        "expl": "5家机构买入，成功率35.12%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "001216|1家机构卖出，成功率31.97%|2026-10-27",
+        "type": "lhb",
+        "code": "001216",
+        "name": "华瓷股份",
+        "close": 22.78,
+        "chg": -9.996,
+        "deal_amt": 267224684,
+        "expl": "1家机构卖出，成功率31.97%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "000678|2家机构买入，成功率36.05%|2026-10-27",
+        "type": "lhb",
+        "code": "000678",
+        "name": "襄阳轴承",
+        "close": 16.01,
+        "chg": 10.0344,
+        "deal_amt": 466046254.25,
+        "expl": "2家机构买入，成功率36.05%",
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "688065|30.8|2026-10-27",
+        "type": "blocktrade",
+        "code": "688065",
+        "name": "凯赛生物",
+        "price": 30.8,
+        "premium": -0.168466522678,
+        "vol": 389600,
+        "amt": 12000300,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "688090|47|2026-10-27",
+        "type": "blocktrade",
+        "code": "688090",
+        "name": "瑞松科技",
+        "price": 47,
+        "premium": -0.092488897471,
+        "vol": 290000,
+        "amt": 13630000,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "512800|0.88|2026-10-27",
+        "type": "blocktrade",
+        "code": "512800",
+        "name": "华宝中证银行ETF",
+        "price": 0.88,
+        "premium": 0.004566210046,
+        "vol": 5000000,
+        "amt": 4380000,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "688008|164.5|2026-10-27",
+        "type": "blocktrade",
+        "code": "688008",
+        "name": "澜起科技",
+        "price": 164.5,
+        "premium": 0,
+        "vol": 12500,
+        "amt": 2056300,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "603259|141.48|2026-10-27",
+        "_src": "eastmoney_datacenter",
+        "type": "blocktrade",
+        "code": "603259",
+        "name": "药明康德",
+        "price": 141.48,
+        "premium": 0,
+        "vol": 138000,
+        "amt": 19524200,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "600568|1.95|2026-10-27",
+        "type": "blocktrade",
+        "code": "600568",
+        "name": "ST中珠",
+        "price": 1.95,
+        "premium": -0.057971014493,
+        "vol": 500000,
+        "amt": 975000,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "601333|3.08|2026-10-27",
+        "type": "blocktrade",
+        "code": "601333",
+        "name": "广深铁路",
+        "price": 3.08,
+        "premium": -0.019108280255,
+        "vol": 20000000,
+        "amt": 61600000,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "601975|3.89|2026-10-27",
+        "_src": "eastmoney_datacenter",
+        "type": "blocktrade",
+        "code": "601975",
+        "name": "招商南油",
+        "price": 3.89,
+        "premium": 0,
+        "vol": 780000,
+        "amt": 3034200,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": true,
+        "conflicting_fields": [
+          "amt",
+          "vol"
+        ],
+        "field_sources": {
+          "vol": "eastmoney_datacenter",
+          "amt": "eastmoney_datacenter"
+        }
+      },
+      {
+        "_key": "605188|11.5|2026-10-27",
+        "type": "blocktrade",
+        "code": "605188",
+        "name": "国光连锁",
+        "price": 11.5,
+        "premium": -0.082202713488,
+        "vol": 180000,
+        "amt": 2070000,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "600150|35.17|2026-10-27",
+        "_src": "eastmoney_datacenter",
+        "type": "blocktrade",
+        "code": "600150",
+        "name": "中国船舶",
+        "price": 35.17,
+        "premium": 0.015300230947,
+        "vol": 264400,
+        "amt": 9298900,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": true,
+        "conflicting_fields": [
+          "amt",
+          "vol"
+        ],
+        "field_sources": {
+          "vol": "eastmoney_datacenter",
+          "amt": "eastmoney_datacenter"
+        }
+      },
+      {
+        "_key": "601026|11.16|2026-10-27",
+        "type": "blocktrade",
+        "code": "601026",
+        "name": "道生天合",
+        "price": 11.16,
+        "premium": -0.009760425909,
+        "vol": 700000,
+        "amt": 7812000,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "600028|5.51|2026-10-27",
+        "type": "blocktrade",
+        "code": "600028",
+        "name": "中国石化",
+        "price": 5.51,
+        "premium": 0,
+        "vol": 1811600,
+        "amt": 9981900,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "510330|4.36|2026-10-27",
+        "_src": "eastmoney_datacenter",
+        "type": "blocktrade",
+        "code": "510330",
+        "name": "华夏沪深300ETF",
+        "price": 4.36,
+        "premium": 0.01371774006,
+        "vol": 13000000,
+        "amt": 56693000,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": true,
+        "conflicting_fields": [
+          "amt",
+          "vol"
+        ],
+        "field_sources": {
+          "vol": "eastmoney_datacenter",
+          "amt": "eastmoney_datacenter"
+        }
+      },
+      {
+        "_key": "600026|19.48|2026-10-27",
+        "type": "blocktrade",
+        "code": "600026",
+        "name": "中远海能",
+        "price": 19.48,
+        "premium": 0,
+        "vol": 1000000,
+        "amt": 19480000,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "605098|48.37|2026-10-27",
+        "_src": "eastmoney_datacenter",
+        "type": "blocktrade",
+        "code": "605098",
+        "name": "行动教育",
+        "price": 48.37,
+        "premium": -0.06998654105,
+        "vol": 394500,
+        "amt": 19083800,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": true,
+        "conflicting_fields": [
+          "amt",
+          "vol"
+        ],
+        "field_sources": {
+          "vol": "eastmoney_datacenter",
+          "amt": "eastmoney_datacenter"
+        }
+      },
+      {
+        "_key": "601899|27.85|2026-10-27",
+        "type": "blocktrade",
+        "code": "601899",
+        "name": "紫金矿业",
+        "price": 27.85,
+        "premium": 0,
+        "vol": 74900,
+        "amt": 2086000,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "920640|19|2026-10-27",
+        "type": "blocktrade",
+        "code": "920640",
+        "name": "富士达",
+        "price": 19,
+        "premium": -0.272030651341,
+        "vol": 527510,
+        "amt": 10022690,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "600150|34.64|2026-10-27",
+        "type": "blocktrade",
+        "code": "600150",
+        "name": "中国船舶",
+        "price": 34.64,
+        "premium": 0,
+        "vol": 150000,
+        "amt": 5196000,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002384|101.09|2026-10-27",
+        "type": "blocktrade",
+        "code": "002384",
+        "name": "东山精密",
+        "price": 101.09,
+        "premium": 0,
+        "vol": 90000,
+        "amt": 9098100,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002027|5.13|2026-10-27",
+        "type": "blocktrade",
+        "code": "002027",
+        "name": "分众传媒",
+        "price": 5.13,
+        "premium": 0,
+        "vol": 1764000,
+        "amt": 9049300,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "127027|117|2026-10-27",
+        "type": "blocktrade",
+        "code": "127027",
+        "name": "能化转债",
+        "price": 117,
+        "premium": 0.065962099125,
+        "vol": 693,
+        "amt": 810810,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "301617|39.5|2026-10-27",
+        "type": "blocktrade",
+        "code": "301617",
+        "name": "博苑新材",
+        "price": 39.5,
+        "premium": -0.029960707269,
+        "vol": 100000,
+        "amt": 3950000,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "127080|190.5|2026-10-27",
+        "type": "blocktrade",
+        "code": "127080",
+        "name": "声迅转债",
+        "price": 190.5,
+        "premium": -0.19125451072,
+        "vol": 2925,
+        "amt": 5572125,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "127112|128.84|2026-10-27",
+        "type": "blocktrade",
+        "code": "127112",
+        "name": "尚太转债",
+        "price": 128.84,
+        "premium": -0.032732732733,
+        "vol": 2000,
+        "amt": 2576800,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "300002|6.9|2026-10-27",
+        "type": "blocktrade",
+        "code": "300002",
+        "name": "神州泰岳",
+        "price": 6.9,
+        "premium": -0.139650872818,
+        "vol": 1500000,
+        "amt": 10350000,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "301528|52.15|2026-10-27",
+        "type": "blocktrade",
+        "code": "301528",
+        "name": "多浦乐",
+        "price": 52.15,
+        "premium": -0.004960885327,
+        "vol": 176900,
+        "amt": 9223500,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "128138|127.17|2026-10-27",
+        "type": "blocktrade",
+        "code": "128138",
+        "name": "侨银转债",
+        "price": 127.17,
+        "premium": -0.020027895722,
+        "vol": 405,
+        "amt": 515038.5,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "300394|188.62|2026-10-27",
+        "type": "blocktrade",
+        "code": "300394",
+        "name": "天孚通信",
+        "price": 188.62,
+        "premium": 0,
+        "vol": 19700,
+        "amt": 3715800,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "300820|41|2026-10-27",
+        "type": "blocktrade",
+        "code": "300820",
+        "name": "英杰电气",
+        "price": 41,
+        "premium": -0.122994652406,
+        "vol": 160000,
+        "amt": 6560000,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "300284|5|2026-10-27",
+        "type": "blocktrade",
+        "code": "300284",
+        "name": "苏交科",
+        "price": 5,
+        "premium": 0.006036217304,
+        "vol": 1400000,
+        "amt": 7000000,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "000933|25.87|2026-10-27",
+        "type": "blocktrade",
+        "code": "000933",
+        "name": "神火股份",
+        "price": 25.87,
+        "premium": 0,
+        "vol": 150000,
+        "amt": 3880500,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002826|14.91|2026-10-27",
+        "type": "blocktrade",
+        "code": "002826",
+        "name": "易明医药",
+        "price": 14.91,
+        "premium": -0.019723865878,
+        "vol": 300000,
+        "amt": 4473000,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "127053|293|2026-10-27",
+        "type": "blocktrade",
+        "code": "127053",
+        "name": "豪美转债",
+        "price": 293,
+        "premium": 0.393247741322,
+        "vol": 1894,
+        "amt": 5549420,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "301269|102.78|2026-10-27",
+        "type": "blocktrade",
+        "code": "301269",
+        "name": "华大九天",
+        "price": 102.78,
+        "premium": -0.0100173377,
+        "vol": 5999800,
+        "amt": 616659400,
+        "trade_date": "2026-10-27",
+        "sources": [
+          "eastmoney_datacenter"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      }
+    ],
     "sector": [
       {
         "_key": "股份制银行Ⅱ",
@@ -80,8 +2455,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -95,8 +2470,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -110,8 +2485,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -125,8 +2500,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -140,8 +2515,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -155,8 +2530,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -170,8 +2545,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -185,8 +2560,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -200,8 +2575,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -215,8 +2590,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -230,8 +2605,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -245,8 +2620,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -260,8 +2635,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -275,8 +2650,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -290,8 +2665,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -305,8 +2680,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -320,8 +2695,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -335,8 +2710,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -350,8 +2725,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -365,8 +2740,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       }
     ],
@@ -391,8 +2766,8 @@
         "sources": [
           "tencent_quote"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -415,8 +2790,8 @@
         "sources": [
           "tencent_quote"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -439,8 +2814,8 @@
         "sources": [
           "tencent_quote"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -463,8 +2838,8 @@
         "sources": [
           "tencent_quote"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -487,8 +2862,8 @@
         "sources": [
           "tencent_quote"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -507,12 +2882,12 @@
         "mktcap": 196590000000.0,
         "floatcap": 288302000000.0,
         "pb": 0.0,
-        "time": "20261027153818",
+        "time": "20261027153800",
         "sources": [
           "tencent_quote"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -894,8 +3269,8 @@
         "sources": [
           "eastmoney_zt_pool"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -907,8 +3282,8 @@
         "sources": [
           "eastmoney_zt_pool"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -1173,8 +3548,8 @@
         "sources": [
           "eastmoney_zt_pool"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -1210,2383 +3585,8 @@
         "sources": [
           "eastmoney_zdfenbu"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      }
-    ],
-    "event": [
-      {
-        "_key": "2026-10-26",
-        "date": "2026-10-26",
-        "rzye": 2397069156543,
-        "rqye": 29110049550,
-        "rzrqye": 2426179206093,
-        "rzmre": 126742825143,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-10-23",
-        "date": "2026-10-23",
-        "rzye": 2402663182353,
-        "rqye": 29096133241,
-        "rzrqye": 2431759315594,
-        "rzmre": 155740532283,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-10-22",
-        "date": "2026-10-22",
-        "rzye": 2426914425349,
-        "rqye": 28777421640,
-        "rzrqye": 2455691846989,
-        "rzmre": 118451602064,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-10-21",
-        "date": "2026-10-21",
-        "rzye": 2450277179446,
-        "rqye": 28854097703,
-        "rzrqye": 2479131277149,
-        "rzmre": 117341770922,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-10-20",
-        "date": "2026-10-20",
-        "rzye": 2451244937988,
-        "rqye": 29101691183,
-        "rzrqye": 2480346629171,
-        "rzmre": 121023885098,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-10-19",
-        "date": "2026-10-19",
-        "rzye": 2453374239917,
-        "rqye": 29167627323,
-        "rzrqye": 2482541867240,
-        "rzmre": 118238604318,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-10-16",
-        "date": "2026-10-16",
-        "rzye": 2459705595593,
-        "rqye": 29151419724,
-        "rzrqye": 2488857015317,
-        "rzmre": 121857375394,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-10-15",
-        "date": "2026-10-15",
-        "rzye": 2474195587769,
-        "rqye": 28996128605,
-        "rzrqye": 2503191716374,
-        "rzmre": 124282324291,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-10-14",
-        "date": "2026-10-14",
-        "rzye": 2505555275811,
-        "rqye": 29536246305,
-        "rzrqye": 2535091522116,
-        "rzmre": 112736766884,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-10-13",
-        "date": "2026-10-13",
-        "rzye": 2516278399553,
-        "rqye": 29566658809,
-        "rzrqye": 2545845058362,
-        "rzmre": 135866862600,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-10-12",
-        "date": "2026-10-12",
-        "rzye": 2525295724136,
-        "rqye": 29719628819,
-        "rzrqye": 2555015352955,
-        "rzmre": 121723905960,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-10-09",
-        "date": "2026-10-09",
-        "rzye": 2530054744718,
-        "rqye": 29601729054,
-        "rzrqye": 2559656473772,
-        "rzmre": 150415428516,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-10-08",
-        "date": "2026-10-08",
-        "rzye": 2544596119081,
-        "rqye": 29563438604,
-        "rzrqye": 2574159557685,
-        "rzmre": 139125330065,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-09-30",
-        "date": "2026-09-30",
-        "rzye": 2540456896977,
-        "rqye": 29395734489,
-        "rzrqye": 2569852631466,
-        "rzmre": 113981166716,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-09-29",
-        "date": "2026-09-29",
-        "rzye": 2579689104835,
-        "rqye": 29301342270,
-        "rzrqye": 2608990447105,
-        "rzmre": 123856102646,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-09-28",
-        "date": "2026-09-28",
-        "rzye": 2581694483903,
-        "rqye": 28999803561,
-        "rzrqye": 2610694287464,
-        "rzmre": 137286067155,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-09-24",
-        "date": "2026-09-24",
-        "rzye": 2607870593077,
-        "rqye": 29432703005,
-        "rzrqye": 2637303296082,
-        "rzmre": 141977528021,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-09-23",
-        "date": "2026-09-23",
-        "rzye": 2625313310665,
-        "rqye": 29694790073,
-        "rzrqye": 2655008100738,
-        "rzmre": 161077759463,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-09-22",
-        "date": "2026-09-22",
-        "rzye": 2626356590753,
-        "rqye": 29951569305,
-        "rzrqye": 2656308160058,
-        "rzmre": 209935071691,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-09-21",
-        "date": "2026-09-21",
-        "rzye": 2622962017725,
-        "rqye": 29842813951,
-        "rzrqye": 2652804831676,
-        "rzmre": 186678525906,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-09-18",
-        "date": "2026-09-18",
-        "rzye": 2608695463728,
-        "rqye": 29528168120,
-        "rzrqye": 2638223631848,
-        "rzmre": 188212224932,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-09-17",
-        "date": "2026-09-17",
-        "rzye": 2609863623661,
-        "rqye": 29234374391,
-        "rzrqye": 2639097998052,
-        "rzmre": 162132099285,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-09-16",
-        "date": "2026-09-16",
-        "rzye": 2607539489374,
-        "rqye": 29261418839,
-        "rzrqye": 2636800908213,
-        "rzmre": 169491288649,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-09-15",
-        "date": "2026-09-15",
-        "rzye": 2598287417098,
-        "rqye": 29183370707,
-        "rzrqye": 2627470787805,
-        "rzmre": 134998998484,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-09-14",
-        "date": "2026-09-14",
-        "rzye": 2597655692830,
-        "rqye": 29197864859,
-        "rzrqye": 2626853557689,
-        "rzmre": 130250543973,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-09-11",
-        "date": "2026-09-11",
-        "rzye": 2602594698547,
-        "rqye": 29031180338,
-        "rzrqye": 2631625878885,
-        "rzmre": 159872168313,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-09-10",
-        "date": "2026-09-10",
-        "rzye": 2617188985364,
-        "rqye": 29179841560,
-        "rzrqye": 2646368826924,
-        "rzmre": 136310836326,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-09-09",
-        "date": "2026-09-09",
-        "rzye": 2619403032246,
-        "rqye": 29197596297,
-        "rzrqye": 2648600628543,
-        "rzmre": 154967337224,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-09-08",
-        "date": "2026-09-08",
-        "rzye": 2622633728335,
-        "rqye": 28867150528,
-        "rzrqye": 2651500878863,
-        "rzmre": 171021890743,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "2026-09-07",
-        "date": "2026-09-07",
-        "rzye": 2620741936139,
-        "rqye": 28736818370,
-        "rzrqye": 2649478754509,
-        "rzmre": 174649112315,
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "601086",
-        "code": "601086",
-        "name": "国芳集团",
-        "reason": "连锁零售+消费场景+区域优势",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "600785",
-        "code": "600785",
-        "name": "新华百货",
-        "reason": "零售促销+股份回购+硬折扣",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "301314",
-        "code": "301314",
-        "name": "科瑞思",
-        "reason": "重大重组+光通信+磁性元器件",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "600626",
-        "code": "600626",
-        "name": "申达股份",
-        "reason": "汽车内饰+整车配套+中报扭亏+上海国资",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002623",
-        "code": "002623",
-        "name": "亚玛顿",
-        "reason": "玻璃基板+光伏玻璃+钙钛矿玻璃",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603037",
-        "code": "603037",
-        "name": "凯众股份",
-        "reason": "机器人零部件+汽车减震+拟收购拓盛",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "000888",
-        "code": "000888",
-        "name": "峨眉山A",
-        "reason": "景区索道+文旅产业+冰雪旅游",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "300504",
-        "code": "300504",
-        "name": "天邑股份",
-        "reason": "三季报扭亏+通信设备+MPO跳线",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002823",
-        "code": "002823",
-        "name": "凯中精密",
-        "reason": "精密零组件+机器人布局+汽车连接器",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603370",
-        "code": "603370",
-        "name": "华新精科",
-        "reason": "人形机器人+关节电机铁芯+新能源车铁芯",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002205",
-        "code": "002205",
-        "name": "国统股份",
-        "reason": "PCCP管道+风电混塔+央企控股",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603813",
-        "code": "603813",
-        "name": "原尚股份",
-        "reason": "汽车物流+仓储资源",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603843",
-        "code": "603843",
-        "name": "*ST正平",
-        "reason": "绿色算力+有色矿业+基建工程",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "605333",
-        "code": "605333",
-        "name": "沪光股份",
-        "reason": "具身智能+机器人量产+汽车线束",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002820",
-        "code": "002820",
-        "name": "桂发祥",
-        "reason": "休闲食品+非遗麻花+全国拓展",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "001318",
-        "code": "001318",
-        "name": "阳光乳业",
-        "reason": "乳制品+绿色食品+冷链物流+“羊”字辈",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002724",
-        "code": "002724",
-        "name": "海洋王",
-        "reason": "三季报增长+专业照明+AI智慧照明+“羊”字辈",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "300539",
-        "code": "300539",
-        "name": "横河精密",
-        "reason": "减速器+精密模具+汽车零部件",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "301479",
-        "code": "301479",
-        "name": "弘景光电",
-        "reason": "机器人视觉+全景相机+光通信",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002249",
-        "code": "002249",
-        "name": "大洋电机",
-        "reason": "机器人关节+电机业务+数据中心风机+“羊”字辈",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "301682",
-        "code": "301682",
-        "name": "宏明电子",
-        "reason": "精密零组件+人形机器人+特种电容",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603376",
-        "code": "603376",
-        "name": "大明电子",
-        "reason": "汽车电子+驾驶辅助+新能源车型",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002187",
-        "code": "002187",
-        "name": "广百股份",
-        "reason": "百货零售+免税退税+新零售业态",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "600715",
-        "code": "600715",
-        "name": "文投控股",
-        "reason": "AI漫剧+游戏运营+影院运营",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "600828",
-        "code": "600828",
-        "name": "茂业商业",
-        "reason": "百货零售+全渠道运营+自有物业",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "001331",
-        "code": "001331",
-        "name": "胜通能源",
-        "reason": "工业机器人+LNG运贸",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "001400",
-        "code": "001400",
-        "name": "江顺科技",
-        "reason": "3D打印+液冷+商业航天+铝挤压模具",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "000678",
-        "code": "000678",
-        "name": "襄阳轴承",
-        "reason": "机器人轴承+汽车轴承+“羊”字辈",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603758",
-        "code": "603758",
-        "name": "秦安股份",
-        "reason": "柔性压力传感器+参投墨现科技+真空镀膜+汽车零部件",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "601956",
-        "code": "601956",
-        "name": "东贝集团",
-        "reason": "汽车零部件+机器人电机+制冷压缩机",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "600303",
-        "code": "600303",
-        "name": "曙光股份",
-        "reason": "汽车车桥+新能源客车+军用方舱",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603565",
-        "code": "603565",
-        "name": "中谷物流",
-        "reason": "三季报增长+股权激励+集装箱物流",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "601566",
-        "code": "601566",
-        "name": "九牧王",
-        "reason": "羊毛羊绒+男裤+太空裤+海峡两岸",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "600838",
-        "code": "600838",
-        "name": "上海九百",
-        "reason": "商贸零售+商业地产+洗染服务",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002708",
-        "code": "002708",
-        "name": "光洋股份",
-        "reason": "人形机器人+PCB+汽车零部件+“羊”字辈",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002284",
-        "code": "002284",
-        "name": "亚太股份",
-        "reason": "股权受让+业绩增长+汽车制动+机器人模组",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002093",
-        "code": "002093",
-        "name": "国脉科技",
-        "reason": "AI应用+养老AI+身联网+通信服务",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002011",
-        "code": "002011",
-        "name": "盾安环境",
-        "reason": "三季报增长+数据中心温控+半导体温控+汽车热管理",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603028",
-        "code": "603028",
-        "name": "赛福天",
-        "reason": "机器人钢丝绳+高端特种钢索",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "001219",
-        "code": "001219",
-        "name": "青岛食品",
-        "reason": "三季报增长+饼干食品+渠道拓展",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603528",
-        "code": "603528",
-        "name": "多伦科技",
-        "reason": "交通机器人+具身智能+智慧交通",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "000058",
-        "code": "000058",
-        "name": "深赛格",
-        "reason": "布局半导体检测+罗山基地+检验检测+电子市场",
-        "sources": [
-          "ths_strong_stocks"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "688203|2家机构卖出，成功率45.41%|2026-10-27",
-        "type": "lhb",
-        "code": "688203",
-        "name": "海正生材",
-        "close": 13.4,
-        "chg": -16.5629,
-        "deal_amt": 180313176.02,
-        "expl": "2家机构卖出，成功率45.41%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "600127|卖一主卖，成功率44.87%|2026-10-27",
-        "type": "lhb",
-        "code": "600127",
-        "name": "金健米业",
-        "close": 10.38,
-        "chg": -6.9892,
-        "deal_amt": 474134866.14,
-        "expl": "卖一主卖，成功率44.87%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "688306|1家机构买入，成功率43.24%|2026-10-27",
-        "type": "lhb",
-        "code": "688306",
-        "name": "均普智能",
-        "close": 10.9,
-        "chg": 6.1344,
-        "deal_amt": 443743877.73,
-        "expl": "1家机构买入，成功率43.24%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "920157|主力做T，成功率47.17%|2026-10-27",
-        "type": "lhb",
-        "code": "920157",
-        "name": "宇特光电",
-        "close": 53.6,
-        "chg": -2.8986,
-        "deal_amt": 59014585.9,
-        "expl": "主力做T，成功率47.17%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "688386|1家机构买入，成功率45.47%|2026-10-27",
-        "type": "lhb",
-        "code": "688386",
-        "name": "泛亚微透",
-        "close": 49.3,
-        "chg": 5.8849,
-        "deal_amt": 347864230.38,
-        "expl": "1家机构买入，成功率45.47%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603758|买一主买，成功率42.97%|2026-10-27",
-        "type": "lhb",
-        "code": "603758",
-        "name": "秦安股份",
-        "close": 10.73,
-        "chg": 10.0513,
-        "deal_amt": 87945518,
-        "expl": "买一主买，成功率42.97%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "600626|普通席位买入，成功率44.73%|2026-10-27",
-        "type": "lhb",
-        "code": "600626",
-        "name": "申达股份",
-        "close": 3.94,
-        "chg": 10.0559,
-        "deal_amt": 135168780.17,
-        "expl": "普通席位买入，成功率44.73%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603110|2家机构卖出，成功率46.48%|2026-10-27",
-        "type": "lhb",
-        "code": "603110",
-        "name": "东方材料",
-        "close": 20.25,
-        "chg": -10,
-        "deal_amt": 205087091,
-        "expl": "2家机构卖出，成功率46.48%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "600838|普通席位买入，成功率41.21%|2026-10-27",
-        "type": "lhb",
-        "code": "600838",
-        "name": "上海九百",
-        "close": 13.31,
-        "chg": 10,
-        "deal_amt": 142288215,
-        "expl": "普通席位买入，成功率41.21%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "600785|普通席位买入，成功率40.27%|2026-10-27",
-        "type": "lhb",
-        "code": "600785",
-        "name": "新华百货",
-        "close": 13.9,
-        "chg": 9.9684,
-        "deal_amt": 352776362.91,
-        "expl": "普通席位买入，成功率40.27%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "920285|西藏自治区资金卖出，成功率37.47%|2026-10-27",
-        "type": "lhb",
-        "code": "920285",
-        "name": "远大健科",
-        "close": 23.91,
-        "chg": -4.3982,
-        "deal_amt": 27722072.76,
-        "expl": "西藏自治区资金卖出，成功率37.47%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "300539|主力做T，成功率24.99%|2026-10-27",
-        "type": "lhb",
-        "code": "300539",
-        "name": "横河精密",
-        "close": 19.68,
-        "chg": 20,
-        "deal_amt": 224261102.28,
-        "expl": "主力做T，成功率24.99%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "301488|3家机构卖出，成功率37.60%|2026-10-27",
-        "type": "lhb",
-        "code": "301488",
-        "name": "豪恩汽电",
-        "close": 81.56,
-        "chg": -15.9089,
-        "deal_amt": 124715724.99,
-        "expl": "3家机构卖出，成功率37.60%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "301052|5家机构买入，成功率18.91%|2026-10-27",
-        "type": "lhb",
-        "code": "301052",
-        "name": "果麦文化",
-        "close": 32.45,
-        "chg": 3.5088,
-        "deal_amt": 246117307.28,
-        "expl": "5家机构买入，成功率18.91%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "300756|4家机构卖出，成功率13.51%|2026-10-27",
-        "type": "lhb",
-        "code": "300756",
-        "name": "金马游乐",
-        "close": 18.4,
-        "chg": -14.0187,
-        "deal_amt": 770279037.89,
-        "expl": "4家机构卖出，成功率13.51%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "300618|2家机构卖出，成功率37.60%|2026-10-27",
-        "type": "lhb",
-        "code": "300618",
-        "name": "寒锐钴业",
-        "close": 24.18,
-        "chg": -16.3322,
-        "deal_amt": 241786027.9,
-        "expl": "2家机构卖出，成功率37.60%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "920196|1家机构卖出，成功率25.16%|2026-10-27",
-        "type": "lhb",
-        "code": "920196",
-        "name": "南方乳业",
-        "close": 17.06,
-        "chg": -3.4522,
-        "deal_amt": 36924448.64,
-        "expl": "1家机构卖出，成功率25.16%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "920091|主力做T，成功率46.19%|2026-10-27",
-        "type": "lhb",
-        "code": "920091",
-        "name": "大鹏工业",
-        "close": 31.38,
-        "chg": -13.3867,
-        "deal_amt": 50385212.8,
-        "expl": "主力做T，成功率46.19%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "920201|买一主买，成功率34.45%|2026-10-27",
-        "type": "lhb",
-        "code": "920201",
-        "name": "百瑞吉",
-        "close": 35.66,
-        "chg": 8.0606,
-        "deal_amt": 35542963.48,
-        "expl": "买一主买，成功率34.45%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "300976|2家机构买入，成功率49.49%|2026-10-27",
-        "type": "lhb",
-        "code": "300976",
-        "name": "达瑞电子",
-        "close": 57.13,
-        "chg": 6.985,
-        "deal_amt": 468950531.25,
-        "expl": "2家机构买入，成功率49.49%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "301682|普通席位买入，成功率39.28%|2026-10-27",
-        "type": "lhb",
-        "code": "301682",
-        "name": "宏明电子",
-        "close": 102.1,
-        "chg": 20.0047,
-        "deal_amt": 188870282.1,
-        "expl": "普通席位买入，成功率39.28%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "600293|普通席位卖出，成功率40.38%|2026-10-27",
-        "_src": "eastmoney_datacenter",
-        "type": "lhb",
-        "code": "600293",
-        "name": "三峡新材",
-        "close": 4.27,
-        "chg": -3.3937,
-        "deal_amt": 203998071.14,
-        "expl": "普通席位卖出，成功率40.38%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "605333|普通席位买入，成功率41.61%|2026-10-27",
-        "type": "lhb",
-        "code": "605333",
-        "name": "沪光股份",
-        "close": 19.91,
-        "chg": 10,
-        "deal_amt": 186143903.23,
-        "expl": "普通席位买入，成功率41.61%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "600865|上海资金买入，成功率45.63%|2026-10-27",
-        "type": "lhb",
-        "code": "600865",
-        "name": "百大集团",
-        "close": 12.62,
-        "chg": 10.0262,
-        "deal_amt": 480823225.52,
-        "expl": "上海资金买入，成功率45.63%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603657|上海资金卖出，成功率48.27%|2026-10-27",
-        "type": "lhb",
-        "code": "603657",
-        "name": "春光科技",
-        "close": 30.85,
-        "chg": -8.9433,
-        "deal_amt": 186741236.22,
-        "expl": "上海资金卖出，成功率48.27%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603337|2家机构买入，成功率41.71%|2026-10-27",
-        "type": "lhb",
-        "code": "603337",
-        "name": "杰克科技",
-        "close": 44.39,
-        "chg": 2.7784,
-        "deal_amt": 1061879220.69,
-        "expl": "2家机构买入，成功率41.71%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "600828|买一主买，成功率42.81%|2026-10-27",
-        "type": "lhb",
-        "code": "600828",
-        "name": "茂业商业",
-        "close": 4.47,
-        "chg": 10.0985,
-        "deal_amt": 56706559,
-        "expl": "买一主买，成功率42.81%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603683|买一主买，成功率46.33%|2026-10-27",
-        "type": "lhb",
-        "code": "603683",
-        "name": "晶华新材",
-        "close": 17.3,
-        "chg": 0.8159,
-        "deal_amt": 349435835.13,
-        "expl": "买一主买，成功率46.33%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "601086|买一主买，成功率42.97%|2026-10-27",
-        "type": "lhb",
-        "code": "601086",
-        "name": "国芳集团",
-        "close": 12.62,
-        "chg": 10.0262,
-        "deal_amt": 342395553,
-        "expl": "买一主买，成功率42.97%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "605058|1家机构卖出，成功率46.81%|2026-10-27",
-        "type": "lhb",
-        "code": "605058",
-        "name": "澳弘电子",
-        "close": 49.28,
-        "chg": -8.6731,
-        "deal_amt": 734881463.48,
-        "expl": "1家机构卖出，成功率46.81%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603677|卖一主卖，成功率30.30%|2026-10-27",
-        "type": "lhb",
-        "code": "603677",
-        "name": "奇精机械",
-        "close": 15.02,
-        "chg": -10.006,
-        "deal_amt": 24963734.55,
-        "expl": "卖一主卖，成功率30.30%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "600241|普通席位买入，成功率46.30%|2026-10-27",
-        "type": "lhb",
-        "code": "600241",
-        "name": "时代万恒",
-        "close": 9.69,
-        "chg": 3.8585,
-        "deal_amt": 138122002.4,
-        "expl": "普通席位买入，成功率46.30%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603956|普通席位卖出，成功率47.11%|2026-10-27",
-        "type": "lhb",
-        "code": "603956",
-        "name": "威派格",
-        "close": 6.28,
-        "chg": -10.0287,
-        "deal_amt": 86473906,
-        "expl": "普通席位卖出，成功率47.11%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603278|普通席位买入，成功率42.77%|2026-10-27",
-        "type": "lhb",
-        "code": "603278",
-        "name": "大业股份",
-        "close": 17.4,
-        "chg": 0.8696,
-        "deal_amt": 238276377.55,
-        "expl": "普通席位买入，成功率42.77%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603933|1家机构卖出，成功率36.61%|2026-10-27",
-        "type": "lhb",
-        "code": "603933",
-        "name": "睿能科技",
-        "close": 18.33,
-        "chg": -10.0147,
-        "deal_amt": 79070542,
-        "expl": "1家机构卖出，成功率36.61%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "600826|1家机构买入，成功率41.54%|2026-10-27",
-        "type": "lhb",
-        "code": "600826",
-        "name": "兰生股份",
-        "close": 9.04,
-        "chg": 9.9757,
-        "deal_amt": 197978009.94,
-        "expl": "1家机构买入，成功率41.54%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603186|2家机构卖出，成功率30.51%|2026-10-27",
-        "type": "lhb",
-        "code": "603186",
-        "name": "华正新材",
-        "close": 163.34,
-        "chg": -10.0006,
-        "deal_amt": 812939735.05,
-        "expl": "2家机构卖出，成功率30.51%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "600506|普通席位买入，成功率42.44%|2026-10-27",
-        "type": "lhb",
-        "code": "600506",
-        "name": "统一股份",
-        "close": 18.09,
-        "chg": 2.3769,
-        "deal_amt": 115248386.36,
-        "expl": "普通席位买入，成功率42.44%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603028|普通席位买入，成功率47.81%|2026-10-27",
-        "type": "lhb",
-        "code": "603028",
-        "name": "赛福天",
-        "close": 10.33,
-        "chg": 10.0106,
-        "deal_amt": 138260022.3,
-        "expl": "普通席位买入，成功率47.81%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603528|普通席位买入，成功率43.20%|2026-10-27",
-        "type": "lhb",
-        "code": "603528",
-        "name": "多伦科技",
-        "close": 9.85,
-        "chg": 10.0559,
-        "deal_amt": 258037218.25,
-        "expl": "普通席位买入，成功率43.20%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603089|1家机构卖出，成功率38.33%|2026-10-27",
-        "type": "lhb",
-        "code": "603089",
-        "name": "正裕工业",
-        "close": 11.77,
-        "chg": -10.0153,
-        "deal_amt": 180568222.43,
-        "expl": "1家机构卖出，成功率38.33%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603528|普通席位买入，成功率44.84%|2026-10-27",
-        "type": "lhb",
-        "code": "603528",
-        "name": "多伦科技",
-        "close": 9.85,
-        "chg": 10.0559,
-        "deal_amt": 280788118.25,
-        "expl": "普通席位买入，成功率44.84%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "300504|3家机构买入，成功率21.93%|2026-10-27",
-        "type": "lhb",
-        "code": "300504",
-        "name": "天邑股份",
-        "close": 17.69,
-        "chg": 20.0136,
-        "deal_amt": 175921496.72,
-        "expl": "3家机构买入，成功率21.93%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "001331|主力做T，成功率36.39%|2026-10-27",
-        "type": "lhb",
-        "code": "001331",
-        "name": "胜通能源",
-        "close": 38.52,
-        "chg": 9.9943,
-        "deal_amt": 305618556.9,
-        "expl": "主力做T，成功率36.39%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002249|普通席位买入，成功率41.07%|2026-10-27",
-        "type": "lhb",
-        "code": "002249",
-        "name": "大洋电机",
-        "close": 7.7,
-        "chg": 10,
-        "deal_amt": 469607776.81,
-        "expl": "普通席位买入，成功率41.07%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "001331|1家机构买入，成功率33.02%|2026-10-27",
-        "type": "lhb",
-        "code": "001331",
-        "name": "胜通能源",
-        "close": 38.52,
-        "chg": 9.9943,
-        "deal_amt": 517448576.56,
-        "expl": "1家机构买入，成功率33.02%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002811|5家机构买入，成功率35.12%|2026-10-27",
-        "type": "lhb",
-        "code": "002811",
-        "name": "郑中设计",
-        "close": 20.11,
-        "chg": 0.7011,
-        "deal_amt": 294770310.1,
-        "expl": "5家机构买入，成功率35.12%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "001216|1家机构卖出，成功率31.97%|2026-10-27",
-        "type": "lhb",
-        "code": "001216",
-        "name": "华瓷股份",
-        "close": 22.78,
-        "chg": -9.996,
-        "deal_amt": 267224684,
-        "expl": "1家机构卖出，成功率31.97%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "000678|2家机构买入，成功率36.05%|2026-10-27",
-        "type": "lhb",
-        "code": "000678",
-        "name": "襄阳轴承",
-        "close": 16.01,
-        "chg": 10.0344,
-        "deal_amt": 466046254.25,
-        "expl": "2家机构买入，成功率36.05%",
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "688065|30.8|2026-10-27",
-        "type": "blocktrade",
-        "code": "688065",
-        "name": "凯赛生物",
-        "price": 30.8,
-        "premium": -0.168466522678,
-        "vol": 389600,
-        "amt": 12000300,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "688090|47|2026-10-27",
-        "type": "blocktrade",
-        "code": "688090",
-        "name": "瑞松科技",
-        "price": 47,
-        "premium": -0.092488897471,
-        "vol": 290000,
-        "amt": 13630000,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "512800|0.88|2026-10-27",
-        "type": "blocktrade",
-        "code": "512800",
-        "name": "华宝中证银行ETF",
-        "price": 0.88,
-        "premium": 0.004566210046,
-        "vol": 5000000,
-        "amt": 4380000,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "688008|164.5|2026-10-27",
-        "type": "blocktrade",
-        "code": "688008",
-        "name": "澜起科技",
-        "price": 164.5,
-        "premium": 0,
-        "vol": 12500,
-        "amt": 2056300,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "603259|141.48|2026-10-27",
-        "_src": "eastmoney_datacenter",
-        "type": "blocktrade",
-        "code": "603259",
-        "name": "药明康德",
-        "price": 141.48,
-        "premium": 0,
-        "vol": 138000,
-        "amt": 19524200,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "600568|1.95|2026-10-27",
-        "type": "blocktrade",
-        "code": "600568",
-        "name": "ST中珠",
-        "price": 1.95,
-        "premium": -0.057971014493,
-        "vol": 500000,
-        "amt": 975000,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "601333|3.08|2026-10-27",
-        "type": "blocktrade",
-        "code": "601333",
-        "name": "广深铁路",
-        "price": 3.08,
-        "premium": -0.019108280255,
-        "vol": 20000000,
-        "amt": 61600000,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "601975|3.89|2026-10-27",
-        "_src": "eastmoney_datacenter",
-        "type": "blocktrade",
-        "code": "601975",
-        "name": "招商南油",
-        "price": 3.89,
-        "premium": 0,
-        "vol": 780000,
-        "amt": 3034200,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": true,
-        "conflicting_fields": [
-          "amt",
-          "vol"
-        ],
-        "field_sources": {
-          "vol": "eastmoney_datacenter",
-          "amt": "eastmoney_datacenter"
-        }
-      },
-      {
-        "_key": "605188|11.5|2026-10-27",
-        "type": "blocktrade",
-        "code": "605188",
-        "name": "国光连锁",
-        "price": 11.5,
-        "premium": -0.082202713488,
-        "vol": 180000,
-        "amt": 2070000,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "600150|35.17|2026-10-27",
-        "_src": "eastmoney_datacenter",
-        "type": "blocktrade",
-        "code": "600150",
-        "name": "中国船舶",
-        "price": 35.17,
-        "premium": 0.015300230947,
-        "vol": 264400,
-        "amt": 9298900,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": true,
-        "conflicting_fields": [
-          "amt",
-          "vol"
-        ],
-        "field_sources": {
-          "vol": "eastmoney_datacenter",
-          "amt": "eastmoney_datacenter"
-        }
-      },
-      {
-        "_key": "601026|11.16|2026-10-27",
-        "type": "blocktrade",
-        "code": "601026",
-        "name": "道生天合",
-        "price": 11.16,
-        "premium": -0.009760425909,
-        "vol": 700000,
-        "amt": 7812000,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "600028|5.51|2026-10-27",
-        "type": "blocktrade",
-        "code": "600028",
-        "name": "中国石化",
-        "price": 5.51,
-        "premium": 0,
-        "vol": 1811600,
-        "amt": 9981900,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "510330|4.36|2026-10-27",
-        "_src": "eastmoney_datacenter",
-        "type": "blocktrade",
-        "code": "510330",
-        "name": "华夏沪深300ETF",
-        "price": 4.36,
-        "premium": 0.01371774006,
-        "vol": 13000000,
-        "amt": 56693000,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": true,
-        "conflicting_fields": [
-          "amt",
-          "vol"
-        ],
-        "field_sources": {
-          "vol": "eastmoney_datacenter",
-          "amt": "eastmoney_datacenter"
-        }
-      },
-      {
-        "_key": "600026|19.48|2026-10-27",
-        "type": "blocktrade",
-        "code": "600026",
-        "name": "中远海能",
-        "price": 19.48,
-        "premium": 0,
-        "vol": 1000000,
-        "amt": 19480000,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "605098|48.37|2026-10-27",
-        "_src": "eastmoney_datacenter",
-        "type": "blocktrade",
-        "code": "605098",
-        "name": "行动教育",
-        "price": 48.37,
-        "premium": -0.06998654105,
-        "vol": 394500,
-        "amt": 19083800,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": true,
-        "conflicting_fields": [
-          "amt",
-          "vol"
-        ],
-        "field_sources": {
-          "vol": "eastmoney_datacenter",
-          "amt": "eastmoney_datacenter"
-        }
-      },
-      {
-        "_key": "601899|27.85|2026-10-27",
-        "type": "blocktrade",
-        "code": "601899",
-        "name": "紫金矿业",
-        "price": 27.85,
-        "premium": 0,
-        "vol": 74900,
-        "amt": 2086000,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "920640|19|2026-10-27",
-        "type": "blocktrade",
-        "code": "920640",
-        "name": "富士达",
-        "price": 19,
-        "premium": -0.272030651341,
-        "vol": 527510,
-        "amt": 10022690,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "600150|34.64|2026-10-27",
-        "type": "blocktrade",
-        "code": "600150",
-        "name": "中国船舶",
-        "price": 34.64,
-        "premium": 0,
-        "vol": 150000,
-        "amt": 5196000,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002384|101.09|2026-10-27",
-        "type": "blocktrade",
-        "code": "002384",
-        "name": "东山精密",
-        "price": 101.09,
-        "premium": 0,
-        "vol": 90000,
-        "amt": 9098100,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002027|5.13|2026-10-27",
-        "type": "blocktrade",
-        "code": "002027",
-        "name": "分众传媒",
-        "price": 5.13,
-        "premium": 0,
-        "vol": 1764000,
-        "amt": 9049300,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "127027|117|2026-10-27",
-        "type": "blocktrade",
-        "code": "127027",
-        "name": "能化转债",
-        "price": 117,
-        "premium": 0.065962099125,
-        "vol": 693,
-        "amt": 810810,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "301617|39.5|2026-10-27",
-        "type": "blocktrade",
-        "code": "301617",
-        "name": "博苑新材",
-        "price": 39.5,
-        "premium": -0.029960707269,
-        "vol": 100000,
-        "amt": 3950000,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "127080|190.5|2026-10-27",
-        "type": "blocktrade",
-        "code": "127080",
-        "name": "声迅转债",
-        "price": 190.5,
-        "premium": -0.19125451072,
-        "vol": 2925,
-        "amt": 5572125,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "127112|128.84|2026-10-27",
-        "type": "blocktrade",
-        "code": "127112",
-        "name": "尚太转债",
-        "price": 128.84,
-        "premium": -0.032732732733,
-        "vol": 2000,
-        "amt": 2576800,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "300002|6.9|2026-10-27",
-        "type": "blocktrade",
-        "code": "300002",
-        "name": "神州泰岳",
-        "price": 6.9,
-        "premium": -0.139650872818,
-        "vol": 1500000,
-        "amt": 10350000,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "301528|52.15|2026-10-27",
-        "type": "blocktrade",
-        "code": "301528",
-        "name": "多浦乐",
-        "price": 52.15,
-        "premium": -0.004960885327,
-        "vol": 176900,
-        "amt": 9223500,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "128138|127.17|2026-10-27",
-        "type": "blocktrade",
-        "code": "128138",
-        "name": "侨银转债",
-        "price": 127.17,
-        "premium": -0.020027895722,
-        "vol": 405,
-        "amt": 515038.5,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "300394|188.62|2026-10-27",
-        "type": "blocktrade",
-        "code": "300394",
-        "name": "天孚通信",
-        "price": 188.62,
-        "premium": 0,
-        "vol": 19700,
-        "amt": 3715800,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "300820|41|2026-10-27",
-        "type": "blocktrade",
-        "code": "300820",
-        "name": "英杰电气",
-        "price": 41,
-        "premium": -0.122994652406,
-        "vol": 160000,
-        "amt": 6560000,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "300284|5|2026-10-27",
-        "type": "blocktrade",
-        "code": "300284",
-        "name": "苏交科",
-        "price": 5,
-        "premium": 0.006036217304,
-        "vol": 1400000,
-        "amt": 7000000,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "000933|25.87|2026-10-27",
-        "type": "blocktrade",
-        "code": "000933",
-        "name": "神火股份",
-        "price": 25.87,
-        "premium": 0,
-        "vol": 150000,
-        "amt": 3880500,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002826|14.91|2026-10-27",
-        "type": "blocktrade",
-        "code": "002826",
-        "name": "易明医药",
-        "price": 14.91,
-        "premium": -0.019723865878,
-        "vol": 300000,
-        "amt": 4473000,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "127053|293|2026-10-27",
-        "type": "blocktrade",
-        "code": "127053",
-        "name": "豪美转债",
-        "price": 293,
-        "premium": 0.393247741322,
-        "vol": 1894,
-        "amt": 5549420,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "301269|102.78|2026-10-27",
-        "type": "blocktrade",
-        "code": "301269",
-        "name": "华大九天",
-        "price": 102.78,
-        "premium": -0.0100173377,
-        "vol": 5999800,
-        "amt": 616659400,
-        "trade_date": "2026-10-27",
-        "sources": [
-          "eastmoney_datacenter"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       }
     ],
@@ -3611,8 +3611,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -3635,8 +3635,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -3659,8 +3659,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -3683,8 +3683,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -3707,8 +3707,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -3731,8 +3731,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -3755,8 +3755,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -3779,8 +3779,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -3803,8 +3803,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -3827,8 +3827,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -3851,8 +3851,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -3875,8 +3875,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -3899,8 +3899,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -3923,8 +3923,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -3947,8 +3947,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -3971,8 +3971,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -3995,8 +3995,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4019,8 +4019,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4043,8 +4043,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4067,8 +4067,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4091,8 +4091,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4115,8 +4115,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4139,8 +4139,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4163,8 +4163,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4187,8 +4187,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4211,8 +4211,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4235,8 +4235,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4259,8 +4259,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4283,8 +4283,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4307,8 +4307,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4331,8 +4331,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4355,8 +4355,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4379,8 +4379,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4403,8 +4403,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4427,8 +4427,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4451,8 +4451,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4475,8 +4475,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4499,8 +4499,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4523,8 +4523,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4547,8 +4547,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4571,8 +4571,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4595,8 +4595,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4619,8 +4619,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4643,8 +4643,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4667,8 +4667,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4691,8 +4691,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4715,8 +4715,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4739,8 +4739,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4763,8 +4763,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4787,8 +4787,8 @@
         "sources": [
           "eastmoney_fund_rank"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4813,8 +4813,8 @@
         "sources": [
           "eastmoney_fund_pingzhong"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4839,8 +4839,8 @@
         "sources": [
           "eastmoney_fund_pingzhong"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4865,8 +4865,8 @@
         "sources": [
           "eastmoney_fund_pingzhong"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4891,8 +4891,8 @@
         "sources": [
           "eastmoney_fund_pingzhong"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4917,8 +4917,8 @@
         "sources": [
           "eastmoney_fund_pingzhong"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4943,8 +4943,8 @@
         "sources": [
           "eastmoney_fund_pingzhong"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4969,8 +4969,8 @@
         "sources": [
           "eastmoney_fund_pingzhong"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -4995,8 +4995,8 @@
         "sources": [
           "eastmoney_fund_pingzhong"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5021,8 +5021,8 @@
         "sources": [
           "eastmoney_fund_pingzhong"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5047,12 +5047,45 @@
         "sources": [
           "eastmoney_fund_pingzhong"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       }
     ],
     "news": [
+      {
+        "_key": "71d0f7d429e5",
+        "title": "自由港迈克墨伦铜金公司(FREEPORT-MCMORAN)：第三季度合并总产量为8.32亿磅铜、23.4万盎司黄金、2200万磅钼。",
+        "ts": "2026-10-27 20:01:55",
+        "sources": [
+          "sina_news"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "9f28dc825323",
+        "title": "【REDMI K100发布，限时2999元起售】REDMI正式推出K100旗舰机型，搭载骁龙8至尊版+AI独显D2双芯配置，全系配备10000mAh金沙江大电池、165Hz高刷屏，预装澎湃OS 4。该机型售价3499元起，10月31日上午十",
+        "ts": "2026-10-27 20:01:46",
+        "sources": [
+          "sina_news"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "d5ab0f57a340",
+        "title": "戴尔将网络安全防护扩展至人工智能环境。",
+        "ts": "2026-10-27 20:01:17",
+        "sources": [
+          "sina_news"
+        ],
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
+        "conflict": false
+      },
       {
         "_key": "3c958c383d92",
         "title": "戴尔扩展网络安全与韧性产品组合。",
@@ -5060,8 +5093,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5071,8 +5104,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5082,8 +5115,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5093,8 +5126,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5104,8 +5137,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5115,8 +5148,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5126,8 +5159,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5137,8 +5170,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5148,8 +5181,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5159,8 +5192,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5170,8 +5203,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5181,8 +5214,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5192,8 +5225,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5203,8 +5236,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5214,8 +5247,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5225,8 +5258,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5236,8 +5269,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5247,8 +5280,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5258,8 +5291,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5269,8 +5302,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5280,8 +5313,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5291,8 +5324,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5302,8 +5335,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5313,8 +5346,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5324,8 +5357,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5335,8 +5368,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5346,8 +5379,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5357,8 +5390,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5368,8 +5401,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5379,8 +5412,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5390,8 +5423,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5401,8 +5434,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5412,8 +5445,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5423,8 +5456,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5434,8 +5467,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5445,8 +5478,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5456,30 +5489,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "eb87dc0df98b",
-        "title": "【声迅股份：2026年前三季度净利润亏损1862.75万元，上年同期亏损314.16万元】声迅股份公告，2026年第三季度营业收入8700.63万元，同比增长32.25%；归属于上市公司股东的净利润亏损619.82万元，扣非净利润亏损578",
-        "ts": "2026-10-27 19:40:50",
-        "sources": [
-          "sina_news"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "7e8d4404e2c1",
-        "title": "【福事特：拟投4.5亿元之内建设湖南制造基地】福事特公告，公司拟与宁乡经济技术开发区管理委员会签订项目落户合同，在宁乡市建设湖南制造基地，计划总投资4.5亿元之内（含流动资金）。公司第二届董事会第十九次会议已审议通过该对外投资事项。",
-        "ts": "2026-10-27 19:39:43",
-        "sources": [
-          "sina_news"
-        ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5489,8 +5500,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5500,8 +5511,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5511,8 +5522,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5522,8 +5533,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5533,8 +5544,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5544,8 +5555,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5555,8 +5566,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5566,8 +5577,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5577,8 +5588,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5588,8 +5599,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       },
       {
@@ -5599,8 +5610,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-27T20:01:16+08:00",
-        "last_seen": "2026-10-27T20:01:16+08:00",
+        "first_seen": "2026-10-27T20:02:43+08:00",
+        "last_seen": "2026-10-27T20:02:43+08:00",
         "conflict": false
       }
     ]
