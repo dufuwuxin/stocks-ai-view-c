@@ -1,8 +1,8 @@
 {
   "summary": {
-    "ts": "2026-10-28T00:26:03+08:00",
+    "ts": "2026-10-28T04:54:11+08:00",
     "date": "20261028",
-    "elapsed_s": 64.4,
+    "elapsed_s": 33.1,
     "groups": {
       "event": {
         "raw": 172,
@@ -12,6 +12,10 @@
         "raw": 20,
         "merged": 20
       },
+      "fund": {
+        "raw": 60,
+        "merged": 60
+      },
       "quote": {
         "raw": 10,
         "merged": 10
@@ -19,10 +23,6 @@
       "news": {
         "raw": 51,
         "merged": 51
-      },
-      "fund": {
-        "raw": 60,
-        "merged": 60
       }
     },
     "total_raw": 313,
@@ -79,8 +79,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -93,8 +93,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -107,8 +107,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -121,8 +121,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -135,8 +135,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -149,8 +149,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -163,8 +163,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -177,8 +177,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -191,8 +191,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -205,8 +205,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -219,8 +219,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -233,8 +233,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -247,8 +247,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -261,8 +261,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -275,8 +275,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -289,8 +289,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -303,8 +303,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -317,8 +317,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -331,8 +331,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -345,8 +345,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -359,8 +359,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -373,8 +373,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -387,8 +387,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -401,8 +401,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -415,8 +415,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -429,8 +429,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -443,8 +443,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -457,8 +457,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -471,8 +471,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -485,8 +485,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -497,8 +497,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -509,8 +509,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -521,8 +521,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -533,8 +533,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -545,8 +545,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -557,8 +557,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -569,8 +569,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -581,8 +581,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -593,8 +593,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -605,8 +605,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -617,8 +617,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -629,8 +629,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -641,8 +641,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -653,8 +653,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -665,8 +665,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -677,8 +677,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -689,8 +689,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -701,8 +701,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -713,8 +713,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -725,8 +725,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -737,8 +737,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -749,8 +749,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -761,8 +761,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -773,8 +773,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -785,8 +785,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -797,8 +797,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -809,8 +809,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -821,8 +821,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -833,8 +833,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -845,8 +845,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -857,8 +857,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -869,8 +869,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -881,8 +881,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -893,8 +893,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -905,8 +905,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -917,8 +917,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -929,8 +929,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -941,8 +941,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -953,8 +953,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -965,8 +965,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -977,8 +977,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -989,8 +989,8 @@
         "sources": [
           "ths_strong_stocks"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1006,8 +1006,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1023,8 +1023,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1040,8 +1040,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1057,8 +1057,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1074,8 +1074,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1091,8 +1091,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1108,8 +1108,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1125,8 +1125,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1142,8 +1142,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1159,8 +1159,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1176,8 +1176,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1193,8 +1193,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1210,8 +1210,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1227,8 +1227,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1244,8 +1244,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1261,8 +1261,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1278,8 +1278,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1295,8 +1295,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1312,8 +1312,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1329,8 +1329,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1346,8 +1346,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1364,8 +1364,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1381,8 +1381,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1398,8 +1398,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1415,8 +1415,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1432,8 +1432,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1449,8 +1449,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1466,8 +1466,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1483,8 +1483,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1500,8 +1500,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1517,8 +1517,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1534,8 +1534,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1551,8 +1551,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1568,8 +1568,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1585,8 +1585,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1602,8 +1602,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1619,8 +1619,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1636,8 +1636,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1653,8 +1653,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1670,8 +1670,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1687,8 +1687,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1704,8 +1704,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1721,8 +1721,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1738,8 +1738,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1755,8 +1755,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1772,8 +1772,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1789,8 +1789,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1806,8 +1806,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1823,8 +1823,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1840,8 +1840,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1857,8 +1857,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1874,8 +1874,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1891,8 +1891,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1909,8 +1909,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1926,8 +1926,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1943,8 +1943,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -1961,8 +1961,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": true,
         "conflicting_fields": [
           "amt",
@@ -1986,8 +1986,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2004,8 +2004,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": true,
         "conflicting_fields": [
           "amt",
@@ -2029,8 +2029,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2046,8 +2046,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2064,8 +2064,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": true,
         "conflicting_fields": [
           "amt",
@@ -2089,8 +2089,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2107,8 +2107,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": true,
         "conflicting_fields": [
           "amt",
@@ -2132,8 +2132,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2149,8 +2149,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2166,8 +2166,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2183,8 +2183,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2200,8 +2200,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2217,8 +2217,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2234,8 +2234,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2251,8 +2251,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2268,8 +2268,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2285,8 +2285,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2302,8 +2302,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2319,8 +2319,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2336,8 +2336,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2353,8 +2353,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2370,8 +2370,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2387,8 +2387,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2404,8 +2404,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2421,8 +2421,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2438,8 +2438,8 @@
         "sources": [
           "eastmoney_datacenter"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       }
     ],
@@ -2455,8 +2455,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2470,8 +2470,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2485,8 +2485,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2500,8 +2500,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2515,8 +2515,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2530,8 +2530,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2545,8 +2545,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2560,8 +2560,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2575,8 +2575,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2590,8 +2590,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2605,8 +2605,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2620,8 +2620,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2635,8 +2635,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2650,8 +2650,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2665,8 +2665,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2680,8 +2680,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2695,8 +2695,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2710,8 +2710,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2725,8 +2725,8 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2740,8 +2740,1470 @@
         "sources": [
           "tencent_mktHs"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      }
+    ],
+    "fund": [
+      {
+        "_key": "002910|易方达供给改革混合",
+        "code": "002910",
+        "name": "易方达供给改革混合",
+        "date": "2026-10-27",
+        "nav": 7.2768,
+        "acc_nav": 7.2768,
+        "daily_chg_pct": -0.87,
+        "ret_1w": -3.35,
+        "ret_1m": -8.89,
+        "ret_3m": -9.05,
+        "ret_6m": 51.09,
+        "ret_1y": 110.99,
+        "ret_2y": 181.51,
+        "ret_3y": 179.02,
+        "ret_ytd": 97.48,
+        "ret_since": 627.68,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "021179|易方达产业机遇混合A",
+        "code": "021179",
+        "name": "易方达产业机遇混合A",
+        "date": "2026-10-27",
+        "nav": 2.7091,
+        "acc_nav": 2.7091,
+        "daily_chg_pct": -0.89,
+        "ret_1w": -3.89,
+        "ret_1m": -9.84,
+        "ret_3m": -10.66,
+        "ret_6m": 46.09,
+        "ret_1y": 103.48,
+        "ret_2y": 161.9,
+        "ret_3y": null,
+        "ret_ytd": 92.22,
+        "ret_since": 170.91,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "021180|易方达产业机遇混合C",
+        "code": "021180",
+        "name": "易方达产业机遇混合C",
+        "date": "2026-10-27",
+        "nav": 2.6803,
+        "acc_nav": 2.6803,
+        "daily_chg_pct": -0.89,
+        "ret_1w": -3.9,
+        "ret_1m": -9.88,
+        "ret_3m": -10.78,
+        "ret_6m": 45.72,
+        "ret_1y": 102.47,
+        "ret_2y": 159.29,
+        "ret_3y": null,
+        "ret_ytd": 91.44,
+        "ret_since": 168.03,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "001411|诺安创新驱动混合A",
+        "code": "001411",
+        "name": "诺安创新驱动混合A",
+        "date": "2026-10-27",
+        "nav": 2.303,
+        "acc_nav": 2.418,
+        "daily_chg_pct": -2.62,
+        "ret_1w": -5.07,
+        "ret_1m": -17.72,
+        "ret_3m": -18.74,
+        "ret_6m": 33.12,
+        "ret_1y": 66.64,
+        "ret_2y": 119.12,
+        "ret_3y": 178.48,
+        "ret_ytd": 67.73,
+        "ret_since": 157.4,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002051|诺安创新驱动混合C",
+        "code": "002051",
+        "name": "诺安创新驱动混合C",
+        "date": "2026-10-27",
+        "nav": 2.272,
+        "acc_nav": 2.387,
+        "daily_chg_pct": -2.61,
+        "ret_1w": -5.06,
+        "ret_1m": -17.71,
+        "ret_3m": -18.74,
+        "ret_6m": 33.02,
+        "ret_1y": 66.45,
+        "ret_2y": 118.67,
+        "ret_3y": 177.41,
+        "ret_ytd": 67.55,
+        "ret_since": 151.53,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "004320|前海开源沪港深乐享生活",
+        "code": "004320",
+        "name": "前海开源沪港深乐享生活",
+        "date": "2026-10-27",
+        "nav": 4.4452,
+        "acc_nav": 4.4452,
+        "daily_chg_pct": -3.67,
+        "ret_1w": -10.33,
+        "ret_1m": -33.28,
+        "ret_3m": -23.29,
+        "ret_6m": -20.01,
+        "ret_1y": 61.03,
+        "ret_2y": 213.31,
+        "ret_3y": 233.52,
+        "ret_ytd": 30.05,
+        "ret_since": 344.52,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "023313|国泰聚鑫量化选股混合发起A",
+        "code": "023313",
+        "name": "国泰聚鑫量化选股混合发起A",
+        "date": "2026-10-27",
+        "nav": 1.6893,
+        "acc_nav": 1.6893,
+        "daily_chg_pct": -3.43,
+        "ret_1w": -6.48,
+        "ret_1m": -14.2,
+        "ret_3m": -18.35,
+        "ret_6m": 16.42,
+        "ret_1y": 55.1,
+        "ret_2y": null,
+        "ret_3y": null,
+        "ret_ytd": 44.71,
+        "ret_since": 68.93,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "023314|国泰聚鑫量化选股混合发起C",
+        "code": "023314",
+        "name": "国泰聚鑫量化选股混合发起C",
+        "date": "2026-10-27",
+        "nav": 1.6853,
+        "acc_nav": 1.6853,
+        "daily_chg_pct": -3.43,
+        "ret_1w": -6.48,
+        "ret_1m": -14.22,
+        "ret_3m": -18.4,
+        "ret_6m": 16.3,
+        "ret_1y": 54.77,
+        "ret_2y": null,
+        "ret_3y": null,
+        "ret_ytd": 44.46,
+        "ret_since": 68.53,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "005825|申万菱信智能驱动股票A",
+        "code": "005825",
+        "name": "申万菱信智能驱动股票A",
+        "date": "2026-10-27",
+        "nav": 7.4693,
+        "acc_nav": 7.9117,
+        "daily_chg_pct": -3.32,
+        "ret_1w": -5.49,
+        "ret_1m": -23.45,
+        "ret_3m": -18.12,
+        "ret_6m": 17.61,
+        "ret_1y": 53.37,
+        "ret_2y": 180.78,
+        "ret_3y": 221.74,
+        "ret_ytd": 52.25,
+        "ret_since": 771.14,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "015159|申万菱信智能驱动股票C",
+        "code": "015159",
+        "name": "申万菱信智能驱动股票C",
+        "date": "2026-10-27",
+        "nav": 7.2902,
+        "acc_nav": 7.7467,
+        "daily_chg_pct": -3.32,
+        "ret_1w": -5.5,
+        "ret_1m": -23.47,
+        "ret_3m": -18.21,
+        "ret_6m": 17.37,
+        "ret_1y": 52.76,
+        "ret_2y": 178.48,
+        "ret_3y": 217.89,
+        "ret_ytd": 51.75,
+        "ret_since": 123.49,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "018358|华富数字经济混合A",
+        "code": "018358",
+        "name": "华富数字经济混合A",
+        "date": "2026-10-27",
+        "nav": 2.299,
+        "acc_nav": 2.299,
+        "daily_chg_pct": -2.86,
+        "ret_1w": -6.97,
+        "ret_1m": -24.0,
+        "ret_3m": -23.59,
+        "ret_6m": -6.92,
+        "ret_1y": 52.5,
+        "ret_2y": 168.51,
+        "ret_3y": 153.31,
+        "ret_ytd": 40.6,
+        "ret_since": 129.9,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "004243|广发道琼斯石油指数人民币C",
+        "code": "004243",
+        "name": "广发道琼斯石油指数人民币C",
+        "date": "2026-10-26",
+        "nav": 3.3334,
+        "acc_nav": 3.3334,
+        "daily_chg_pct": 1.22,
+        "ret_1w": 1.71,
+        "ret_1m": 11.98,
+        "ret_3m": 19.76,
+        "ret_6m": 25.81,
+        "ret_1y": 52.14,
+        "ret_2y": 47.69,
+        "ret_3y": 41.59,
+        "ret_ytd": 54.13,
+        "ret_since": 233.34,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "018359|华富数字经济混合C",
+        "code": "018359",
+        "name": "华富数字经济混合C",
+        "date": "2026-10-27",
+        "nav": 2.2686,
+        "acc_nav": 2.2686,
+        "daily_chg_pct": -2.87,
+        "ret_1w": -6.98,
+        "ret_1m": -24.03,
+        "ret_3m": -23.67,
+        "ret_6m": -7.1,
+        "ret_1y": 51.91,
+        "ret_2y": 166.39,
+        "ret_3y": 150.31,
+        "ret_ytd": 40.16,
+        "ret_since": 126.86,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "019710|广发道琼斯石油指数(QDII-LOF)人民币E",
+        "code": "019710",
+        "name": "广发道琼斯石油指数(QDII-LOF)人民币E",
+        "date": "2026-10-26",
+        "nav": 3.3408,
+        "acc_nav": 3.3408,
+        "daily_chg_pct": 1.21,
+        "ret_1w": 1.7,
+        "ret_1m": 11.96,
+        "ret_3m": 19.72,
+        "ret_6m": 25.74,
+        "ret_1y": 51.91,
+        "ret_2y": 47.06,
+        "ret_3y": null,
+        "ret_ytd": 53.93,
+        "ret_since": 45.31,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "013107|华夏先进制造龙头混合A",
+        "code": "013107",
+        "name": "华夏先进制造龙头混合A",
+        "date": "2026-10-27",
+        "nav": 2.4253,
+        "acc_nav": 2.4253,
+        "daily_chg_pct": -2.68,
+        "ret_1w": -3.95,
+        "ret_1m": -17.62,
+        "ret_3m": -20.52,
+        "ret_6m": 13.28,
+        "ret_1y": 50.88,
+        "ret_2y": 144.44,
+        "ret_3y": 187.7,
+        "ret_ytd": 48.31,
+        "ret_since": 142.53,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "539002|建信新兴市场混合(QDII)A",
+        "code": "539002",
+        "name": "建信新兴市场混合(QDII)A",
+        "date": "2026-10-26",
+        "nav": 2.111,
+        "acc_nav": 2.111,
+        "daily_chg_pct": 1.64,
+        "ret_1w": null,
+        "ret_1m": -15.73,
+        "ret_3m": -8.69,
+        "ret_6m": 2.58,
+        "ret_1y": 50.68,
+        "ret_2y": 105.55,
+        "ret_3y": 190.37,
+        "ret_ytd": 47.83,
+        "ret_since": 111.1,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002289|华商改革创新股票A",
+        "code": "002289",
+        "name": "华商改革创新股票A",
+        "date": "2026-10-27",
+        "nav": 4.5216,
+        "acc_nav": 4.5216,
+        "daily_chg_pct": -4.85,
+        "ret_1w": -8.48,
+        "ret_1m": -20.25,
+        "ret_3m": -24.71,
+        "ret_6m": 15.82,
+        "ret_1y": 50.4,
+        "ret_2y": 122.27,
+        "ret_3y": 148.88,
+        "ret_ytd": 50.22,
+        "ret_since": 352.16,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "018147|建信新兴市场混合(QDII)C",
+        "code": "018147",
+        "name": "建信新兴市场混合(QDII)C",
+        "date": "2026-10-26",
+        "nav": 2.076,
+        "acc_nav": 2.076,
+        "daily_chg_pct": 1.67,
+        "ret_1w": null,
+        "ret_1m": -15.75,
+        "ret_3m": -8.79,
+        "ret_6m": 2.37,
+        "ret_1y": 50.11,
+        "ret_2y": 103.93,
+        "ret_3y": 186.34,
+        "ret_ytd": 47.44,
+        "ret_since": 158.53,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "013108|华夏先进制造龙头混合C",
+        "code": "013108",
+        "name": "华夏先进制造龙头混合C",
+        "date": "2026-10-27",
+        "nav": 2.3539,
+        "acc_nav": 2.3539,
+        "daily_chg_pct": -2.68,
+        "ret_1w": -3.96,
+        "ret_1m": -17.66,
+        "ret_3m": -20.63,
+        "ret_6m": 12.95,
+        "ret_1y": 49.99,
+        "ret_2y": 141.5,
+        "ret_3y": 182.51,
+        "ret_ytd": 47.59,
+        "ret_since": 135.39,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "018851|博时标普石油天然气勘探及生产精选行业指数发起(QDII)A人民币",
+        "code": "018851",
+        "name": "博时标普石油天然气勘探及生产精选行业指数发起(QDII)A人民币",
+        "date": "2026-10-26",
+        "nav": 1.2775,
+        "acc_nav": 1.2775,
+        "daily_chg_pct": 1.46,
+        "ret_1w": 2.43,
+        "ret_1m": 9.71,
+        "ret_3m": 15.9,
+        "ret_6m": 18.88,
+        "ret_1y": 49.68,
+        "ret_2y": 42.77,
+        "ret_3y": 29.68,
+        "ret_ytd": 53.44,
+        "ret_since": 27.75,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "016052|华商改革创新股票C",
+        "code": "016052",
+        "name": "华商改革创新股票C",
+        "date": "2026-10-27",
+        "nav": 4.3841,
+        "acc_nav": 4.3841,
+        "daily_chg_pct": -4.86,
+        "ret_1w": -8.49,
+        "ret_1m": -20.3,
+        "ret_3m": -24.82,
+        "ret_6m": 15.4,
+        "ret_1y": 49.4,
+        "ret_2y": 119.47,
+        "ret_3y": 143.09,
+        "ret_ytd": 49.38,
+        "ret_since": 82.91,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002376|国寿安保核心产业混合",
+        "code": "002376",
+        "name": "国寿安保核心产业混合",
+        "date": "2026-10-27",
+        "nav": 1.444,
+        "acc_nav": 1.845,
+        "daily_chg_pct": -1.97,
+        "ret_1w": -4.24,
+        "ret_1m": -10.59,
+        "ret_3m": -11.08,
+        "ret_6m": -3.99,
+        "ret_1y": 49.33,
+        "ret_2y": 100.28,
+        "ret_3y": 87.29,
+        "ret_ytd": 48.1,
+        "ret_since": 101.54,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "018853|博时标普石油天然气勘探及生产精选行业指数发起(QDII)C人民币",
+        "code": "018853",
+        "name": "博时标普石油天然气勘探及生产精选行业指数发起(QDII)C人民币",
+        "date": "2026-10-26",
+        "nav": 1.258,
+        "acc_nav": 1.258,
+        "daily_chg_pct": 1.46,
+        "ret_1w": 2.43,
+        "ret_1m": 9.75,
+        "ret_3m": 15.9,
+        "ret_6m": 18.78,
+        "ret_1y": 49.28,
+        "ret_2y": 41.75,
+        "ret_3y": 27.75,
+        "ret_ytd": 53.12,
+        "ret_since": 25.8,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "007343|嘉实科技创新混合",
+        "code": "007343",
+        "name": "嘉实科技创新混合",
+        "date": "2026-10-27",
+        "nav": 5.4496,
+        "acc_nav": 5.4496,
+        "daily_chg_pct": -0.82,
+        "ret_1w": -1.07,
+        "ret_1m": -3.91,
+        "ret_3m": -9.01,
+        "ret_6m": 27.78,
+        "ret_1y": 49.15,
+        "ret_2y": 134.62,
+        "ret_3y": 194.1,
+        "ret_ytd": 60.84,
+        "ret_since": 444.96,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "457001|国富亚洲机会股票(QDII)A",
+        "code": "457001",
+        "name": "国富亚洲机会股票(QDII)A",
+        "date": "2026-10-26",
+        "nav": 2.5381,
+        "acc_nav": 2.7051,
+        "daily_chg_pct": 0.24,
+        "ret_1w": -2.91,
+        "ret_1m": -14.65,
+        "ret_3m": -8.48,
+        "ret_6m": -1.23,
+        "ret_1y": 47.63,
+        "ret_2y": 116.54,
+        "ret_3y": 122.45,
+        "ret_ytd": 40.55,
+        "ret_since": 188.03,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "630001|华商领先企业混合",
+        "code": "630001",
+        "name": "华商领先企业混合",
+        "date": "2026-10-27",
+        "nav": 0.7966,
+        "acc_nav": 2.7002,
+        "daily_chg_pct": -5.01,
+        "ret_1w": -9.07,
+        "ret_1m": -20.45,
+        "ret_3m": -24.96,
+        "ret_6m": 13.96,
+        "ret_1y": 47.35,
+        "ret_2y": 100.82,
+        "ret_3y": 93.54,
+        "ret_ytd": 47.45,
+        "ret_since": 198.36,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "005844|东方人工智能主题混合A",
+        "code": "005844",
+        "name": "东方人工智能主题混合A",
+        "date": "2026-10-27",
+        "nav": 2.3306,
+        "acc_nav": 2.3306,
+        "daily_chg_pct": -6.84,
+        "ret_1w": -14.86,
+        "ret_1m": -30.3,
+        "ret_3m": -34.96,
+        "ret_6m": 12.24,
+        "ret_1y": 47.13,
+        "ret_2y": 130.55,
+        "ret_3y": 124.61,
+        "ret_ytd": 43.55,
+        "ret_since": 133.06,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "001154|华银平安中国主题灵活配置",
+        "code": "001154",
+        "name": "华银平安中国主题灵活配置",
+        "date": "2026-10-27",
+        "nav": 1.6927,
+        "acc_nav": 1.6927,
+        "daily_chg_pct": -2.04,
+        "ret_1w": -2.99,
+        "ret_1m": -13.55,
+        "ret_3m": -14.9,
+        "ret_6m": 24.37,
+        "ret_1y": 47.06,
+        "ret_2y": 65.79,
+        "ret_3y": 66.6,
+        "ret_ytd": 39.43,
+        "ret_since": 69.27,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "021662|国富亚洲机会股票(QDII)C",
+        "code": "021662",
+        "name": "国富亚洲机会股票(QDII)C",
+        "date": "2026-10-26",
+        "nav": 2.4999,
+        "acc_nav": 2.4999,
+        "daily_chg_pct": 0.24,
+        "ret_1w": -2.92,
+        "ret_1m": -14.68,
+        "ret_3m": -8.58,
+        "ret_6m": -1.44,
+        "ret_1y": 46.96,
+        "ret_2y": 114.57,
+        "ret_3y": null,
+        "ret_ytd": 40.01,
+        "ret_since": 118.26,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "006373|国富全球科技互联混合(QDII)人民币A",
+        "code": "006373",
+        "name": "国富全球科技互联混合(QDII)人民币A",
+        "date": "2026-10-26",
+        "nav": 6.3059,
+        "acc_nav": 6.3059,
+        "daily_chg_pct": 1.47,
+        "ret_1w": -2.95,
+        "ret_1m": -11.76,
+        "ret_3m": -6.35,
+        "ret_6m": 1.95,
+        "ret_1y": 46.88,
+        "ret_2y": 86.79,
+        "ret_3y": 180.25,
+        "ret_ytd": 42.43,
+        "ret_since": 530.59,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002891|华夏移动互联混合人民币",
+        "code": "002891",
+        "name": "华夏移动互联混合人民币",
+        "date": "2026-10-26",
+        "nav": 2.33,
+        "acc_nav": 2.33,
+        "daily_chg_pct": 1.79,
+        "ret_1w": -2.59,
+        "ret_1m": -18.25,
+        "ret_3m": -9.13,
+        "ret_6m": -5.32,
+        "ret_1y": 46.73,
+        "ret_2y": 72.08,
+        "ret_3y": 64.08,
+        "ret_ytd": 41.21,
+        "ret_since": 133.0,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "017811|东方人工智能主题混合C",
+        "code": "017811",
+        "name": "东方人工智能主题混合C",
+        "date": "2026-10-27",
+        "nav": 2.2982,
+        "acc_nav": 2.2982,
+        "daily_chg_pct": -6.84,
+        "ret_1w": -14.87,
+        "ret_1m": -30.32,
+        "ret_3m": -35.02,
+        "ret_6m": 12.01,
+        "ret_1y": 46.54,
+        "ret_2y": 128.72,
+        "ret_3y": 121.94,
+        "ret_ytd": 43.08,
+        "ret_since": 148.64,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "001715|工银新焦点混合A",
+        "code": "001715",
+        "name": "工银新焦点混合A",
+        "date": "2026-10-27",
+        "nav": 4.6752,
+        "acc_nav": 4.6752,
+        "daily_chg_pct": -5.03,
+        "ret_1w": -6.81,
+        "ret_1m": -6.91,
+        "ret_3m": 3.37,
+        "ret_6m": 20.77,
+        "ret_1y": 46.41,
+        "ret_2y": 143.26,
+        "ret_3y": 193.83,
+        "ret_ytd": 52.23,
+        "ret_since": 367.52,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "021842|国富全球科技互联混合(QDII)人民币C",
+        "code": "021842",
+        "name": "国富全球科技互联混合(QDII)人民币C",
+        "date": "2026-10-26",
+        "nav": 6.2509,
+        "acc_nav": 6.2509,
+        "daily_chg_pct": 1.47,
+        "ret_1w": -2.96,
+        "ret_1m": -11.79,
+        "ret_3m": -6.45,
+        "ret_6m": 1.72,
+        "ret_1y": 46.26,
+        "ret_2y": 85.09,
+        "ret_3y": null,
+        "ret_ytd": 41.93,
+        "ret_since": 104.32,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "001998|工银新焦点混合C",
+        "code": "001998",
+        "name": "工银新焦点混合C",
+        "date": "2026-10-27",
+        "nav": 4.3998,
+        "acc_nav": 4.3998,
+        "daily_chg_pct": -5.03,
+        "ret_1w": -6.82,
+        "ret_1m": -6.96,
+        "ret_3m": 3.21,
+        "ret_6m": 20.41,
+        "ret_1y": 45.58,
+        "ret_2y": 140.44,
+        "ret_3y": 188.72,
+        "ret_ytd": 51.52,
+        "ret_since": 339.98,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "110005|易方达积极成长混合",
+        "code": "110005",
+        "name": "易方达积极成长混合",
+        "date": "2026-10-27",
+        "nav": 1.1232,
+        "acc_nav": 6.9796,
+        "daily_chg_pct": -4.47,
+        "ret_1w": -9.78,
+        "ret_1m": -26.17,
+        "ret_3m": -23.25,
+        "ret_6m": 5.31,
+        "ret_1y": 45.14,
+        "ret_2y": 118.61,
+        "ret_3y": 113.54,
+        "ret_ytd": 39.61,
+        "ret_since": 1658.21,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "005682|财通资管消费精选混合A",
+        "code": "005682",
+        "name": "财通资管消费精选混合A",
+        "date": "2026-10-27",
+        "nav": 2.8457,
+        "acc_nav": 2.8457,
+        "daily_chg_pct": -1.63,
+        "ret_1w": -0.12,
+        "ret_1m": -3.72,
+        "ret_3m": 1.11,
+        "ret_6m": -5.14,
+        "ret_1y": 44.13,
+        "ret_2y": 103.99,
+        "ret_3y": 132.4,
+        "ret_ytd": 28.76,
+        "ret_since": 184.57,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "011020|财通资管消费精选混合C",
+        "code": "011020",
+        "name": "财通资管消费精选混合C",
+        "date": "2026-10-27",
+        "nav": 1.366,
+        "acc_nav": 1.366,
+        "daily_chg_pct": -1.63,
+        "ret_1w": -0.12,
+        "ret_1m": -3.72,
+        "ret_3m": 1.09,
+        "ret_6m": -5.19,
+        "ret_1y": 44.0,
+        "ret_2y": 103.61,
+        "ret_3y": 131.72,
+        "ret_ytd": 28.66,
+        "ret_since": 36.6,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "501026|财通多策略福享混合(LOF)A",
+        "code": "501026",
+        "name": "财通多策略福享混合(LOF)A",
+        "date": "2026-10-27",
+        "nav": 2.1135,
+        "acc_nav": 2.1135,
+        "daily_chg_pct": -1.04,
+        "ret_1w": -4.58,
+        "ret_1m": -18.6,
+        "ret_3m": -13.95,
+        "ret_6m": 6.1,
+        "ret_1y": 43.76,
+        "ret_2y": 151.49,
+        "ret_3y": 219.5,
+        "ret_ytd": 35.96,
+        "ret_since": 111.35,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "020018|国泰金鹿混合",
+        "code": "020018",
+        "name": "国泰金鹿混合",
+        "date": "2026-10-27",
+        "nav": 3.3013,
+        "acc_nav": 3.6434,
+        "daily_chg_pct": -1.29,
+        "ret_1w": -3.04,
+        "ret_1m": -12.7,
+        "ret_3m": -13.57,
+        "ret_6m": 4.09,
+        "ret_1y": 43.07,
+        "ret_2y": 83.72,
+        "ret_3y": 68.36,
+        "ret_ytd": 40.02,
+        "ret_since": 406.22,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "019454|华泰柏瑞中韩半导体ETF发起式联接(QDII)A",
+        "code": "019454",
+        "name": "华泰柏瑞中韩半导体ETF发起式联接(QDII)A",
+        "date": "2026-10-27",
+        "nav": 2.9207,
+        "acc_nav": 2.9207,
+        "daily_chg_pct": -0.17,
+        "ret_1w": -2.6,
+        "ret_1m": -21.7,
+        "ret_3m": -19.92,
+        "ret_6m": -4.28,
+        "ret_1y": 42.67,
+        "ret_2y": 141.62,
+        "ret_3y": 195.62,
+        "ret_ytd": 44.0,
+        "ret_since": 192.1,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "022681|华泰柏瑞中韩半导体ETF发起式联接(QDII)I",
+        "code": "022681",
+        "name": "华泰柏瑞中韩半导体ETF发起式联接(QDII)I",
+        "date": "2026-10-27",
+        "nav": 2.9157,
+        "acc_nav": 2.9157,
+        "daily_chg_pct": -0.17,
+        "ret_1w": -2.61,
+        "ret_1m": -21.71,
+        "ret_3m": -19.94,
+        "ret_6m": -4.32,
+        "ret_1y": 42.53,
+        "ret_2y": null,
+        "ret_3y": null,
+        "ret_ytd": 43.89,
+        "ret_since": 149.97,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "019455|华泰柏瑞中韩半导体ETF发起式联接(QDII)C",
+        "code": "019455",
+        "name": "华泰柏瑞中韩半导体ETF发起式联接(QDII)C",
+        "date": "2026-10-27",
+        "nav": 2.8986,
+        "acc_nav": 2.8986,
+        "daily_chg_pct": -0.17,
+        "ret_1w": -2.61,
+        "ret_1m": -21.72,
+        "ret_3m": -19.97,
+        "ret_6m": -4.4,
+        "ret_1y": 42.31,
+        "ret_2y": 140.41,
+        "ret_3y": 193.41,
+        "ret_ytd": 43.71,
+        "ret_since": 189.89,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "020775|国寿安保产业升级股票发起式A",
+        "code": "020775",
+        "name": "国寿安保产业升级股票发起式A",
+        "date": "2026-10-27",
+        "nav": 1.8791,
+        "acc_nav": 1.8791,
+        "daily_chg_pct": -2.22,
+        "ret_1w": -4.75,
+        "ret_1m": -13.46,
+        "ret_3m": -12.6,
+        "ret_6m": -11.17,
+        "ret_1y": 40.63,
+        "ret_2y": 85.57,
+        "ret_3y": null,
+        "ret_ytd": 40.19,
+        "ret_since": 87.91,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "001184|易方达新常态混合A",
+        "code": "001184",
+        "name": "易方达新常态混合A",
+        "date": "2026-10-27",
+        "nav": 1.5661,
+        "acc_nav": 1.5661,
+        "daily_chg_pct": -2.48,
+        "ret_1w": -7.22,
+        "ret_1m": -24.61,
+        "ret_3m": -24.71,
+        "ret_6m": -6.39,
+        "ret_1y": 40.33,
+        "ret_2y": 164.99,
+        "ret_3y": 173.32,
+        "ret_ytd": 34.66,
+        "ret_since": 56.61,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "020774|国寿安保产业升级股票发起式C",
+        "code": "020774",
+        "name": "国寿安保产业升级股票发起式C",
+        "date": "2026-10-27",
+        "nav": 1.8559,
+        "acc_nav": 1.8559,
+        "daily_chg_pct": -2.22,
+        "ret_1w": -4.76,
+        "ret_1m": -13.49,
+        "ret_3m": -12.71,
+        "ret_6m": -11.39,
+        "ret_1y": 39.93,
+        "ret_2y": 83.75,
+        "ret_3y": null,
+        "ret_ytd": 39.63,
+        "ret_since": 85.59,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "013296|民生加银聚优精选混合A",
+        "code": "013296",
+        "name": "民生加银聚优精选混合A",
+        "date": "2026-10-27",
+        "nav": 1.1135,
+        "acc_nav": 1.1135,
+        "daily_chg_pct": -3.67,
+        "ret_1w": -8.48,
+        "ret_1m": -26.37,
+        "ret_3m": -24.25,
+        "ret_6m": -3.4,
+        "ret_1y": 38.58,
+        "ret_2y": 95.39,
+        "ret_3y": 116.13,
+        "ret_ytd": 42.32,
+        "ret_since": 11.35,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "005628|汇安趋势动力股票A",
+        "code": "005628",
+        "name": "汇安趋势动力股票A",
+        "date": "2026-10-27",
+        "nav": 1.9866,
+        "acc_nav": 1.9866,
+        "daily_chg_pct": -5.33,
+        "ret_1w": -12.74,
+        "ret_1m": -29.41,
+        "ret_3m": -31.34,
+        "ret_6m": 5.99,
+        "ret_1y": 38.13,
+        "ret_2y": 65.92,
+        "ret_3y": 54.8,
+        "ret_ytd": 46.35,
+        "ret_since": 98.66,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "025331|民生加银聚优精选混合C",
+        "code": "025331",
+        "name": "民生加银聚优精选混合C",
+        "date": "2026-10-27",
+        "nav": 1.1086,
+        "acc_nav": 1.1086,
+        "daily_chg_pct": -3.67,
+        "ret_1w": -8.49,
+        "ret_1m": -26.4,
+        "ret_3m": -24.32,
+        "ret_6m": -3.6,
+        "ret_1y": 38.02,
+        "ret_2y": null,
+        "ret_3y": null,
+        "ret_ytd": 41.84,
+        "ret_since": 41.6,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "005119|银华智荟内在价值灵活配置混合发起A",
+        "code": "005119",
+        "name": "银华智荟内在价值灵活配置混合发起A",
+        "date": "2026-10-27",
+        "nav": 3.4744,
+        "acc_nav": 3.4744,
+        "daily_chg_pct": -4.82,
+        "ret_1w": -11.72,
+        "ret_1m": -28.97,
+        "ret_3m": -33.49,
+        "ret_6m": 6.6,
+        "ret_1y": 37.67,
+        "ret_2y": 102.68,
+        "ret_3y": 140.91,
+        "ret_ytd": 35.57,
+        "ret_since": 247.44,
+        "sources": [
+          "eastmoney_fund_rank"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002910",
+        "fund_code": "002910",
+        "fund_name": "易方达供给改革混合",
+        "fund_rate": 0.15,
+        "fund_source_rate": 1.5,
+        "fund_minsg": 10.0,
+        "holdings": [
+          "sh603259",
+          "sh601899",
+          "sh601168",
+          "sh600188",
+          "sz002444",
+          "sh603979",
+          "sh600031",
+          "sh688256",
+          "sz300759",
+          "sh601699"
+        ],
+        "sources": [
+          "eastmoney_fund_pingzhong"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "021179",
+        "fund_code": "021179",
+        "fund_name": "易方达产业机遇混合A",
+        "fund_rate": 0.15,
+        "fund_source_rate": 1.5,
+        "fund_minsg": 10.0,
+        "holdings": [
+          "sh603259",
+          "sh601899",
+          "sh601168",
+          "sh600188",
+          "sz002444",
+          "sh603979",
+          "sh688256",
+          "sz300759",
+          "sh600348",
+          "sh601699"
+        ],
+        "sources": [
+          "eastmoney_fund_pingzhong"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "021180",
+        "fund_code": "021180",
+        "fund_name": "易方达产业机遇混合C",
+        "fund_rate": 0.0,
+        "fund_source_rate": 0.0,
+        "fund_minsg": 10.0,
+        "holdings": [
+          "sh603259",
+          "sh601899",
+          "sh601168",
+          "sh600188",
+          "sz002444",
+          "sh603979",
+          "sh688256",
+          "sz300759",
+          "sh600348",
+          "sh601699"
+        ],
+        "sources": [
+          "eastmoney_fund_pingzhong"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "001411",
+        "fund_code": "001411",
+        "fund_name": "诺安创新驱动混合A",
+        "fund_rate": 0.15,
+        "fund_source_rate": 1.5,
+        "fund_minsg": 10.0,
+        "holdings": [
+          "sh688981",
+          "sz002938",
+          "sh688362",
+          "sh688825",
+          "sh688123",
+          "sz300223",
+          "sz300602",
+          "sh688720",
+          "sh688249",
+          "sh688256"
+        ],
+        "sources": [
+          "eastmoney_fund_pingzhong"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "002051",
+        "fund_code": "002051",
+        "fund_name": "诺安创新驱动混合C",
+        "fund_rate": 0.15,
+        "fund_source_rate": 1.5,
+        "fund_minsg": 10.0,
+        "holdings": [
+          "sh688981",
+          "sz002938",
+          "sh688362",
+          "sh688825",
+          "sh688123",
+          "sz300223",
+          "sz300602",
+          "sh688720",
+          "sh688249",
+          "sh688256"
+        ],
+        "sources": [
+          "eastmoney_fund_pingzhong"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "004320",
+        "fund_code": "004320",
+        "fund_name": "前海开源沪港深乐享生活",
+        "fund_rate": 0.15,
+        "fund_source_rate": 1.5,
+        "fund_minsg": 10.0,
+        "holdings": [
+          "sz300502",
+          "sh688498",
+          "sz300308",
+          "sz300394",
+          "sh603083",
+          "sh688256",
+          "sz002281",
+          "sh600330",
+          "sh603306",
+          "sz068691"
+        ],
+        "sources": [
+          "eastmoney_fund_pingzhong"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "023313",
+        "fund_code": "023313",
+        "fund_name": "国泰聚鑫量化选股混合发起A",
+        "fund_rate": 0.1,
+        "fund_source_rate": 1.0,
+        "fund_minsg": 10.0,
+        "holdings": [
+          "sz301349",
+          "sh688012",
+          "sz002371",
+          "sh688082",
+          "sh688072",
+          "sz300604",
+          "sz002986",
+          "sh688120",
+          "sh688361",
+          "sz002648"
+        ],
+        "sources": [
+          "eastmoney_fund_pingzhong"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "023314",
+        "fund_code": "023314",
+        "fund_name": "国泰聚鑫量化选股混合发起C",
+        "fund_rate": 0.0,
+        "fund_source_rate": 0.0,
+        "fund_minsg": 10.0,
+        "holdings": [
+          "sz301349",
+          "sh688012",
+          "sz002371",
+          "sh688082",
+          "sh688072",
+          "sz300604",
+          "sz002986",
+          "sh688120",
+          "sh688361",
+          "sz002648"
+        ],
+        "sources": [
+          "eastmoney_fund_pingzhong"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "005825",
+        "fund_code": "005825",
+        "fund_name": "申万菱信智能驱动股票A",
+        "fund_rate": 0.15,
+        "fund_source_rate": 1.5,
+        "fund_minsg": 10.0,
+        "holdings": [
+          "sz300661",
+          "sh688825",
+          "sh688120",
+          "sh688052",
+          "sh688025",
+          "sh688808",
+          "sh688536",
+          "sz300308",
+          "sh688627",
+          "sh688361"
+        ],
+        "sources": [
+          "eastmoney_fund_pingzhong"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
+        "conflict": false
+      },
+      {
+        "_key": "015159",
+        "fund_code": "015159",
+        "fund_name": "申万菱信智能驱动股票C",
+        "fund_rate": 0.0,
+        "fund_source_rate": 0.0,
+        "fund_minsg": 10.0,
+        "holdings": [
+          "sz300661",
+          "sh688825",
+          "sh688120",
+          "sh688052",
+          "sh688025",
+          "sh688808",
+          "sh688536",
+          "sz300308",
+          "sh688627",
+          "sh688361"
+        ],
+        "sources": [
+          "eastmoney_fund_pingzhong"
+        ],
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       }
     ],
@@ -2766,8 +4228,8 @@
         "sources": [
           "tencent_quote"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2790,8 +4252,8 @@
         "sources": [
           "tencent_quote"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2814,8 +4276,8 @@
         "sources": [
           "tencent_quote"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2838,8 +4300,8 @@
         "sources": [
           "tencent_quote"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2862,8 +4324,8 @@
         "sources": [
           "tencent_quote"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -2882,12 +4344,12 @@
         "mktcap": 196590000000.0,
         "floatcap": 288302000000.0,
         "pb": 0.0,
-        "time": "20261027153800",
+        "time": "20261027153818",
         "sources": [
           "tencent_quote"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -3269,8 +4731,8 @@
         "sources": [
           "eastmoney_zt_pool"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -3282,8 +4744,8 @@
         "sources": [
           "eastmoney_zt_pool"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -3548,8 +5010,8 @@
         "sources": [
           "eastmoney_zt_pool"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -3585,450 +5047,450 @@
         "sources": [
           "eastmoney_zdfenbu"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       }
     ],
     "news": [
       {
-        "_key": "68365313aa71",
-        "title": "俄罗斯总统普京开始与伊朗总统佩泽希齐扬举行双边会晤。",
-        "ts": "2026-10-28 00:24:45",
+        "_key": "e62b98d43c74",
+        "title": "俄罗斯总统新闻秘书佩斯科夫表示，停火协议最初规定阿勒颇镇周边地区实施一段静默期。",
+        "ts": "2026-10-28 04:50:20",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "1254c2b0fbeb",
-        "title": "美国南方司令部：对东太平洋既定毒品走私航线上的一艘快艇实施了一次致命动能打击。经确认的情报显示，该船只积极参与毒品走私。此次行动击毙五名毒品恐怖分子。",
-        "ts": "2026-10-28 00:24:14",
+        "_key": "f63336067cc4",
+        "title": "特朗普：将向德克萨斯州提供更多联邦紧急事务管理署（FEMA）资金。",
+        "ts": "2026-10-28 04:46:42",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "dd0ba8b819a5",
-        "title": "Cerebras Systems股价上涨8.1%，此前甲骨文公司将在Oracle云基础设施上提供该公司的快速推理服务。",
-        "ts": "2026-10-28 00:21:08",
+        "_key": "45c3dafefa1e",
+        "title": "英国财政大臣希利准备推出措施，削减家庭燃气费用50英镑。",
+        "ts": "2026-10-28 04:46:33",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "64ca0c24697d",
-        "title": "俄罗斯总统新闻秘书佩斯科夫：普京同斯图布、斯特勒的通话在特定情况下可能会影响阿布扎比会谈的进程，但目前下定论尚早。",
-        "ts": "2026-10-28 00:19:26",
+        "_key": "96ddbd15c523",
+        "title": "特朗普：巴西在选举舞弊方面做得很老练。",
+        "ts": "2026-10-28 04:44:01",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "d231b4706134",
-        "title": "【Meta 250亿美元股票发行认购需求约为发行规模五倍】据知情人士透露，Meta Platforms Inc.扩大规模后的250亿美元股票发行获得的认购需求约为可供发行股票数量的五倍。该公司寻求筹集980亿美元，为其人工智能相关支出提供资",
-        "ts": "2026-10-28 00:18:48",
+        "_key": "304bb090ed48",
+        "title": "美国石油协会（API）数据显示，上周，美国API原油库存 -203.1万桶，之前一周 -493.1万桶。",
+        "ts": "2026-10-28 04:42:57",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "f4941cf991ea",
-        "title": "俄罗斯称在天然气出口国论坛间隙讨论了天然气互换供应事宜。",
-        "ts": "2026-10-28 00:17:59",
+        "_key": "ee8275ac8da6",
+        "title": "【出口民调：利库德集团仍为以色列议会最大党】27日晚，以色列议会选举出口民调显示反对派阵营领先，但内塔尼亚胡领导的利库德集团仍为议会最大党。（新华社）",
+        "ts": "2026-10-28 04:35:53",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "eae06fbcadb9",
-        "title": "美国总统特朗普：华尔街日报何时才会开始将人工智能（AI）这个糟糕且不准确的名称改称为超级智能（SI）？几乎其他所有人都在使用这个名称，或者很快就会使用。很快，我们将正式禁止在所有相关文件及其他一切场合使用“AI/人工智能”这一术语，因为该名",
-        "ts": "2026-10-28 00:17:04",
+        "_key": "f70de2e144b9",
+        "title": "【特朗普：关闭边境无需新立法，只需要换一位总统】美国总统特朗普回顾拜登曾坚称需要立法才能关闭边境一事时说：“不，你需要一位新总统。”特朗普表示，其政府在就职后数月内便控制了边境，无需国会通过新立法。",
+        "ts": "2026-10-28 04:28:51",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "be7811b6db59",
-        "title": "特朗普：我们很快会在所有相关文件中正式禁用“AI/人工智能”这一术语。",
-        "ts": "2026-10-28 00:15:45",
+        "_key": "43ee9853ac3b",
+        "title": "博通兜底保障覆盖客户租赁金额的72.5%。",
+        "ts": "2026-10-28 04:26:06",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "ae1f51ddbb79",
-        "title": "谷歌：向一小批受信任的测试者推出Genie 4。",
-        "ts": "2026-10-28 00:14:25",
+        "_key": "89cbdc6a0cbd",
+        "title": "博通承担最高430亿美元AI机架兜底赔付责任。",
+        "ts": "2026-10-28 04:25:26",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "2019e80a6cba",
-        "title": "摩根大通资管旗下 55ip 与 Anthropic 合作，在 Claude 中为理财顾问提供税务优化技术。",
-        "ts": "2026-10-28 00:14:09",
+        "_key": "16f8caca7438",
+        "title": "【贝克休斯拿下美国科技企业大型发电及冷却设备订单】贝克休斯表示，已获得一家美国科技公司的大型发电与冷却设备订单，发电订单于2026年第三季度入账，冷却设备订单于2026年第四季度入账，公司将为高密度人工智能算力负载供应Chart干式冷却器。",
+        "ts": "2026-10-28 04:25:05",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "803a43fb74b5",
-        "title": "谷歌：发布Genie 4相关研究成果。",
-        "ts": "2026-10-28 00:13:39",
+        "_key": "06e3435b6bd6",
+        "title": "特朗普：选民的记忆大约只能维持两周。",
+        "ts": "2026-10-28 04:23:45",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "7c414444a520",
-        "title": "【英特尔与甲骨文计划扩大合作 以支持甲骨文云基础设施上的企业级和智能体AI】英特尔与甲骨文宣布计划开展一项多年期合作，以扩大英特尔至强（Xeon）处理器在甲骨文云基础设施（OCI）上的部署，从而满足企业应用、智能体AI（Agentic AI",
-        "ts": "2026-10-28 00:12:52",
+        "_key": "a17b3e7db8bd",
+        "title": "Anthropic：期待与更多机构合作。",
+        "ts": "2026-10-28 04:22:59",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "ee5571c9edb9",
-        "title": "阿布扎比王储会见加拿大总理卡尼。",
-        "ts": "2026-10-28 00:11:03",
+        "_key": "7a7f16ed6623",
+        "title": "Anthropic：希望与尽可能多的研究人员分享。",
+        "ts": "2026-10-28 04:22:47",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "952b69b983f9",
-        "title": "【巴西联邦最高法院要求调查博索纳罗涉嫌接受外国资金】巴西联邦最高法院法官弗拉维奥·迪诺27日裁定，要求巴西联邦警察就总统选举中败选的自由党候选人博索纳罗在竞选活动中涉嫌接受外国资金和操纵社交媒体展开调查。调查重点将聚焦美国保守派组织“罗克布",
-        "ts": "2026-10-28 00:08:26",
+        "_key": "194a04129a38",
+        "title": "Anthropic收购Mithril Medicine，以开展罕见病项目。",
+        "ts": "2026-10-28 04:22:33",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "10d746f7479b",
-        "title": "克里姆林宫称挪威和芬兰没有向俄罗斯提出新提议。",
-        "ts": "2026-10-28 00:07:04",
+        "_key": "e532a38833f3",
+        "title": "贝克休斯：第三季度获得发电设备订单。",
+        "ts": "2026-10-28 04:22:14",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "7e90985dc456",
-        "title": "以色列总理内塔尼亚胡：还有四小时拯救以色列，投右翼选票。",
-        "ts": "2026-10-28 00:04:45",
+        "_key": "9d0594444067",
+        "title": "贝克休斯赢得美国科技公司发电与冷却订单。",
+        "ts": "2026-10-28 04:22:07",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "88eaa056d45c",
-        "title": "甲骨文推出Oracle Media Fabric。",
-        "ts": "2026-10-28 00:04:14",
+        "_key": "17d3556c38b4",
+        "title": "Anthropic：希望与药物研发研究人员共享模型。",
+        "ts": "2026-10-28 04:21:56",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "8e756769e3bf",
-        "title": "洛克希德·马丁公司：将在波兰设立PAC-3导弹维护设施。",
-        "ts": "2026-10-28 00:03:37",
+        "_key": "f93e34ae18ad",
+        "title": "恩智浦半导体股价在盘后交易中下跌6.51%，至237美元。",
+        "ts": "2026-10-28 04:20:37",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "2687d4be2169",
-        "title": "Crusoe首席执行官：OpenAI正与Abilene合作开发另一款尚未发布的模型。OpenAI尚未发布的新模型旨在解决数学问题。",
-        "ts": "2026-10-28 00:02:51",
+        "_key": "a00fd85bb69b",
+        "title": "Anthropic：随着药物项目推进，计划继续将Claude的应用范围拓展至临床试验领域。",
+        "ts": "2026-10-28 04:20:19",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "60be3dcd42c6",
-        "title": "甲骨文：Snowflake AI数据云将作为原生第一方服务在甲骨文云基础设施上提供。将在甲骨文云基础设施上提供Cerebras的快速推理服务；预计于2027日历年上线。",
-        "ts": "2026-10-28 00:02:36",
+        "_key": "d8acb9548e69",
+        "title": "内塔尼亚胡竞争对手艾森科特：出口民调显示以色列民众对内塔尼亚胡“完全不信任”。",
+        "ts": "2026-10-28 04:19:56",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "e329b5f3abec",
-        "title": "甲骨文：宣布与OpenAI合作，将前沿AI整合到企业计算中。将OpenAI模型、ChatGPT和Codex与甲骨文应用、数据及云基础设施进行整合。谷歌的张量处理单元将通过甲骨文云基础设施提供；将于2027日历年开放使用。",
-        "ts": "2026-10-28 00:02:10",
+        "_key": "98d67acdee81",
+        "title": "Anthropic：在加速药物研发方面取得初步进展。",
+        "ts": "2026-10-28 04:18:34",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "e33fd8cf6d40",
-        "title": "英伟达：与甲骨文将 Vera Rubin 扩展至吉瓦级规模，并在甲骨文云基础设施上线英伟达 Vera CPU。Vera Rubin NVL72 与 Vera CPU 现已在甲骨文云全面上线。甲骨文云将在x86服务器中搭载配备八块Rubin ",
-        "ts": "2026-10-28 00:01:05",
+        "_key": "2d6243f02491",
+        "title": "以色列出口民调显示，总理内塔尼亚胡领导的执政联盟与反对派均未获得议会多数席位。第12频道预测反对派阵营将获52席，内塔尼亚胡阵营50席，阿拉伯政党18席。获得多数席位需达到61席。",
+        "ts": "2026-10-28 04:17:32",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "dd30d286c6f7",
-        "title": "英特尔与甲骨文计划扩大合作，在甲骨文云基础设施上支持企业级 AI 以及智能体 AI。",
-        "ts": "2026-10-28 00:00:42",
+        "_key": "ce64b74ee814",
+        "title": "以色列媒体：艾森科特与内塔尼亚胡将分别和各自阵营内的政党领导人举行首轮会谈。",
+        "ts": "2026-10-28 04:16:02",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "ddf2c6fbf69c",
-        "title": "纽约期金日内涨1%，现报4078.81美元/盎司。",
-        "ts": "2026-10-28 00:00:41",
+        "_key": "6de8febcdb97",
+        "title": "【出口民调显示内塔尼亚胡阵营未获议会多数席位】当地时间27日晚，以色列议会选举出口民调数据显示，以色列总理内塔尼亚胡阵营未获议会多数席位。当天22点（北京时间28日4点），以色列第26届议会选举投票结束。根据以色列中央选举委员会公布的数据，",
+        "ts": "2026-10-28 04:12:59",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "e2abc43a2712",
-        "title": "俄罗斯外长拉夫罗夫：至于普京与特朗普通话后公布的柴油供应相关协议，这纯粹是一项商业安排，不存在任何附加条件。不存在类似 “我们向你们供应柴油，作为交换，你们要在政治层面或是安全议题上，无论是霍尔木兹海峡或是其他地区做出让步” 这样的约定。",
-        "ts": "2026-10-27 23:59:32",
+        "_key": "d870f0133c7b",
+        "title": "恩智浦半导体股价盘后下跌8%。",
+        "ts": "2026-10-28 04:12:08",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "af7884ba5b75",
-        "title": "【叙利亚过渡政府谴责约旦军队空袭叙南部】叙利亚过渡政府27日谴责约旦军队26日空袭叙南部多地，称行动前未与叙方协调，对叙领空构成“不可接受的侵犯”。叙过渡政府应急与灾害管理部称，约旦空军26日晚袭击德拉省和苏韦达省多地，致7人死亡、3人受伤",
-        "ts": "2026-10-27 23:58:26",
+        "_key": "5f4f6837d340",
+        "title": "特朗普表示，如果让他重新选择，他“绝对会”再次对伊朗发动攻击。",
+        "ts": "2026-10-28 04:11:14",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "030e31822dda",
-        "title": "本田警告：加拿大汽车关税若升至50%，将对汽车行业造成灾难性打击。",
-        "ts": "2026-10-27 23:58:22",
+        "_key": "dd424b426f3c",
+        "title": "Robinhood：将此前2026年调整后运营支出预期的上限下调2500万美元，至26.75亿至27.5亿美元区间。",
+        "ts": "2026-10-28 04:10:47",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "6b47bc082de0",
-        "title": "美国最高法院拒绝叫停特朗普政府与得克萨斯州达成的协议，该协议取消了移民法官暂时搁置驱逐案件的权限。",
-        "ts": "2026-10-27 23:58:06",
+        "_key": "a620d912b9fa",
+        "title": "西部数据股价跟随希捷股价下跌，跌幅达3%。",
+        "ts": "2026-10-28 04:09:31",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "bf42e81622c7",
-        "title": "梅拉尼娅·特朗普：乌克兰局部停火已经开始。",
-        "ts": "2026-10-27 23:57:44",
+        "_key": "9e21bafe5b32",
+        "title": "Robinhood：10月迄今净存款已超过130亿美元，其中包括戴尔家族向美国总统特朗普账户投入的60亿美元。",
+        "ts": "2026-10-28 04:09:15",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "69fd18bb8d77",
-        "title": "【古巴外长愤怒打断美国代表发言】10月27日，第81届联合国大会审议“必须终止美国对古巴的经济、商业和金融封锁”决议草案。美国常驻联合国代表华尔兹在发言时辩称“美国没有封锁古巴”，并一再指责古巴领导人。现场的古巴代表团敲桌并起立抗议。古巴外",
-        "ts": "2026-10-27 23:56:32",
+        "_key": "3426541bb0b6",
+        "title": "Robinhood股价在盘后交易中迅速下跌4.9%。",
+        "ts": "2026-10-28 04:08:42",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "15f4d7269809",
-        "title": "【俄乌在阿列什基停火至11月1日】俄罗斯人权事务专员10月27日表示，赫尔松地区阿列什基的临时停火从莫斯科时间当天4:00（北京时间9:00）开始，持续至11月1日22:59（北京时间11月2日3:59）。这与乌克兰方面稍早前表示的停火时段",
-        "ts": "2026-10-27 23:53:34",
+        "_key": "46598f313dde",
+        "title": "以色列记者Neira Kraus援引以色列选举预测称，内塔尼亚胡预计不会成为以色列下一任总理。不过，目前尚不清楚可能组成何种联盟。",
+        "ts": "2026-10-28 04:08:18",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "b552068a7e76",
-        "title": "【卢拉胜选冲击巴西市场，但GQG的Jain称此时抛售是个“错误”】在巴西总统卢拉出人意料地再次当选后，投资者纷纷撤离巴西市场，而Rajiv Jain正准备再次采取他过去使用的策略：在市场恐慌之际买入。GQG Partners联合创始人Jai",
-        "ts": "2026-10-27 23:51:56",
+        "_key": "cd2d7dec2b04",
+        "title": "特朗普谈德国：德国尝试过绿色能源，其他国家也尝试过，它们都几乎破产。如果德国没有改变路线，德国将不复存在。",
+        "ts": "2026-10-28 04:07:58",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "afff5d995489",
-        "title": "以色列 12 频道新闻：中央选举委员会称尚未收到利库德集团延长投票时间的申请。",
-        "ts": "2026-10-27 23:50:45",
+        "_key": "1837beef1680",
+        "title": "Robinhood：第三季度平台总资产同比增长19%，达到3960亿美元。",
+        "ts": "2026-10-28 04:07:21",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "2bd942e2ec52",
-        "title": "市场消息：伊朗与白俄罗斯签署能源合作谅解备忘录。",
-        "ts": "2026-10-27 23:49:50",
+        "_key": "c794cb0f7f54",
+        "title": "Visa第四财季净营收121亿美元，预估120.9亿美元。",
+        "ts": "2026-10-28 04:06:57",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "97cba2680e1f",
-        "title": "俄罗斯总统助理乌沙科夫：在谈判进程完成后，俄乌领导人层面的接触才有意义，目的是签署文件。",
-        "ts": "2026-10-27 23:47:18",
+        "_key": "ae8d77c5e35b",
+        "title": "Visa第四季度调整后每股收益3.48美元，市场预期3.44美元。",
+        "ts": "2026-10-28 04:06:34",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "826769d6a5f1",
-        "title": "俄罗斯总统助理乌沙科夫：俄罗斯总统普京对斯图布和斯特勒表示，如果泽连斯基访问莫斯科，将为其提供一切必要安排，包括安全保障。",
-        "ts": "2026-10-27 23:46:49",
+        "_key": "fe06f6b0310c",
+        "title": "希捷股价在第一季度财报发布后下跌5%。",
+        "ts": "2026-10-28 04:06:00",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "672e259f41dd",
-        "title": "【费城半导体指数日内涨3%】费城半导体指数日内涨3.00%，现报11416.10点。英伟达涨1.20%，博通涨3.89%，美光涨2.76%，英特尔涨3.56%，AMD涨5.43%，高通涨1.09%，台积电涨3.03%，阿斯麦涨3.00%。",
-        "ts": "2026-10-27 23:45:41",
+        "_key": "730d337dfe86",
+        "title": "【中方呼吁各方推进美伊止战促谈】中国常驻联合国代表傅聪27日在安理会伊朗核问题公开会上发言，强调各方应推进美伊止战促谈。傅聪说，当前，中东地区局势持续紧张，外溢影响不断扩散，严重冲击地区和世界和平与稳定。美国和伊朗的谈判陷入僵持，有关酝酿对",
+        "ts": "2026-10-28 04:05:48",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "d29af23932db",
-        "title": "俄罗斯总统助理乌沙科夫：俄罗斯总统普京在与芬兰总统斯图布和挪威首相斯特勒交谈时证实，泽连斯基可能访问莫斯科。",
-        "ts": "2026-10-27 23:45:24",
+        "_key": "a0347ad17a1d",
+        "title": "三份以色列出口民调显示埃森科特阵营领先，无阵营取得多数席位。",
+        "ts": "2026-10-28 04:05:12",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "01df43267d9d",
-        "title": "现货黄金突破4060美元/盎司，日内涨1.08%。",
-        "ts": "2026-10-27 23:41:18",
+        "_key": "f92cf737b114",
+        "title": "谷歌：谷歌云上的VMware解决方案已在22个地区推出，计划进一步扩展。",
+        "ts": "2026-10-28 04:04:46",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
-        "_key": "2c435b0597ab",
-        "title": "俄罗斯总统助理乌沙科夫：芬兰总统斯图布与挪威首相斯特勒向普京转达了泽连斯基的讯息。",
-        "ts": "2026-10-27 23:41:15",
+        "_key": "50ce5c96cc28",
+        "title": "【以色列议会选举投票结束】当地时间10月27日晚10点（北京时间10月28日凌晨4点），以色列第26届议会选举投票结束。根据以色列中央选举委员会公布的数据，截至当天晚间8时，选举的投票率已达到74.3%，高于2022年大选同一时段的66.3",
+        "ts": "2026-10-28 04:04:33",
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -4038,8 +5500,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -4049,8 +5511,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -4060,8 +5522,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -4071,8 +5533,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -4082,8 +5544,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -4093,8 +5555,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -4104,8 +5566,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -4115,8 +5577,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -4126,8 +5588,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -4137,8 +5599,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       },
       {
@@ -4148,1470 +5610,8 @@
         "sources": [
           "sina_news"
         ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      }
-    ],
-    "fund": [
-      {
-        "_key": "002910|易方达供给改革混合",
-        "code": "002910",
-        "name": "易方达供给改革混合",
-        "date": "2026-10-27",
-        "nav": 7.2768,
-        "acc_nav": 7.2768,
-        "daily_chg_pct": -0.87,
-        "ret_1w": -3.35,
-        "ret_1m": -8.89,
-        "ret_3m": -9.05,
-        "ret_6m": 51.09,
-        "ret_1y": 110.99,
-        "ret_2y": 181.51,
-        "ret_3y": 179.02,
-        "ret_ytd": 97.48,
-        "ret_since": 627.68,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "021179|易方达产业机遇混合A",
-        "code": "021179",
-        "name": "易方达产业机遇混合A",
-        "date": "2026-10-27",
-        "nav": 2.7091,
-        "acc_nav": 2.7091,
-        "daily_chg_pct": -0.89,
-        "ret_1w": -3.89,
-        "ret_1m": -9.84,
-        "ret_3m": -10.66,
-        "ret_6m": 46.09,
-        "ret_1y": 103.48,
-        "ret_2y": 161.9,
-        "ret_3y": null,
-        "ret_ytd": 92.22,
-        "ret_since": 170.91,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "021180|易方达产业机遇混合C",
-        "code": "021180",
-        "name": "易方达产业机遇混合C",
-        "date": "2026-10-27",
-        "nav": 2.6803,
-        "acc_nav": 2.6803,
-        "daily_chg_pct": -0.89,
-        "ret_1w": -3.9,
-        "ret_1m": -9.88,
-        "ret_3m": -10.78,
-        "ret_6m": 45.72,
-        "ret_1y": 102.47,
-        "ret_2y": 159.29,
-        "ret_3y": null,
-        "ret_ytd": 91.44,
-        "ret_since": 168.03,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "001411|诺安创新驱动混合A",
-        "code": "001411",
-        "name": "诺安创新驱动混合A",
-        "date": "2026-10-27",
-        "nav": 2.303,
-        "acc_nav": 2.418,
-        "daily_chg_pct": -2.62,
-        "ret_1w": -5.07,
-        "ret_1m": -17.72,
-        "ret_3m": -18.74,
-        "ret_6m": 33.12,
-        "ret_1y": 66.64,
-        "ret_2y": 119.12,
-        "ret_3y": 178.48,
-        "ret_ytd": 67.73,
-        "ret_since": 157.4,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002051|诺安创新驱动混合C",
-        "code": "002051",
-        "name": "诺安创新驱动混合C",
-        "date": "2026-10-27",
-        "nav": 2.272,
-        "acc_nav": 2.387,
-        "daily_chg_pct": -2.61,
-        "ret_1w": -5.06,
-        "ret_1m": -17.71,
-        "ret_3m": -18.74,
-        "ret_6m": 33.02,
-        "ret_1y": 66.45,
-        "ret_2y": 118.67,
-        "ret_3y": 177.41,
-        "ret_ytd": 67.55,
-        "ret_since": 151.53,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "004320|前海开源沪港深乐享生活",
-        "code": "004320",
-        "name": "前海开源沪港深乐享生活",
-        "date": "2026-10-27",
-        "nav": 4.4452,
-        "acc_nav": 4.4452,
-        "daily_chg_pct": -3.67,
-        "ret_1w": -10.33,
-        "ret_1m": -33.28,
-        "ret_3m": -23.29,
-        "ret_6m": -20.01,
-        "ret_1y": 61.03,
-        "ret_2y": 213.31,
-        "ret_3y": 233.52,
-        "ret_ytd": 30.05,
-        "ret_since": 344.52,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "023313|国泰聚鑫量化选股混合发起A",
-        "code": "023313",
-        "name": "国泰聚鑫量化选股混合发起A",
-        "date": "2026-10-27",
-        "nav": 1.6893,
-        "acc_nav": 1.6893,
-        "daily_chg_pct": -3.43,
-        "ret_1w": -6.48,
-        "ret_1m": -14.2,
-        "ret_3m": -18.35,
-        "ret_6m": 16.42,
-        "ret_1y": 55.1,
-        "ret_2y": null,
-        "ret_3y": null,
-        "ret_ytd": 44.71,
-        "ret_since": 68.93,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "023314|国泰聚鑫量化选股混合发起C",
-        "code": "023314",
-        "name": "国泰聚鑫量化选股混合发起C",
-        "date": "2026-10-27",
-        "nav": 1.6853,
-        "acc_nav": 1.6853,
-        "daily_chg_pct": -3.43,
-        "ret_1w": -6.48,
-        "ret_1m": -14.22,
-        "ret_3m": -18.4,
-        "ret_6m": 16.3,
-        "ret_1y": 54.77,
-        "ret_2y": null,
-        "ret_3y": null,
-        "ret_ytd": 44.46,
-        "ret_since": 68.53,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "005825|申万菱信智能驱动股票A",
-        "code": "005825",
-        "name": "申万菱信智能驱动股票A",
-        "date": "2026-10-27",
-        "nav": 7.4693,
-        "acc_nav": 7.9117,
-        "daily_chg_pct": -3.32,
-        "ret_1w": -5.49,
-        "ret_1m": -23.45,
-        "ret_3m": -18.12,
-        "ret_6m": 17.61,
-        "ret_1y": 53.37,
-        "ret_2y": 180.78,
-        "ret_3y": 221.74,
-        "ret_ytd": 52.25,
-        "ret_since": 771.14,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "015159|申万菱信智能驱动股票C",
-        "code": "015159",
-        "name": "申万菱信智能驱动股票C",
-        "date": "2026-10-27",
-        "nav": 7.2902,
-        "acc_nav": 7.7467,
-        "daily_chg_pct": -3.32,
-        "ret_1w": -5.5,
-        "ret_1m": -23.47,
-        "ret_3m": -18.21,
-        "ret_6m": 17.37,
-        "ret_1y": 52.76,
-        "ret_2y": 178.48,
-        "ret_3y": 217.89,
-        "ret_ytd": 51.75,
-        "ret_since": 123.49,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "018358|华富数字经济混合A",
-        "code": "018358",
-        "name": "华富数字经济混合A",
-        "date": "2026-10-27",
-        "nav": 2.299,
-        "acc_nav": 2.299,
-        "daily_chg_pct": -2.86,
-        "ret_1w": -6.97,
-        "ret_1m": -24.0,
-        "ret_3m": -23.59,
-        "ret_6m": -6.92,
-        "ret_1y": 52.5,
-        "ret_2y": 168.51,
-        "ret_3y": 153.31,
-        "ret_ytd": 40.6,
-        "ret_since": 129.9,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "004243|广发道琼斯石油指数人民币C",
-        "code": "004243",
-        "name": "广发道琼斯石油指数人民币C",
-        "date": "2026-10-26",
-        "nav": 3.3334,
-        "acc_nav": 3.3334,
-        "daily_chg_pct": 1.22,
-        "ret_1w": 1.71,
-        "ret_1m": 11.98,
-        "ret_3m": 19.76,
-        "ret_6m": 25.81,
-        "ret_1y": 52.14,
-        "ret_2y": 47.69,
-        "ret_3y": 41.59,
-        "ret_ytd": 54.13,
-        "ret_since": 233.34,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "018359|华富数字经济混合C",
-        "code": "018359",
-        "name": "华富数字经济混合C",
-        "date": "2026-10-27",
-        "nav": 2.2686,
-        "acc_nav": 2.2686,
-        "daily_chg_pct": -2.87,
-        "ret_1w": -6.98,
-        "ret_1m": -24.03,
-        "ret_3m": -23.67,
-        "ret_6m": -7.1,
-        "ret_1y": 51.91,
-        "ret_2y": 166.39,
-        "ret_3y": 150.31,
-        "ret_ytd": 40.16,
-        "ret_since": 126.86,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "019710|广发道琼斯石油指数(QDII-LOF)人民币E",
-        "code": "019710",
-        "name": "广发道琼斯石油指数(QDII-LOF)人民币E",
-        "date": "2026-10-26",
-        "nav": 3.3408,
-        "acc_nav": 3.3408,
-        "daily_chg_pct": 1.21,
-        "ret_1w": 1.7,
-        "ret_1m": 11.96,
-        "ret_3m": 19.72,
-        "ret_6m": 25.74,
-        "ret_1y": 51.91,
-        "ret_2y": 47.06,
-        "ret_3y": null,
-        "ret_ytd": 53.93,
-        "ret_since": 45.31,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "013107|华夏先进制造龙头混合A",
-        "code": "013107",
-        "name": "华夏先进制造龙头混合A",
-        "date": "2026-10-27",
-        "nav": 2.4253,
-        "acc_nav": 2.4253,
-        "daily_chg_pct": -2.68,
-        "ret_1w": -3.95,
-        "ret_1m": -17.62,
-        "ret_3m": -20.52,
-        "ret_6m": 13.28,
-        "ret_1y": 50.88,
-        "ret_2y": 144.44,
-        "ret_3y": 187.7,
-        "ret_ytd": 48.31,
-        "ret_since": 142.53,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "539002|建信新兴市场混合(QDII)A",
-        "code": "539002",
-        "name": "建信新兴市场混合(QDII)A",
-        "date": "2026-10-26",
-        "nav": 2.111,
-        "acc_nav": 2.111,
-        "daily_chg_pct": 1.64,
-        "ret_1w": null,
-        "ret_1m": -15.73,
-        "ret_3m": -8.69,
-        "ret_6m": 2.58,
-        "ret_1y": 50.68,
-        "ret_2y": 105.55,
-        "ret_3y": 190.37,
-        "ret_ytd": 47.83,
-        "ret_since": 111.1,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002289|华商改革创新股票A",
-        "code": "002289",
-        "name": "华商改革创新股票A",
-        "date": "2026-10-27",
-        "nav": 4.5216,
-        "acc_nav": 4.5216,
-        "daily_chg_pct": -4.85,
-        "ret_1w": -8.48,
-        "ret_1m": -20.25,
-        "ret_3m": -24.71,
-        "ret_6m": 15.82,
-        "ret_1y": 50.4,
-        "ret_2y": 122.27,
-        "ret_3y": 148.88,
-        "ret_ytd": 50.22,
-        "ret_since": 352.16,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "018147|建信新兴市场混合(QDII)C",
-        "code": "018147",
-        "name": "建信新兴市场混合(QDII)C",
-        "date": "2026-10-26",
-        "nav": 2.076,
-        "acc_nav": 2.076,
-        "daily_chg_pct": 1.67,
-        "ret_1w": null,
-        "ret_1m": -15.75,
-        "ret_3m": -8.79,
-        "ret_6m": 2.37,
-        "ret_1y": 50.11,
-        "ret_2y": 103.93,
-        "ret_3y": 186.34,
-        "ret_ytd": 47.44,
-        "ret_since": 158.53,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "013108|华夏先进制造龙头混合C",
-        "code": "013108",
-        "name": "华夏先进制造龙头混合C",
-        "date": "2026-10-27",
-        "nav": 2.3539,
-        "acc_nav": 2.3539,
-        "daily_chg_pct": -2.68,
-        "ret_1w": -3.96,
-        "ret_1m": -17.66,
-        "ret_3m": -20.63,
-        "ret_6m": 12.95,
-        "ret_1y": 49.99,
-        "ret_2y": 141.5,
-        "ret_3y": 182.51,
-        "ret_ytd": 47.59,
-        "ret_since": 135.39,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "018851|博时标普石油天然气勘探及生产精选行业指数发起(QDII)A人民币",
-        "code": "018851",
-        "name": "博时标普石油天然气勘探及生产精选行业指数发起(QDII)A人民币",
-        "date": "2026-10-26",
-        "nav": 1.2775,
-        "acc_nav": 1.2775,
-        "daily_chg_pct": 1.46,
-        "ret_1w": 2.43,
-        "ret_1m": 9.71,
-        "ret_3m": 15.9,
-        "ret_6m": 18.88,
-        "ret_1y": 49.68,
-        "ret_2y": 42.77,
-        "ret_3y": 29.68,
-        "ret_ytd": 53.44,
-        "ret_since": 27.75,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "016052|华商改革创新股票C",
-        "code": "016052",
-        "name": "华商改革创新股票C",
-        "date": "2026-10-27",
-        "nav": 4.3841,
-        "acc_nav": 4.3841,
-        "daily_chg_pct": -4.86,
-        "ret_1w": -8.49,
-        "ret_1m": -20.3,
-        "ret_3m": -24.82,
-        "ret_6m": 15.4,
-        "ret_1y": 49.4,
-        "ret_2y": 119.47,
-        "ret_3y": 143.09,
-        "ret_ytd": 49.38,
-        "ret_since": 82.91,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002376|国寿安保核心产业混合",
-        "code": "002376",
-        "name": "国寿安保核心产业混合",
-        "date": "2026-10-27",
-        "nav": 1.444,
-        "acc_nav": 1.845,
-        "daily_chg_pct": -1.97,
-        "ret_1w": -4.24,
-        "ret_1m": -10.59,
-        "ret_3m": -11.08,
-        "ret_6m": -3.99,
-        "ret_1y": 49.33,
-        "ret_2y": 100.28,
-        "ret_3y": 87.29,
-        "ret_ytd": 48.1,
-        "ret_since": 101.54,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "018853|博时标普石油天然气勘探及生产精选行业指数发起(QDII)C人民币",
-        "code": "018853",
-        "name": "博时标普石油天然气勘探及生产精选行业指数发起(QDII)C人民币",
-        "date": "2026-10-26",
-        "nav": 1.258,
-        "acc_nav": 1.258,
-        "daily_chg_pct": 1.46,
-        "ret_1w": 2.43,
-        "ret_1m": 9.75,
-        "ret_3m": 15.9,
-        "ret_6m": 18.78,
-        "ret_1y": 49.28,
-        "ret_2y": 41.75,
-        "ret_3y": 27.75,
-        "ret_ytd": 53.12,
-        "ret_since": 25.8,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "007343|嘉实科技创新混合",
-        "code": "007343",
-        "name": "嘉实科技创新混合",
-        "date": "2026-10-27",
-        "nav": 5.4496,
-        "acc_nav": 5.4496,
-        "daily_chg_pct": -0.82,
-        "ret_1w": -1.07,
-        "ret_1m": -3.91,
-        "ret_3m": -9.01,
-        "ret_6m": 27.78,
-        "ret_1y": 49.15,
-        "ret_2y": 134.62,
-        "ret_3y": 194.1,
-        "ret_ytd": 60.84,
-        "ret_since": 444.96,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "457001|国富亚洲机会股票(QDII)A",
-        "code": "457001",
-        "name": "国富亚洲机会股票(QDII)A",
-        "date": "2026-10-26",
-        "nav": 2.5381,
-        "acc_nav": 2.7051,
-        "daily_chg_pct": 0.24,
-        "ret_1w": -2.91,
-        "ret_1m": -14.65,
-        "ret_3m": -8.48,
-        "ret_6m": -1.23,
-        "ret_1y": 47.63,
-        "ret_2y": 116.54,
-        "ret_3y": 122.45,
-        "ret_ytd": 40.55,
-        "ret_since": 188.03,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "630001|华商领先企业混合",
-        "code": "630001",
-        "name": "华商领先企业混合",
-        "date": "2026-10-27",
-        "nav": 0.7966,
-        "acc_nav": 2.7002,
-        "daily_chg_pct": -5.01,
-        "ret_1w": -9.07,
-        "ret_1m": -20.45,
-        "ret_3m": -24.96,
-        "ret_6m": 13.96,
-        "ret_1y": 47.35,
-        "ret_2y": 100.82,
-        "ret_3y": 93.54,
-        "ret_ytd": 47.45,
-        "ret_since": 198.36,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "005844|东方人工智能主题混合A",
-        "code": "005844",
-        "name": "东方人工智能主题混合A",
-        "date": "2026-10-27",
-        "nav": 2.3306,
-        "acc_nav": 2.3306,
-        "daily_chg_pct": -6.84,
-        "ret_1w": -14.86,
-        "ret_1m": -30.3,
-        "ret_3m": -34.96,
-        "ret_6m": 12.24,
-        "ret_1y": 47.13,
-        "ret_2y": 130.55,
-        "ret_3y": 124.61,
-        "ret_ytd": 43.55,
-        "ret_since": 133.06,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "001154|华银平安中国主题灵活配置",
-        "code": "001154",
-        "name": "华银平安中国主题灵活配置",
-        "date": "2026-10-27",
-        "nav": 1.6927,
-        "acc_nav": 1.6927,
-        "daily_chg_pct": -2.04,
-        "ret_1w": -2.99,
-        "ret_1m": -13.55,
-        "ret_3m": -14.9,
-        "ret_6m": 24.37,
-        "ret_1y": 47.06,
-        "ret_2y": 65.79,
-        "ret_3y": 66.6,
-        "ret_ytd": 39.43,
-        "ret_since": 69.27,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "021662|国富亚洲机会股票(QDII)C",
-        "code": "021662",
-        "name": "国富亚洲机会股票(QDII)C",
-        "date": "2026-10-26",
-        "nav": 2.4999,
-        "acc_nav": 2.4999,
-        "daily_chg_pct": 0.24,
-        "ret_1w": -2.92,
-        "ret_1m": -14.68,
-        "ret_3m": -8.58,
-        "ret_6m": -1.44,
-        "ret_1y": 46.96,
-        "ret_2y": 114.57,
-        "ret_3y": null,
-        "ret_ytd": 40.01,
-        "ret_since": 118.26,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "006373|国富全球科技互联混合(QDII)人民币A",
-        "code": "006373",
-        "name": "国富全球科技互联混合(QDII)人民币A",
-        "date": "2026-10-26",
-        "nav": 6.3059,
-        "acc_nav": 6.3059,
-        "daily_chg_pct": 1.47,
-        "ret_1w": -2.95,
-        "ret_1m": -11.76,
-        "ret_3m": -6.35,
-        "ret_6m": 1.95,
-        "ret_1y": 46.88,
-        "ret_2y": 86.79,
-        "ret_3y": 180.25,
-        "ret_ytd": 42.43,
-        "ret_since": 530.59,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002891|华夏移动互联混合人民币",
-        "code": "002891",
-        "name": "华夏移动互联混合人民币",
-        "date": "2026-10-26",
-        "nav": 2.33,
-        "acc_nav": 2.33,
-        "daily_chg_pct": 1.79,
-        "ret_1w": -2.59,
-        "ret_1m": -18.25,
-        "ret_3m": -9.13,
-        "ret_6m": -5.32,
-        "ret_1y": 46.73,
-        "ret_2y": 72.08,
-        "ret_3y": 64.08,
-        "ret_ytd": 41.21,
-        "ret_since": 133.0,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "017811|东方人工智能主题混合C",
-        "code": "017811",
-        "name": "东方人工智能主题混合C",
-        "date": "2026-10-27",
-        "nav": 2.2982,
-        "acc_nav": 2.2982,
-        "daily_chg_pct": -6.84,
-        "ret_1w": -14.87,
-        "ret_1m": -30.32,
-        "ret_3m": -35.02,
-        "ret_6m": 12.01,
-        "ret_1y": 46.54,
-        "ret_2y": 128.72,
-        "ret_3y": 121.94,
-        "ret_ytd": 43.08,
-        "ret_since": 148.64,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "001715|工银新焦点混合A",
-        "code": "001715",
-        "name": "工银新焦点混合A",
-        "date": "2026-10-27",
-        "nav": 4.6752,
-        "acc_nav": 4.6752,
-        "daily_chg_pct": -5.03,
-        "ret_1w": -6.81,
-        "ret_1m": -6.91,
-        "ret_3m": 3.37,
-        "ret_6m": 20.77,
-        "ret_1y": 46.41,
-        "ret_2y": 143.26,
-        "ret_3y": 193.83,
-        "ret_ytd": 52.23,
-        "ret_since": 367.52,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "021842|国富全球科技互联混合(QDII)人民币C",
-        "code": "021842",
-        "name": "国富全球科技互联混合(QDII)人民币C",
-        "date": "2026-10-26",
-        "nav": 6.2509,
-        "acc_nav": 6.2509,
-        "daily_chg_pct": 1.47,
-        "ret_1w": -2.96,
-        "ret_1m": -11.79,
-        "ret_3m": -6.45,
-        "ret_6m": 1.72,
-        "ret_1y": 46.26,
-        "ret_2y": 85.09,
-        "ret_3y": null,
-        "ret_ytd": 41.93,
-        "ret_since": 104.32,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "001998|工银新焦点混合C",
-        "code": "001998",
-        "name": "工银新焦点混合C",
-        "date": "2026-10-27",
-        "nav": 4.3998,
-        "acc_nav": 4.3998,
-        "daily_chg_pct": -5.03,
-        "ret_1w": -6.82,
-        "ret_1m": -6.96,
-        "ret_3m": 3.21,
-        "ret_6m": 20.41,
-        "ret_1y": 45.58,
-        "ret_2y": 140.44,
-        "ret_3y": 188.72,
-        "ret_ytd": 51.52,
-        "ret_since": 339.98,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "110005|易方达积极成长混合",
-        "code": "110005",
-        "name": "易方达积极成长混合",
-        "date": "2026-10-27",
-        "nav": 1.1232,
-        "acc_nav": 6.9796,
-        "daily_chg_pct": -4.47,
-        "ret_1w": -9.78,
-        "ret_1m": -26.17,
-        "ret_3m": -23.25,
-        "ret_6m": 5.31,
-        "ret_1y": 45.14,
-        "ret_2y": 118.61,
-        "ret_3y": 113.54,
-        "ret_ytd": 39.61,
-        "ret_since": 1658.21,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "005682|财通资管消费精选混合A",
-        "code": "005682",
-        "name": "财通资管消费精选混合A",
-        "date": "2026-10-27",
-        "nav": 2.8457,
-        "acc_nav": 2.8457,
-        "daily_chg_pct": -1.63,
-        "ret_1w": -0.12,
-        "ret_1m": -3.72,
-        "ret_3m": 1.11,
-        "ret_6m": -5.14,
-        "ret_1y": 44.13,
-        "ret_2y": 103.99,
-        "ret_3y": 132.4,
-        "ret_ytd": 28.76,
-        "ret_since": 184.57,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "011020|财通资管消费精选混合C",
-        "code": "011020",
-        "name": "财通资管消费精选混合C",
-        "date": "2026-10-27",
-        "nav": 1.366,
-        "acc_nav": 1.366,
-        "daily_chg_pct": -1.63,
-        "ret_1w": -0.12,
-        "ret_1m": -3.72,
-        "ret_3m": 1.09,
-        "ret_6m": -5.19,
-        "ret_1y": 44.0,
-        "ret_2y": 103.61,
-        "ret_3y": 131.72,
-        "ret_ytd": 28.66,
-        "ret_since": 36.6,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "501026|财通多策略福享混合(LOF)A",
-        "code": "501026",
-        "name": "财通多策略福享混合(LOF)A",
-        "date": "2026-10-27",
-        "nav": 2.1135,
-        "acc_nav": 2.1135,
-        "daily_chg_pct": -1.04,
-        "ret_1w": -4.58,
-        "ret_1m": -18.6,
-        "ret_3m": -13.95,
-        "ret_6m": 6.1,
-        "ret_1y": 43.76,
-        "ret_2y": 151.49,
-        "ret_3y": 219.5,
-        "ret_ytd": 35.96,
-        "ret_since": 111.35,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "020018|国泰金鹿混合",
-        "code": "020018",
-        "name": "国泰金鹿混合",
-        "date": "2026-10-27",
-        "nav": 3.3013,
-        "acc_nav": 3.6434,
-        "daily_chg_pct": -1.29,
-        "ret_1w": -3.04,
-        "ret_1m": -12.7,
-        "ret_3m": -13.57,
-        "ret_6m": 4.09,
-        "ret_1y": 43.07,
-        "ret_2y": 83.72,
-        "ret_3y": 68.36,
-        "ret_ytd": 40.02,
-        "ret_since": 406.22,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "019454|华泰柏瑞中韩半导体ETF发起式联接(QDII)A",
-        "code": "019454",
-        "name": "华泰柏瑞中韩半导体ETF发起式联接(QDII)A",
-        "date": "2026-10-27",
-        "nav": 2.9207,
-        "acc_nav": 2.9207,
-        "daily_chg_pct": -0.17,
-        "ret_1w": -2.6,
-        "ret_1m": -21.7,
-        "ret_3m": -19.92,
-        "ret_6m": -4.28,
-        "ret_1y": 42.67,
-        "ret_2y": 141.62,
-        "ret_3y": 195.62,
-        "ret_ytd": 44.0,
-        "ret_since": 192.1,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "022681|华泰柏瑞中韩半导体ETF发起式联接(QDII)I",
-        "code": "022681",
-        "name": "华泰柏瑞中韩半导体ETF发起式联接(QDII)I",
-        "date": "2026-10-27",
-        "nav": 2.9157,
-        "acc_nav": 2.9157,
-        "daily_chg_pct": -0.17,
-        "ret_1w": -2.61,
-        "ret_1m": -21.71,
-        "ret_3m": -19.94,
-        "ret_6m": -4.32,
-        "ret_1y": 42.53,
-        "ret_2y": null,
-        "ret_3y": null,
-        "ret_ytd": 43.89,
-        "ret_since": 149.97,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "019455|华泰柏瑞中韩半导体ETF发起式联接(QDII)C",
-        "code": "019455",
-        "name": "华泰柏瑞中韩半导体ETF发起式联接(QDII)C",
-        "date": "2026-10-27",
-        "nav": 2.8986,
-        "acc_nav": 2.8986,
-        "daily_chg_pct": -0.17,
-        "ret_1w": -2.61,
-        "ret_1m": -21.72,
-        "ret_3m": -19.97,
-        "ret_6m": -4.4,
-        "ret_1y": 42.31,
-        "ret_2y": 140.41,
-        "ret_3y": 193.41,
-        "ret_ytd": 43.71,
-        "ret_since": 189.89,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "020775|国寿安保产业升级股票发起式A",
-        "code": "020775",
-        "name": "国寿安保产业升级股票发起式A",
-        "date": "2026-10-27",
-        "nav": 1.8791,
-        "acc_nav": 1.8791,
-        "daily_chg_pct": -2.22,
-        "ret_1w": -4.75,
-        "ret_1m": -13.46,
-        "ret_3m": -12.6,
-        "ret_6m": -11.17,
-        "ret_1y": 40.63,
-        "ret_2y": 85.57,
-        "ret_3y": null,
-        "ret_ytd": 40.19,
-        "ret_since": 87.91,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "001184|易方达新常态混合A",
-        "code": "001184",
-        "name": "易方达新常态混合A",
-        "date": "2026-10-27",
-        "nav": 1.5661,
-        "acc_nav": 1.5661,
-        "daily_chg_pct": -2.48,
-        "ret_1w": -7.22,
-        "ret_1m": -24.61,
-        "ret_3m": -24.71,
-        "ret_6m": -6.39,
-        "ret_1y": 40.33,
-        "ret_2y": 164.99,
-        "ret_3y": 173.32,
-        "ret_ytd": 34.66,
-        "ret_since": 56.61,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "020774|国寿安保产业升级股票发起式C",
-        "code": "020774",
-        "name": "国寿安保产业升级股票发起式C",
-        "date": "2026-10-27",
-        "nav": 1.8559,
-        "acc_nav": 1.8559,
-        "daily_chg_pct": -2.22,
-        "ret_1w": -4.76,
-        "ret_1m": -13.49,
-        "ret_3m": -12.71,
-        "ret_6m": -11.39,
-        "ret_1y": 39.93,
-        "ret_2y": 83.75,
-        "ret_3y": null,
-        "ret_ytd": 39.63,
-        "ret_since": 85.59,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "013296|民生加银聚优精选混合A",
-        "code": "013296",
-        "name": "民生加银聚优精选混合A",
-        "date": "2026-10-27",
-        "nav": 1.1135,
-        "acc_nav": 1.1135,
-        "daily_chg_pct": -3.67,
-        "ret_1w": -8.48,
-        "ret_1m": -26.37,
-        "ret_3m": -24.25,
-        "ret_6m": -3.4,
-        "ret_1y": 38.58,
-        "ret_2y": 95.39,
-        "ret_3y": 116.13,
-        "ret_ytd": 42.32,
-        "ret_since": 11.35,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "005628|汇安趋势动力股票A",
-        "code": "005628",
-        "name": "汇安趋势动力股票A",
-        "date": "2026-10-27",
-        "nav": 1.9866,
-        "acc_nav": 1.9866,
-        "daily_chg_pct": -5.33,
-        "ret_1w": -12.74,
-        "ret_1m": -29.41,
-        "ret_3m": -31.34,
-        "ret_6m": 5.99,
-        "ret_1y": 38.13,
-        "ret_2y": 65.92,
-        "ret_3y": 54.8,
-        "ret_ytd": 46.35,
-        "ret_since": 98.66,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "025331|民生加银聚优精选混合C",
-        "code": "025331",
-        "name": "民生加银聚优精选混合C",
-        "date": "2026-10-27",
-        "nav": 1.1086,
-        "acc_nav": 1.1086,
-        "daily_chg_pct": -3.67,
-        "ret_1w": -8.49,
-        "ret_1m": -26.4,
-        "ret_3m": -24.32,
-        "ret_6m": -3.6,
-        "ret_1y": 38.02,
-        "ret_2y": null,
-        "ret_3y": null,
-        "ret_ytd": 41.84,
-        "ret_since": 41.6,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "005119|银华智荟内在价值灵活配置混合发起A",
-        "code": "005119",
-        "name": "银华智荟内在价值灵活配置混合发起A",
-        "date": "2026-10-27",
-        "nav": 3.4744,
-        "acc_nav": 3.4744,
-        "daily_chg_pct": -4.82,
-        "ret_1w": -11.72,
-        "ret_1m": -28.97,
-        "ret_3m": -33.49,
-        "ret_6m": 6.6,
-        "ret_1y": 37.67,
-        "ret_2y": 102.68,
-        "ret_3y": 140.91,
-        "ret_ytd": 35.57,
-        "ret_since": 247.44,
-        "sources": [
-          "eastmoney_fund_rank"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002910",
-        "fund_code": "002910",
-        "fund_name": "易方达供给改革混合",
-        "fund_rate": 0.15,
-        "fund_source_rate": 1.5,
-        "fund_minsg": 10.0,
-        "holdings": [
-          "sh603259",
-          "sh601899",
-          "sh601168",
-          "sh600188",
-          "sz002444",
-          "sh603979",
-          "sh600031",
-          "sh688256",
-          "sz300759",
-          "sh601699"
-        ],
-        "sources": [
-          "eastmoney_fund_pingzhong"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "021179",
-        "fund_code": "021179",
-        "fund_name": "易方达产业机遇混合A",
-        "fund_rate": 0.15,
-        "fund_source_rate": 1.5,
-        "fund_minsg": 10.0,
-        "holdings": [
-          "sh603259",
-          "sh601899",
-          "sh601168",
-          "sh600188",
-          "sz002444",
-          "sh603979",
-          "sh688256",
-          "sz300759",
-          "sh600348",
-          "sh601699"
-        ],
-        "sources": [
-          "eastmoney_fund_pingzhong"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "021180",
-        "fund_code": "021180",
-        "fund_name": "易方达产业机遇混合C",
-        "fund_rate": 0.0,
-        "fund_source_rate": 0.0,
-        "fund_minsg": 10.0,
-        "holdings": [
-          "sh603259",
-          "sh601899",
-          "sh601168",
-          "sh600188",
-          "sz002444",
-          "sh603979",
-          "sh688256",
-          "sz300759",
-          "sh600348",
-          "sh601699"
-        ],
-        "sources": [
-          "eastmoney_fund_pingzhong"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "001411",
-        "fund_code": "001411",
-        "fund_name": "诺安创新驱动混合A",
-        "fund_rate": 0.15,
-        "fund_source_rate": 1.5,
-        "fund_minsg": 10.0,
-        "holdings": [
-          "sh688981",
-          "sz002938",
-          "sh688362",
-          "sh688825",
-          "sh688123",
-          "sz300223",
-          "sz300602",
-          "sh688720",
-          "sh688249",
-          "sh688256"
-        ],
-        "sources": [
-          "eastmoney_fund_pingzhong"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "002051",
-        "fund_code": "002051",
-        "fund_name": "诺安创新驱动混合C",
-        "fund_rate": 0.15,
-        "fund_source_rate": 1.5,
-        "fund_minsg": 10.0,
-        "holdings": [
-          "sh688981",
-          "sz002938",
-          "sh688362",
-          "sh688825",
-          "sh688123",
-          "sz300223",
-          "sz300602",
-          "sh688720",
-          "sh688249",
-          "sh688256"
-        ],
-        "sources": [
-          "eastmoney_fund_pingzhong"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "004320",
-        "fund_code": "004320",
-        "fund_name": "前海开源沪港深乐享生活",
-        "fund_rate": 0.15,
-        "fund_source_rate": 1.5,
-        "fund_minsg": 10.0,
-        "holdings": [
-          "sz300502",
-          "sh688498",
-          "sz300308",
-          "sz300394",
-          "sh603083",
-          "sh688256",
-          "sz002281",
-          "sh600330",
-          "sh603306",
-          "sz068691"
-        ],
-        "sources": [
-          "eastmoney_fund_pingzhong"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "023313",
-        "fund_code": "023313",
-        "fund_name": "国泰聚鑫量化选股混合发起A",
-        "fund_rate": 0.1,
-        "fund_source_rate": 1.0,
-        "fund_minsg": 10.0,
-        "holdings": [
-          "sz301349",
-          "sh688012",
-          "sz002371",
-          "sh688082",
-          "sh688072",
-          "sz300604",
-          "sz002986",
-          "sh688120",
-          "sh688361",
-          "sz002648"
-        ],
-        "sources": [
-          "eastmoney_fund_pingzhong"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "023314",
-        "fund_code": "023314",
-        "fund_name": "国泰聚鑫量化选股混合发起C",
-        "fund_rate": 0.0,
-        "fund_source_rate": 0.0,
-        "fund_minsg": 10.0,
-        "holdings": [
-          "sz301349",
-          "sh688012",
-          "sz002371",
-          "sh688082",
-          "sh688072",
-          "sz300604",
-          "sz002986",
-          "sh688120",
-          "sh688361",
-          "sz002648"
-        ],
-        "sources": [
-          "eastmoney_fund_pingzhong"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "005825",
-        "fund_code": "005825",
-        "fund_name": "申万菱信智能驱动股票A",
-        "fund_rate": 0.15,
-        "fund_source_rate": 1.5,
-        "fund_minsg": 10.0,
-        "holdings": [
-          "sz300661",
-          "sh688825",
-          "sh688120",
-          "sh688052",
-          "sh688025",
-          "sh688808",
-          "sh688536",
-          "sz300308",
-          "sh688627",
-          "sh688361"
-        ],
-        "sources": [
-          "eastmoney_fund_pingzhong"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
-        "conflict": false
-      },
-      {
-        "_key": "015159",
-        "fund_code": "015159",
-        "fund_name": "申万菱信智能驱动股票C",
-        "fund_rate": 0.0,
-        "fund_source_rate": 0.0,
-        "fund_minsg": 10.0,
-        "holdings": [
-          "sz300661",
-          "sh688825",
-          "sh688120",
-          "sh688052",
-          "sh688025",
-          "sh688808",
-          "sh688536",
-          "sz300308",
-          "sh688627",
-          "sh688361"
-        ],
-        "sources": [
-          "eastmoney_fund_pingzhong"
-        ],
-        "first_seen": "2026-10-28T00:26:03+08:00",
-        "last_seen": "2026-10-28T00:26:03+08:00",
+        "first_seen": "2026-10-28T04:54:11+08:00",
+        "last_seen": "2026-10-28T04:54:11+08:00",
         "conflict": false
       }
     ]
