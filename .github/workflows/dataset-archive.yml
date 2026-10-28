@@ -8,6 +8,9 @@
 #   stocks-prediction-log  预测对账历史
 name: dataset-archive
 on:
+  schedule:  # disabled on mirror
+    # - cron: '40 7 * * 1-5'      # CST 15:40 收盘后归档
+    # - cron: '50 7 * * 1-5'      # CST 15:50 复盘产出后再补一次
   workflow_dispatch: {}
 permissions:
   contents: read

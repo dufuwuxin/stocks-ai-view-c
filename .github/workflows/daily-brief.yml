@@ -9,6 +9,10 @@
 #  周六 10:00 周度总结
 name: daily-brief
 on:
+  schedule:  # disabled on mirror
+    # 全天每 2 小时触发; build_daily_brief 自行判断交易时段，盘中不生成，
+    # 盘前/盘后持续更新，避免日报与复盘停在上一个交易日。
+    # - cron: '0 */2 * * *'
   workflow_dispatch: {}
 permissions:
   contents: write
@@ -32,7 +36,7 @@ jobs:
       - name: Checkout kline repo (sparse)
         uses: actions/checkout@v4
         with:
-          repository: qwerzxcva/stocks-data-kline
+          repository: qwerzxcva/t1
           token: ${{ secrets.GITHUB_TOKEN }}
           path: kline-repo
           sparse-checkout: |

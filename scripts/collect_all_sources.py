@@ -540,6 +540,238 @@ FETCHERS = {
     ],
 }
 
+# ─── 外部 fetcher 库 (fetchers_extra 51 个 + fetchers_reverse 3 个) ──
+# 这两个库是按 group 组织的 (REVERSE_FETCHERS) 或散落 f_* 函数;
+# 这里统一按 group 注册, 保持 FETCHERS 结构一致。
+# 注: fetchers_extra 里的 f_* 没有 group 元数据, 用下面的映射表归组。
+FETCHER_GROUPS = {
+    # fetchers_reverse (有 REVERSE_FETCHERS 元数据, 优先)
+    # fetchers_extra 按功能归组:
+    "kline": ["tencent_kline", "eastmoney_kline", "sina_kline_ma",
+              "sina_vip_kline", "sina_kline_daily", "em_a_hist",
+              "tencent_index_history", "local_kline_bulk",
+              "em_fund_etf_hist_min", "em_push2his_kline_DEPRECATED"],
+    "quote": ["sina_hq", "eastmoney_stock_get", "em_quote_snapshot",
+              "em_push2_clist", "em_push2delay_clist", "em_push2his_clist",
+              "em_push2his_etf_onsite", "tv_screener", "industry_map_tv",
+              "local_snapshot", "sina_etf_hist", "tx_tick_detail",
+              "tx_minute", "minute1", "em_tick_details"],
+    "fund": ["jisilu_dividend_rate", "jisilu_lof_index", "jisilu_lof_stock",
+             "jisilu_etf_list", "jisilu_cb_list_new", "jisilu_cb_adjust",
+             "jisilu_cb_delisted", "jisilu_new_stock_apply",
+             "jisilu_new_stock_hkipo", "jisilu_new_stock_sub",
+             "jisilu_new_stock_super", "em_fund_lsjz"],
+    "event": ["eastmoney_zt_pool", "eastmoney_zdfenbu", "ths_strong_stocks",
+              "ths_strong", "ths_industry", "ths_industry_list",
+              "sina_bill_sum", "sina_trans_list", "em_lcpd_report",
+              "em_fflow_history"],
+    "sector": ["ths_concept_list", "ths_financial_abstract",
+               "ths_financial_abstract_v2"],
+    "news": ["sina_news", "eastmoney_news", "em_ann_np", "toutiao_hot",
+             "remote_news", "douyin_hot_search"],
+    "macro": ["coingecko", "sec_edgar", "macro_china_cpi_gdp"],
+}
+
+
+def _register_external_fetchers():
+    """把 fetchers_extra / fetchers_reverse 的 f_* 函数按组注册进 FETCHERS。
+
+    容错: 任一库 import 失败只跳过, 不影响内联的 9 个 fetcher。
+    """
+    registered = 0
+    # fetchers_reverse: 有 REVERSE_FETCHERS 元数据
+    try:
+        import fetchers_reverse as _fr
+        for grp, name, fn in getattr(_fr, "REVERSE_FETCHERS", []):
+            FETCHERS.setdefault(grp, []).append((name, fn))
+            registered += 1
+    except Exception as e:
+        print("[fetchers] fetchers_reverse 跳过: %s" % type(e).__name__)
+    # fetchers_extra: 按 FETCHER_GROUPS 归组
+    try:
+        import fetchers_extra as _fe
+        have = {n for g in FETCHERS.values() for n, _ in g}
+        for grp, names in FETCHER_GROUPS.items():
+            for name in names:
+                if name in have:
+                    continue
+                fn = getattr(_fe, "f_" + name, None)
+                if fn is None:
+                    continue
+                FETCHERS.setdefault(grp, []).append((name, fn))
+                registered += 1
+    except Exception as e:
+        print("[fetchers] fetchers_extra 跳过: %s" % type(e).__name__)
+    # fetchers_new_sources: 2026-10-17 逆向调研确认的新源 (docs/research/)
+    try:
+        import fetchers_new_sources as _fn2
+        have = {n for g in FETCHERS.values() for n, _ in g}
+        for grp, name in (("news", "jrj_yaowen_daily"),
+                          ("news", "aigupiao_express"),
+                          ("event", "sseinfo_qa"),
+                          ("event", "sseinfo_survey"),
+                          ("event", "stockstar_forecast")):
+            if name in have:
+                continue
+            fn = getattr(_fn2, "f_" + name, None)
+            if fn is None:
+                continue
+            FETCHERS.setdefault(grp, []).append((name, fn))
+            registered += 1
+    except Exception as e:
+        print("[fetchers] fetchers_new_sources 跳过: %s" % type(e).__name__)
+    # fetchers_f10: 东财 F10 + 股权质押（2026-10-26 实测 200 有数据）
+    try:
+        import fetchers_f10 as _f10
+        have = {n for g in FETCHERS.values() for n, _ in g}
+        for grp, name in (("fund", "em_f10_mainop"),
+                          ("fund", "em_f10_freeholders"),
+                          ("sector", "em_f10_coretheme_board"),
+                          ("fund", "em_equity_pledge_detail"),
+                          ("fund", "em_equity_pledge_market")):
+            if name in have:
+                continue
+            fn = getattr(_f10, "f_" + name, None)
+            if fn is None:
+                continue
+            FETCHERS.setdefault(grp, []).append((name, fn))
+            registered += 1
+    except Exception as e:
+        print("[fetchers] fetchers_f10 跳过: %s" % type(e).__name__)
+    # fetchers_hsf10: 东财 HSF10 / 机构持仓 / 股东户数（2026-10-26 实测）
+    try:
+        import fetchers_hsf10 as _h10
+        have = {n for g in FETCHERS.values() for n, _ in g}
+        for grp, name in (("fund", "em_hsf10_capital_structure"),
+                          ("fund", "em_hsf10_bonus_financing"),
+                          ("fund", "em_hsf10_business_analysis"),
+                          ("fund", "em_hsf10_shareholder_research"),
+                          ("fund", "em_holder_num_latest"),
+                          ("fund", "em_f10_orghold_history")):
+            if name in have:
+                continue
+            fn = getattr(_h10, "f_" + name, None)
+            if fn is None:
+                continue
+            FETCHERS.setdefault(grp, []).append((name, fn))
+            registered += 1
+    except Exception as e:
+        print("[fetchers] fetchers_hsf10 跳过: %s" % type(e).__name__)
+    # fetchers_batch2: 龙虎榜/解禁/回购/增持/业绩/腾讯K线（2026-10-26 实测）
+    try:
+        import fetchers_batch2 as _b2
+        have = {n for g in FETCHERS.values() for n, _ in g}
+        for grp, name in (("event", "em_lhb_detail"),
+                          ("event", "em_lhb_org_daily"),
+                          ("event", "em_lhb_yyb_statistics"),
+                          ("event", "em_lhb_yyb_trade_detail"),
+                          ("event", "em_lhb_yyb_return_ranking"),
+                          ("event", "em_restricted_unlock_day"),
+                          ("event", "em_repurchase_list"),
+                          ("event", "em_shareholder_increase"),
+                          ("fund", "em_performance_express"),
+                          ("fund", "em_performance_forecast"),
+                          ("quote", "tencent_newfqkline"),
+                          ("quote", "tencent_hk_kline"),
+                          ("quote", "tencent_us_kline"),
+                          ("quote", "tencent_index_weektrends")):
+            if name in have:
+                continue
+            fn = getattr(_b2, "f_" + name, None)
+            if fn is None:
+                continue
+            FETCHERS.setdefault(grp, []).append((name, fn))
+            registered += 1
+    except Exception as e:
+        print("[fetchers] fetchers_batch2 跳过: %s" % type(e).__name__)
+    # fetchers_em3: 东财剩余 19 源（2026-10-26 实测）
+    try:
+        import fetchers_em3 as _e3
+        have = {n for g in FETCHERS.values() for n, _ in g}
+        for grp, name in (("quote", "em_dmsk_ts_stock_new"),
+                          ("event", "em_ipo_allotment"),
+                          ("event", "em_ipo_apply_yield"),
+                          ("event", "em_ipo_neeq_list"),
+                          ("event", "em_ipo_review"),
+                          ("fund", "em_kzz_ballot_num"),
+                          ("fund", "em_kzz_important_date"),
+                          ("fund", "em_kzz_invest_item"),
+                          ("fund", "em_kzz_value_hist"),
+                          ("fund", "em_macro_house_price_70"),
+                          ("fund", "em_macro_shibor"),
+                          ("fund", "em_margin_account_daily"),
+                          ("fund", "em_org_hold_allmarket"),
+                          ("event", "em_org_survey"),
+                          ("fund", "em_seo_detail"),
+                          ("event", "em_stock_participation"),
+                          ("fund", "em_hsf10_company_survey"),
+                          ("fund", "em_hsf10_operations_required"),
+                          ("fund", "em_reportapi_stock_report")):
+            if name in have:
+                continue
+            fn = getattr(_e3, "f_" + name, None)
+            if fn is None:
+                continue
+            FETCHERS.setdefault(grp, []).append((name, fn))
+            registered += 1
+    except Exception as e:
+        print("[fetchers] fetchers_em3 跳过: %s" % type(e).__name__)
+    # fetchers_ths: 同花顺 JSON/JSONP + F10 HTML 表格（2026-10-26 实测）
+    try:
+        import fetchers_ths as _ths
+        have = {n for g in FETCHERS.values() for n, _ in g}
+        for grp, name in (("quote", "ths_kline_day"),
+                          ("quote", "ths_kline_month"),
+                          ("quote", "ths_timeshare"),
+                          ("news", "ths_news_push"),
+                          ("event", "ths_strong_stocks"),
+                          ("fund", "ths_f10_operate"),
+                          ("fund", "ths_f10_holder"),
+                          ("fund", "ths_f10_bonus"),
+                          ("fund", "ths_f10_worth"),
+                          ("fund", "ths_f10_capital"),
+                          ("fund", "ths_f10_equity"),
+                          ("event", "ths_f10_event"),
+                          ("fund", "ths_f10_field"),
+                          ("sector", "ths_board_constituents")):
+            if name in have:
+                continue
+            fn = getattr(_ths, "f_" + name, None)
+            if fn is None:
+                continue
+            FETCHERS.setdefault(grp, []).append((name, fn))
+            registered += 1
+    except Exception as e:
+        print("[fetchers] fetchers_ths 跳过: %s" % type(e).__name__)
+    # fetchers_batch3: 财联社/可转债/腾讯板块榜/新浪资金流/华尔街见闻（2026-10-26 实测）
+    try:
+        import fetchers_batch3 as _b3
+        have = {n for g in FETCHERS.values() for n, _ in g}
+        for grp, name in (("news", "cls_telegraph"),
+                          ("news", "cls_telegraph_v1"),
+                          ("event", "ths_kzz_all"),
+                          ("event", "jisilu_cb_realtime"),
+                          ("sector", "tencent_board_rank"),
+                          ("fund", "sina_moneyflow_lscjfb"),
+                          ("quote", "sina_hq_node_count"),
+                          ("news", "wscn_lives")):
+            if name in have:
+                continue
+            fn = getattr(_b3, "f_" + name, None)
+            if fn is None:
+                continue
+            FETCHERS.setdefault(grp, []).append((name, fn))
+            registered += 1
+    except Exception as e:
+        print("[fetchers] fetchers_batch3 跳过: %s" % type(e).__name__)
+    return registered
+
+
+_n_ext = _register_external_fetchers()
+if _n_ext:
+    print("[fetchers] 注册 %d 个外部 fetcher, 总计 %d" % (
+        _n_ext, sum(len(v) for v in FETCHERS.values())))
+
 
 # ════════════════════════════════════════════════════════════════
 # 合并去重 + 冲突解决

@@ -14,8 +14,16 @@
 #   - data/predictions/ 快照由本工作流落盘 (复盘闭环的时间基准)
 name: full-pipeline
 on:
-  schedule:
-    - cron: '2,7,12,17,22,27,32,37,42,47,52,57 1,2,3,5,6,7 * * 1-5'
+  schedule:  # disabled on mirror
+    # 交易时段每 5 分钟 (UTC 1,2,3,5,6,7 时的 :02/:07/:12/...
+    # = CST 09:02-15:57)。实测一整轮 (采集 ~12s + 22 引擎) 只要 ~60s,
+    # 所以 5 分钟粒度有余量; 配 concurrency group 防止偶发慢轮自我重叠。
+    # 2026-10-16 修: 补盘后/晚间/凌晨 (原 cron 只覆盖盘中, 盘后 17 小时
+    #   停摆, market_now/hot_news 等停在昨天盘中)。
+    #   UTC 1,2,3,5,6,7,8,9,10,11,12 = CST 09:02-20:57
+    #   UTC 17 = CST 次日 01:02 (隔夜刷新)
+    # - cron: '2,7,12,17,22,27,32,37,42,47,52,57 1,2,3,5,6,7,8,9,10,11,12 * * *'
+    # - cron: '2 17 * * *'
   workflow_dispatch: {}
 permissions:
   contents: write
@@ -47,7 +55,7 @@ jobs:
       - name: Checkout kline repo (sparse)
         uses: actions/checkout@v4
         with:
-          repository: qwerzxcva/stocks-data-kline
+          repository: qwerzxcva/t1
           token: ${{ secrets.GITHUB_TOKEN }}
           path: kline-repo
           sparse-checkout: |
@@ -77,6 +85,9 @@ jobs:
         run: |
           python3 scripts/collect_all_sources.py --out /tmp/collected.json --workers 8
 
+      - name: Validate collected snapshot
+        run: python3 scripts/data_audit.py --collected /tmp/collected.json
+
       # ── 3. 数据库导入 (采集侧质量门) ──
       - name: Init DB + load
         run: |
@@ -104,8 +115,7 @@ jobs:
       # 必须在 Collect all sources 之后: 输入是 all_sources.json 的 news 组。
       - name: Build news digest
         run: |
-          python3 scripts/build_news_digest.py --keep-hours 24 || \
-            echo "::warning::news_digest 生成失败, 保留上一版"
+          python3 scripts/build_news_digest.py --keep-hours 24
 
       # ── 5. 预测快照持久化 ─────────────────────────────────────
       # 复盘闭环的时间基准: 今天存, 明天验证 1 日, 后天验证 3 日…
@@ -117,19 +127,21 @@ jobs:
       - name: Persist prediction snapshot
         run: |
           mkdir -p data/predictions
-          ts=$(TZ=Asia/Shanghai date +%Y-%m-%d)
+          ts=$(TZ=Asia/Shanghai date +%Y-%m-%d_%H%M%S)
+          run_id=${GITHUB_RUN_ID:-local_$(date +%s)}
           if [ -f data/engine_v5.json ]; then
             # 引擎链已算出当日评分 → 直接快照 (复盘要的 top/votes 都在)
-            cp data/engine_v5.json "data/predictions/engine_v5_${ts}.json"
-            echo "prediction snapshot <- engine_v5.json ($(ls -la data/engine_v5.json | awk '{print $5}') bytes)"
+            cp data/engine_v5.json "data/predictions/engine_v5_${ts}_${run_id}.json"
+            echo "prediction snapshot <- engine_v5.json ($(ls -la data/engine_v5.json | awk '{print $5}') bytes), run_id=${run_id}"
           else
-            echo "::notice::engine_v5.json 尚未生成, 本次不建快照"
+            echo "::error::engine_v5.json 尚未生成, refusing incomplete prediction snapshot"
+            exit 1
           fi
           echo "predictions/: $(ls data/predictions | wc -l) 份"
 
       # ── 6. 全局 FX (轻量, 前端常驻展示) ──
       - name: Global FX
-        run: python3 scripts/build_global_fx.py --out data/global_fx.json || true
+        run: python3 scripts/build_global_fx.py --out data/global_fx.json
 
       # Engine steps (balancer / scenario / calibrator / auditor / edge miner /
       # anomaly) moved to engine-chain.yml. They were duplicated here, and the
@@ -153,14 +165,21 @@ jobs:
       # ── 6e. 瘦身预测快照 (votes 瘦成 dict, 107M -> 22M, 防仓库膨胀) ──
       - name: Slim prediction snapshots
         run: |
-          python3 scripts/slim_predictions.py --dir data/predictions || echo "slim skipped"
+          python3 scripts/slim_predictions.py --dir data/predictions
           du -sh data/predictions/
 
       # ── 7. 数据校验 (采集侧) ──
       - name: Audit collected data
         run: |
-          python3 scripts/audit_data.py > data/audit_data_report.txt 2>&1 || true
-          python3 scripts/numeric_validator.py --out data/validation_report.json || true
+          python3 scripts/audit_data.py > data/audit_data_report.txt 2>&1
+          python3 scripts/numeric_validator.py --out data/validation_report.json
+          python3 - <<'PY'
+          import json
+          report=json.load(open('data/validation_report.json', encoding='utf-8'))
+          if not isinstance(report, dict):
+              raise SystemExit('numeric validator returned an invalid report')
+          print('validator fields:', sorted(report))
+          PY
 
       # ── 9. 采集摘要 ──
       - name: Summary
@@ -203,6 +222,8 @@ jobs:
           python3 scripts/git_push_retry.py --msg "pipeline(collect)" \
             data/sources_registry.json data/all_sources.json data/news_digest.json \
             data/predictions data/global_fx.json data/audit_data_report.txt \
+            data/validation_report.json \
             --protect data/sources_registry.json --protect data/all_sources.json \
             --protect data/news_digest.json --protect data/predictions \
-            --protect data/global_fx.json --protect data/audit_data_report.txt
+            --protect data/global_fx.json --protect data/audit_data_report.txt \
+            --protect data/validation_report.json

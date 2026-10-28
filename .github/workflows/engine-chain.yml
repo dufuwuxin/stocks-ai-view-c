@@ -17,22 +17,41 @@
 # this one, so the default GITHUB_TOKEN cannot do it.
 name: engine-chain
 on:
-  schedule:
-    - cron: '5 1 * * 1-5'
-    - cron: '30 7 * * 1-5'
+  schedule:  # disabled on mirror
+    # 2026-10-17 修: 1-5 改每天。周末不跑会导致 review/复盘类文件整周末停更
+    # (freshness_audit 一轮 12 个 STALE 全是周五产物), 用户要求 24h 自动化。
+    # 成本: 公开仓标准 runner 免费, 多烧的是 cron 调度配额而非钱。
+    # 09:05 CST weekdays: after the pre-open data lands, before the session
+    # - cron: '5 1 * * *'
     # 15:30 CST weekdays: after the close and the 15:05 settle
+    # - cron: '30 7 * * *'
+    # 16:40 CST weekdays: a second post-close pass.
+    # Why: the 15:30 run can still be racing the 15:05 settle and the
+    # realtime-minute tail (its last tick is 15:02). A later pass sees the
+    # settled pool/limit-up data, and rebuild-pools has run its 15:40
+    # settle by then. Without it, the site shows the 15:30 snapshot all
+    # night even after the final numbers are in (2026-10-16 observed:
+    # engines frozen at 19:35 while collectors kept running to 02:29).
+    # - cron: '40 8 * * *'
   workflow_dispatch:
     inputs:
       force:
         description: 'Run regardless of the time window'
         type: boolean
         default: false
+      mode:
+        description: 'Which tier list to run (only used with force)'
+        type: choice
+        options: [full, light]
+        default: full
 permissions:
   contents: read
 
 concurrency:
-  # one run at a time; the two cron ticks are 6.5h apart, but a manual dispatch
-  # during a scheduled run should queue rather than interleave
+  # One run at a time. cancel-in-progress stays false on purpose: a full run
+  # takes ~6-9 min and the heartbeat wakes this every 5 min, so a cancelled
+  # run would leave the full-tier files stale and the age guard would have to
+  # start over. Queueing means at most one full run is wasted, never a lost one.
   group: engine-chain
   cancel-in-progress: false
 
@@ -43,6 +62,8 @@ concurrency:
 # Override with a workflow_dispatch input when you want it to run immediately.
 env:
   TZ: Asia/Shanghai
+  # GitCode 免费 AI 额度 (AI 复盘用); 未配置时 ai_review 自动跳过
+  GITCODE_TOKEN: ${{ secrets.GITCODE_TOKEN }}
 
 jobs:
   engines:
@@ -51,30 +72,115 @@ jobs:
     env:
       TZ: Asia/Shanghai
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      # GitCode 免费 AI 额度 (AI 复盘); 未配置时脚本自动跳过
+      GITCODE_TOKEN: ${{ secrets.GITCODE_TOKEN }}
+      # job 级路径变量: 引擎链整段都要读。只在单步设的话, multidim 的
+      # load_quote_index() 会因 SNAPSHOT_GLOB 落空而返回 {},
+      # 表现为「快照0 基本面全 50」(2026-10-15 实测 run 38728026058)。
+      STOCKS_LIVE_MARKET: ${{ github.workspace }}/stocks-data-live/market
+      STOCKS_LIVE_ROOT: ${{ github.workspace }}/stocks-data-live
       FORCE_RUN: ${{ inputs.force }}
+      FORCE_MODE: ${{ inputs.mode }}
     steps:
       - name: Time window guard
         run: |
-          # The heartbeat wakes this every 5 min; a full chain only matters
-          # pre-open (08:30-09:30) and post-close (15:05-16:30). Outside those
-          # windows, skip so the heartbeat does not pile up runs all session.
+          # The heartbeat wakes this every 5 min; a full chain takes ~6-9 min
+          # and cannot run every tick. Two rules decide the tier:
+          #
+          #   1. FORCE_RUN=true (manual dispatch) -> whatever FORCE_MODE says.
+          #   2. Otherwise the tier follows the *age of the full-tier output*,
+          #      not a wall-clock window. Stale clocks are what broke this
+          #      before: the guard only allowed full at 09:05/15:30/16:40, so
+          #      when a run was cancelled (10-15 20:37Z was) the ~45 full-tier
+          #      files stayed frozen at the previous day - visible on the site
+          #      as "cycle deep analysis / review / winrate matrix all stale"
+          #      while the collectors kept running. Checking age instead of the
+          #      clock means the next tick after any failure re-runs full.
+          #
+          # MODE decides which tier list the Engine chain step runs.
+          #   light = the engines the site reads directly (~65s measured)
+          #   full  = the whole tier 0-8 chain (~6-9 min)
           if [ "$FORCE_RUN" = "true" ]; then
+            echo "MODE=${FORCE_MODE:-full}" >> "$GITHUB_ENV"
             echo "forced run, skipping the window check"; exit 0
           fi
           h=$(date +%H); m=$(date +%M); mins=$((10#$h * 60 + 10#$m))
           dow=$(date +%u)
-          if [ "$dow" -gt 5 ]; then echo "weekend, skipping"; exit 1; fi
-          if [ "$mins" -ge 510 ] && [ "$mins" -le 570 ]; then
-            echo "pre-open window ($h:$m), running"; exit 0
+          # Weekends still run full: if Friday's post-close full fails, the
+          # weekend is the only window left to compensate. light has nothing
+          # new to compute on a weekend (same snapshot, re-scored), so the old
+          # "weekend -> exit 1" pushed the recovery all the way to Monday.
+          if [ "$dow" -gt 5 ]; then
+            echo "MODE=full" >> "$GITHUB_ENV"
+            echo "weekend -> full (compensate for a failed weekday full run)"; exit 0
           fi
-          if [ "$mins" -ge 905 ] && [ "$mins" -le 990 ]; then
-            echo "post-close window ($h:$m), running"; exit 0
+          # Intraday (09:15-15:10) runs light so the four engines the site
+          # reads directly stay minutes old.
+          if [ "$mins" -ge 555 ] && [ "$mins" -le 910 ]; then
+            echo "MODE=light" >> "$GITHUB_ENV"; echo "intraday window ($h:$m) -> light"; exit 0
           fi
-          echo "outside the engine window ($h:$m), skipping"; exit 1
+          # Every other slot looks at the age of representative full-tier
+          # output: older than 6h -> full, otherwise light. A missing or
+          # unparsable file counts as 1e9 hours (never ran -> must run full).
+          # NB: age comes from each JSON's own ts/date field, NOT mtime -
+          # a fresh checkout gives every file the same mtime, so mtime would
+          # always read as "0h old" and full would never trigger.
+          age_h=$(python3 - <<'PY'
+          import json
+          from datetime import datetime, timezone, timedelta
 
+          CST = timezone(timedelta(hours=8))
+          cands = ["data/market_phase.json", "data/ban_pick.json",
+                   "data/reflect_latest.json", "data/multidim.json",
+                   "data/winrate_matrix.json"]
+
+          def parse_ts(d):
+              for k in ("ts", "generated_at", "as_of", "date"):
+                  v = d.get(k)
+                  if not v:
+                      continue
+                  s = str(v).strip()
+                  if len(s) == 8 and s.isdigit():        # YYYYMMDD
+                      s = "%s-%s-%s" % (s[:4], s[4:6], s[6:])
+                  s = s.replace("Z", "+00:00")
+                  try:
+                      t = datetime.fromisoformat(s)
+                  except ValueError:
+                      continue
+                  return t if t.tzinfo else t.replace(tzinfo=CST)
+              return None
+
+          now = datetime.now(timezone.utc)
+          ages = []
+          for p in cands:
+              try:
+                  with open(p, encoding="utf-8") as fh:
+                      d = json.load(fh)
+              except Exception:
+                  ages.append(1e9)
+                  continue
+              t = parse_ts(d) if isinstance(d, dict) else None
+              ages.append(1e9 if t is None
+                          else (now - t).total_seconds() / 3600.0)
+          print("%.1f" % min(ages))
+          PY
+          )
+          if python3 -c "import sys; sys.exit(0 if float('$age_h') > 6.0 else 1)"; then
+            echo "MODE=full" >> "$GITHUB_ENV"
+            echo "full-tier output ${age_h}h old (>6h) -> full"; exit 0
+          fi
+          echo "MODE=light" >> "$GITHUB_ENV"
+          echo "full-tier output ${age_h}h old (<=6h) -> light"; exit 0
+
+      # 必须传 PAT 而不是默认 GITHUB_TOKEN: actions/checkout 会用传入的
+      # token 重写 git remote 的凭据。默认 GITHUB_TOKEN 受
+      # `permissions: contents: read` 限制只有读权限, 用它 checkout 后
+      # git_push_retry.py 的 git push 会稳定 403
+      # (2026-10-15 实测: run 38724673649 / 38726480451 连续 12 次
+      # attempt 全部 403, 6 个 protect 文件的成果全部推不上去)。
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
           fetch-depth: 0
 
       - name: Sync remote main
@@ -84,10 +190,12 @@ jobs:
 
       # The engines read bulk kline and the prediction history; both live in
       # other repos. Sparse-checkout keeps the download small.
+      # 2026-10-18: stocks-data-kline 已 301 重定向到 t1 (另一台 AI 迁移),
+      # checkout 旧名会拿到镜像仓陈旧 bulk (engine_v5 数据停 10-16 的根因)。
       - name: Checkout kline repo (sparse)
         uses: actions/checkout@v4
         with:
-          repository: qwerzxcva/stocks-data-kline
+          repository: qwerzxcva/t1
           token: ${{ secrets.GITHUB_TOKEN }}
           sparse-checkout: |
             data/bulk
@@ -100,6 +208,37 @@ jobs:
           cp -r kline-repo/data ../stocks-data-kline/ 2>/dev/null || true
           cp -r kline-repo/meta ../stocks-data-kline/ 2>/dev/null || true
           ls ../stocks-data-kline/data/bulk | head -3
+          # 大分片在 git 里是 .csv.gz (54.6MB -> 15.7MB)。28 个引擎脚本都
+          # glob 'day_qfq_*.csv', 所以这里解压到 bulk 目录, 让 glob 能命中。
+          # 不解压的话 engine_v5 只加载 1677 只而不是 3997 只 (2026-10-15 实测)。
+          python3 -c "
+          import sys; sys.path.insert(0, 'scripts')
+          from paths import ensure_bulk_uncompressed
+          n = ensure_bulk_uncompressed('../stocks-data-kline/data/bulk')
+          print(f'uncompressed {n} gz shards')
+          "
+          ls ../stocks-data-kline/data/bulk | grep -c 'day_qfq'
+
+      # 腾讯全市场快照: multidim 的基本面维度 (PE/PB/市值) 读
+      # SNAPSHOT_GLOB = $STOCKS_LIVE_MARKET/snapshot_*.json。不配这个
+      # 环境变量、不拉 live 仓, load_quote_index() 返回空,
+      # 表现为「快照0 基本面全 50」(2026-10-15 实测 run 38728026058)。
+      - name: Checkout live repo (snapshot)
+        uses: actions/checkout@v4
+        with:
+          repository: qwerzxcva/stocks-data-live
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: live-repo
+          sparse-checkout: |
+            data/market
+          sparse-checkout-cone-mode: false
+
+      - name: Prepare snapshot dir
+        run: |
+          mkdir -p ../stocks-data-live/market
+          cp -n live-repo/data/market/snapshot_*.json ../stocks-data-live/market/ 2>/dev/null || true
+          ls ../stocks-data-live/market/ | tail -3
+          echo "snapshots: $(ls ../stocks-data-live/market/snapshot_*.json 2>/dev/null | wc -l)"
           # the ledger engines need wh/daily; pull it from the warehouse
           mkdir -p ../stockdb/wh/daily
           curl -s -H "Authorization: token ${GH_TOKEN}" \
@@ -128,23 +267,132 @@ jobs:
         run: pip install -q requests akshare pandas lxml duckdb
 
       # ── the chain ──────────────────────────────────────────────
-      - name: Engine chain (tier 0-8)
+      - name: Engine chain (tier 0-8 / light)
         run: |
-          set +e
+          set -euo pipefail
+          # MODE=light: 只跑网站直接消费的四个引擎 (实测本地 65s)。
+          #   盘中每 5 分钟一轮, 保证 index.html 的 engine_v5 / decision /
+          #   today_picks / ai_pick_v4 是几分钟内的新结果。
+          # MODE=full: 盘前/盘后跑整条 tier 0-8 链 (~6-9 分钟)。
+          if [ "$MODE" = "light" ]; then
+            echo "--- light tier: valuation / engine_v5 / decision / today_picks / ai_pick_v4 / premarket ---"
+            # valuation 提到 light: 它只跑 ~20s, 但产出被 premarket_picks /
+            # multidim / ai_pick_v4 / decision 四个引擎依赖。此前只在 full 跑,
+            # 导致盘中刷新时 valuation.json 停留在上一次 full 的快照
+            # (实测只剩 6 条指数, 因为 full 那轮行情快照源失败)。
+            # 2026-10-19: 云端此前 all_sources 缺失 -> engine 日志「仅用技术指标」,
+            # 外部增强(板块/资金/涨停池)全失效。这里先补采集。
+            if [ ! -f data/all_sources.json ]; then
+              timeout 600 python3 scripts/collect_all_sources.py \
+                --out data/all_sources.json --workers 6 --groups quote,event,sector \
+                || echo "::warning::all_sources 采集失败, 引擎将仅用技术指标"
+            fi
+            python3 scripts/valuation_engine.py --out data/valuation.json || echo "valuation skipped"
+            # limit 4200: 全市场 4019 只, 原 2000 只覆盖一半 (云端实测加载 2820)
+            python3 scripts/engine_v5.py --out data/engine_v5.json --limit 4200 --main-board-only
+            python3 scripts/news_transmission.py --in data/hot_news.json --news data/news_extra.json --out data/news_transmission.json || echo "news transmission skipped"
+            python3 scripts/theme_lifecycle.py --themes data/hot_themes.json --history data/theme_lifecycle_history.json --out data/theme_lifecycle.json || echo "theme lifecycle skipped"
+            python3 scripts/concept_strength.py --out data/concept_strength.json || echo "concept strength skipped"
+            python3 scripts/tape_structure.py --out data/tape_structure.json || echo "tape structure skipped"
+            # 2026-10-26 重构: decision 的唯一候选源是 multidim.table。light 不跑
+            # multidim 时候选=上次 full 的残表(实测只剩4只且全是watch) — 候选枯
+            # 竭是推股质量差根因之一。补上, limit 2000 (原 full 也才 300)。
+            python3 scripts/multidim_engine.py --out data/multidim.json --limit 2000 || echo "multidim skipped"
+            python3 scripts/decision_engine.py --out data/decision.json || echo "decision skipped"
+            python3 scripts/build_today_picks.py --force
+            python3 scripts/ai_pick_v4.py --out data/ai_pick_v4.json || echo "ai_pick_v4 skipped"
+            # 关键价位 (候选股 Pivot/布林/Keltner/ATR/偏离第N) + 60日广度
+            python3 scripts/key_levels.py || echo "key_levels skipped"
+            # 选出后7日区间高点追踪 (可证伪, 用 predictions/ 快照)
+            python3 scripts/pick_high_track.py || echo "pick_high_track skipped"
+            # 站外公开信号流 (stock-web-vango, 零鉴权, 每日一次足够)
+            python3 scripts/fetch_vango_articles.py || echo "vango skipped"
+            # Only the real pre-open stage may replace the premarket record.
+            cst_hour=$(TZ=Asia/Shanghai date +%H)
+            cst_min=$(TZ=Asia/Shanghai date +%M)
+            if [ "$cst_hour" = "08" ] || { [ "$cst_hour" = "09" ] && [ "$cst_min" -lt 15 ]; }; then
+              python3 scripts/horizon_features.py --out data/horizon_features.json || echo "horizon features skipped"
+              python3 scripts/premarket_picks.py --out data/premarket_picks.json
+            fi
+            # Only the lunch break may replace the midday record.
+            if [ "$cst_hour" = "11" ] && [ "$cst_min" -ge 30 ] || { [ "$cst_hour" = "12" ]; }; then
+              python3 scripts/midday_picks.py --out data/midday_picks.json
+            fi
+            echo "--- light tier done ---"
+          fi
+
+          if [ "$MODE" = "full" ]; then
           echo "--- tier 0: valuation + market phase ---"
-          python3 scripts/valuation_engine.py --inject || echo "valuation skipped"
+          cst_hour=$(TZ=Asia/Shanghai date +%H)
+          cst_min=$(TZ=Asia/Shanghai date +%M)
+          if [ "$cst_hour" = "08" ] || { [ "$cst_hour" = "09" ] && [ "$cst_min" -lt 15 ]; }; then
+            python3 scripts/premarket_picks.py --out data/premarket_picks.json
+          fi
+          if { [ "$cst_hour" = "11" ] && [ "$cst_min" -ge 30 ]; } || [ "$cst_hour" = "12" ]; then
+            python3 scripts/midday_picks.py --out data/midday_picks.json
+          fi
+          # 2026-10-19: full 档也要先补 all_sources, 否则引擎全线
+          # 「仅用技术指标」(板块共振/资金流/涨停池三个外部维度全失效)。
+          # 上面 light 分支的补采集条件在这里同样适用。
+          if [ ! -f data/all_sources.json ]; then
+            echo "all_sources missing -> collecting (quote+event only)"
+            timeout 600 python3 scripts/collect_all_sources.py \
+              --out data/all_sources.json --workers 6 --groups quote,event,sector \
+              || echo "::warning::all_sources 采集失败, 引擎将仅用技术指标"
+          fi
+          python3 scripts/valuation_engine.py --inject || echo "valuation inject skipped (no snapshot)"
           python3 scripts/phase_runner.py --days 90 --out data/market_phase.json || echo "phase skipped"
 
           echo "--- tier 1: resonance + AI pick + rotation ---"
-          python3 scripts/engine_v5.py --out data/engine_v5.json --limit 500 || echo "engine_v5 skipped"
+          python3 scripts/engine_v5.py --out data/engine_v5.json --limit 4200 --main-board-only
           python3 scripts/ai_pick_v4.py --out data/ai_pick_v4.json || echo "ai_pick_v4 skipped"
           python3 scripts/rps_rotation.py --top 30 --out data/rps_rotation.json || echo "rps skipped"
+          # 关键价位 (候选股 Pivot/布林/Keltner/ATR/偏离第N) + 60日广度 + 区间高点追踪
+          # full 档也要跑: 周末/盘后是 full 档, 只在 light 档会周末全断 (2026-10-17 实测)
+          python3 scripts/key_levels.py || echo "key_levels skipped"
+          python3 scripts/pick_high_track.py || echo "pick_high_track skipped"
+          # 趋势强度指数族 (RTSI/TMA/MSCI), 数学模型借鉴 hengruiyun/AI-Stock-Master
+          # 补 engine_v5 的盲区: 17 指标只给「信号数量」, RTSI 用回归 R²/p 值
+          # 给「信号质量」—— 一条 R²=0.9 的上升趋势远比 7 个指标同时说涨可靠。
+          python3 scripts/trend_strength.py --limit 500 --out data/trend_strength.json || echo "trend_strength skipped"
 
           echo "--- tier 2: factors + decision + limit-up audit ---"
-          python3 scripts/multidim_engine.py --out data/multidim.json --limit 300 || echo "multidim skipped"
+          # 腾讯逐笔成交 (分笔明细): 为竞价抢筹/封板质量提供真实主动买卖数据。
+          # 只取涨停池 + 强势股。注意耗时: 每只约 20-30 秒 (全天 4500-4800 笔,
+          # 逐页翻到空页), 40 只要 8-20 分钟。2026-10-16 实测这一步 +
+          # bull_bear_debate 的 LLM 串行调用把整条链拖了 1 小时+。
+          # 现限 20 只 + timeout 900s 兜底, 超时就跳过 (逐笔是增强不是必需)。
+          timeout 900 python3 scripts/fetchers_ticks.py --summary-only \
+            --codes "$(python3 -c "
+          import json,os
+          d=os.path.join(os.environ.get('STOCKS_AI_VIEW_DATA') or 'data','latest.json')
+          try:
+              j=json.load(open(d))
+          except Exception:
+              j={}
+          pool=[str(x.get('code','')).zfill(6) for x in (j.get('limit_up_pool') or [])]
+          strong=[str(x.get('code','')).zfill(6) for x in (j.get('ths_strong') or [])][:10]
+          seen=[];
+          for c in pool+strong:
+              if len(c)==6 and c.isdigit() and c not in seen: seen.append(c)
+          print(','.join(seen[:20]))")" \
+            --out data/ticks_$(date +%Y%m%d).json \
+            || echo "::warning::ticks 采集失败或超时, 保留上一版"
+          python3 scripts/auction_engine.py --out data/auction_engine.json || echo "auction skipped"
+          # 板块资金 (东财行业主力净额): multidim 的板块面维度与
+          # AI 复盘的【板块资金】节都读 latest.json.sector_moneyflow。
+          # engine-chain 原先不跑 collect_market_extras, 该字段一直缺失,
+          # 表现为「板块资金0」(2026-10-15 实测 run 38728026058)。
+          python3 scripts/collect_market_extras.py --merge data/latest.json || echo "market_extras skipped"
+          # 海外关联性 (大盘/板块 与 纳指/恒指/日经/KOSPI 的相关/贝塔/滞后/隔夜)
+          # 必须在 multidim 之前: multidim 的「海外面」维度读它
+          python3 scripts/overseas_linkage.py --out data/overseas_linkage.json || echo "linkage skipped"
+          python3 scripts/multidim_engine.py --out data/multidim.json --limit 2000 || echo "multidim skipped"
           python3 scripts/decision_engine.py --out data/decision.json || echo "decision skipped"
           python3 scripts/ban_prob.py --out data/ban_prob.json || echo "ban_prob skipped"
           python3 scripts/ban_pick.py --out data/ban_pick.json || echo "ban_pick skipped"
+          # 涨停归因 + 下一个涨停预测 (依赖 ban_pick 与 market_now)
+          python3 scripts/limitup_attribution.py || echo "limitup_attribution skipped"
           python3 scripts/patterns.py --out data/patterns_smoke.json || echo "patterns skipped"
           python3 scripts/strategy_card.py || echo "strategy_card skipped"
           python3 scripts/engine_fusion.py || echo "engine_fusion skipped"
@@ -166,38 +414,206 @@ jobs:
           # v2 replaces the averaged calibrator: it scores bull and bear
           # separately, which is what exposed that every bull edge is negative
           python3 scripts/weight_calibrator_v2.py || echo "calibrator_v2 skipped"
+          # v3 分层校准: v2 在全负 edge 时会把权重全部归零 (信号系统空转),
+          # v3 改为分层统计 + 相对权重 (0.1~0.5 不归零) + 市况适配建议
+          python3 scripts/weight_calibrator_v3.py || echo "calibrator_v3 skipped"
           python3 scripts/edge_miner.py || echo "edge_miner skipped"
           python3 scripts/self_reflect.py --out data/self_reflect.json || echo "self_reflect skipped"
 
           echo "--- tier 6: validation + scenario + audit + risk ---"
-          python3 scripts/numeric_validator.py --out data/validation_report.json || echo "validator skipped"
-          python3 scripts/scenario_engine.py || echo "scenario skipped"
-          python3 scripts/signal_auditor.py || echo "auditor skipped"
-          python3 scripts/risk_engine.py || echo "risk skipped"
+          python3 scripts/numeric_validator.py --out data/validation_report.json
+          python3 scripts/scenario_engine.py
+          python3 scripts/signal_auditor.py
+          python3 scripts/risk_engine.py
 
           echo "--- tier 7: portfolio + anomaly ---"
-          python3 scripts/portfolio_optimizer.py || echo "portfolio skipped"
-          python3 scripts/anomaly_detector.py || echo "anomaly skipped"
+          python3 scripts/portfolio_optimizer.py
+          python3 scripts/anomaly_detector.py
 
           echo "--- tier 8: session review + close review ---"
           python3 scripts/morning_review.py || echo "morning_review skipped"
           python3 scripts/review_yesterday.py || echo "review_yesterday skipped"
           python3 scripts/entry_planner.py || echo "entry_planner skipped"
-          python3 scripts/afternoon_picks.py || echo "afternoon_picks skipped"
+          # afternoon_picks 已停用（停在 10-14、脚本无时段闸门、失败被 || echo 吞掉）：
+          # 午后建议改由端上的「开盘推股名单」实时给出，云端不再产出
           python3 scripts/stop_analysis.py || echo "stop_analysis skipped"
-          python3 scripts/build_today_picks.py --force || echo "build_today_picks skipped"
-          python3 scripts/close_review.py || echo "close_review skipped"
-          python3 scripts/archive_review.py || echo "archive_review skipped"
+          python3 scripts/build_today_picks.py --force
+          # Closing review is a post-close stage only. A pre-open full run must
+          # preserve the previous close artifact instead of overwriting it.
+          cst_hour=$(TZ=Asia/Shanghai date +%H)
+          cst_min=$(TZ=Asia/Shanghai date +%M)
+          if [ "$cst_hour" -gt 15 ] || { [ "$cst_hour" = "15" ] && [ "$cst_min" -ge 10 ]; }; then
+            python3 scripts/close_review.py
+            python3 scripts/archive_review.py
+            python3 scripts/review_versions.py || echo "review versions skipped"
+            python3 - <<'PY'
+          import json, sys
+          with open('data/close_review.json', encoding='utf-8') as handle:
+              review = json.load(handle)
+          if review.get('date') != __import__('datetime').datetime.now(__import__('datetime').timezone.utc).astimezone(__import__('datetime').timezone(__import__('datetime').timedelta(hours=8))).date().isoformat():
+              raise SystemExit('close_review date is not today; refusing publication')
+          if review.get('status') != 'ok' and review.get('status') != 'insufficient':
+              raise SystemExit(f"close_review status is {review.get('status')!r}; refusing publication")
+          if review.get('status') == 'insufficient':
+              print('close_review insufficient (no quotes, e.g. weekend); skipping publication')
+          print('close_review gate:', review.get('status'), review.get('date'))
+          PY
+          else
+            echo "pre-close run: preserving close_review.json"
+          fi
+          python3 scripts/recent_mainlines.py --out data/recent_mainlines.json || echo "recent_mainlines skipped"
+          # Stage-specific outputs are generated by their own sessions below.
+          # Never overwrite a pre-open or midday record with post-close prices.
+
+          # 多空辩论 (红队机制), 架构借鉴 guangxiangdebizi/TradingAgents-MCPmode (MIT)
+          # 为什么放在推股之后: 对刚生成的推股清单做反向审查。
+          # 依据: weight_calibrator_v3 实测看多胜率 43.8% < 随机 50%,
+          # factor_lab 实测 12 特征仅 below_ma60 有效 —— 单向看多打分系统
+          # 在当前市况下系统性高估, 强制一个 Agent 站反面列「不该买的理由」。
+          # 用 --no-llm: 纯规则版。LLM 论证每只一次串行请求, 15 只要跑很久
+          # (2026-10-16 实测这一步拖住整条链 1 小时+), 规则版阈值全部来自
+          # 本项目实证, 结论不依赖 LLM; 要 LLM 论证时手动 workflow_dispatch
+          # 去掉 --no-llm, 或用 gitcode_ai_review 单独跑。
+          timeout 120 python3 scripts/bull_bear_debate.py --from-picks today_picks.json \
+            --limit 15 --no-llm --out data/bull_bear_debate.json \
+            || echo "::warning::debate 失败或超时, 保留上一版"
+          if [ "$cst_hour" -gt 15 ] || { [ "$cst_hour" = "15" ] && [ "$cst_min" -ge 10 ]; }; then
+            python3 scripts/horizon_features.py --out data/horizon_features.json || echo "horizon features skipped"
+          fi
+          python3 scripts/prediction_bundle.py --out data/prediction_bundle.json
+          python3 scripts/overseas_impact.py
+          python3 scripts/pool_audit.py
+          python3 scripts/build_analysis_manifest.py
+
+          # AI 复盘 (GitCode 免费 AI 额度): 把上面所有引擎产出喂给 LLM 写结构化复盘
+          # 放在 tier 8 最后, 这样十维/海外关联/推股/收盘复盘全部就绪
+          # 失败不影响其他管线 (token 缺失或额度用尽都只跳过)
+          python3 scripts/gitcode_ai_review.py || echo "ai_review skipped (check GITCODE_TOKEN)"
 
           echo "--- engine chain done ---"
+          fi
+
+      # ── daily market breadth accumulation ──
+      # market_now.json (limit-up / limit-down / turnover snapshot) is a single
+      # overwritten file: hot-impact-realtime and ai-update rewrite it every few
+      # minutes, so nothing is ever kept per day. This step folds the snapshot
+      # into data/market_breadth_history.json (idempotent per date), and the
+      # publish step below commits it so the history survives the overwrite.
+      # The script is a no-op (exit 0) when market_now.json is absent.
+      - name: Build market breadth history (daily accumulation)
+        run: |
+          python3 scripts/build_market_breadth.py || echo "market_breadth skipped"
+          python3 - <<'PY'
+          import json
+          try:
+              with open('data/api/market_breadth.json', encoding='utf-8') as handle:
+                  bundle = json.load(handle)
+              cov = bundle.get('coverage') or {}
+              latest = bundle.get('latest') or {}
+              print("market_breadth: days=%s %s..%s latest=%s limit_up=%s limit_down=%s amount_yi=%s"
+                    % (cov.get('days'), cov.get('first'), cov.get('last'),
+                       latest.get('date'), latest.get('limit_up'),
+                       latest.get('limit_down'), latest.get('amount_yi')))
+          except Exception as exc:
+              print("market_breadth unavailable:", exc)
+          PY
+
+      # ── 每日个股涨停名单（端上连板/RPS 的历史源，替代端上本地囤日级快照）──
+      # 东财涨停池只给「此刻」且不接受历史日期（实测请求 20261016 仍回 qdate 20261028），
+      # 所以历史只能从全市场日线回算；每日增量还是用东财官方口径更好，但端上现在只需要
+      # 一条时间序列，先用回算版把「端上不再本地囤历史」这件事落地。
+      - name: Build limit-up history (daily accumulation)
+        run: |
+          python3 scripts/build_limit_history.py \
+            --bulk ../stocks-data-kline/data/bulk \
+            --out data/limit_history.json --days 260 || echo "limit_history skipped"
+          python3 - <<'PY'
+          import json
+          try:
+              with open('data/limit_history.json', encoding='utf-8') as handle:
+                  bundle = json.load(handle)
+              cov = bundle.get('coverage') or {}
+              days = bundle.get('days') or []
+              print("limit_history: days=%s %s..%s latest_n=%s"
+                    % (cov.get('n_days'), cov.get('first_date'), cov.get('last_date'),
+                       days[-1].get('n') if days else None))
+          except Exception as exc:
+              print("limit_history unavailable:", exc)
+          PY
+
+      # ── 收盘定稿候选：A 超短线 / B 短中线（端上开盘前 30 分钟二次分析要用）──
+      # 从 today_picks 派生，只做筛选（主板/非涨停/非ST）、分类、打标签，不另起一套选股。
+      - name: Build daily picks (ultra-short / swing)
+        run: |
+          python3 scripts/build_picks_daily.py --out-dir data || echo "daily picks skipped"
+          python3 - <<'PY'
+          import json
+          for name in ('picks_ultra_short', 'picks_swing'):
+              try:
+                  with open('data/%s.json' % name, encoding='utf-8') as handle:
+                      d = json.load(handle)
+                  print("%s: n=%s date=%s" % (name, d.get('n'), d.get('date')))
+                  for c in d.get('caveats') or []:
+                      print("  caveat:", c)
+              except Exception as exc:
+                  print("%s unavailable:" % name, exc)
+          PY
 
       # ── publish to the warehouse the site reads ──
+      - name: Sync mirror shards (B/C 仓分片数据汇聚)
+        run: |
+          # B 仓 (push2 系) / C 仓 (交易所+同花顺) 各自采集落自己仓,
+          # 这里把分片数据拉回 A 仓供引擎/前端消费。公开仓 raw 拉取, 零鉴权。
+          python3 scripts/sync_mirror_shards.py || echo "mirror shard sync skipped"
+
+      - name: Publish engine outputs to this repo
+        run: |
+          # 引擎产出必须先推回本仓 (GitHub Pages 的数据源), 再同步到数据仓。
+          # light 档每 5 分钟跑一次, 用 git_push_retry 的 fetch+reset+protect
+          # 避免和另外 6 个 bot 互相覆盖。
+          python3 scripts/git_push_retry.py --msg "engine($MODE)" \
+            data/engine_v5.json data/decision.json data/today_picks.json \
+            data/ai_pick_v4.json data/valuation.json data/premarket_picks.json \
+            data/midday_picks.json data/horizon_features.json data/close_review.json \
+            data/engine_fusion.json data/multidim.json \
+            data/overseas_linkage.json data/ai_review.json data/ai_review.md \
+            data/limitup_attribution.json data/limitup_forecast.json \
+            data/weight_calibration.json \
+            data/auction_engine.json data/ticks_$(date +%Y%m%d).json \
+            data/trend_strength.json data/bull_bear_debate.json \
+            data/prediction_bundle.json data/recent_mainlines.json \
+            data/analysis_manifest.json data/flow_divergence.json data/ban_pick.json data/pool_audit.json \
+            data/key_levels.json data/pick_high_track.json \
+            data/shard_b.json data/shard_c.json \
+            data/vango_articles.json data/training_v7.json \
+            data/market_breadth_history.json data/api/market_breadth.json \
+            --user engine-bot \
+            --protect data/engine_v5.json --protect data/decision.json \
+            --protect data/today_picks.json --protect data/ai_pick_v4.json \
+            --protect data/valuation.json --protect data/premarket_picks.json \
+            --protect data/midday_picks.json --protect data/horizon_features.json \
+            --protect data/close_review.json --protect data/engine_fusion.json \
+            --protect data/multidim.json --protect data/overseas_linkage.json \
+            --protect data/ai_review.json --protect data/ai_review.md \
+            --protect data/limitup_attribution.json --protect data/limitup_forecast.json \
+            --protect data/weight_calibration.json --protect data/auction_engine.json \
+            --protect data/ticks_$(date +%Y%m%d).json \
+            --protect data/trend_strength.json --protect data/bull_bear_debate.json \
+            --protect data/prediction_bundle.json --protect data/recent_mainlines.json \
+            --protect data/analysis_manifest.json --protect data/flow_divergence.json \
+            --protect data/ban_pick.json --protect data/pool_audit.json \
+            --protect data/key_levels.json --protect data/pick_high_track.json \
+            --protect data/shard_b.json --protect data/shard_c.json \
+            --protect data/vango_articles.json --protect data/training_v7.json \
+            --protect data/market_breadth_history.json \
+            --protect data/api/market_breadth.json
+
       - name: Publish to the data warehouse
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           python3 scripts/sync_reviews.py || echo "sync_reviews failed (check GH_TOKEN)"
-          python3 scripts/sync_repos.py --push || echo "sync_repos skipped"
+          python3 scripts/sync_data_layers.py --push || echo "sync_data_layers skipped"
 
       - name: Summary
         run: |

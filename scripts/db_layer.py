@@ -179,6 +179,43 @@ CREATE TABLE IF NOT EXISTS financial_summary (
     mom           VARCHAR,
     ts            VARCHAR
 );
+
+-- 盘中事件时间线 (涨停封板时点 / 板块快照)
+CREATE TABLE IF NOT EXISTS intraday_events (
+    trade_date  VARCHAR,
+    event_time  VARCHAR,
+    kind        VARCHAR,
+    code        VARCHAR,
+    name        VARCHAR,
+    label       VARCHAR,
+    detail      VARCHAR,
+    source      VARCHAR,
+    ts          VARCHAR
+);
+
+-- 主题生命周期 (每日一条观测)
+CREATE TABLE IF NOT EXISTS theme_lifecycle (
+    theme        VARCHAR,
+    as_of        VARCHAR,
+    stage        VARCHAR,
+    observations INTEGER,
+    latest_count INTEGER,
+    peak_count   INTEGER,
+    direction    VARCHAR,
+    stock_count  INTEGER,
+    first_seen   VARCHAR,
+    last_seen    VARCHAR,
+    ts           VARCHAR
+);
+
+-- 复权因子 (baostock backAdjustFactor, 每股每日一行)
+CREATE TABLE IF NOT EXISTS adjust_factors (
+    code         VARCHAR NOT NULL,
+    date         VARCHAR NOT NULL,
+    factor       DOUBLE,
+    source       VARCHAR,
+    n_events     INTEGER
+);
 """
 
 INDEXES = [
@@ -205,6 +242,8 @@ INDEXES = [
     "CREATE INDEX IF NOT EXISTS idx_fund_nav_code ON fund_nav(fund_code, date)",
     "CREATE INDEX IF NOT EXISTS idx_fund_rebal_code ON fund_rebalance(fund_code, report_date)",
     "CREATE INDEX IF NOT EXISTS idx_fin_code_period ON financial_summary(code, report_date)",
+    "CREATE INDEX IF NOT EXISTS idx_intraday_events_date ON intraday_events(trade_date, event_time)",
+    "CREATE INDEX IF NOT EXISTS idx_theme_lifecycle_asof ON theme_lifecycle(as_of, stage)",
 ]
 
 
@@ -243,6 +282,7 @@ def load_quotes(con, records, trade_date):
         ))
     if not rows:
         return 0
+    rows = list({row[0]: row for row in rows if row[0]}.values())
     con.executemany(
         "INSERT INTO quotes VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", rows)
     return len(rows)
@@ -260,7 +300,11 @@ def load_events(con, records):
         ))
     if not rows:
         return 0
-    con.executemany("INSERT INTO events VALUES (?,?,?,?,?,?,?,?,?,?,?)", rows)
+    unique = {}
+    for row in rows:
+        key = json.dumps(row, ensure_ascii=False, sort_keys=True, default=str)
+        unique[key] = row
+    con.executemany("INSERT INTO events VALUES (?,?,?,?,?,?,?,?,?,?,?)", list(unique.values()))
     return len(rows)
 
 
@@ -340,22 +384,115 @@ def load_financial_summary(con, records):
     return len(rows)
 
 
+def load_adjust_factors(factors_dir, path=None):
+    """把 data/adjusted/factors/*.json 全量入库到 adjust_factors。
+
+    按 code 先删后插 (幂等), 避免重复跑表膨胀。
+    """
+    import glob as _g
+    if not factors_dir or not os.path.isdir(factors_dir):
+        return {"codes": 0, "rows": 0}
+    con = connect(path)
+    files = [p for p in _g.glob(os.path.join(factors_dir, "*.json"))
+             if not os.path.basename(p).startswith("_")]
+    codes = rows = 0
+    try:
+        for fp in files:
+            try:
+                d = json.load(open(fp, encoding="utf-8"))
+            except Exception:
+                continue
+            code = d.get("code")
+            fac = d.get("factors") or {}
+            if not code or not fac:
+                continue
+            con.execute("DELETE FROM adjust_factors WHERE code = ?", [code])
+            payload = [(code, dt, float(v), d.get("source"),
+                        int(d.get("n_events") or 0))
+                       for dt, v in sorted(fac.items())]
+            if payload:
+                con.executemany(
+                    "INSERT INTO adjust_factors VALUES (?,?,?,?,?)", payload)
+                rows += len(payload)
+                codes += 1
+        con.commit()
+    finally:
+        con.close()
+    return {"codes": codes, "rows": rows}
+
+
+def load_tape_snapshots(tape_path, lifecycle_path, path=None):
+    """Load the two derived snapshots. Existing rows for the same day are replaced."""
+    tape = json.load(open(tape_path, encoding="utf-8")) if tape_path and os.path.exists(tape_path) else {}
+    life = json.load(open(lifecycle_path, encoding="utf-8")) if lifecycle_path and os.path.exists(lifecycle_path) else {}
+    trade_date = str(tape.get("ts") or datetime.now(CST).isoformat())[:10]
+    as_of = life.get("as_of") or trade_date
+    now = datetime.now(CST).isoformat(timespec="seconds")
+    con = connect(path)
+    try:
+        con.execute(SCHEMA)
+        for statement in INDEXES:
+            con.execute(statement)
+        con.begin()
+        con.execute("DELETE FROM intraday_events WHERE trade_date=?", [trade_date])
+        event_rows = [(trade_date, item.get("time"), item.get("kind"), item.get("code"),
+                       item.get("name"), item.get("label"), item.get("detail"),
+                       item.get("source"), now)
+                      for item in tape.get("event_timeline") or []]
+        if event_rows:
+            con.executemany("INSERT INTO intraday_events VALUES (?,?,?,?,?,?,?,?,?)", event_rows)
+        con.execute("DELETE FROM theme_lifecycle WHERE as_of=?", [as_of])
+        theme_rows = [(item.get("name"), as_of, item.get("stage"), item.get("observations"),
+                       item.get("latest_count"), item.get("peak_count"), item.get("direction"),
+                       item.get("stock_count"), item.get("first_seen"), item.get("last_seen"), now)
+                      for item in life.get("themes") or []]
+        if theme_rows:
+            con.executemany("INSERT INTO theme_lifecycle VALUES (?,?,?,?,?,?,?,?,?,?,?)", theme_rows)
+        con.commit()
+    except Exception:
+        con.rollback()
+        raise
+    finally:
+        con.close()
+    print(f"[load-tape] events={len(event_rows)} themes={len(theme_rows)} date={trade_date}")
+    return len(event_rows) + len(theme_rows)
+
+
 def load_from_collect(json_path, path=None):
     """从 collect_all_sources.py 的输出导入。"""
     d = json.load(open(json_path, encoding="utf-8"))
     trade_date = d["summary"]["date"]
     td = f"{trade_date[:4]}-{trade_date[4:6]}-{trade_date[6:8]}"
     con = connect(path)
-    init_db(path)
-    nq = load_quotes(con, d["data"].get("quote", []), td)
-    ne = load_events(con, d["data"].get("event", []))
-    nm = load_margin(con, d["data"].get("event", []))
-    # 溯源日志
-    con.execute("INSERT INTO sources_log VALUES (?,?,?,?,?,?)",
-                [d["summary"]["ts"], "collect_all", d["summary"]["total_raw"],
-                 d["summary"]["total_merged"], d["summary"]["elapsed_s"], "ok"])
-    con.close()
-    print(f"[load] quotes={nq} events={ne} margin={nm} (date={td})")
+    try:
+        con.execute(SCHEMA)
+        for statement in INDEXES:
+            con.execute(statement)
+        con.begin()
+        con.execute("DELETE FROM quotes WHERE trade_date=?", [td])
+        nq = load_quotes(con, d["data"].get("quote", []), td)
+        if not nq:
+            raise ValueError("collector produced no quote rows; refusing to publish empty snapshot")
+        event_rows = d["data"].get("event", [])
+        for row in event_rows:
+            if row.get("type") in ("lhb", "blocktrade") and row.get("trade_date"):
+                con.execute("DELETE FROM events WHERE type=? AND code=? AND trade_date=?",
+                            [row["type"], row.get("code"), row["trade_date"]])
+        ne = load_events(con, event_rows)
+        nm = load_margin(con, event_rows)
+        summary = d["summary"]
+        status = "partial" if summary.get("errors") or summary.get("conflicts") else "ok"
+        con.execute("DELETE FROM sources_log WHERE ts=? AND source='collect_all'", [summary["ts"]])
+        con.execute("INSERT INTO sources_log VALUES (?,?,?,?,?,?)",
+                    [summary["ts"], "collect_all", summary["total_raw"],
+                     summary["total_merged"], summary["elapsed_s"], status])
+        con.commit()
+    except Exception:
+        con.rollback()
+        raise
+    finally:
+        con.close()
+    print(f"[load] quotes={nq} events={ne} margin={nm} status={status} (date={td})")
     return nq + ne + nm
 
 
@@ -396,6 +533,7 @@ def main():
     ap.add_argument("--init", action="store_true")
     ap.add_argument("--load", help="collect_all_sources.py 的输出 JSON")
     ap.add_argument("--bench", action="store_true")
+    ap.add_argument("--load-tape", nargs=2, metavar=("TAPE_JSON", "LIFECYCLE_JSON"))
     ap.add_argument("--query", help="执行任意 SQL")
     ap.add_argument("--path", help="DB 路径 (默认 STOCKS_DB 或 stocks-data-live/stocks.duckdb)")
     args = ap.parse_args()
@@ -411,6 +549,11 @@ def main():
         if not os.path.exists(p):
             init_db(p)
         load_from_collect(args.load, p)
+        return 0
+    if args.load_tape:
+        if not os.path.exists(p):
+            init_db(p)
+        load_tape_snapshots(args.load_tape[0], args.load_tape[1], p)
         return 0
     if args.bench:
         bench(p)

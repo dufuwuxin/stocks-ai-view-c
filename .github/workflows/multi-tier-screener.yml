@@ -4,6 +4,8 @@
 # 轮次 3: GitHub Models (ghc) deepseek-v4.1-flash 综合判断
 name: multi-tier-screener-daily
 on:
+  schedule:  # disabled on mirror
+    # - cron: '15 8 * * 1-5'   # 16:15 CST
   workflow_dispatch: {}
 permissions:
   contents: write
@@ -21,8 +23,6 @@ jobs:
         run: |
           git fetch origin main
           git merge --ff-only origin/main || echo "already up to date"
-
-          submodules: recursive
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'

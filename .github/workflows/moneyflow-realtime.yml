@@ -6,9 +6,11 @@
 name: moneyflow-realtime
 
 on:
-  schedule:
-    - cron: '3,8,13,18,23,28,33,38,43,48,53,58 1,2,3,5,6,7 * * 1-5'
+  schedule:  # disabled on mirror
+    # UTC 1,2,3,5,6,7 时 = CST 09:00-15:00, 分钟位 mod5=3
+    # - cron: '3,8,13,18,23,28,33,38,43,48,53,58 1,2,3,5,6,7 * * 1-5'
   workflow_dispatch: {}
+
 permissions:
   contents: write
 

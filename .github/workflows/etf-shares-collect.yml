@@ -1,0 +1,77 @@
+# etf-shares-collect — 宽基 ETF 份额跟踪（聪明钱仓位信号）
+#
+# 份额改为交易所官方日度披露（2026-10-27 起）：
+#   上交所 ETF规模 query.sse.com.cn（STAT_DATE）→ TOT_VOL 万份，一次请求覆盖全部沪市 ETF
+#   深交所 基金规模 www.szse.cn ShowReport（txtDm + jjlb=ETF）→ current_size 万份
+# 交易所侧可回溯约一年，所以历史用 workflow_dispatch + backfill_days 一次性回填，
+# 日常只跑当日增量（同日多次跑按日期去重，幂等）。
+#
+# 信号按「指数」聚合（每个宽基指数下全部 ETF 份额合计），成员映射在
+# data/etf_index_map.json；新增 ETF 后带 refresh_map=1 跑一次重建。
+name: etf-shares-collect
+on:
+  schedule:  # disabled on mirror
+    # 三个时点采集（均为 CST，换 UTC 减 8）：收盘后首采 / 主采 / 补采。
+    # 当日 live 份额按日期去重覆盖，多跑不会产生重复点，只提高「当天不缺席」的概率。
+    # - cron: '10 7 * * 1-5'   # CST 15:10
+    # - cron: '30 8 * * 1-5'   # CST 16:30
+    # - cron: '20 9 * * 1-5'   # CST 17:20
+  workflow_dispatch:
+    inputs:
+      backfill_days:
+        description: '回填最近 N 个工作日（0=只跑当日增量）'
+        required: false
+        default: '0'
+      refresh_map:
+        description: '重建 ETF→宽基指数 成员映射（新增 ETF 后跑，较慢）'
+        required: false
+        default: '0'
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Collect ETF shares
+        run: |
+          set -euo pipefail
+          DAYS="${{ inputs.backfill_days }}"
+          MAP="${{ inputs.refresh_map }}"
+          if [ -z "$DAYS" ]; then DAYS=0; fi
+          ARGS="--backfill-days $DAYS"
+          if [ "$MAP" = "1" ] || [ "$MAP" = "true" ]; then ARGS="$ARGS --refresh-map"; fi
+          echo "args=$ARGS"
+          python3 scripts/collect_etf_shares.py $ARGS
+
+      - name: Commit & push
+        run: |
+          git config user.name "etf-shares-bot"
+          git config user.email "741059079@qq.com"
+          git fetch origin main
+          git reset --soft origin/main
+          git add data/etf_shares.json
+          if git diff --quiet --cached HEAD; then
+            echo "no changes"
+          else
+            ts=$(TZ=Asia/Shanghai date '+%Y%m%d_%H%M')
+            git commit -m "data: etf shares $ts"
+            git -c http.version=HTTP/1.1 push origin main || {
+              echo "push raced, retrying"
+              git fetch origin main
+              git reset --soft origin/main
+              git add data/etf_shares.json
+              git commit -m "data: etf shares $ts" 2>/dev/null || true
+              git push origin main
+            }
+          fi

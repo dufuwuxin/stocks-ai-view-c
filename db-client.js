@@ -11,10 +11,16 @@
 //                                 -> _search.json (6027 code->name index)
 //                                 -> master/ universe
 //
-// Per-stock detail (kline / quote / flow / technical) is NOT in the warehouse:
-// the shard repos db-stocks-a..e and db-market/data/stocks/ return 404 (the
-// bulk push never completed). stock-detail.js fetches those directly from
-// Tencent -> Eastmoney -> Sina instead.
+// Per-stock stock.json bundles live in the shard repos:
+//   jiegengxiangjianxue1/db-stocks-a -> shard 00
+//   jiegengxiangjianxue2/db-stocks-b -> shard 30
+//   jiegengxiangjianxue2/db-stocks-c -> shard 60
+//   jiegengxiangjianxue3/db-stocks-d -> shards 68 / 15 / 51 / 50 / 52 / 56 / 58 / 20
+// Shards 81/83/89/90/92 have no bundle warehouse (db-stocks-e was removed
+// 2026-10-21 after carrying zero stock.json); those codes resolve null and
+// callers fall back to live quote sources.
+// Note: jiegengxiangjianxue2/db-stocks-a is a deprecated older layout with no
+// stock.json and is deliberately NOT routed here.
 (function () {
   'use strict';
 
@@ -25,6 +31,28 @@
     market: GH + 'jiegengxiangjianxue1/db-market/main/',
     marketGC: GC + 'dufuwuxin/stocks-db-market/raw/main/',
   };
+
+  // Per-stock bundle repos: first two digits -> repo.
+  // Shards absent from this map have NO built bundle warehouse; stockBundle()
+  // resolves null for them and callers must fall back to live quote sources.
+  var SHARD_REPOS = {
+    '00': 'jiegengxiangjianxue1/db-stocks-a/',
+    '30': 'jiegengxiangjianxue2/db-stocks-b/',
+    '60': 'jiegengxiangjianxue2/db-stocks-c/',
+    '68': 'jiegengxiangjianxue3/db-stocks-d/',
+    '15': 'jiegengxiangjianxue3/db-stocks-d/',
+    '51': 'jiegengxiangjianxue3/db-stocks-d/',
+    '50': 'jiegengxiangjianxue3/db-stocks-d/',
+    '52': 'jiegengxiangjianxue3/db-stocks-d/',
+    '56': 'jiegengxiangjianxue3/db-stocks-d/',
+    '58': 'jiegengxiangjianxue3/db-stocks-d/',
+    '20': 'jiegengxiangjianxue3/db-stocks-d/'
+  };
+
+  // Shards that used to route to a warehouse with zero stock.json bundles.
+  // Kept as an explicit list so the UI can say "not built" instead of
+  // silently retrying a path that can never resolve.
+  var SHARDS_WITHOUT_BUNDLES = { '81': 1, '83': 1, '89': 1, '90': 1, '92': 1 };
 
   var cache = {};
   var origin = 'github';
@@ -47,6 +75,46 @@
       });
   }
 
+  // Like get(), but for the per-stock shard repos: no GitCode mirror exists,
+  // so on failure retry once on branch master, else resolve null.
+  // Shares the same per-session cache.
+  function getShard(url, ttl) {
+    var now = Date.now();
+    var hit = cache[url];
+    if (hit && now - hit.t < (ttl || 60000)) return Promise.resolve(hit.v);
+    return fetch(url, { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (j) { cache[url] = { t: now, v: j }; return j; })
+      .catch(function () {
+        if (url.indexOf('/main/') !== -1) {
+          return getShard(url.replace('/main/', '/master/'), ttl);
+        }
+        return null;
+      });
+  }
+
+  // stockBundle: read the merged per-stock object (stock.json) once and
+  // share it across kline/quote/technical/financial, so one fetch feeds every
+  // dataset instead of four separate requests against the same file.
+  var _bundleCache = {};
+  function stockBundle(code) {
+    var bare = String(code == null ? '' : code).replace(/\D/g, '').padStart(6, '0');
+    if (!/^\d{6}$/.test(bare)) return Promise.resolve(null);
+    if (_bundleCache[bare]) return _bundleCache[bare];
+    var shard = bare.slice(0, 2);
+    if (SHARDS_WITHOUT_BUNDLES[shard]) {
+      _bundleCache[bare] = Promise.resolve(null);
+      return _bundleCache[bare];
+    }
+    var repo = SHARD_REPOS[shard];
+    if (!repo) return Promise.resolve(null);
+    var url = GH + repo + 'main/' + shard + '/' + bare + '/stock.json';
+    _bundleCache[bare] = getShard(url, 600000).then(function (j) {
+      if (!j || typeof j !== 'object') return null;
+      return j;
+    });
+    return _bundleCache[bare];
+  }
   var api = {
     repos: REPOS,
     origin: function () { return origin; },
@@ -112,17 +180,43 @@
     hkStocks: function () { return get(REPOS.market + 'overseas/hk_stocks.json', 300000); },
 
     // ── per stock ──
-    // 分片仓 (db-stocks-a/b/c/d/e) 与 db-market/data/stocks/ 均未推送成功
-    // (实测全部 404, 只有 _search.json 的名称索引在)。个股明细因此不走仓库,
-    // 由 stock-detail.js 的腾讯→东财→新浪三源降级直取; 这里只保留仓库里
-    // 真实存在的数据: 名称索引 + 大盘/板块/海外。
+    // Stock bundle fields are optional in practice. Callers must handle missing
+    // bundles/datasets and preserve live quote/provider fallbacks.
     searchIndex: function () { return get(REPOS.market + '_search.json', 600000); },
 
-    stockManifest: function (code) { return Promise.resolve(null); },
-    stockQuote: function (code) { return Promise.resolve(null); },
+    stockManifest: function (code) {
+      return stockBundle(code).then(function (j) {
+        if (!j || !j.manifest) return null;
+        var m = j.manifest;
+        return { code: j.code, name: j.name, ts: j.ts, datasets: m.datasets || {},
+          source: 'cloud stock.json' };
+      });
+    },
+    stockQuote: function (code) {
+      return stockBundle(code).then(function (j) { return j && j.quote || null; });
+    },
     stockFlow: function (code) { return Promise.resolve(null); },
-    stockKline: function (code, freq) { return Promise.resolve([]); },
-    stockTechnical: function (code) { return Promise.resolve(null); },
+    stockFinancial: function (code) {
+      return stockBundle(code).then(function (j) { return j && j.financial || []; });
+    },
+    // Returns [{date,open,close,high,low,vol}], same shape as parseCsv and
+    // the direct-provider fetchers in stock-detail.js. Only day freq exists
+    // in the warehouse; any failure resolves [] so the Tencent fallback in
+    // stock-detail.js keeps working.
+    stockKline: function (code, freq) {
+      if (freq && freq !== 'day') return Promise.resolve([]);
+      return stockBundle(code).then(function (j) {
+        if (!j || !Array.isArray(j.kline)) return [];
+        return j.kline.map(function (r) {
+          return { date: r[0], open: +r[1], close: +r[2],
+                   high: +r[3], low: +r[4], vol: +r[5] };
+        });
+      });
+    },
+    stockTechnical: function (code) {
+      return stockBundle(code).then(function (j) { return j && j.technical || null; });
+    },
+    stockBundle: function (code) { return stockBundle(code); },
 
     // ── csv helper: "# comment\ndate,open,close,high,low,volume" ──
     parseCsv: function (txt) {

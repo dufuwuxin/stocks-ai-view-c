@@ -36,6 +36,13 @@ import sys
 from datetime import datetime, timezone, timedelta
 
 CST = timezone(timedelta(hours=8))
+
+# 主板红线：推荐输出只留 600/601/603/605/000/001/002（排除 300/301/688/北交所）
+MAIN_BOARD_PREFIX = ("600", "601", "603", "605", "000", "001", "002")
+
+
+def _main_board(code) -> bool:
+    return str(code or "")[-6:][:3] in MAIN_BOARD_PREFIX
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
@@ -98,15 +105,33 @@ def decide_stock(r, regime, win1d):
     if sent < 30:
         return "avoid", 0.3, [f"情绪面{sent:.0f}过低, 逆市场情绪"], "市场情绪冰点, 不宜逆势"
 
-    if comp >= 65 and cap >= 60 and pos >= 55:
-        action = "buy"
-        reasons.append(f"综合{comp:.0f} 资金{cap:.0f} 位置{pos:.0f} 三高共振")
-    elif comp >= 55 or (comp >= 50 and cap >= 70):
-        action = "buy" if regime != "bear" else "watch"
-        reasons.append(f"综合{comp:.0f} 资金{cap:.0f}")
-    else:
+    # 2026-10-26 重构 v2: 胜率分层而非一刀切。
+    # 旧逻辑 win1d<50% 时全部 buy 降 watch —— 实测历史 1 日胜率长期在 44-47%,
+    # 等于永久取消买入信号, 是「推股全是 watch」的直接根因。
+    # 新逻辑: 胜率只调 buy 阈值与置信度, 高综合分仍可 buy (标注胜率风险)。
+    win_adj = 0.0
+    if win1d is not None:
+        win_adj = max(0.0, (0.50 - win1d)) * 20  # 45.7% -> +8.6 分门槛补偿
+    flow_veto = cap < 45
+    if flow_veto:
         action = "watch"
-        reasons.append(f"综合{comp:.0f} 未达买入阈值(65)")
+        reasons.append(f"资金面{cap:.0f}<45，主力净流出，取消买入")
+    else:
+        buy_th = 65 + win_adj
+        if comp >= buy_th and cap >= 60 and pos >= 55:
+            action = "buy"
+            reasons.append(f"综合{comp:.0f}≥门槛{buy_th:.0f} 资金{cap:.0f} 位置{pos:.0f} 三高共振")
+            if win_adj > 0:
+                reasons.append(f"历史1日胜率{win1d*100:.1f}%<50%, 已提高买入门槛补偿")
+        elif comp >= 60 + win_adj and cap >= 55:
+            action = "buy" if regime != "bear" else "watch"
+            reasons.append(f"综合{comp:.0f} 资金{cap:.0f} 次级共振")
+        elif comp >= 55 or (comp >= 50 and cap >= 70):
+            action = "watch"
+            reasons.append(f"综合{comp:.0f} 未达买入门槛({buy_th:.0f})")
+        else:
+            action = "watch"
+            reasons.append(f"综合{comp:.0f} 偏低")
 
     if low_absorb:
         reasons.append("低位吸筹信号 (60日位<20%+主力流入+RSI<40)")
@@ -151,9 +176,10 @@ def main():
     win1d = (win1d / 100) if win1d else None
     n1 = (ov.get("1") or {}).get("n") or 0
 
-    top = (md or {}).get("top") or []
+    universe = (md or {}).get("table") or (md or {}).get("top") or []
+    universe = [r for r in universe if _main_board(r.get("code"))]
     cards, avoid = [], []
-    for r in top:
+    for r in universe:
         action, conf, reasons, risk = decide_stock(r, regime, win1d)
         entry, stop, target = entry_stop_target(r)
         rec = {
@@ -175,6 +201,41 @@ def main():
     # 按 置信度 排序, buy 优先
     cards.sort(key=lambda x: (-(x["action"] == "buy"), -x["confidence"]))
     cards = cards[: args.top]
+    observed = []
+    for row in (load("moneyflow.json") or {}).get("top_outflow") or []:
+        observed.append({"code": row.get("code"), "name": row.get("name"), "price": None,
+                         "chg_pct": row.get("chg_pct"), "action": "avoid", "confidence": 0.7,
+                         "risk": f"主力净流出 {round((row.get('main_net') or 0)/1e8, 2)} 亿，占成交 {row.get('main_net_ratio')}%",
+                         "reasons": ["资金流出榜观测"], "why": {"资金面": "主力净流出"}})
+    for row in (load("enrich.json") or {}).get("lhb") or []:
+        if (row.get("chg") or 0) >= 0 or "买入" in str(row.get("expl") or ""):
+            continue
+        observed.append({"code": row.get("code"), "name": row.get("name"), "price": row.get("close"),
+                         "chg_pct": row.get("chg"), "action": "avoid", "confidence": 0.65,
+                         "risk": row.get("expl") or "龙虎榜卖出", "reasons": ["龙虎榜卖出席位"],
+                         "why": {"资金面": "龙虎榜卖出"}})
+    news_hits = {}
+    for row in (load("news_transmission.json") or {}).get("transmissions") or []:
+        for side, bucket in (("direct_bear", "利空"), ("inverse_bear", "反向利空"), ("direct_bull", "利好"), ("inverse_bull", "反向利好")):
+            for item in row.get(side) or []:
+                for code in item.get("stocks") or []:
+                    news_hits.setdefault(str(code), []).append(f"{row.get('label')}:{bucket}:{item.get('sector')}")
+    for rec in cards + avoid:
+        hits = news_hits.get(str(rec.get("code"))) or []
+        if not hits:
+            continue
+        rec.setdefault("reasons", []).append("24h消息传导 " + "；".join(hits[:2]))
+        bearish = any("利空" in hit for hit in hits)
+        bullish = any("利好" in hit for hit in hits)
+        if bearish and rec.get("action") == "buy":
+            rec["action"] = "watch"
+            rec["risk"] = ((rec.get("risk") or "") + " 24h消息传导利空，取消买入").strip()
+        elif bullish and not bearish:
+            rec["news_bias"] = "bullish"
+    seen = {x.get("code") for x in avoid}
+    avoid.extend(x for x in observed if x.get("code") and x.get("code") not in seen)
+    avoid.sort(key=lambda x: (x.get("composite") or 0, x.get("chg_pct") or 0))
+    avoid = avoid[:30]
 
     pos_cap = POSITION_CAP[regime]
     n_buy = sum(1 for c in cards if c["action"] == "buy")
@@ -189,7 +250,7 @@ def main():
 
     out = {
         "ts": datetime.now(CST).isoformat(timespec="seconds"),
-        "engine": "decision v1 (9维因子 → 可执行决策卡)",
+        "engine": "decision v2 (9维因子 → 可执行决策卡; 胜率分层+门槛补偿)",
         "market_regime": regime,
         "regime_detail": regime_detail,
         "position_advice": {
@@ -199,7 +260,7 @@ def main():
             "reason": f"市场环境={regime} ({regime_detail}), 建议总仓位≤{pos_cap*100:.0f}%",
         },
         "cards": cards,
-        "avoid": avoid[:8],
+        "avoid": avoid,
         "strategy_summary": (
             f"{regime}市场下, {len(cards)}只候选 ({n_buy}只买入信号)。"
             f"历史1日胜率{(win1d or 0)*100:.1f}% (n={n1})。"
@@ -211,7 +272,7 @@ def main():
             "note": "胜率来自 reflect_engine 对历史预测的前向验证 (无前视偏差)",
         },
         "meta": {
-            "rules": "buy=综合≥65&资金≥60&位置≥55; watch=综合≥55; "
+            "rules": "buy=综合≥65+胜率补偿&资金≥60&位置≥55; watch=综合≥55; "
                      "avoid=高位套人/综合<45&资金<40/情绪<30",
             "confidence_formula": "综合分 × 历史1日胜率 × (0.6+0.4×共振度)",
             "caveat": "决策卡是统计规则输出, 非投资建议; 实盘需自行判断",

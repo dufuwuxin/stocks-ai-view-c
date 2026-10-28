@@ -11,8 +11,22 @@
 # concurrency group 保护不会重叠。下游的 cron 保留作兜底。
 name: scheduler
 on:
-  schedule:
-    - cron: '2,7,12,17,22,27,32,37,42,47,52,57 1,2,3,5,6,7 * * 1-5'
+  schedule:  # disabled on mirror
+    # 每 5 分钟, 分钟位 4 (UTC 1,2,3,5,6,7,8,9,10,11,12 = CST 09:04-20:59)
+    # 2026-10-20: 分钟位由 2 改 4 —— 原值与 shard-collect 完全重合, 两者每 5 分钟
+    #   同时抢 runner; 现在 shard 固定 mod5=2 (deploy_mirror 依赖此约定), 心跳 mod5=4。
+    # 2026-10-16 修: 补盘后/晚间/凌晨时段。原 cron 只覆盖盘中, 导致
+    #   盘后 17 小时下游全部停摆 (hot_news/news_extra/hot_themes 停在
+    #   昨天盘中, 用户反馈「热点数据没有更新过」)。
+    #   现在 UTC 1,2,3,5,6,7,8,9,10,11,12 (= CST 09:02-20:57) +
+    #   UTC 17 (= CST 次日 01:02 隔夜刷新)。
+    # - cron: '4,9,14,19,24,29,34,39,44,49,54,59 1,2,3,5,6,7,8,9,10,11,12 * * *'
+    # 隔夜两轮: UTC 17 (CST 01:04) 与 UTC 23 (CST 07:04)。
+    # 第二轮是 engine-chain 年龄守卫的补偿窗口 —— 它要求 full 档产物
+    # 不超过 6 小时, 而 CST 20:57 到次日 09:02 之间没有别的唤醒点;
+    # 少了 07:02 这一轮, 周五晚间失败的 full 要等到周六白天才补,
+    # 期间网站上 45 个引擎文件一直是前一天的值。
+    # - cron: '4 17,23 * * *'
   workflow_dispatch:
     inputs:
       only:
@@ -36,10 +50,12 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ONLY: ${{ inputs.only }}
         run: |
-          # 按唤醒顺序排: 先轻量实时, 再重采集+引擎, 最后池子与分析
-          # ai-update 负责 latest.json (主快照), 不唤醒它 latest 就一直旧
-          # engine-chain 必须在 full-pipeline 之后: 它消费采集产物
-          WF="realtime-minute,full-pipeline,engine-chain,hot-impact-realtime,rebuild-pools,cloud-analysis,ai-update"
+          # 按唤醒顺序排: 先轻量实时, 再重采集, 再引擎 (消费采集产物),
+          # 最后池子/分析/主快照。
+          # ai-update 负责 latest.json (主快照), 不唤醒它 latest 就一直旧。
+          # engine-chain 自带时间窗守卫: 盘中跑 light 档 (四个直连网站的引擎),
+          # 盘前/盘后跑 full 档 (tier 0-8)。不需要额外区分。
+          WF="realtime-minute,shard-collect,full-pipeline,engine-chain,hot-impact-realtime,rebuild-pools,cloud-analysis,ai-update"
           if [ -n "$ONLY" ]; then WF="$ONLY"; fi
           ok=0; skip=0; fail=0
           IFS=',' read -ra LIST <<< "$WF"

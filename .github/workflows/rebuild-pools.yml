@@ -6,6 +6,10 @@
 # 数据源: 腾讯证券 (零鉴权), 不依赖东财 (容器/GH runner 内东财常被 WAF 拦)
 name: rebuild-pools
 on:
+  schedule:  # disabled on mirror
+    # - cron: '40,20,50 1,3,5,6,7 * * 1-5'   # UTC → CST 09:40~15:50 盘中
+    # - cron: '40 7 * * 1-5'                  # CST 15:40 收盘定格
+    # - cron: '0 23 * * 0'                    # 周一 CST 07:00 全史重建
   workflow_dispatch: {}
 permissions:
   contents: write
@@ -39,7 +43,7 @@ jobs:
       - name: Checkout kline repo (sparse)
         uses: actions/checkout@v4
         with:
-          repository: qwerzxcva/stocks-data-kline
+          repository: qwerzxcva/t1
           token: ${{ secrets.GITHUB_TOKEN }}
           path: kline-repo
           sparse-checkout: |
@@ -87,6 +91,38 @@ jobs:
         run: |
           python3 scripts/rebuild_pools.py --out-dir data
 
+
+      # 1b) 行业映射先于周期池准备。已有真实映射直接复用，避免周一全量反查阻塞周期池。
+      - name: Prepare industry map for cycle pool
+        timeout-minutes: 5
+        run: |
+          if [ -s data/industry_map_em.json ]; then
+            python3 - <<'PY'
+          import json
+          d = json.load(open('data/industry_map_em.json', encoding='utf-8'))
+          n = len(d.get('map') or {})
+          if n < 100:
+              raise SystemExit('industry_map_em.json exists but is not usable')
+          print('reuse industry_map_em:', n, 'stocks')
+          PY
+          else
+            tmp=data/industry_map_em.json.tmp
+            timeout 240s python3 scripts/build_industry_map_em.py --out "$tmp"
+            python3 - <<'PY'
+          import json
+          p='data/industry_map_em.json.tmp'
+          d=json.load(open(p, encoding='utf-8'))
+          if len(d.get('map') or {}) < 100:
+              raise SystemExit('new industry map is incomplete')
+          PY
+            mv "$tmp" data/industry_map_em.json
+          fi
+
+      # 1c) 周期池 v2 (实时需求榜, 失败时使用 sector_pool + 行业映射)
+      - name: Rebuild cycle_pool_v2
+        run: |
+          python3 scripts/cycle_pool_v2.py --out data/cycle_pool_v2.json
+
       # 2) 低位池 (依赖 bulk K线 + 快照)
       - name: Rebuild lowpool
         env:
@@ -124,6 +160,18 @@ jobs:
             python3 scripts/collect_market_extras.py --merge data/latest.json || true
           fi
 
+      # 4a-2) 个股 → 东财中文行业映射已在周期池之前准备。
+      #       这里只验证可用性，禁止重复网络反查或用旧文件缺失继续发布。
+      - name: Verify industry map (东财中文行业)
+        run: |
+          python3 - <<'PY'
+          import json
+          d = json.load(open('data/industry_map_em.json', encoding='utf-8'))
+          n = len(d.get('map') or {})
+          if n < 100:
+              raise SystemExit('industry_map_em.json missing or incomplete')
+          print('个股→行业:', n, '只 /', d.get('n_industries_ok'), '板块')
+          PY
       # 4b) 打板概率 (实证统计: 次日涨停率/炸板率/期望收益 + 因子分层)
       - name: Build ban_prob
         run: |
@@ -144,22 +192,36 @@ jobs:
 
       - name: Verify outputs
         run: |
-          for f in sector_pool.json cycle.json lowpool.json; do
-            if [ -f "data/$f" ]; then
-              size=$(wc -c < "data/$f")
-              echo "  data/$f = ${size}B"
-              python3 -c "import json;json.load(open('data/$f'));print('    JSON valid')" || exit 1
-            else
-              echo "  data/$f MISSING"
-            fi
-          done
+          python3 - <<'PY'
+          import json
+          required = {
+              'sector_pool.json': lambda d: bool(d.get('tier1') or d.get('tier2') or d.get('tier3')),
+              'cycle_pool_v2.json': lambda d: isinstance(d.get('stocks'), list) and isinstance(d.get('stocks_meta'), dict),
+              'lowpool.json': lambda d: isinstance(d, dict),
+              'industry_map_em.json': lambda d: len(d.get('map') or {}) >= 100,
+          }
+          for name, check in required.items():
+              path = 'data/' + name
+              try:
+                  with open(path, encoding='utf-8') as handle:
+                      data = json.load(handle)
+              except (OSError, json.JSONDecodeError) as exc:
+                  raise SystemExit(f'{name} missing or invalid: {exc}')
+              if not check(data):
+                  raise SystemExit(f'{name} failed required structure check')
+              print(name, 'valid', 'bytes=', __import__('os').path.getsize(path))
+          cycle = json.load(open('data/cycle_pool_v2.json', encoding='utf-8'))
+          meta = cycle.get('stocks_meta') or {}
+          print('cycle_pool_v2 stocks=', len(cycle.get('stocks') or []), 'status=', meta.get('status'), 'reason=', meta.get('reason'))
+          PY
 
       - name: Commit & push
         run: |
           python3 scripts/git_push_retry.py --msg "pools" --user pool-bot --dir data \
             --protect data/sector_pool.json --protect data/cycle.json \
             --protect data/index_kline.json --protect data/lowpool.json \
-            --protect data/cycle_deep.json --protect data/ban_prob.json \
+            --protect data/cycle_pool_v2.json --protect data/cycle_deep.json \
+            --protect data/ban_prob.json \
             --protect data/enrich.json --protect data/search_index.json \
-            --protect data/latest.json
+            --protect data/latest.json --protect data/industry_map_em.json
 

@@ -26,6 +26,7 @@ v5 设计:
   {code, name, score, resonance, votes:[{indicator, vote, strength, why}], ...}
 """
 import argparse
+import bisect
 import json
 import os
 import sys
@@ -203,12 +204,17 @@ def build_votes(close, high, low, vol, source_info=None, code_bare=""):
         add("BOLL/Keltner", v, abs(pos - 0.5) * 2, f"带内位置 {pos*100:.0f}% (中轨{lm:.2f})")
 
     # 7. Donchian 位置
+    # 2026-10-19 回测修正: 原逻辑「距 20 日高 -1% 内投正票」等于追突破,
+    # 而 factor_lab 在 45,441/79,518 样本上实测 new_high_20 (win 40.76%,
+    # avg -1.43%) 与 breakout_60 (39.86%, -1.71%) 均为全历史负期望。
+    # 这里不再给突破正票, 改为中性; 真正的新高信号由 below_ma60 的反面约束。
     du, dm, dl = I.donchian(high, low, 20)
     ldu = _last(du)
     if ldu:
         dev = (close[-1] - ldu) / ldu * 100
-        v = 1 if dev > -1 else (-1 if dev < -8 else 0)
-        add("Donchian20", v, min(abs(dev) / 8, 1), f"距20日高 {dev:+.2f}%")
+        v = -1 if dev > -1 else 0
+        add("Donchian20", v, min(abs(dev) / 8, 1) * 0.5,
+            f"距20日高 {dev:+.2f}% (追突破无正edge, 不给正票)")
 
     # 8. CMO
     cmo = I.cmo(close, 14)
@@ -344,6 +350,30 @@ def build_votes(close, high, low, vol, source_info=None, code_bare=""):
             found2 = [x for x in dt_list if _code_match(c6, x.get("code", ""))]
             if found2:
                 add("InDTPool", -1, 0.9, "当日跌停池")
+
+    # 21. below_ma60 (2026-10-19 回测驱动的唯一正 edge 信号)
+    # factor_lab 2,923,687 样本 5 日: win 51.39% avg +0.29% t=60.01
+    # 对比 new_high_20 (win 40.76% avg -1.43%) / breakout_60 (39.86% / -1.71%)
+    # 这两个追突破特征是全历史负期望, 所以这里不再给它们正向票。
+    if len(close) >= 80:
+        ma60 = sum(close[-60:]) / 60
+        if ma60 > 0:
+            dev60 = (close[-1] / ma60 - 1) * 100
+            mx20 = max(high[-20:])
+            ret20 = (close[-21] / close[-1] - 1) * -100 if close[-21] > 0 else 0
+            near_high = mx20 > 0 and close[-1] >= mx20 * 0.98
+            if -10 <= dev60 < -5 and not near_high and ret20 <= 15:
+                # 主区间: 60 日线下方 5-10%, 未追高, 20 日涨幅有限
+                add("below_ma60", 1, 0.9,
+                    f"距60日线 {dev60:+.1f}% (回测正edge区), 20日{ret20:+.1f}%")
+            elif close[-1] < ma60 * 0.95 and dev60 < -25:
+                # 深跌: 可能是接刀, 反向提示
+                add("below_ma60", -1, 0.5,
+                    f"距60日线 {dev60:+.1f}% 跌深, 反弹不确定")
+            elif dev60 > 20:
+                # 远离60日线: by回测追高为负期望
+                add("momentum_overheat", -1, min(dev60 / 100, 0.8),
+                    f"距60日线 {dev60:+.1f}% 过热, 回测追突破为负edge")
     return votes
 
 
@@ -379,6 +409,77 @@ def score_stock(close, high, low, vol, weights=None, source_info=None, code_bare
 
 # ─── 批量: 从本地K线扫全市场 ──────────────────────────────────────
 def load_klines(bulk_dir, limit=None):
+    """读 K 线 bulk。优先用 data/adjusted/bulk/{code}_qfq.json (真前复权,
+    新浪 vip 源), 缺失时回退 day_qfq_*.csv。
+
+    2026-10-17 基准校验发现: day_qfq_*.csv 虽名叫 qfq, 实为新浪非复权接口
+    的原始价 (贵州茅台隐含复权因子恒为 1.0, 而真因子 8.88), 所有引擎
+    在除权日都被引入虚假跳空。adjusted 副本 (collect_adjusted_bulk.py,
+    新浪 vip getKLineData) 经 validate_ground_truth.py 对基准 CSV 校验通过。
+    覆盖: 本地 334/5268, 随 nightly-backfill 扩充。
+    """
+    # 1) 真前复权, 三级来源按准确度:
+    #    a. 因子表 (data/adjusted/factors/{code}.json, 基准CSV提取):
+    #       qfq = raw × factor/factor_latest —— 与基准逐日一致, 最准
+    #    b. hfq 副本锚点归一 (data/adjusted/bulk/{code}_hfq.json):
+    #       跨厂商因子口径有约 5-7% 系统差, 仅近似
+    #    c. 原始 bulk 兜底 (day_qfq_*.csv 实为新浪非复权原始价, 见下)
+    #
+    #    2026-10-17 基准校验发现: day_qfq_*.csv 虽名叫 qfq, 实为新浪
+    #    非复权接口原始价 (茅台隐含因子恒 1.0, 真因子 8.88), 除权日
+    #    全链引擎被引入虚假跳空。有因子表/hfq 的票优先用, 其余仍是
+    #    原始价——accuracy gate (validate_ground_truth) 会红到全市场
+    #    因子表建完为止。
+    try:
+        from paths import AI_VIEW_DATA as _AVD
+        adj_root = os.path.join(_AVD, "adjusted")
+    except Exception:
+        adj_root = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                "..", "data", "adjusted")
+    factors_dir = os.path.join(adj_root, "factors")
+    factor_tables = {}
+    # 优先读合并文件 (1.1MB, 3985 只)。逐股一个文件在 CI 里是 326MB/3985 个
+    # 文件, checkout 慢且易超时。云端一直报「因子表 2 只」就是因为只读了
+    # factors/ 目录里残留的两个单股文件, 而合并文件没人读。
+    merged = os.path.join(adj_root, "factors_all.json")
+    if os.path.exists(merged):
+        try:
+            md = json.load(open(merged, encoding="utf-8"))
+            for code, fac in (md.get("factors") or {}).items():
+                if fac:
+                    factor_tables[code] = fac
+        except (OSError, ValueError):
+            factor_tables = {}
+    if not factor_tables and os.path.isdir(factors_dir):
+        import glob as _g
+        for fp in _g.glob(os.path.join(factors_dir, "*.json")):
+            if os.path.basename(fp).startswith("_"):
+                continue
+            try:
+                fd = json.load(open(fp, encoding="utf-8"))
+                factor_tables[fd.get("code")] = fd.get("factors") or {}
+            except (OSError, ValueError):
+                continue
+    hfq_dir = os.path.join(adj_root, "bulk")
+    hfq_tables = {}
+    if os.path.isdir(hfq_dir):
+        import glob as _g
+        for hq in _g.glob(os.path.join(hfq_dir, "*_hfq.json")):
+            bare = os.path.basename(hq).replace("_hfq.json", "")
+            try:
+                hd = json.load(open(hq, encoding="utf-8"))
+                hb = hd.get("bars") or []
+                if len(hb) < 30:
+                    continue
+                code = hd.get("tk_code") or ("sh" + bare if bare[0] in "69"
+                                             else "sz" + bare)
+                hfq_tables[code] = [[b[0], float(b[1]), float(b[2]),
+                                     float(b[3]), float(b[4]), float(b[5])]
+                                    for b in hb]
+            except (OSError, ValueError, KeyError):
+                continue
+
+    # 先扫一遍原始 bulk 建基础表 (全部 code 的原始价)
     import glob
     data = {}
     files = sorted(glob.glob(os.path.join(bulk_dir, "day_qfq_*.csv")))
@@ -402,7 +503,86 @@ def load_klines(bulk_dir, limit=None):
             break
     for c in data:
         data[c].sort(key=lambda b: b[0])
+
+    # 因子表覆盖的 code: 原始价 × 因子 = 真 qfq
+    # 因子表有两种形式: 逐日展开 / 跳变点表 (factors_all.json 用后者)。
+    # 必须用 bisect 取 <= 目标日的最近跳变点, 不能 exact get,
+    # 否则跳变点表 99% 落空, 静默退化成未复权原始价。
+    n_factor = 0
+    for code, rows in data.items():
+        ft = factor_tables.get(code)
+        if not ft:
+            continue
+        kdates = sorted(ft)
+        if not kdates:
+            continue
+
+        def _fac_at(d, _kd=kdates, _ft=ft):
+            i = bisect.bisect_right(_kd, d) - 1
+            return _ft[_kd[i]] if i >= 0 else _ft[_kd[0]]
+
+        dates = [r[0] for r in rows]
+        f_latest = _fac_at(dates[-1])
+        if not f_latest or f_latest <= 0:
+            continue
+        adj_rows = []
+        for r in rows:
+            f = _fac_at(r[0])
+            if not f or f <= 0:
+                adj_rows.append(r)
+                continue
+            k = f / f_latest
+            adj_rows.append([r[0], r[1] * k, r[2] * k, r[3] * k,
+                             r[4] * k, r[5]])
+        data[code] = adj_rows
+        n_factor += 1
+
+    # hfq 覆盖但无因子表的 code: 锚点归一近似
+    n_hfq = 0
+    for code, hrows in hfq_tables.items():
+        if code in data and code in factor_tables:
+            continue   # 已有因子表, 更准
+        hrows = sorted(hrows, key=lambda r: r[0])
+        anchor_f = hrows[-1][2]
+        if anchor_f <= 0:
+            continue
+        data[code] = [[r[0], r[1] / anchor_f, r[2] / anchor_f,
+                       r[3] / anchor_f, r[4] / anchor_f, r[5]]
+                      for r in hrows]
+        n_hfq += 1
+
+    if n_factor or n_hfq:
+        print(f"[load_klines] 复权覆盖: 因子表 {n_factor} 只 + hfq近似 {n_hfq} 只",
+              flush=True)
+    # 数据质量元信息: 调用方 (engine_v5/其他脚本) 靠它判定可信度,
+    # 不能只看「加载了 N 只」就当全市场复权已完备。
+    load_klines.stats = {
+        "n_codes": len(data),
+        "n_factor_table": n_factor,
+        "n_hfq_approx": n_hfq,
+        "n_raw_only": max(0, len(data) - n_factor - n_hfq),
+        "adjust_coverage_pct": round(
+            (n_factor + n_hfq) / max(1, len(data)) * 100, 2),
+        "factor_trusted": n_factor,
+        "hfq_approximate": n_hfq,
+        "note": "raw_only = 未经复权, 除权日存在虚假跳空风险",
+    }
     return data
+
+
+
+MAIN_BOARD_PREFIX = ("600", "601", "603", "605", "000", "001", "002")
+
+
+def _board_filter(rows):
+    """只保留沪深主板 (用户无科创/创业板交易权限)。"""
+    out = []
+    for r in rows:
+        bare = r.get("code", "")
+        bare = bare[2:] if bare[:2] in ("sh", "sz", "bj") else bare
+        if bare[:3] in MAIN_BOARD_PREFIX:
+            out.append(r)
+    return out
 
 
 def main():
@@ -412,6 +592,11 @@ def main():
     ap.add_argument("--limit", type=int, default=200)
     ap.add_argument("--min-score", type=float, default=60)
     ap.add_argument("--no-ext", action="store_true", help="禁用外部数据源增强 (仅指标共振)")
+    # 2026-10-19 用户约束: 无科创/创业板交易权限。打分仍覆盖全市场
+    # (训练/测试需要), 但推荐输出只留主板。
+    ap.add_argument("--main-board-only", action="store_true",
+                    help="top 只输出沪深主板 (600/601/603/605/000/001/002), "
+                         "688/300/301 仍参与打分但不进推荐")
     args = ap.parse_args()
 
     bulk = args.bulk
@@ -419,12 +604,29 @@ def main():
         from paths import BULK
         bulk = BULK
     klines = load_klines(bulk, args.limit)
+    adj_stats = getattr(load_klines, "stats", {}) or {}
     print(f"[engine_v5] 加载 {len(klines)} 只K线", flush=True)
 
     all_sources = None if args.no_ext else load_all_sources()
     print(f"[engine_v5] all_sources {'已加载' if all_sources else '未找到 (仅用技术指标)'}", flush=True)
 
     results = []
+    # 数据新鲜度门禁: 同一 bulk 目录里的分片可能不同步 (实测 2026-10-18:
+    # shard 00/60 到 10-16, 其余 9 个停在 10-13)。拿旧K线打出的高分不能
+    # 当作「今日信号」——按最新全市场交易日算 age, 超 3 个自然日的不进 top,
+    # 但在统计里如实计数, 避免把陈旧数据静默当成新鲜。
+    all_dates = [bars[-1][0] for bars in klines.values() if bars]
+    market_asof = max(all_dates) if all_dates else ""
+    # 只看是否与最新交易日同根K线: 不同根 = 该股当日未更新, 属陈旧。
+    # 自然日会在周末/节假日误判 (周五->周日=2天), 所以不比天数。
+    stale_days_limit = 0
+
+    def _age_days(d):
+        try:
+            return (datetime.strptime(market_asof, "%Y-%m-%d")
+                    - datetime.strptime(d, "%Y-%m-%d")).days
+        except Exception:
+            return 999
     # 预提取行业标签: 从事件/涨停池中收集 (code -> industry)
     industry_map = {}
     events = (all_sources or {}).get('data', {}).get('event', []) or []
@@ -458,6 +660,9 @@ def main():
         r["date"] = bars[-1][0]
         r["price"] = close[-1]
         r["bars"] = len(bars)
+        age = _age_days(r["date"])
+        r["data_age_days"] = age
+        r["data_fresh"] = age <= stale_days_limit
         r["source_ts"] = (all_sources or {}).get('summary', {}).get('ts')
         r["data_provenance"] = {
             "technical": "indicators_ext (17 指标, 等权)",
@@ -468,15 +673,43 @@ def main():
         results.append(r)
 
     results.sort(key=lambda x: -x["score"])
+    fresh = [r for r in results if r.get("data_fresh")]
+    stale = [r for r in results if not r.get("data_fresh")]
     now = datetime.now(CST)
     out = {
         "ts": now.isoformat(timespec="seconds"),
         "engine": "v5 (多指标共振 + 自适应权重 + 外部数据增强)",
         "n_scanned": len(klines),
         "n_scored": len(results),
+        "market_asof": market_asof,
+        # 数据质量门控: 复权 / 新鲜度 / 完整性三层可视化。
+        # 任何一层不达标时, 下游 (前端/日报) 不应把本轮结果当成全市场可交易信号。
+        "data_quality": {
+            "adjustment": adj_stats,
+            "adjust_trust_level": (
+                "full" if adj_stats.get("adjust_coverage_pct", 0) >= 95 else
+                "partial" if adj_stats.get("adjust_coverage_pct", 0) >= 30 else
+                "minimal"),
+            "fresh_completeness_pct": round(
+                len(fresh) / max(1, len(results)) * 100, 2),
+            "gates": {
+                "adjust_coverage_ok": adj_stats.get("adjust_coverage_pct", 0) >= 95,
+                "freshness_ok": len(stale) <= max(10, len(results) * 0.01),
+                "min_universe_ok": len(results) >= 3000,
+            },
+        },
+        "freshness": {
+            "limit_days": stale_days_limit,
+            "n_fresh": len(fresh),
+            "n_stale": len(stale),
+            "stale_codes": [r["code"] for r in stale[:50]],
+            "note": "K线分片可能不同步; 旧数据不冒充今日信号",
+        },
         "indicators": 20,  # 17 tech + 3 external
         "formula": "score = 50 + 50 * (Σ w·vote·strength / Σ w) * (0.6 + 0.4*共振率)",
-        "top": results[:50],
+        # top 只给新鲜数据; 陈旧分片的股票单列, 不用旧信号冒充今日推荐
+        "top": _board_filter(fresh)[:50] if args.main_board_only else fresh[:50],
+        "stale_top": stale[:20],
         "meta": {
             "resonance": "同向票数/方向票数, 分歧大时降权 (0.6~1.0 系数)",
             "weights": "默认等权; 可由 optimizer.py walk_forward 校准后写入",
@@ -493,10 +726,13 @@ def main():
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
 
-    print(f"\n=== TOP 10 (共振度优先) ===")
-    for r in results[:10]:
+    print(f"\n=== TOP 10 (共振度优先, 仅新鲜K线) ===")
+    for r in fresh[:10]:
         print(f"  {r['code']} score={r['score']:5.1f} 共振={r['resonance']:.2f} "
-              f"多{r['bull']}/空{r['bear']}/中{r['neutral']} 价={r['price']}")
+              f"多{r['bull']}/空{r['bear']}/中{r['neutral']} 价={r['price']} "
+              f"K线={r['date']}")
+    if stale:
+        print(f"\n[陈旧] {len(stale)} 只 K线早于 {market_asof} 超 {stale_days_limit} 天, 不进 top")
     hi = [r for r in results if r["score"] >= args.min_score]
     print(f"\n≥{args.min_score}分: {len(hi)} 只")
     print(f"→ {args.out}")

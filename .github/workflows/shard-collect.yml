@@ -21,7 +21,21 @@ name: shard-collect
 
 on:
   schedule:
-    - cron: '0,5,10,15,20,25,30,35,40,45,50,55 1,2,3,5,6,7 * * 1-5'
+    # A 仓: mod5=2 (与 moneyflow-realtime 的 mod5=3 错开)
+    # 部署到 B 仓改 mod5=4, C 仓改 mod5=0
+    # 时段说明 (2026-10-16 修):
+    #   原 cron 只覆盖 UTC 1,2,3,5,6,7 = CST 09:02-15:57, 即只在盘中跑。
+    #   后果: 盘后 15:57 到次日 09:02 共 17 小时采集停摆,
+    #   深夜/凌晨/周末看网站时 hot_news/news_extra/hot_themes 全是
+    #   昨天盘中的数据 (实测 hot_news 停在 10-15 18:17, mainline 停在
+    #   10-15 09:02, 用户反馈「热点数据没有更新过」)。
+    #   现补 UTC 8,9,10 (= CST 16:02-18:57 盘后) 与 UTC 11,12 (= CST 19:02-20:57
+    #   晚间), 以及 UTC 17 (= CST 次日 01:02 凌晨刷新),
+    #   让热点/资讯在非交易时段也能跟上。UTC 0 与 4 仍跳过
+    #   (UTC 0 = CST 08:00 盘前尚无新数据, UTC 4 = CST 12:00 与 UTC 3 重复)。
+    - cron: '0,5,10,15,20,25,30,35,40,45,50,55 1,2,3,5,6,7,8,9,10,11,12 * * *'
+    # 凌晨兜底: CST 01:02, 保证隔夜也有一轮新数据 (周末同样生效)
+    - cron: '0,5,10,15,20,25,30,35,40,45,50,55 17 * * *'
   workflow_dispatch:
     inputs:
       shard:
@@ -30,12 +44,13 @@ on:
       workers:
         description: '并发数'
         default: '6'
+
 permissions:
   contents: write
 
 concurrency:
   group: shard-collect
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   collect:
@@ -47,6 +62,7 @@ jobs:
       # B 仓部署时改成 b, C 仓改成 c
       SHARD: ${{ github.event.inputs.shard || 'c' }}
       SHARD_EXTRA: ${{ github.event.inputs.shard || '' }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -119,17 +135,112 @@ jobs:
               print("wrote %s (%d bytes)" % (out, os.path.getsize(out)))
           PY
 
+      - name: Validate shard outputs
+        run: |
+          python3 - <<'PY'
+          import json, os, sys
+          shard = os.environ["SHARD"]
+          extra = os.environ.get("SHARD_EXTRA", "")
+          failures = []
+          for tag in dict.fromkeys((shard, extra)):
+              if not tag:
+                  continue
+              path = f"data/shard_{tag}.json"
+              if not os.path.exists(path):
+                  # 2026-10-18: extra 分片(如 e=akshare 库)周末环境可能装不上, 
+                  # 不产出文件应降级为 warning 而不是让整条链失败 (那样主分片 a 
+                  # 也不提交了)。只 main shard 缺失才算硬失败。
+                  if tag == shard:
+                      failures.append(f"missing {path}")
+                  else:
+                      print(f"::warning::extra shard {tag} not produced, skipping")
+                  continue
+              try:
+                  doc = json.load(open(path, encoding="utf-8"))
+              except Exception as exc:
+                  failures.append(f"invalid {path}: {exc}")
+                  continue
+              summary = doc.get("summary") or {}
+              if int(summary.get("total_merged") or 0) <= 0:
+                  failures.append(f"empty {path}")
+              if summary.get("errors"):
+                  failures.append(f"collector errors in {path}: {len(summary['errors'])}")
+          if failures:
+              print("; ".join(failures), file=sys.stderr)
+              raise SystemExit(1)
+          print(f"validated shard outputs: {shard} {extra}")
+          PY
+
       # ── 新闻补充源 (早报 SSR + 华尔街见闻 JSON) ──────────────
       - name: Collect extra news
         run: |
           python3 scripts/collect_news_extra.py --out data/news_extra.json --limit 30 \
             || echo "::warning::news_extra 采集失败, 保留上一版"
 
+      # ── Newsnow 聚合热点 (15平台, 免key, 借鉴 TrendRadar) ──────
+      - name: Collect hot news (Newsnow)
+        run: |
+          python3 scripts/collect_hotnews.py --out data/hot_news.json \
+            || echo "::warning::hot_news 采集失败, 保留上一版"
+
+      # ── 热点→股票影响映射 (news_impact) ──────────────────────
+      - name: News impact mapping
+        run: |
+          set -euo pipefail
+          python3 scripts/build_news_maps.py
+          python3 scripts/news_impact_analyze.py --limit 50 --no-push \
+            --hot-news data/hot_news.json --news-extra data/news_extra.json
+          python3 - <<'PY'
+          import json
+          d = json.load(open("data/news_impact.json", encoding="utf-8"))
+          if d.get("schema_version") != "news-impact.v2":
+              raise SystemExit("unexpected news impact schema")
+          if d.get("n") != 50 or len(d.get("items") or []) != 50:
+              raise SystemExit(f"news impact must contain exactly 50 items, got n={d.get('n')}")
+          required = {"title", "source", "published_at", "ts", "sentiment", "direction", "verdict", "positive_reason", "negative_reason", "affected_stocks", "matched_by", "evidence", "confidence", "stale", "provenance"}
+          missing = sorted(required - set(d["items"][0])) if d.get("items") else sorted(required)
+          if missing:
+              raise SystemExit("news impact fields missing: " + ",".join(missing))
+          if d.get("push_status") != "dry_run":
+              raise SystemExit("news structural validation must run with --no-push")
+          if len(d.get("impacts") or []) != len(d["items"]):
+              raise SystemExit("news impact items/impacts are not aligned")
+          print("validated news impact: 50 items, aligned impacts, dry-run")
+          PY
+          python3 scripts/news_transmission.py --in data/hot_news.json \
+            --news data/news_extra.json --out data/news_transmission.json \
+            || echo "::warning::news_transmission 失败, 保留上一版"
+          # 今日主线 + 热点主题: 从上面的映射结果聚合,
+          # 供给 index.html 的「今日主线」「热点主题」两个 tab
+          python3 scripts/build_mainlines.py --news data/news_impact.json \
+            --hot data/hot_impact.json \
+            || echo "::warning::build_mainlines 失败, 保留上一版"
+          python3 scripts/recent_mainlines.py --days 30 \
+            --out data/recent_mainlines.json \
+            || echo "::warning::recent_mainlines 失败, 保留上一版"
+
+      # ── 数据新鲜度审计 ────────────────────────────────────────
+      # 2026-10-16 用户反馈「有的数据没有更新/过时」, 根因之一是无人监测新鲜度,
+      # 全靠用户看到才知道。这里每轮采集后自查一次, 超阈值即在 Actions 日志
+      # 告警 (不阻断流程, 采集失败已有各自的保留上一版逻辑)。
+      - name: Freshness audit
+        run: |
+          python3 scripts/audit_freshness.py --out data/freshness_audit.json \
+            --report data/freshness_audit.md \
+            || echo "::warning::有文件超过新鲜度阈值, 见 data/freshness_audit.md"
+
       # ── 全球各大股市实时 (15指数, 含休市状态与情绪) ───────────
       - name: Collect global markets
         run: |
           python3 scripts/collect_global_markets.py --out data/global_markets.json \
             || echo "::warning::global_markets 采集失败, 保留上一版"
+
+      # ── 全球 K 线历史 (美股/港股增量构建, 腾讯+东财双源) ─────
+      - name: Collect global kline
+        run: |
+          python3 scripts/collect_global_kline.py --markets us,hk --count 640 \
+            --out data/global_kline.json \
+            || echo "::warning::global_kline 采集失败, 保留上一版"
 
       # ── KlineShare 看板免 key 实时 (破甲逆向成果) ──────────────
       # hq.klineshare.cn/api/* 全免鉴权; realtime 给 OHLC+成交额,
@@ -138,6 +249,9 @@ jobs:
         run: |
           python3 scripts/collect_klineshare.py --collect --out data/klineshare_hq.json \
             || echo "::warning::klineshare 采集失败, 保留上一版"
+
+      - name: Build publication manifest
+        run: python3 scripts/build_analysis_manifest.py
 
       - name: Summary
         run: |
@@ -181,7 +295,7 @@ jobs:
           git config user.name "shard-collect-bot"
           git config user.email "3576982374@qq.com"
           PROTECT_ARGS=""
-          for f in data/shard_${SHARD}.json data/news_extra.json data/global_markets.json data/klineshare_hq.json; do
+          for f in data/shard_${SHARD}.json data/news_extra.json data/global_markets.json data/klineshare_hq.json data/hot_news.json data/news_impact.json data/news_transmission.json data/hot_themes.json data/mainline.json data/stock_names.json data/industry_stocks.json data/global_kline.json data/freshness_audit.json data/freshness_audit.md data/analysis_manifest.json; do
             PROTECT_ARGS="$PROTECT_ARGS --protect $f"
           done
           if [ "$SHARD_EXTRA" != "$SHARD" ]; then
@@ -189,5 +303,7 @@ jobs:
           fi
           python3 scripts/git_push_retry.py \
             --msg "shard(${SHARD}): collect $(TZ=Asia/Shanghai date '+%m-%d %H:%M')" \
-            data/shard_${SHARD}.json data/news_extra.json data/global_markets.json data/klineshare_hq.json \
+            data/shard_${SHARD}.json data/news_extra.json data/global_markets.json data/klineshare_hq.json data/hot_news.json data/news_impact.json data/news_transmission.json data/stock_names.json data/industry_stocks.json data/global_kline.json \
+            data/hot_themes.json data/mainline.json data/recent_mainlines.json \
+            data/freshness_audit.json data/freshness_audit.md data/analysis_manifest.json \
             $PROTECT_ARGS

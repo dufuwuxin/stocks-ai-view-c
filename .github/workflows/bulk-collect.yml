@@ -17,8 +17,10 @@
 name: bulk-collect
 
 on:
-  schedule:
-    - cron: '0,5,10,15,20,25,30,35,40,45,50,55 19 * * 6'
+  schedule:  # disabled on mirror
+    # A 仓: 每周六 CST 03:00 (UTC 周六 19:00) — 与 kline-backfill-full 错开 30 分钟
+    # B/C 仓部署时改成各自的分钟位 (实际是每周一次, 分钟位只影响首次触发)
+    # - cron: '0 19 * * 6'
   workflow_dispatch:
     inputs:
       kind:
@@ -32,6 +34,7 @@ on:
       resume:
         description: '断点续传 (跳过已有)'
         default: 'true'
+
 permissions:
   contents: write
 
@@ -47,7 +50,7 @@ jobs:
       TZ: Asia/Shanghai
       KIND: ${{ github.event.inputs.kind || 'kline' }}
       # 分片: A 仓默认 0; B 仓部署时改 1, C 仓改 2
-      SHARD_IDX: ${{ github.event.inputs.shard || '2' }}
+      SHARD_IDX: ${{ github.event.inputs.shard || '0' }}
       RESUME: ${{ github.event.inputs.resume || 'true' }}
     steps:
       - uses: actions/checkout@v4
@@ -61,10 +64,11 @@ jobs:
           git merge --ff-only origin/main || echo "already up to date"
 
       # K 线数据在独立仓, 要 sparse checkout 才能增量写
+      # 2026-10-18: stocks-data-kline 已 301 到 t1, 直接写新仓名避免重定向歧义。
       - name: Checkout kline repo (full)
         uses: actions/checkout@v4
         with:
-          repository: qwerzxcva/stocks-data-kline
+          repository: qwerzxcva/t1
           token: ${{ secrets.GITHUB_TOKEN }}
           path: kline-repo
           fetch-depth: 0
@@ -113,14 +117,27 @@ jobs:
           RESUME_FLAG=""
           if [ "$RESUME" = "true" ]; then RESUME_FLAG="--resume"; fi
           echo "kind=$KIND shard=$SHARD_IDX resume=$RESUME"
-          python3 scripts/bulk_collect.py \
-            --kind "$KIND" \
-            --shard "$SHARD_IDX" \
-            --n-shards 3 \
-            --sleep 0.4 \
-            $RESUME_FLAG \
-            --out "data/bulk_${KIND}_${SHARD_IDX}.json" \
-            || echo "::warning::bulk_collect 部分失败, 保留已拉部分"
+          if [ "$SHARD_IDX" = "all" ]; then
+            # 补齐模式: 三个分片全跑一遍 (B/C 仓停摆时分片会长期落后,
+            # 只靠 A 仓的 shard 0 永远补不一致 — 2026-10-18 实测 9 个分片停在 10-13)。
+            for s in 0 1 2; do
+              echo "--- shard $s ---"
+              python3 scripts/bulk_collect.py \
+                --kind "$KIND" --shard "$s" --n-shards 3 --sleep 0.35 \
+                $RESUME_FLAG \
+                --out "data/bulk_${KIND}_${s}.json" \
+                || echo "::warning::bulk_collect shard $s 部分失败, 保留已拉部分"
+            done
+          else
+            python3 scripts/bulk_collect.py \
+              --kind "$KIND" \
+              --shard "$SHARD_IDX" \
+              --n-shards 3 \
+              --sleep 0.4 \
+              $RESUME_FLAG \
+              --out "data/bulk_${KIND}_${SHARD_IDX}.json" \
+              || echo "::warning::bulk_collect 部分失败, 保留已拉部分"
+          fi
 
       # ── 3. 推回 K 线仓 ────────────────────────────────────────
       # 注意: 必须 fetch + rebase 再 push。三仓并发 + nightly-kline 也在写

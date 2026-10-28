@@ -1,0 +1,85 @@
+# Explainable good-stock pool refresh.
+# Runs once per day; manual dispatch remains available for controlled reruns.
+name: good-stock-pool
+
+on:
+  schedule:  # disabled on mirror
+    # - cron: '17 0 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: good-stock-pool
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      TZ: Asia/Shanghai
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Sync remote main
+        run: |
+          git fetch origin main
+          git merge --ff-only origin/main || echo "already up to date"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build explainable good-stock pool
+        run: |
+          set -euo pipefail
+          builder="scripts/build_good_stock_pool.py"
+          if [ ! -f "$builder" ]; then
+            echo "::error::missing $builder"
+            exit 1
+          fi
+          python3 -m unittest discover -s tests -p 'test_good_stock_engine.py' -v
+          python3 -m unittest discover -s tests -p 'test_good_stock_pool.py' -v
+          python3 -m py_compile scripts/good_stock_engine.py "$builder" tests/test_good_stock_engine.py tests/test_good_stock_pool.py
+          python3 "$builder" --out data/good_stock_pool.next.json
+
+      - name: Validate and atomically publish good-stock pool artifact
+        run: |
+          set -euo pipefail
+          test -s data/good_stock_pool.next.json
+          python3 - <<'PY'
+          import importlib.util
+          import json
+          import os
+          from pathlib import Path
+
+          path = Path('data/good_stock_pool.next.json')
+          spec = importlib.util.spec_from_file_location('pool_builder', 'scripts/build_good_stock_pool.py')
+          module = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(module)
+          payload = json.loads(path.read_text(encoding='utf-8'))
+          errors = module.validate_payload(payload)
+          if errors:
+              raise SystemExit('publish gate failed: ' + '; '.join(errors))
+          print(f'{path}: {path.stat().st_size} bytes; root=dict')
+          print('publish_list=', payload['publish_list'])
+          print('protected_paths=', payload['protected_paths'])
+          print('counts=', payload['counts'])
+          os.replace(path, Path('data/good_stock_pool.json'))
+          PY
+
+      - name: Commit and push pool artifact
+        run: |
+          set -euo pipefail
+          # 裸 git push 会被同时段的 engine-chain 推送拒 (non-fast-forward, 2026-10-18 实测)。
+          # 用 git_push_retry: fetch+rebase+protect, 与其他 bot 共存。
+          python3 scripts/git_push_retry.py --msg "good-stock-pool" \
+            data/good_stock_pool.json --user good-stock-bot \
+            --protect data/good_stock_pool.json || echo "good-stock-pool push skipped"

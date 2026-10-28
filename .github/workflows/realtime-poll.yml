@@ -2,9 +2,14 @@
 # 交易日 09:30~11:30 / 13:00~15:00 CST，每 5 分钟
 name: realtime-poll
 on:
+  schedule:  # disabled on mirror
+    # - cron: '*/5 1,2,3,4,5,6,7,8 * * 1-5'  # UTC 01:00~08:55 = CST 09:00~16:55
   workflow_dispatch: {}
 permissions:
   contents: write
+concurrency:
+  group: realtime-poll
+  cancel-in-progress: false    # 不取消在跑的, 避免 export 产物被半途丢弃
 jobs:
   poll:
     runs-on: ubuntu-latest
@@ -17,8 +22,17 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Sync remote main
         run: |
-          git fetch origin main
-          git merge --ff-only origin/main || echo "already up to date"
+          for attempt in 1 2 3; do
+            if git fetch origin main && git merge --ff-only origin/main; then
+              exit 0
+            fi
+            echo "::warning::sync remote main attempt ${attempt}/3 failed"
+            git merge --abort 2>/dev/null || true
+            [ "${attempt}" -lt 3 ] && sleep 5
+          done
+          echo "::error::sync remote main failed after 3 attempts"
+          exit 1
+
       - uses: actions/checkout@v4
         with:
           repository: qwerzxcva/stocks-tools
@@ -27,6 +41,9 @@ jobs:
         with:
           repository: qwerzxcva/stocks-data-live
           path: data-repo
+      - uses: actions/checkout@v4
+        with:
+          path: .
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'

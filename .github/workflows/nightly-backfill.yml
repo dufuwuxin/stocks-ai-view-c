@@ -18,6 +18,8 @@
 name: nightly-backfill
 
 on:
+  schedule:  # disabled on mirror
+    # - cron: '0 18 * * 6'   # CST 周日 02:00, 周末无盘中任务, 资源充足
   workflow_dispatch:
     inputs:
       days:

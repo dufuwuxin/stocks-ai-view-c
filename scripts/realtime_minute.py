@@ -59,6 +59,11 @@ def _repo_root():
 AI_VIEW = os.environ.get("STOCKS_AI_VIEW") or _repo_root()
 SNAP_DIR = os.path.join(AI_VIEW, "data", "market")
 DEFAULT_OUT = os.path.join(AI_VIEW, "data", "realtime_minute.json")
+CURVE_PATH = os.path.join(AI_VIEW, "data", "market", "amount_curve.json")
+LEADERS_PATH = os.path.join(AI_VIEW, "data", "market", "speed_leaders.json")
+ALERTS_PATH = os.path.join(AI_VIEW, "data", "price_alerts.json")
+ALERT_EVENTS_PATH = os.path.join(AI_VIEW, "data", "market", "alert_events.json")
+KEY_LEVELS_PATH = os.path.join(AI_VIEW, "data", "key_levels.json")
 
 # 交易时段 (CST)
 TRADING = [(9 * 60 + 25, 11 * 60 + 30), (13 * 60 + 0, 15 * 60 + 0)]
@@ -297,6 +302,234 @@ def summarize(rows):
     }
 
 
+# ─── 量能曲线 + 个股异动榜 (回放页借鉴, 2026-10-17) ──────────
+def _load_json(path, default):
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return default
+
+
+def _atomic_write(path, payload):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
+    os.replace(tmp, path)
+
+
+def update_amount_curve(summary):
+    """每轮追加一个全市场量能 tick; 跨交易日时把上一交易日归档为 prev。
+
+    回放页的"今日 vs 昨日同时"对比需要昨日逐时基线, 而滚动快照只留最近
+    12 个 (workflow 里还会裁到 12), 单日 tick (~80 个/交易日, 每个几十字节)
+    单独持久化几乎不占体积。prev 只保留最近一个交易日, 防止文件无限增长。
+    """
+    now = _now()
+    today_str = now.strftime("%Y-%m-%d")
+    curve = _load_json(CURVE_PATH, {})
+    today = curve.get("today") or {}
+    if today.get("date") and today["date"] != today_str:
+        curve["prev"] = today
+        today = {}
+    if today.get("date") != today_str:
+        today = {"date": today_str, "ticks": []}
+    today["ticks"].append({
+        "t": now.strftime("%H:%M"),
+        "amount_yi": summary.get("total_amount_yi"),
+        "advance": summary.get("advance"),
+        "decline": summary.get("decline"),
+        "zt": summary.get("limit_up_ge10"),
+        "dt": summary.get("limit_down_le-10"),
+        "main_yi": summary.get("main_net_inflow_yi"),
+    })
+    curve["today"] = today
+    curve["ts"] = now.isoformat(timespec="seconds")
+    _atomic_write(CURVE_PATH, curve)
+
+
+def _norm_code(code):
+    """统一快照 code 口径: 东财 f12 是 6 位纯数字, 新浪兜底带 sh/sz 前缀。"""
+    c = str(code or "")
+    for p in ("sh", "sz", "bj"):
+        if c.startswith(p) and c[2:].isdigit():
+            return c[2:]
+    return c
+
+
+def load_latest_snapshot():
+    """取最近一个滚动快照 (即上一轮的 quotes/timestamp/date), 供涨速差分。"""
+    try:
+        snaps = sorted(f for f in os.listdir(SNAP_DIR) if f.startswith("snapshot_"))
+    except OSError:
+        return None, None, None
+    if not snaps:
+        return None, None, None
+    payload = _load_json(os.path.join(SNAP_DIR, snaps[-1]), {})
+    return payload.get("quotes") or [], payload.get("timestamp"), payload.get("date")
+
+
+def compute_speed_leaders(rows, prev_rows, prev_date, prev_ts):
+    """相邻两轮快照逐股求差: 涨速 = 涨跌幅之差, 区间成交 = 累计成交额之差。
+
+    amount 是当日累计值, 相邻差即区间成交; 负差多为停牌或数据抖动, 丢弃。
+    跨日快照不做差分: 昨收口径不同, 差出来的是隔夜跳空而非盘中涨速。
+    """
+    now = _now()
+    interval_min = None
+    if prev_ts:
+        try:
+            prev_dt = datetime.fromisoformat(prev_ts)
+            interval_min = max(1, round((now - prev_dt).total_seconds() / 60))
+        except ValueError:
+            pass
+    boards = {"gainers": [], "losers": [], "amount": []}
+    if not prev_rows:
+        return boards, {"interval_min": interval_min,
+                        "note": "no previous snapshot", "n_compared": 0}
+    if prev_date != now.strftime("%Y-%m-%d"):
+        return boards, {"interval_min": interval_min,
+                        "note": f"prev snapshot is {prev_date}", "n_compared": 0}
+    prev_map = {}
+    for r in prev_rows:
+        c = r.get("code")
+        if c:
+            prev_map[_norm_code(c)] = r
+    out = []
+    for r in rows:
+        p = prev_map.get(_norm_code(r.get("code")))
+        if not p:
+            continue
+        speed = None
+        if isinstance(r.get("chg_pct"), (int, float)) and \
+                isinstance(p.get("chg_pct"), (int, float)):
+            speed = round(r["chg_pct"] - p["chg_pct"], 2)
+        amt_yi = None
+        if isinstance(r.get("amount"), (int, float)) and \
+                isinstance(p.get("amount"), (int, float)):
+            d = r["amount"] - p["amount"]
+            if d > 0:
+                amt_yi = round(d / 1e8, 3)
+        if speed is None and amt_yi is None:
+            continue
+        out.append({"code": r.get("code"), "name": r.get("name"),
+                    "price": r.get("price"), "chg_pct": r.get("chg_pct"),
+                    "speed": speed, "interval_amount_yi": amt_yi})
+    ranked = [r for r in out if r["speed"] is not None]
+    boards["gainers"] = sorted(ranked, key=lambda x: -x["speed"])[:15]
+    boards["losers"] = sorted(ranked, key=lambda x: x["speed"])[:15]
+    amt_ranked = [r for r in out if r["interval_amount_yi"]]
+    boards["amount"] = sorted(amt_ranked, key=lambda x: -x["interval_amount_yi"])[:15]
+    return boards, {"interval_min": interval_min, "note": None,
+                    "n_compared": len(out)}
+
+
+def write_speed_leaders(boards, meta):
+    now = _now()
+    payload = {
+        "ts": now.isoformat(timespec="seconds"),
+        "date": now.strftime("%Y-%m-%d"),
+        "interval_min": meta.get("interval_min"),
+        "note": meta.get("note"),
+        "n_compared": meta.get("n_compared"),
+        **boards,
+    }
+    _atomic_write(LEADERS_PATH, payload)
+
+
+# ─── 点位提醒 (借鉴个股关键价位页「点位提醒」, 2026-10-17) ─────
+def load_price_alerts():
+    """手工点位 (data/price_alerts.json) + 关键价位自动层 (key_levels 枢轴 R1/S1)。
+
+    手工格式: {"alerts": [{"code": "600001", "level": 12.5,
+                            "direction": "above"/"below", "note": "..."}]}
+    """
+    alerts = []
+    for a in (_load_json(ALERTS_PATH, {}) or {}).get("alerts") or []:
+        try:
+            level = float(a.get("level"))
+        except (TypeError, ValueError):
+            continue
+        direction = "above" if a.get("direction") != "below" else "below"
+        alerts.append({"key": f"manual|{_norm_code(a.get('code'))}|{level}|{direction}",
+                       "code": _norm_code(a.get("code")), "level": level,
+                       "dir": direction, "src": "manual",
+                       "note": a.get("note")})
+    for code, lv in ((_load_json(KEY_LEVELS_PATH, {}) or {}).get("stocks") or {}).items():
+        piv = lv.get("pivot") or {}
+        for k, d in (("r1", "above"), ("s1", "below")):
+            if piv.get(k) is None:
+                continue
+            alerts.append({"key": f"auto|{_norm_code(code)}|pivot.{k}",
+                           "code": _norm_code(code), "level": float(piv[k]),
+                           "dir": d, "src": "key_levels.pivot",
+                           "note": f"枢轴{k.upper()} {piv[k]}"})
+    return alerts
+
+
+def check_alerts(rows, prev_rows, alerts):
+    """逐股比较本轮 vs 上轮现价: 只有「真穿越」才触发 (上轮在界限另一侧)。
+
+    同日同 key 只报一次 (events 里去重), 防止横盘反复过线刷屏。
+    """
+    if not alerts or not prev_rows:
+        return []
+    prev_map = {}
+    for r in prev_rows:
+        c = _norm_code(r.get("code"))
+        if c:
+            prev_map[c] = r
+    cur_map = {}
+    for r in rows or []:
+        c = _norm_code(r.get("code"))
+        if c:
+            cur_map[c] = r
+    by_code = {}
+    for a in alerts:
+        by_code.setdefault(a["code"], []).append(a)
+    now = _now()
+    today_str = now.strftime("%Y-%m-%d")
+    events = _load_json(ALERT_EVENTS_PATH, {}) or {}
+    today = events.get("today") if events.get("date") == today_str else None
+    if today is None:
+        today = {"items": [], "fired": {}}
+    fired = today.get("fired") or {}
+    hit = []
+    for code, al in by_code.items():
+        cur = cur_map.get(code)
+        prev = prev_map.get(code)
+        if not cur or not prev:
+            continue
+        px, ppx = cur.get("price"), prev.get("price")
+        if not isinstance(px, (int, float)) or not isinstance(ppx, (int, float)):
+            continue
+        for a in al:
+            if fired.get(a["key"]):
+                continue
+            crossed = (px >= a["level"] > ppx) if a["dir"] == "above" \
+                else (px <= a["level"] < ppx)
+            if not crossed:
+                continue
+            ev = {"t": now.strftime("%H:%M"), "code": code,
+                  "name": cur.get("name"), "price": px, "prev_price": ppx,
+                  "level": a["level"], "dir": a["dir"], "src": a["src"],
+                  "note": a.get("note")}
+            hit.append(ev)
+            fired[a["key"]] = True
+            today["items"].append(ev)
+    if hit:
+        today["fired"] = fired
+        events["date"] = today_str
+        events["today"] = today
+        events["ts"] = now.isoformat(timespec="seconds")
+        # 只保留最近 300 条, 防文件无限增长
+        if len(today["items"]) > 300:
+            today["items"] = today["items"][-300:]
+        _atomic_write(ALERT_EVENTS_PATH, events)
+    return hit
+
+
 # ─── 落盘 + 推送 ────────────────────────────────────────────
 def write_output(rows, summary, total):
     ts = _now().isoformat(timespec="seconds")
@@ -375,6 +608,7 @@ def main():
             time.sleep(args.interval)
             continue
         try:
+            prev_rows, prev_ts, prev_date = load_latest_snapshot()
             total, rows = fetch_market_snapshot()
             if not rows:
                 print(f"[{ts}] 第 {n_round} 轮: 空响应", file=sys.stderr)
@@ -382,6 +616,14 @@ def main():
                 continue
             summary = summarize(rows)
             out, snap = write_output(rows, summary, total)
+            update_amount_curve(summary)
+            boards, bmeta = compute_speed_leaders(rows, prev_rows, prev_date, prev_ts)
+            write_speed_leaders(boards, bmeta)
+            hits = check_alerts(rows, prev_rows, load_price_alerts())
+            if hits:
+                print(f"[{ts}] 点位触发 {len(hits)} 条: "
+                      + ", ".join(f"{h['code']} {h['dir']}{h['level']}"
+                                   for h in hits[:5]), file=sys.stderr)
             print(f"[{ts}] 第 {n_round} 轮: {summary['n_stocks']} 只 "
                   f"涨{summary['advance']}/跌{summary['decline']} "
                   f"涨停{summary['limit_up_ge10']} "

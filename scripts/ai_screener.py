@@ -631,24 +631,38 @@ def fetch_news(limit=120):
                     it.get("rich_text") or it.get("title", ""), "sina")
         except Exception as e:
             print(f"[news-sina-cj] {e}", file=sys.stderr)
-    # 东财 7x24 (财经/政策/产经, 静默降级)
-    for ntype, label in [(8, "em-财经"), (11, "em-政策"), (12, "em-产经")]:
-        try:
-            d = _http_json(f"https://np-listapi.eastmoney.com/comm/wap/getListInfo?type={ntype}&pageSize=40&pageNo=1&client=web&source=XHH")
-            data = d.get("data") if isinstance(d, dict) else None
-            items = (data.get("list") if isinstance(data, dict) else None) or []
-            for it in items[:40]:
-                add(it.get("showtime") or it.get("ctime", ""), it.get("title", ""), label)
-        except Exception as e:
-            print(f"[news-{label}] {e}", file=sys.stderr)
-    # 财联社电报 (静默降级)
+    # 新浪 7x24 直播 (zhibo, 实时性最好: 有秒级时间戳)
+    # 2026-10-16 实测: 东财 np-listapi/np-weblist 全部 HTTP 400 (接口已变更),
+    #   财联社 cls.cn/nodeapi/telegraphList HTTP 404 (站点迁移 Next.js 后需签名),
+    #   华尔街见闻 api-ddc-wscn 404 —— 三个源同时失效, 换用下面两个。
     try:
-        d = _http_json("https://www.cls.cn/nodeapi/telegraphList?app=CailianpressWeb&os=web&sv=8.4.6&sign=9dc7288db1f2472d0d42e1ea54f7411f")
-        for it in (d.get("data", {}).get("roll_data") or [])[:80]:
-            t = re.sub(r"\s+", " ", (it.get("title") or it.get("content") or "")).strip()
-            add(it.get("ctime", ""), t, "cls")
+        d = _http_json("https://zhibo.sina.com.cn/api/zhibo/feed"
+                       "?page=1&page_size=40&zhibo_id=152", timeout=15)
+        feed = (((d.get("result") or {}).get("data") or {})
+                .get("feed") or {}).get("list") or []
+        for it in feed[:40]:
+            add(it.get("create_time", ""),
+                it.get("rich_text") or it.get("title", ""), "sina-zb")
     except Exception as e:
-        print(f"[news-cls] {e}", file=sys.stderr)
+        print(f"[news-sina-zhibo] {e}", file=sys.stderr)
+    # 同花顺快讯 (免登录公开端点; 补充 A 股盘面类快讯)
+    try:
+        d = _http_json("http://news.10jqka.com.cn/tapp/news/push/stock/", timeout=15)
+        lst = ((d.get("data") or {}).get("list") or []) if isinstance(d, dict) else []
+        for it in lst[:30]:
+            ct = it.get("ctime")
+            ts = ""
+            try:
+                iv = int(ct)
+                if iv > 10**9:
+                    ts = datetime.datetime.fromtimestamp(
+                        iv, datetime.timezone(datetime.timedelta(hours=8))
+                    ).strftime("%Y-%m-%d %H:%M:%S")
+            except (TypeError, ValueError):
+                ts = str(ct or "")[:19]
+            add(ts, it.get("title", ""), "ths")
+    except Exception as e:
+        print(f"[news-ths] {e}", file=sys.stderr)
     # 抖音热榜 (免登录公开端点)
     try:
         url = ("https://www.douyin.com/aweme/v1/web/hot/search/list/"
@@ -670,6 +684,12 @@ def fetch_news(limit=120):
 
 def fetch_remote_news(raw_base="https://raw.githubusercontent.com/qwerzxcva/stocks-data-news/main/news", days=3):
     out, seen = [], set()
+    # B 仓分片采的 push2 新闻: 零网络读本仓副本, 与远端仓数据合并去重
+    for it in fetch_shard_b_news():
+        if it["title"] in seen:
+            continue
+        seen.add(it["title"])
+        out.append(it)
     for i in range(days):
         d = (datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8)))
              - datetime.timedelta(days=i)).strftime("%Y-%m-%d")
@@ -692,6 +712,32 @@ def fetch_remote_news(raw_base="https://raw.githubusercontent.com/qwerzxcva/stoc
 
 
 # ─── 个股 RPS (腾讯前复权日K, 批量取 top N) ──────────────────────────────
+def fetch_shard_b_news(path=None):
+    """B 仓 (镜像) shard_b.json 里的东财 push2 新闻。
+
+    采集走 B 仓独立 IP (分片架构), 这里只读本仓同步下来的副本
+    (sync_mirror_shards 随 engine-chain 每轮更新), 零网络、零风控。
+    字段对齐 fetch_remote_news 的产物: ts/title/theme/sentiment/src/digest。
+    """
+    p = path or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..",
+                             "data", "shard_b.json")
+    try:
+        d = json.load(open(p, encoding="utf-8"))
+    except Exception:
+        return []
+    out, seen = [], set()
+    for it in (d.get("data") or {}).get("news") or []:
+        t = (it.get("title") or "").strip()
+        if len(t) < 6 or t in seen:
+            continue
+        seen.add(t)
+        ts = (it.get("pub_time") or "").replace(" ", "T")[:19]
+        out.append({"ts": ts, "title": t[:120],
+                    "theme": sorted(theme_of(t)), "sentiment": sentiment_of(t),
+                    "src": "shard-b-push2", "digest": (it.get("digest") or "")[:200]})
+    return out
+
+
 def fetch_rps(codes, bars=20, limit=40):
     """codes: 裸码/前缀码; 返回 {裸码: {close, chg5, chg20}}"""
     out = {}
@@ -913,6 +959,11 @@ def main():
     latest = {
         "ts": now.isoformat(),
         "date": date_str,
+        # 2026-10-18 修复: 东财涨跌停池/指数在周末与非交易时段返回的是最近
+        # 交易日数据, 旧版把 date 标成当天 -> 网站显示「今日」实为 3 天前的值。
+        # 用上证指数日K最后一根日期推断真实归属日; 不一致时标 fallback=true。
+        "data_belongs_to": date_str,
+        "fallback": False,
         "market": {
             "indices": indices,
             # 家数以东财 data.tc 为准 (pool 明细可能为空, 详见 fetch_pool 注释)
@@ -963,6 +1014,18 @@ def main():
         "meta": {"source": "tencent+eastmoney+sina+ths", "algo": "tsp-signal-v3",
                  "zero_cred": True, "ref": "shy3130/tick-stock-panel"},
     }
+
+    # 归属日校准: idx_kline 末根日期 = 最近真实交易日。周末/节假日时它早于当天,
+    # 那时必须诚实标注 fallback, 否则用户把 3 天前的行情当"今日" (2026-10-18 修)。
+    try:
+        belongs = str((idx_kline or [{}])[-1].get("date") or "")[:10].replace("-", "")
+        if len(belongs) == 8:
+            if belongs != date_str:
+                latest["data_belongs_to"] = belongs
+                latest["fallback"] = True
+            latest["market"]["data_belongs_to"] = belongs
+    except Exception:
+        pass
 
     out = json.dumps(latest, ensure_ascii=False, indent=2)
     if args.out:
