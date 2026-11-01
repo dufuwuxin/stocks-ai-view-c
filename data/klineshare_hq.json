@@ -1,5 +1,5 @@
 {
- "ts": "2026-11-01T22:16:18+08:00",
+ "ts": "2026-11-02T04:57:28+08:00",
  "engine": "collect_klineshare v1 (hq.klineshare.cn 免 key 看板接口)",
  "source": "hq.klineshare.cn",
  "n_symbols": 8,
@@ -141,22 +141,21 @@
    "id": 16961441,
    "key_id": 16961441,
    "name": "白酒",
-   "change_percent": 0.05274802958421052,
+   "change_percent": 0.052748029584210536,
    "rise_count": 20,
    "fall_count": 16,
    "limit_up_count": 4,
-   "fund_flow": 1931569372.1600013,
-   "reason": "龙头三季报业绩环比大幅改善"
+   "fund_flow": 4200491873.519999
   },
   {
    "id": 32988274,
    "key_id": 32988274,
    "name": "天津自贸区",
-   "change_percent": 0.018934485075,
+   "change_percent": 0.018934485074999997,
    "rise_count": 5,
    "fall_count": 2,
    "limit_up_count": 1,
-   "fund_flow": 151602290.26999995
+   "fund_flow": 973705823.0600016
   },
   {
    "id": 2525138,
@@ -166,29 +165,27 @@
    "rise_count": 19,
    "fall_count": 17,
    "limit_up_count": 1,
-   "fund_flow": -659590523.6900016
+   "fund_flow": 165616307.17000332
   },
   {
    "id": 17627122,
    "key_id": 17627122,
    "name": "航运",
-   "change_percent": 0.015419434547368424,
+   "change_percent": 0.01541943454736842,
    "rise_count": 17,
    "fall_count": 6,
    "limit_up_count": 1,
-   "fund_flow": -182891223.63000008,
-   "reason": "马士基上调远东至北欧及地中海航线运价"
+   "fund_flow": 1315604605.5400023
   },
   {
    "id": 6346009,
    "key_id": 6346009,
    "name": "大消费",
-   "change_percent": 0.01362747596276596,
+   "change_percent": 0.013627475962765957,
    "rise_count": 63,
    "fall_count": 32,
    "limit_up_count": 5,
-   "fund_flow": 3095576329.230002,
-   "reason": "国家发改委：正在研究制定扩大内需战略实施方案（2026-2030年）"
+   "fund_flow": 6813073574.939999
   },
   {
    "id": 38053809,
@@ -198,7 +195,7 @@
    "rise_count": 2,
    "fall_count": 1,
    "limit_up_count": 0,
-   "fund_flow": -66654008.489999935
+   "fund_flow": 44031051.67000007
   },
   {
    "id": 17363998,
@@ -208,8 +205,7 @@
    "rise_count": 10,
    "fall_count": 1,
    "limit_up_count": 0,
-   "fund_flow": 360412042.8499999,
-   "reason": ""
+   "fund_flow": 375244421.44000006
   },
   {
    "id": 20747785,
@@ -219,47 +215,47 @@
    "rise_count": 3,
    "fall_count": 7,
    "limit_up_count": 1,
-   "fund_flow": -11040454.920000007
+   "fund_flow": 41617211.15000001
   },
   {
    "id": 17053649,
    "key_id": 17053649,
    "name": "港口",
-   "change_percent": 0.00923835454117647,
+   "change_percent": 0.009238354541176469,
    "rise_count": 9,
    "fall_count": 4,
    "limit_up_count": 0,
-   "fund_flow": -122138973.47999997
+   "fund_flow": 314391225.7199999
   },
   {
    "id": 55779193,
    "key_id": 55779193,
    "name": "山东自贸区",
-   "change_percent": 0.009048126120000001,
+   "change_percent": 0.009048126119999998,
    "rise_count": 8,
    "fall_count": 2,
    "limit_up_count": 0,
-   "fund_flow": -19399897.86
+   "fund_flow": 42559217.99000001
   },
   {
    "id": 16997081,
    "key_id": 16997081,
    "name": "银行",
-   "change_percent": 0.007650792373809526,
+   "change_percent": 0.007650792373809523,
    "rise_count": 29,
    "fall_count": 10,
    "limit_up_count": 0,
-   "fund_flow": 3851414400.709996
+   "fund_flow": 2859840166.28
   },
   {
    "id": 20263570,
    "key_id": 20263570,
    "name": "机场",
-   "change_percent": 0.0074958964,
+   "change_percent": 0.0074958963999999986,
    "rise_count": 4,
    "fall_count": 1,
    "limit_up_count": 0,
-   "fund_flow": -38644401.43
+   "fund_flow": 137566799.08999997
   },
   {
    "id": 18469582,
@@ -269,37 +265,37 @@
    "rise_count": 4,
    "fall_count": 2,
    "limit_up_count": 0,
-   "fund_flow": 33259027.959999923
+   "fund_flow": 175412704.31000018
   },
   {
    "id": 32479774,
    "key_id": 32479774,
    "name": "休闲食品",
-   "change_percent": 0.005959186275,
+   "change_percent": 0.005959186274999999,
    "rise_count": 15,
    "fall_count": 18,
    "limit_up_count": 3,
-   "fund_flow": 54626782.679999985
+   "fund_flow": -395899880.31000054
   },
   {
    "id": 36489377,
    "key_id": 36489377,
    "name": "肝素",
-   "change_percent": 0.005815776813333332,
+   "change_percent": 0.005815776813333335,
    "rise_count": 9,
    "fall_count": 6,
    "limit_up_count": 0,
-   "fund_flow": -125529947.08999993
+   "fund_flow": 247437986.27999988
   },
   {
    "id": 87950578,
    "key_id": 87950578,
    "name": "减肥药",
-   "change_percent": 0.005559434921666667,
+   "change_percent": 0.005559434921666668,
    "rise_count": 35,
    "fall_count": 24,
    "limit_up_count": 2,
-   "fund_flow": -822791504.6799995
+   "fund_flow": 1430240692.0400023
   },
   {
    "id": 55911454,
@@ -309,27 +305,27 @@
    "rise_count": 1,
    "fall_count": 0,
    "limit_up_count": 0,
-   "fund_flow": -32198978.12
+   "fund_flow": 20224983.51999998
   },
   {
    "id": 18005049,
    "key_id": 18005049,
    "name": "医药商业",
-   "change_percent": 0.005302130640909089,
+   "change_percent": 0.00530213064090909,
    "rise_count": 28,
    "fall_count": 22,
    "limit_up_count": 2,
-   "fund_flow": -48852817.26999984
+   "fund_flow": 495589601.8100005
   },
   {
    "id": 40734161,
    "key_id": 40734161,
    "name": "葡萄酒",
-   "change_percent": 0.005301973633333332,
+   "change_percent": 0.005301973633333333,
    "rise_count": 2,
    "fall_count": 4,
    "limit_up_count": 1,
-   "fund_flow": -8206845.870000002
+   "fund_flow": -72064737.37999992
   },
   {
    "id": 51267729,
@@ -339,127 +335,127 @@
    "rise_count": 14,
    "fall_count": 24,
    "limit_up_count": 1,
-   "fund_flow": -148714750.3800004
+   "fund_flow": -51738476.49999812
   },
   {
    "id": 41573473,
    "key_id": 41573473,
    "name": "植物奶",
-   "change_percent": 0.004381453399999999,
+   "change_percent": 0.0043814534000000014,
    "rise_count": 10,
    "fall_count": 7,
    "limit_up_count": 2,
-   "fund_flow": 203073471.53000045
+   "fund_flow": 98103381.03999941
   },
   {
    "id": 16846450,
    "key_id": 16846450,
    "name": "粘胶短纤",
-   "change_percent": 0.003776655114285713,
+   "change_percent": 0.0037766551142857127,
    "rise_count": 2,
    "fall_count": 5,
    "limit_up_count": 1,
-   "fund_flow": -31690032.29000004
+   "fund_flow": -110303401
   },
   {
    "id": 16907470,
    "key_id": 16907470,
    "name": "健康中国",
-   "change_percent": 0.0024722225386666673,
+   "change_percent": 0.002472222538666667,
    "rise_count": 43,
    "fall_count": 32,
    "limit_up_count": 2,
-   "fund_flow": -919923198.0299996
+   "fund_flow": 858207256.2600052
   },
   {
    "id": 20332457,
    "key_id": 20332457,
    "name": "调味品",
-   "change_percent": 0.002042280003333333,
+   "change_percent": 0.0020422800033333337,
    "rise_count": 17,
    "fall_count": 17,
    "limit_up_count": 1,
-   "fund_flow": 77944023.00000052
+   "fund_flow": -104968382.13000016
   },
   {
    "id": 2900690,
    "key_id": 2900690,
    "name": "PD-1抑制剂",
-   "change_percent": 0.0019040019437499998,
+   "change_percent": 0.0019040019437500002,
    "rise_count": 9,
    "fall_count": 9,
    "limit_up_count": 1,
-   "fund_flow": -363859148.26999944
+   "fund_flow": 322075705.390004
   },
   {
    "id": 15270174,
    "key_id": 15270174,
    "name": "高股息",
-   "change_percent": 0.0014424369990990967,
+   "change_percent": 0.0014424369990991006,
    "rise_count": 57,
    "fall_count": 47,
    "limit_up_count": 1,
-   "fund_flow": 4642481686.379995
+   "fund_flow": 4374790601.560007
   },
   {
    "id": 787705,
    "key_id": 787705,
    "name": "饮料",
-   "change_percent": 0.001038417818181819,
+   "change_percent": 0.0010384178181818183,
    "rise_count": 21,
    "fall_count": 22,
    "limit_up_count": 4,
-   "fund_flow": 14277001.820000142
+   "fund_flow": 276526730.3499992
   },
   {
    "id": 20303009,
    "key_id": 20303009,
    "name": "保健品",
-   "change_percent": 0.0009615062959183684,
+   "change_percent": 0.0009615062959183702,
    "rise_count": 42,
    "fall_count": 38,
    "limit_up_count": 4,
-   "fund_flow": -155507549.64999944
+   "fund_flow": 1132800498.4499986
   },
   {
    "id": 16813522,
    "key_id": 16813522,
    "name": "创新药",
-   "change_percent": 0.00017870533135135242,
+   "change_percent": 0.00017870533135135117,
    "rise_count": 86,
    "fall_count": 106,
    "limit_up_count": 3,
-   "fund_flow": -1825651223.2
+   "fund_flow": 1762883110.7600057
   },
   {
    "id": 19568577,
    "key_id": 19568577,
    "name": "有色 · 钒",
-   "change_percent": 5.442538333333341e-05,
+   "change_percent": 5.4425383333333556e-05,
    "rise_count": 2,
    "fall_count": 6,
    "limit_up_count": 0,
-   "fund_flow": -199251413.68000004
+   "fund_flow": 193876196.86000004
   },
   {
    "id": 59582321,
    "key_id": 59582321,
    "name": "医美",
-   "change_percent": -0.00025087772941176487,
+   "change_percent": -0.0002508777294117641,
    "rise_count": 28,
    "fall_count": 32,
    "limit_up_count": 1,
-   "fund_flow": -113407341.05999985
+   "fund_flow": 558279453.5199996
   },
   {
    "id": 16806857,
    "key_id": 16806857,
    "name": "中药",
-   "change_percent": -0.0003407411738805959,
+   "change_percent": -0.00034074117388059616,
    "rise_count": 65,
    "fall_count": 65,
    "limit_up_count": 4,
-   "fund_flow": -918577525.0599976
+   "fund_flow": 486166034.40999687
   },
   {
    "id": 26021321,
@@ -469,168 +465,167 @@
    "rise_count": 20,
    "fall_count": 27,
    "limit_up_count": 0,
-   "fund_flow": -228643781.64000013
+   "fund_flow": 264306654.50999996
   },
   {
    "id": 17567121,
    "key_id": 17567121,
    "name": "高速公路",
-   "change_percent": -0.0015577717523809524,
+   "change_percent": -0.001557771752380952,
    "rise_count": 9,
    "fall_count": 14,
    "limit_up_count": 0,
-   "fund_flow": -25889204.18999992
+   "fund_flow": 67766532.75
   },
   {
    "id": 19939217,
    "key_id": 19939217,
    "name": "啤酒",
-   "change_percent": -0.001699056899999999,
+   "change_percent": -0.0016990568999999994,
    "rise_count": 8,
    "fall_count": 10,
    "limit_up_count": 0,
-   "fund_flow": 16198562.069999985
+   "fund_flow": 178127848.17
   },
   {
    "id": 18184937,
    "key_id": 18184937,
    "name": "山西国企改革",
-   "change_percent": -0.0017941065249999998,
+   "change_percent": -0.0017941065249999996,
    "rise_count": 9,
    "fall_count": 10,
    "limit_up_count": 0,
-   "fund_flow": 333744173.78000015
+   "fund_flow": 547107483.6500007
   },
   {
    "id": 22431937,
    "key_id": 22431937,
    "name": "白糖",
-   "change_percent": -0.0019072980333333324,
+   "change_percent": -0.0019072980333333309,
    "rise_count": 4,
    "fall_count": 4,
    "limit_up_count": 0,
-   "fund_flow": -71273984.80000016
+   "fund_flow": 108763111.97999996
   },
   {
    "id": 59860753,
    "key_id": 59860753,
    "name": "阿尔茨海默病",
-   "change_percent": -0.002747925515094338,
+   "change_percent": -0.0027479255150943405,
    "rise_count": 28,
    "fall_count": 41,
    "limit_up_count": 0,
-   "fund_flow": -620438743.0400002
+   "fund_flow": 668092036.500003
   },
   {
    "id": 63722137,
    "key_id": 63722137,
    "name": "餐饮",
-   "change_percent": -0.0028761630666666667,
+   "change_percent": -0.0028761630666666663,
    "rise_count": 8,
    "fall_count": 7,
    "limit_up_count": 0,
-   "fund_flow": 56091292.21
+   "fund_flow": 117814522.53999999
   },
   {
    "id": 24364114,
    "key_id": 24364114,
    "name": "白马股",
-   "change_percent": -0.002901379706493505,
+   "change_percent": -0.002901379706493506,
    "rise_count": 35,
    "fall_count": 41,
    "limit_up_count": 0,
-   "fund_flow": 5230497115.900006
+   "fund_flow": 9218967401.820007
   },
   {
    "id": 33200722,
    "key_id": 33200722,
    "name": "食品",
-   "change_percent": -0.0031129932547297287,
+   "change_percent": -0.0031129932547297274,
    "rise_count": 86,
    "fall_count": 110,
    "limit_up_count": 9,
-   "fund_flow": -121892772.97999866
+   "fund_flow": 978104265.259998
   },
   {
    "id": 23112594,
    "key_id": 23112594,
    "name": "民营医院",
-   "change_percent": -0.0031347165901960783,
+   "change_percent": -0.0031347165901960774,
    "rise_count": 26,
    "fall_count": 48,
    "limit_up_count": 1,
-   "fund_flow": -151021406.27999976
+   "fund_flow": 673802821.7999994
   },
   {
    "id": 25638417,
    "key_id": 25638417,
    "name": "医药",
-   "change_percent": -0.0032003406326704537,
+   "change_percent": -0.003200340632670454,
    "rise_count": 150,
    "fall_count": 217,
    "limit_up_count": 8,
-   "fund_flow": -2667712719.169999,
-   "reason": "龙头三季度业绩大增"
+   "fund_flow": 1939703801.4900022
   },
   {
    "id": 16868321,
    "key_id": 16868321,
    "name": "乳业（奶粉）",
-   "change_percent": -0.004910035188888889,
+   "change_percent": -0.004910035188888888,
    "rise_count": 10,
    "fall_count": 12,
    "limit_up_count": 1,
-   "fund_flow": 227280689.81000063
+   "fund_flow": -27553761.450000882
   },
   {
    "id": 65191137,
    "key_id": 65191137,
    "name": "REITs",
-   "change_percent": -0.005534164591666667,
+   "change_percent": -0.005534164591666666,
    "rise_count": 3,
    "fall_count": 11,
    "limit_up_count": 0,
-   "fund_flow": -222938445.56
+   "fund_flow": 231303895.8499994
   },
   {
    "id": 19993841,
    "key_id": 19993841,
    "name": "旅游",
-   "change_percent": -0.005703874079999999,
+   "change_percent": -0.00570387408,
    "rise_count": 17,
    "fall_count": 54,
    "limit_up_count": 1,
-   "fund_flow": 25684385.570000093
+   "fund_flow": 394265786.5199998
   },
   {
    "id": 39931294,
    "key_id": 39931294,
    "name": "大金融",
-   "change_percent": -0.006045514756521738,
+   "change_percent": -0.006045514756521737,
    "rise_count": 43,
    "fall_count": 93,
    "limit_up_count": 0,
-   "fund_flow": 3871891073.8599944
+   "fund_flow": 2484778606.200001
   },
   {
    "id": 26676721,
    "key_id": 26676721,
    "name": "化学原料药",
-   "change_percent": -0.0062991839596491265,
+   "change_percent": -0.006299183959649121,
    "rise_count": 67,
    "fall_count": 104,
    "limit_up_count": 1,
-   "fund_flow": -1207067538.1699994
+   "fund_flow": 1666421504.1300006
   },
   {
    "id": 17014769,
    "key_id": 17014769,
    "name": "保险",
-   "change_percent": -0.006436112316666667,
+   "change_percent": -0.006436112316666666,
    "rise_count": 1,
    "fall_count": 5,
    "limit_up_count": 0,
-   "fund_flow": 1151328841.9899964
+   "fund_flow": -376171840.02999777
   },
   {
    "id": 27217313,
@@ -640,27 +635,27 @@
    "rise_count": 10,
    "fall_count": 13,
    "limit_up_count": 0,
-   "fund_flow": 290098482.35999995
+   "fund_flow": 400811033
   },
   {
    "id": 49938062,
    "key_id": 49938062,
    "name": "血氧仪",
-   "change_percent": -0.006470693153846156,
+   "change_percent": -0.006470693153846154,
    "rise_count": 5,
    "fall_count": 8,
    "limit_up_count": 1,
-   "fund_flow": -42831797.93999988
+   "fund_flow": -75325454.89999996
   },
   {
    "id": 92322322,
    "key_id": 92322322,
    "name": "出海龙头",
-   "change_percent": -0.006516631877777778,
+   "change_percent": -0.006516631877777779,
    "rise_count": 23,
    "fall_count": 29,
    "limit_up_count": 1,
-   "fund_flow": -5403952363.769996
+   "fund_flow": 4250181703.7200108
   },
   {
    "id": 37268510,
@@ -670,7 +665,7 @@
    "rise_count": 10,
    "fall_count": 20,
    "limit_up_count": 0,
-   "fund_flow": -200391159.4200009
+   "fund_flow": -188096920.65999886
   },
   {
    "id": 39292558,
@@ -680,17 +675,17 @@
    "rise_count": 6,
    "fall_count": 14,
    "limit_up_count": 0,
-   "fund_flow": 304252184.11999965
+   "fund_flow": 1471948964.2900016
   },
   {
    "id": 27292178,
    "key_id": 27292178,
    "name": "中字头",
-   "change_percent": -0.00698526215090909,
+   "change_percent": -0.006985262150909092,
    "rise_count": 20,
    "fall_count": 35,
    "limit_up_count": 0,
-   "fund_flow": 3101514643.7399974
+   "fund_flow": 3101618791.3500047
   },
   {
    "id": 25072014,
@@ -700,7 +695,7 @@
    "rise_count": 1,
    "fall_count": 9,
    "limit_up_count": 1,
-   "fund_flow": -51830294.96000001
+   "fund_flow": 12221651.119999997
   },
   {
    "id": 20031694,
@@ -710,7 +705,7 @@
    "rise_count": 3,
    "fall_count": 8,
    "limit_up_count": 1,
-   "fund_flow": -28382341.400000036
+   "fund_flow": -53460960.76999994
   },
   {
    "id": 21051521,
@@ -720,7 +715,7 @@
    "rise_count": 4,
    "fall_count": 6,
    "limit_up_count": 0,
-   "fund_flow": -22879812.42999997
+   "fund_flow": 64305020.68000002
   },
   {
    "id": 29982649,
@@ -730,7 +725,7 @@
    "rise_count": 39,
    "fall_count": 82,
    "limit_up_count": 2,
-   "fund_flow": -601040555.4100006
+   "fund_flow": 886982105.5699995
   },
   {
    "id": 35716402,
@@ -740,7 +735,7 @@
    "rise_count": 13,
    "fall_count": 26,
    "limit_up_count": 1,
-   "fund_flow": -315940395.08
+   "fund_flow": -46937822.410000026
   },
   {
    "id": 70994145,
@@ -750,7 +745,7 @@
    "rise_count": 6,
    "fall_count": 16,
    "limit_up_count": 0,
-   "fund_flow": -243811546.43999994
+   "fund_flow": -187873759.22999948
   },
   {
    "id": 43506162,
@@ -760,17 +755,17 @@
    "rise_count": 7,
    "fall_count": 11,
    "limit_up_count": 0,
-   "fund_flow": -116360039.26000047
+   "fund_flow": 243394721.4699997
   },
   {
    "id": 16861993,
    "key_id": 16861993,
    "name": "体外诊断",
-   "change_percent": -0.008756741203225806,
+   "change_percent": -0.008756741203225803,
    "rise_count": 29,
    "fall_count": 67,
    "limit_up_count": 3,
-   "fund_flow": -633589194.7600003
+   "fund_flow": 294530432.9000016
   },
   {
    "id": 45538417,
@@ -780,47 +775,47 @@
    "rise_count": 45,
    "fall_count": 78,
    "limit_up_count": 1,
-   "fund_flow": -823710248.3200004
+   "fund_flow": 750654684.8899992
   },
   {
    "id": 16841938,
    "key_id": 16841938,
    "name": "煤炭",
-   "change_percent": -0.009199867020454545,
+   "change_percent": -0.009199867020454548,
    "rise_count": 18,
    "fall_count": 29,
    "limit_up_count": 0,
-   "fund_flow": 869928286.4999983
+   "fund_flow": 595156819.7899997
   },
   {
    "id": 41736590,
    "key_id": 41736590,
    "name": "口腔",
-   "change_percent": -0.009388032552631577,
+   "change_percent": -0.009388032552631579,
    "rise_count": 14,
    "fall_count": 35,
    "limit_up_count": 2,
-   "fund_flow": -16722158.660000486
+   "fund_flow": -11618231.430000108
   },
   {
    "id": 19977522,
    "key_id": 19977522,
    "name": "土地流转",
-   "change_percent": -0.009559402638461539,
+   "change_percent": -0.00955940263846154,
    "rise_count": 11,
    "fall_count": 28,
    "limit_up_count": 0,
-   "fund_flow": -140806871.4800006
+   "fund_flow": 100826089.04000002
   },
   {
    "id": 20621170,
    "key_id": 20621170,
    "name": "硅锰",
-   "change_percent": -0.009672659237499999,
+   "change_percent": -0.0096726592375,
    "rise_count": 3,
    "fall_count": 7,
    "limit_up_count": 0,
-   "fund_flow": -88899862.55999999
+   "fund_flow": 40302941.44
   },
   {
    "id": 16787698,
@@ -830,7 +825,7 @@
    "rise_count": 10,
    "fall_count": 24,
    "limit_up_count": 2,
-   "fund_flow": -250977749.3500001
+   "fund_flow": 121550605.79000175
   },
   {
    "id": 20212110,
@@ -840,27 +835,27 @@
    "rise_count": 5,
    "fall_count": 8,
    "limit_up_count": 0,
-   "fund_flow": -15223396.119999977
+   "fund_flow": 670289.5099999558
   },
   {
    "id": 19713609,
    "key_id": 19713609,
    "name": "火电",
-   "change_percent": -0.010291655637499997,
+   "change_percent": -0.010291655637500001,
    "rise_count": 8,
    "fall_count": 35,
    "limit_up_count": 0,
-   "fund_flow": 31894720.73999965
+   "fund_flow": 432188332.4800001
   },
   {
    "id": 18533889,
    "key_id": 18533889,
    "name": "橡胶",
-   "change_percent": -0.010293420979999999,
+   "change_percent": -0.01029342098,
    "rise_count": 2,
    "fall_count": 5,
    "limit_up_count": 0,
-   "fund_flow": -149027688.81000006
+   "fund_flow": 106179156.74999999
   },
   {
    "id": 35385585,
@@ -870,37 +865,37 @@
    "rise_count": 7,
    "fall_count": 13,
    "limit_up_count": 1,
-   "fund_flow": -25412247.610000122
+   "fund_flow": -37261630.84999993
   },
   {
    "id": 66663630,
    "key_id": 66663630,
    "name": "免税店概念",
-   "change_percent": -0.010540144239999999,
+   "change_percent": -0.010540144240000002,
    "rise_count": 11,
    "fall_count": 23,
    "limit_up_count": 0,
-   "fund_flow": -153835191.49000016
+   "fund_flow": 655353318.5299996
   },
   {
    "id": 16781937,
    "key_id": 16781937,
    "name": "债转股 · AMC",
-   "change_percent": -0.010716838219444443,
+   "change_percent": -0.010716838219444448,
    "rise_count": 13,
    "fall_count": 48,
    "limit_up_count": 2,
-   "fund_flow": -221974770.75999966
+   "fund_flow": -307880275.830002
   },
   {
    "id": 16849614,
    "key_id": 16849614,
    "name": "动物保健",
-   "change_percent": -0.010950266912500005,
+   "change_percent": -0.0109502669125,
    "rise_count": 16,
    "fall_count": 34,
    "limit_up_count": 0,
-   "fund_flow": -109090382.43999986
+   "fund_flow": 205273559.10999992
   },
   {
    "id": 3126345,
@@ -910,17 +905,17 @@
    "rise_count": 1,
    "fall_count": 8,
    "limit_up_count": 0,
-   "fund_flow": 106995982.97000022
+   "fund_flow": 124993618.24999999
   },
   {
    "id": 96254897,
    "key_id": 96254897,
    "name": "口含烟",
-   "change_percent": -0.010959090800000003,
+   "change_percent": -0.010959090800000001,
    "rise_count": 1,
    "fall_count": 5,
    "limit_up_count": 0,
-   "fund_flow": -47743104.86000006
+   "fund_flow": 51867041.38000006
   },
   {
    "id": 55646642,
@@ -930,7 +925,7 @@
    "rise_count": 1,
    "fall_count": 10,
    "limit_up_count": 0,
-   "fund_flow": -46386012.25
+   "fund_flow": -1907405.3499999866
   },
   {
    "id": 20054814,
@@ -940,17 +935,17 @@
    "rise_count": 3,
    "fall_count": 12,
    "limit_up_count": 0,
-   "fund_flow": -117729540.25000003
+   "fund_flow": 82549450.11999999
   },
   {
    "id": 53556594,
    "key_id": 53556594,
    "name": "水产养殖",
-   "change_percent": -0.011486077909999998,
+   "change_percent": -0.01148607791,
    "rise_count": 3,
    "fall_count": 12,
    "limit_up_count": 1,
-   "fund_flow": 115474798.56999981
+   "fund_flow": 50828042.17000001
   },
   {
    "id": 17396594,
@@ -960,27 +955,27 @@
    "rise_count": 12,
    "fall_count": 30,
    "limit_up_count": 0,
-   "fund_flow": 178959461.23000002
+   "fund_flow": 440831167.3100003
   },
   {
    "id": 48043001,
    "key_id": 48043001,
    "name": "气凝胶",
-   "change_percent": -0.011513639107692304,
+   "change_percent": -0.011513639107692307,
    "rise_count": 4,
    "fall_count": 13,
    "limit_up_count": 1,
-   "fund_flow": -153661274.3799999
+   "fund_flow": 189881054.70999998
   },
   {
    "id": 93250001,
    "key_id": 93250001,
    "name": "回购增持再贷款",
-   "change_percent": -0.011543059134782608,
+   "change_percent": -0.011543059134782607,
    "rise_count": 9,
    "fall_count": 14,
    "limit_up_count": 0,
-   "fund_flow": -1011600614.8000053
+   "fund_flow": 1440250120.6199954
   },
   {
    "id": 62707282,
@@ -990,17 +985,17 @@
    "rise_count": 17,
    "fall_count": 48,
    "limit_up_count": 0,
-   "fund_flow": -490704803.4899943
+   "fund_flow": 1795534787.3500028
   },
   {
    "id": 19251602,
    "key_id": 19251602,
    "name": "轮胎",
-   "change_percent": -0.011927630054166668,
+   "change_percent": -0.011927630054166671,
    "rise_count": 7,
    "fall_count": 17,
    "limit_up_count": 0,
-   "fund_flow": -353285574.4499994
+   "fund_flow": -179638463.73999903
   },
   {
    "id": 17113697,
@@ -1010,17 +1005,17 @@
    "rise_count": 2,
    "fall_count": 10,
    "limit_up_count": 0,
-   "fund_flow": -44628109.17999991
+   "fund_flow": 162110221.02000007
   },
   {
    "id": 27912881,
    "key_id": 27912881,
    "name": "破净股",
-   "change_percent": -0.012184795910305362,
+   "change_percent": -0.012184795910305348,
    "rise_count": 126,
    "fall_count": 366,
    "limit_up_count": 5,
-   "fund_flow": 2500950281.089993
+   "fund_flow": 4029963832.48
   },
   {
    "id": 17906113,
@@ -1030,7 +1025,7 @@
    "rise_count": 12,
    "fall_count": 11,
    "limit_up_count": 0,
-   "fund_flow": -140395314.11000004
+   "fund_flow": 127592746.13000007
   },
   {
    "id": 16483794,
@@ -1040,7 +1035,7 @@
    "rise_count": 3,
    "fall_count": 13,
    "limit_up_count": 0,
-   "fund_flow": -101948197.44000007
+   "fund_flow": 13291314.769999985
   },
   {
    "id": 29828969,
@@ -1050,7 +1045,7 @@
    "rise_count": 11,
    "fall_count": 26,
    "limit_up_count": 0,
-   "fund_flow": 780532742.0799981
+   "fund_flow": 525581745.7499997
   },
   {
    "id": 22114510,
@@ -1060,17 +1055,17 @@
    "rise_count": 3,
    "fall_count": 9,
    "limit_up_count": 1,
-   "fund_flow": -923507991.3399961
+   "fund_flow": 18669934.059995867
   },
   {
    "id": 41542162,
    "key_id": 41542162,
    "name": "预制菜",
-   "change_percent": -0.012968535396296292,
+   "change_percent": -0.012968535396296296,
    "rise_count": 17,
    "fall_count": 48,
    "limit_up_count": 3,
-   "fund_flow": 156380141.93999982
+   "fund_flow": -104107481.91999955
   },
   {
    "id": 44869065,
@@ -1080,67 +1075,67 @@
    "rise_count": 7,
    "fall_count": 16,
    "limit_up_count": 1,
-   "fund_flow": -76260272.36000006
+   "fund_flow": 13666634.150000071
   },
   {
    "id": 17606385,
    "key_id": 17606385,
    "name": "天津国企改革",
-   "change_percent": -0.01343413163333333,
+   "change_percent": -0.013434131633333336,
    "rise_count": 5,
    "fall_count": 10,
    "limit_up_count": 1,
-   "fund_flow": -34204678.81999999
+   "fund_flow": -45644481.48000007
   },
   {
    "id": 21453746,
    "key_id": 21453746,
    "name": "新疆概念",
-   "change_percent": -0.013468812451724136,
+   "change_percent": -0.013468812451724141,
    "rise_count": 14,
    "fall_count": 44,
    "limit_up_count": 2,
-   "fund_flow": 256761258.67999998
+   "fund_flow": 408335032.30999994
   },
   {
    "id": 98292897,
    "key_id": 98292897,
    "name": "服务消费",
-   "change_percent": -0.013677323210714284,
+   "change_percent": -0.013677323210714283,
    "rise_count": 11,
    "fall_count": 17,
    "limit_up_count": 1,
-   "fund_flow": 223078972.10999995
+   "fund_flow": 523347187.48999995
   },
   {
    "id": 6860722,
    "key_id": 6860722,
    "name": "国资入股",
-   "change_percent": -0.013783028637142855,
+   "change_percent": -0.013783028637142859,
    "rise_count": 7,
    "fall_count": 28,
    "limit_up_count": 1,
-   "fund_flow": 133397471.30999969
+   "fund_flow": 269771164.37999964
   },
   {
    "id": 16911154,
    "key_id": 16911154,
    "name": "草甘膦",
-   "change_percent": -0.013890727928571428,
+   "change_percent": -0.01389072792857143,
    "rise_count": 4,
    "fall_count": 7,
    "limit_up_count": 0,
-   "fund_flow": -28240159.040000025
+   "fund_flow": 34759204.74999999
   },
   {
    "id": 17204050,
    "key_id": 17204050,
    "name": "石油化工",
-   "change_percent": -0.014072008171428571,
+   "change_percent": -0.014072008171428573,
    "rise_count": 10,
    "fall_count": 35,
    "limit_up_count": 0,
-   "fund_flow": 671624914.2800019
+   "fund_flow": 946831640.0500019
   }
  ],
  "ok_sources": [
