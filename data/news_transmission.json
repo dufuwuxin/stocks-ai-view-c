@@ -1,7 +1,7 @@
 {
- "ts": "2026-11-03T23:27:47+08:00",
+ "ts": "2026-11-04T06:11:52+08:00",
  "engine": "news_transmission v1 (消息传导: 坏消息利好谁)",
- "n_input": 475,
+ "n_input": 476,
  "n_transmissions": 7,
  "n_rules": 16,
  "rules": [
@@ -81,7 +81,7 @@
   {
    "title": "【每日收评】创业板指跌近3%，中际旭创重挫12%，多只宽基ETF放量破百亿",
    "source": "财联社热门",
-   "time": "2026-11-03T23:27:34+08:00",
+   "time": "2026-11-04T06:11:40+08:00",
    "url": "https://www.cls.cn/detail/2523863",
    "transmission_id": "market_broad_down",
    "label": "大盘普跌",
@@ -126,141 +126,15 @@
     "status": "insufficient",
     "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
     "trade_date": "2026-10-15",
-    "event_date": "2026-11-03",
+    "event_date": "2026-11-04",
     "matched_codes": []
    },
    "note": "普跌时资金流向低估值防御; 逆势活跃的板块 (如 PCB/白酒) 是当日主线"
   },
   {
-   "title": "中方是否担心美国中期选举后恢复对伊朗军事打击？外交部回应",
-   "source": "财联社热门",
-   "time": "2026-11-03T23:27:34+08:00",
-   "url": "https://www.cls.cn/detail/2523744",
-   "transmission_id": "geopolitics",
-   "label": "地缘冲突",
-   "direct_bear": [],
-   "direct_bull": [],
-   "inverse_bull": [],
-   "inverse_bear": [
-    {
-     "sector": "航空",
-     "stocks": [
-      "601021",
-      "000099",
-      "600221",
-      "601111",
-      "900945",
-      "600029",
-      "603885",
-      "600115",
-      "002928",
-      "302132"
-     ]
-    },
-    {
-     "sector": "旅游",
-     "stocks": [
-      "603402"
-     ]
-    }
-   ],
-   "hedge": [],
-   "flow_evidence": {
-    "status": "insufficient",
-    "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
-    "trade_date": "2026-10-15",
-    "event_date": "2026-11-03",
-    "matched_codes": []
-   }
-  },
-  {
-   "title": "油价跌幅收窄，布伦特原油期货交投于103.50美元/桶附近。",
-   "source": "华尔街见闻",
-   "time": "2026-11-03T23:04:29+08:00",
-   "url": "https://wallstreetcn.com/livenews/3193414",
-   "transmission_id": "oil_up",
-   "label": "油价上涨",
-   "direct_bear": [],
-   "direct_bull": [],
-   "inverse_bull": [],
-   "inverse_bear": [
-    {
-     "sector": "航空机场",
-     "stocks": [
-      "600004",
-      "600009",
-      "600515",
-      "000089",
-      "600897",
-      "601021",
-      "000099",
-      "600221",
-      "601111",
-      "900945"
-     ]
-    },
-    {
-     "sector": "化工",
-     "stocks": [
-      "603382"
-     ]
-    }
-   ],
-   "hedge": [],
-   "flow_evidence": {
-    "status": "insufficient",
-    "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
-    "trade_date": "2026-10-15",
-    "event_date": "2026-11-03",
-    "matched_codes": []
-   }
-  },
-  {
-   "title": "九寨沟冲突全员失态",
-   "source": "微博热搜",
-   "time": "2026-11-03T23:16:26+08:00",
-   "url": "https://s.weibo.com/weibo?q=%23%E4%B9%9D%E5%AF%A8%E6%B2%9F%E5%86%B2%E7%AA%81%E5%85%A8%E5%91%98%E5%A4%B1%E6%80%81%23&t=31&band_rank=12&Refer=top",
-   "transmission_id": "geopolitics",
-   "label": "地缘冲突",
-   "direct_bear": [],
-   "direct_bull": [],
-   "inverse_bull": [],
-   "inverse_bear": [
-    {
-     "sector": "航空",
-     "stocks": [
-      "601021",
-      "000099",
-      "600221",
-      "601111",
-      "900945",
-      "600029",
-      "603885",
-      "600115",
-      "002928",
-      "302132"
-     ]
-    },
-    {
-     "sector": "旅游",
-     "stocks": [
-      "603402"
-     ]
-    }
-   ],
-   "hedge": [],
-   "flow_evidence": {
-    "status": "insufficient",
-    "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
-    "trade_date": "2026-10-15",
-    "event_date": "2026-11-03",
-    "matched_codes": []
-   }
-  },
-  {
    "title": "俄女高官访华就日本军事化加速发声",
    "source": "今日头条",
-   "time": "2026-11-03T23:16:33+08:00",
+   "time": "2026-11-04T05:47:17+08:00",
    "url": "https://www.toutiao.com/trending/7702921083061616676/",
    "transmission_id": "geopolitics",
    "label": "地缘冲突",
@@ -295,14 +169,14 @@
     "status": "insufficient",
     "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
     "trade_date": "2026-10-15",
-    "event_date": "2026-11-03",
+    "event_date": "2026-11-04",
     "matched_codes": []
    }
   },
   {
    "title": "期中“烤”｜战争、物价与流量：一手托起特朗普的美国播客开始冷落他",
    "source": "澎湃新闻",
-   "time": "2026-11-03T23:27:41+08:00",
+   "time": "2026-11-04T06:11:47+08:00",
    "url": "https://www.thepaper.cn/newsDetail_forward_34382628",
    "transmission_id": "geopolitics",
    "label": "地缘冲突",
@@ -337,14 +211,14 @@
     "status": "insufficient",
     "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
     "trade_date": "2026-10-15",
-    "event_date": "2026-11-03",
+    "event_date": "2026-11-04",
     "matched_codes": []
    }
   },
   {
    "title": "警方介入调查“九寨沟景区游客冲突事件”，九寨沟管理局：事发后有工作人员到场处理并报警",
    "source": "澎湃新闻",
-   "time": "2026-11-03T23:27:41+08:00",
+   "time": "2026-11-04T06:11:47+08:00",
    "url": "https://www.thepaper.cn/newsDetail_forward_34394511",
    "transmission_id": "geopolitics",
    "label": "地缘冲突",
@@ -379,7 +253,138 @@
     "status": "insufficient",
     "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
     "trade_date": "2026-10-15",
-    "event_date": "2026-11-03",
+    "event_date": "2026-11-04",
+    "matched_codes": []
+   }
+  },
+  {
+   "title": "WTI 12月原油期货收跌0.40美元，跌幅超过0.41%，报96.09美元/桶。\n\n布伦特1月原油期货收跌1.17美元",
+   "source": "wallstreetcn",
+   "time": "2026-11-04T03:33:32+08:00",
+   "url": "https://wallstreetcn.com/live/3193553",
+   "transmission_id": "oil_up",
+   "label": "油价上涨",
+   "direct_bear": [],
+   "direct_bull": [],
+   "inverse_bull": [],
+   "inverse_bear": [
+    {
+     "sector": "航空机场",
+     "stocks": [
+      "600004",
+      "600009",
+      "600515",
+      "000089",
+      "600897",
+      "601021",
+      "000099",
+      "600221",
+      "601111",
+      "900945"
+     ]
+    },
+    {
+     "sector": "化工",
+     "stocks": [
+      "603382"
+     ]
+    }
+   ],
+   "hedge": [],
+   "flow_evidence": {
+    "status": "insufficient",
+    "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
+    "trade_date": "2026-10-15",
+    "event_date": "2026-11-04",
+    "matched_codes": []
+   }
+  },
+  {
+   "title": "受战争与阿美费用影响，沙特预算赤字翻倍有余",
+   "source": "wallstreetcn",
+   "time": "2026-11-04T04:13:14+08:00",
+   "url": "https://wallstreetcn.com/live/3193563",
+   "transmission_id": "geopolitics",
+   "label": "地缘冲突",
+   "direct_bear": [],
+   "direct_bull": [],
+   "inverse_bull": [],
+   "inverse_bear": [
+    {
+     "sector": "航空",
+     "stocks": [
+      "601021",
+      "000099",
+      "600221",
+      "601111",
+      "900945",
+      "600029",
+      "603885",
+      "600115",
+      "002928",
+      "302132"
+     ]
+    },
+    {
+     "sector": "旅游",
+     "stocks": [
+      "603402"
+     ]
+    }
+   ],
+   "hedge": [],
+   "flow_evidence": {
+    "status": "insufficient",
+    "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
+    "trade_date": "2026-10-15",
+    "event_date": "2026-11-04",
+    "matched_codes": []
+   }
+  },
+  {
+   "title": "欧洲央行管委Sleijpen：伊朗冲击比之前想象的更加顽固。\n\n长期价格预期持稳，短期价格预期上升。\n\n紧缩政策正在放缓",
+   "source": "wallstreetcn",
+   "time": "2026-11-04T02:27:42+08:00",
+   "url": "https://wallstreetcn.com/live/3193532",
+   "transmission_id": "rate_hike",
+   "label": "加息/紧缩",
+   "direct_bear": [],
+   "direct_bull": [],
+   "inverse_bull": [
+    {
+     "sector": "银行",
+     "stocks": [
+      "601328",
+      "601398",
+      "601288",
+      "601988",
+      "601939",
+      "601658",
+      "601166",
+      "601916",
+      "600036",
+      "600000"
+     ]
+    },
+    {
+     "sector": "保险",
+     "stocks": [
+      "601318",
+      "601601",
+      "601628",
+      "601319",
+      "601336",
+      "002029"
+     ]
+    }
+   ],
+   "inverse_bear": [],
+   "hedge": [],
+   "flow_evidence": {
+    "status": "insufficient",
+    "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
+    "trade_date": "2026-10-15",
+    "event_date": "2026-11-04",
     "matched_codes": []
    }
   }
