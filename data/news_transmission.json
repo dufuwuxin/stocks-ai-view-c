@@ -1,8 +1,8 @@
 {
- "ts": "2026-11-18T07:44:28+08:00",
+ "ts": "2026-11-19T01:14:34+08:00",
  "engine": "news_transmission v1 (消息传导: 坏消息利好谁)",
- "n_input": 458,
- "n_transmissions": 3,
+ "n_input": 462,
+ "n_transmissions": 7,
  "n_rules": 16,
  "rules": [
   {
@@ -79,150 +79,94 @@
  "caveat": "传导关系是规则先验, 非实证; 行为标签要求新闻与资金同交易日, 缺失不判定。Research reference only, not investment advice.",
  "transmissions": [
   {
-   "title": "美股收盘：标普、纳指四连跌 芯片股反弹费半指数尾盘转涨",
-   "source": "财联社热门",
-   "time": "2026-11-18T07:26:44+08:00",
-   "url": "https://www.cls.cn/detail/2537268",
-   "transmission_id": "semi_down",
-   "label": "半导体下跌",
-   "direct_bear": [
+   "title": "财联社11月19日电，据报道，特朗普对副总统万斯批评伊朗战争感到不满。",
+   "source": "财联社电报",
+   "time": "2026-11-19T01:14:22+08:00",
+   "url": "https://www.cls.cn/detail/2538375",
+   "transmission_id": "geopolitics",
+   "label": "地缘冲突",
+   "direct_bear": [],
+   "direct_bull": [
     {
-     "sector": "半导体",
+     "sector": "军工",
      "stocks": [
-      "688372",
-      "300346",
-      "300721",
-      "301209",
-      "300786",
-      "301392"
-     ]
-    },
-    {
-     "sector": "集成电路",
-     "stocks": [
-      "688372"
+      "688629"
      ]
     }
    ],
-   "direct_bull": [],
-   "inverse_bull": [
+   "inverse_bull": [],
+   "inverse_bear": [
     {
-     "sector": "半导体设备",
+     "sector": "航空",
      "stocks": [
-      "688372",
-      "300786"
-     ]
-    },
-    {
-     "sector": "半导体材料",
-     "stocks": [
-      "688372",
-      "300721"
-     ]
-    }
-   ],
-   "inverse_bear": [],
-   "hedge": [
-    {
-     "sector": "银行",
-     "stocks": [
-      "601328",
-      "601398",
-      "601288",
-      "601988",
-      "601939",
-      "601658",
-      "601166",
-      "601916",
-      "600036",
-      "600000"
-     ]
-    },
-    {
-     "sector": "黄金",
-     "stocks": [
-      "600711"
+      "601021",
+      "000099",
+      "600221",
+      "601111",
+      "900945",
+      "600029",
+      "603885",
+      "600115",
+      "002928"
      ]
     }
    ],
+   "hedge": [],
    "flow_evidence": {
     "status": "insufficient",
     "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
     "trade_date": "2026-10-15",
-    "event_date": "2026-11-18",
+    "event_date": "2026-11-19",
     "matched_codes": []
    }
   },
   {
-   "title": "道指狂泄千点，跌幅扩大至1.9%，标普跌1.5%，纳指跌1.3%，纳斯达克100指数跌1.4%，半导体指数跌2.2%，银",
-   "source": "wallstreetcn",
-   "time": "2026-11-18T04:04:50+08:00",
-   "url": "https://wallstreetcn.com/live/3201495",
-   "transmission_id": "market_broad_down",
-   "label": "大盘普跌",
+   "title": "财联社11月18日电，据报道，美国与菲律宾寻求达成超过20亿美元的外国军事融资（FMF）贷款协议以用于国防。",
+   "source": "财联社电报",
+   "time": "2026-11-19T01:14:22+08:00",
+   "url": "https://www.cls.cn/detail/2538355",
+   "transmission_id": "geopolitics",
+   "label": "地缘冲突",
    "direct_bear": [],
-   "direct_bull": [],
-   "inverse_bull": [
+   "direct_bull": [
     {
-     "sector": "银行",
+     "sector": "军工",
      "stocks": [
-      "601328",
-      "601398",
-      "601288",
-      "601988",
-      "601939",
-      "601658",
-      "601166",
-      "601916",
-      "600036",
-      "600000"
-     ]
-    },
-    {
-     "sector": "黄金",
-     "stocks": [
-      "600711"
+      "688629"
      ]
     }
    ],
-   "inverse_bear": [],
-   "hedge": [
+   "inverse_bull": [],
+   "inverse_bear": [
     {
-     "sector": "银行",
+     "sector": "航空",
      "stocks": [
-      "601328",
-      "601398",
-      "601288",
-      "601988",
-      "601939",
-      "601658",
-      "601166",
-      "601916",
-      "600036",
-      "600000"
-     ]
-    },
-    {
-     "sector": "黄金",
-     "stocks": [
-      "600711"
+      "601021",
+      "000099",
+      "600221",
+      "601111",
+      "900945",
+      "600029",
+      "603885",
+      "600115",
+      "002928"
      ]
     }
    ],
+   "hedge": [],
    "flow_evidence": {
     "status": "insufficient",
     "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
     "trade_date": "2026-10-15",
-    "event_date": "2026-11-18",
+    "event_date": "2026-11-19",
     "matched_codes": []
-   },
-   "note": "普跌时资金流向低估值防御; 逆势活跃的板块 (如 PCB/白酒) 是当日主线"
+   }
   },
   {
-   "title": "WTI 12月原油期货收涨0.29美元，涨幅0.34%，报86.01美元/桶。\n\n布伦特1月原油期货收涨0.70美元，涨",
+   "title": "WTI原油日内跌幅达4.0%，报81.25美元/桶；布伦特原油5分钟内下跌0.49美元/桶，报90.43美元/桶。 上海",
    "source": "wallstreetcn",
-   "time": "2026-11-18T03:31:07+08:00",
-   "url": "https://wallstreetcn.com/live/3201485",
+   "time": "2026-11-19T01:04:37+08:00",
+   "url": "https://wallstreetcn.com/live/3202088",
    "transmission_id": "oil_up",
    "label": "油价上涨",
    "direct_bear": [],
@@ -230,7 +174,7 @@
     {
      "sector": "油服工程",
      "stocks": [
-      "600339"
+      "600871"
      ]
     }
    ],
@@ -250,13 +194,195 @@
       "601111",
       "900945"
      ]
+    }
+   ],
+   "hedge": [],
+   "flow_evidence": {
+    "status": "insufficient",
+    "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
+    "trade_date": "2026-10-15",
+    "event_date": "2026-11-19",
+    "matched_codes": []
+   }
+  },
+  {
+   "title": "美国总统对副总统万斯批评伊朗战争越来越感到不满。（纽约时报）",
+   "source": "wallstreetcn",
+   "time": "2026-11-19T00:56:17+08:00",
+   "url": "https://wallstreetcn.com/live/3202082",
+   "transmission_id": "geopolitics",
+   "label": "地缘冲突",
+   "direct_bear": [],
+   "direct_bull": [
+    {
+     "sector": "军工",
+     "stocks": [
+      "688629"
+     ]
+    }
+   ],
+   "inverse_bull": [],
+   "inverse_bear": [
+    {
+     "sector": "航空",
+     "stocks": [
+      "601021",
+      "000099",
+      "600221",
+      "601111",
+      "900945",
+      "600029",
+      "603885",
+      "600115",
+      "002928"
+     ]
+    }
+   ],
+   "hedge": [],
+   "flow_evidence": {
+    "status": "insufficient",
+    "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
+    "trade_date": "2026-10-15",
+    "event_date": "2026-11-19",
+    "matched_codes": []
+   }
+  },
+  {
+   "title": "黑石总裁：AI泡沫担忧被过度放大",
+   "source": "wallstreetcn",
+   "time": "2026-11-18T23:26:37+08:00",
+   "url": "https://wallstreetcn.com/live/3202040",
+   "transmission_id": "ai_down",
+   "label": "AI/算力下跌",
+   "direct_bear": [
+    {
+     "sector": "算力",
+     "stocks": [
+      "300324",
+      "300571",
+      "301391"
+     ]
     },
     {
-     "sector": "化工",
+     "sector": "人工智能",
      "stocks": [
-      "603078",
-      "002584",
-      "300905"
+      "300846"
+     ]
+    },
+    {
+     "sector": "计算机",
+     "stocks": [
+      "301391",
+      "300047"
+     ]
+    },
+    {
+     "sector": "软件",
+     "stocks": [
+      "300209"
+     ]
+    }
+   ],
+   "direct_bull": [],
+   "inverse_bull": [],
+   "inverse_bear": [],
+   "hedge": [
+    {
+     "sector": "银行",
+     "stocks": [
+      "601328",
+      "601398",
+      "601288",
+      "601988",
+      "601939",
+      "601658",
+      "601166",
+      "601916",
+      "600036",
+      "600000"
+     ]
+    }
+   ],
+   "flow_evidence": {
+    "status": "insufficient",
+    "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
+    "trade_date": "2026-10-15",
+    "event_date": "2026-11-18",
+    "matched_codes": []
+   }
+  },
+  {
+   "title": "英国央行行长贝利：冲突持续的时间越长，就需要更高的利率。\n\n英国增长“更好”，但仍然需要努力尝试。\n\n今年的（经济）韧性",
+   "source": "wallstreetcn",
+   "time": "2026-11-18T23:06:49+08:00",
+   "url": "https://wallstreetcn.com/live/3202031",
+   "transmission_id": "geopolitics",
+   "label": "地缘冲突",
+   "direct_bear": [],
+   "direct_bull": [
+    {
+     "sector": "军工",
+     "stocks": [
+      "688629"
+     ]
+    }
+   ],
+   "inverse_bull": [],
+   "inverse_bear": [
+    {
+     "sector": "航空",
+     "stocks": [
+      "601021",
+      "000099",
+      "600221",
+      "601111",
+      "900945",
+      "600029",
+      "603885",
+      "600115",
+      "002928"
+     ]
+    }
+   ],
+   "hedge": [],
+   "flow_evidence": {
+    "status": "insufficient",
+    "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
+    "trade_date": "2026-10-15",
+    "event_date": "2026-11-18",
+    "matched_codes": []
+   }
+  },
+  {
+   "title": "据媒体报道：伊朗准军事成员在扎黑丹遭杀害。",
+   "source": "wallstreetcn",
+   "time": "2026-11-18T22:51:05+08:00",
+   "url": "https://wallstreetcn.com/live/3202020",
+   "transmission_id": "geopolitics",
+   "label": "地缘冲突",
+   "direct_bear": [],
+   "direct_bull": [
+    {
+     "sector": "军工",
+     "stocks": [
+      "688629"
+     ]
+    }
+   ],
+   "inverse_bull": [],
+   "inverse_bear": [
+    {
+     "sector": "航空",
+     "stocks": [
+      "601021",
+      "000099",
+      "600221",
+      "601111",
+      "900945",
+      "600029",
+      "603885",
+      "600115",
+      "002928"
      ]
     }
    ],
