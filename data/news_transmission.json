@@ -1,8 +1,8 @@
 {
- "ts": "2026-11-23T06:17:07+08:00",
+ "ts": "2026-11-23T16:32:45+08:00",
  "engine": "news_transmission v1 (消息传导: 坏消息利好谁)",
  "n_input": 457,
- "n_transmissions": 8,
+ "n_transmissions": 4,
  "n_rules": 16,
  "rules": [
   {
@@ -79,10 +79,10 @@
  "caveat": "传导关系是规则先验, 非实证; 行为标签要求新闻与资金同交易日, 缺失不判定。Research reference only, not investment advice.",
  "transmissions": [
   {
-   "title": "来得早，爬得快！流感季来袭，药店货架有哪些变化？ | 一线",
-   "source": "财联社热门",
-   "time": "2026-11-23T05:52:18+08:00",
-   "url": "https://www.cls.cn/detail/2540815",
+   "title": "病毒吧曝假deepseek藏银狐木马",
+   "source": "贴吧热议",
+   "time": "2026-11-23T16:32:39+08:00",
+   "url": "https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28370146&amp;topic_name=%E7%97%85%E6%AF%92%E5%90%A7%E6%9B%9D%E5%81%87deepseek%E8%97%8F%E9%93%B6%E7%8B%90%E6%9C%A8%E9%A9%AC",
    "transmission_id": "epidemic",
    "label": "疫情",
    "direct_bear": [],
@@ -105,7 +105,7 @@
     {
      "sector": "医疗器械",
      "stocks": [
-      "688253"
+      "301093"
      ]
     },
     {
@@ -129,7 +129,7 @@
     {
      "sector": "旅游",
      "stocks": [
-      "000610"
+      "000888"
      ]
     },
     {
@@ -144,7 +144,7 @@
       "603885",
       "600115",
       "002928",
-      "600009"
+      "603261"
      ]
     },
     {
@@ -154,7 +154,7 @@
       "002186",
       "605108",
       "002306",
-      "600258"
+      "301073"
      ]
     }
    ],
@@ -168,60 +168,24 @@
    }
   },
   {
-   "title": "专家提示做好流感防护",
-   "source": "百度热搜",
-   "time": "2026-11-23T06:16:59+08:00",
-   "url": "https://www.baidu.com/s?wd=%E4%B8%93%E5%AE%B6%E6%8F%90%E7%A4%BA%E5%81%9A%E5%A5%BD%E6%B5%81%E6%84%9F%E9%98%B2%E6%8A%A4",
-   "transmission_id": "epidemic",
-   "label": "疫情",
+   "title": "战争中伊朗究竟是什么样子",
+   "source": "B站热搜",
+   "time": "2026-11-23T16:08:23+08:00",
+   "url": "https://search.bilibili.com/all?keyword=%E6%88%98%E4%BA%89%E4%B8%AD%E4%BC%8A%E6%9C%97%E7%A9%B6%E7%AB%9F%E6%98%AF%E4%BB%80%E4%B9%88%E6%A0%B7%E5%AD%90",
+   "transmission_id": "geopolitics",
+   "label": "地缘冲突",
    "direct_bear": [],
    "direct_bull": [
     {
-     "sector": "医药",
+     "sector": "军工",
      "stocks": [
-      "688137",
-      "688278",
-      "688806",
-      "300633",
-      "002030",
-      "688253",
-      "300760",
-      "920344",
-      "603087",
-      "600713"
-     ]
-    },
-    {
-     "sector": "医疗器械",
-     "stocks": [
-      "688253"
-     ]
-    },
-    {
-     "sector": "疫苗",
-     "stocks": [
-      "920575",
-      "301207",
-      "688276",
-      "300142",
-      "300841",
-      "300122",
-      "002007",
-      "300601",
-      "688739",
-      "688185"
+      "002414"
      ]
     }
    ],
    "inverse_bull": [],
    "inverse_bear": [
     {
-     "sector": "旅游",
-     "stocks": [
-      "000610"
-     ]
-    },
-    {
      "sector": "航空",
      "stocks": [
       "601021",
@@ -233,17 +197,13 @@
       "603885",
       "600115",
       "002928",
-      "600009"
+      "603261"
      ]
     },
     {
-     "sector": "餐饮",
+     "sector": "旅游",
      "stocks": [
-      "000721",
-      "002186",
-      "605108",
-      "002306",
-      "600258"
+      "000888"
      ]
     }
    ],
@@ -257,43 +217,45 @@
    }
   },
   {
-   "title": "美财长贝森特警告美联储过度紧缩风险 指出金融体系出现脆弱迹象",
-   "source": "财联社电报",
-   "time": "2026-11-23T06:11:25+08:00",
-   "url": "https://www.cls.cn/detail/2541052",
-   "transmission_id": "rate_hike",
-   "label": "加息/紧缩",
+   "title": "印度军事演习，一辆坦克碾死两名士兵",
+   "source": "凤凰网",
+   "time": "2026-11-23T16:22:33+08:00",
+   "url": "https://news.ifeng.com/c/8yHT9E1fCft",
+   "transmission_id": "geopolitics",
+   "label": "地缘冲突",
    "direct_bear": [],
-   "direct_bull": [],
-   "inverse_bull": [
+   "direct_bull": [
     {
-     "sector": "银行",
+     "sector": "军工",
      "stocks": [
-      "601328",
-      "601398",
-      "601288",
-      "601988",
-      "601939",
-      "601658",
-      "601166",
-      "601916",
-      "600036",
-      "600000"
-     ]
-    },
-    {
-     "sector": "保险",
-     "stocks": [
-      "601318",
-      "601601",
-      "601628",
-      "601319",
-      "601336",
-      "601857"
+      "002414"
      ]
     }
    ],
-   "inverse_bear": [],
+   "inverse_bull": [],
+   "inverse_bear": [
+    {
+     "sector": "航空",
+     "stocks": [
+      "601021",
+      "000099",
+      "600221",
+      "601111",
+      "900945",
+      "600029",
+      "603885",
+      "600115",
+      "002928",
+      "603261"
+     ]
+    },
+    {
+     "sector": "旅游",
+     "stocks": [
+      "000888"
+     ]
+    }
+   ],
    "hedge": [],
    "flow_evidence": {
     "status": "insufficient",
@@ -305,19 +267,12 @@
   },
   {
    "title": "美国总统特朗普：整个中期选举过程“很奇怪”，中期选举后油价下跌，这难道不奇怪吗？",
-   "source": "华尔街见闻",
-   "time": "2026-11-23T06:16:54+08:00",
-   "url": "https://wallstreetcn.com/livenews/3203769",
+   "source": "wallstreetcn",
+   "time": "2026-11-23T05:49:39+08:00",
+   "url": "https://wallstreetcn.com/live/3203769",
    "transmission_id": "oil_down",
    "label": "油价下跌",
-   "direct_bear": [
-    {
-     "sector": "油服工程",
-     "stocks": [
-      "600871"
-     ]
-    }
-   ],
+   "direct_bear": [],
    "direct_bull": [],
    "inverse_bull": [
     {
@@ -334,12 +289,6 @@
       "601111",
       "900945"
      ]
-    },
-    {
-     "sector": "化工",
-     "stocks": [
-      "600803"
-     ]
     }
    ],
    "inverse_bear": [],
@@ -349,174 +298,6 @@
     "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
     "trade_date": "2026-10-15",
     "event_date": "2026-11-23",
-    "matched_codes": []
-   }
-  },
-  {
-   "title": "银行股领跌沙特股市，交易员计入地缘政治风险",
-   "source": "华尔街见闻",
-   "time": "2026-11-23T06:16:54+08:00",
-   "url": "https://wallstreetcn.com/livenews/3203752",
-   "transmission_id": "geopolitics",
-   "label": "地缘冲突",
-   "direct_bear": [],
-   "direct_bull": [],
-   "inverse_bull": [],
-   "inverse_bear": [
-    {
-     "sector": "航空",
-     "stocks": [
-      "601021",
-      "000099",
-      "600221",
-      "601111",
-      "900945",
-      "600029",
-      "603885",
-      "600115",
-      "002928",
-      "600009"
-     ]
-    },
-    {
-     "sector": "旅游",
-     "stocks": [
-      "000610"
-     ]
-    }
-   ],
-   "hedge": [],
-   "flow_evidence": {
-    "status": "insufficient",
-    "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
-    "trade_date": "2026-10-15",
-    "event_date": "2026-11-23",
-    "matched_codes": []
-   }
-  },
-  {
-   "title": "《学习时报》刊文梳理“伪史论”传播路径：算法机制放大高冲突、高争议内容",
-   "source": "澎湃新闻",
-   "time": "2026-11-23T06:17:00+08:00",
-   "url": "https://www.thepaper.cn/newsDetail_forward_34533204",
-   "transmission_id": "geopolitics",
-   "label": "地缘冲突",
-   "direct_bear": [],
-   "direct_bull": [],
-   "inverse_bull": [],
-   "inverse_bear": [
-    {
-     "sector": "航空",
-     "stocks": [
-      "601021",
-      "000099",
-      "600221",
-      "601111",
-      "900945",
-      "600029",
-      "603885",
-      "600115",
-      "002928",
-      "600009"
-     ]
-    },
-    {
-     "sector": "旅游",
-     "stocks": [
-      "000610"
-     ]
-    }
-   ],
-   "hedge": [],
-   "flow_evidence": {
-    "status": "insufficient",
-    "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
-    "trade_date": "2026-10-15",
-    "event_date": "2026-11-23",
-    "matched_codes": []
-   }
-  },
-  {
-   "title": "银行股领跌沙特股市，交易员计入地缘政治风险",
-   "source": "wallstreetcn",
-   "time": "2026-11-22T20:43:27+08:00",
-   "url": "https://wallstreetcn.com/live/3203752",
-   "transmission_id": "geopolitics",
-   "label": "地缘冲突",
-   "direct_bear": [],
-   "direct_bull": [],
-   "inverse_bull": [],
-   "inverse_bear": [
-    {
-     "sector": "航空",
-     "stocks": [
-      "601021",
-      "000099",
-      "600221",
-      "601111",
-      "900945",
-      "600029",
-      "603885",
-      "600115",
-      "002928",
-      "600009"
-     ]
-    },
-    {
-     "sector": "旅游",
-     "stocks": [
-      "000610"
-     ]
-    }
-   ],
-   "hedge": [],
-   "flow_evidence": {
-    "status": "insufficient",
-    "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
-    "trade_date": "2026-10-15",
-    "event_date": "2026-11-22",
-    "matched_codes": []
-   }
-  },
-  {
-   "title": "伊朗总统：正进行的经济战远比军事冲突“更为艰难”",
-   "source": "wallstreetcn",
-   "time": "2026-11-22T07:33:13+08:00",
-   "url": "https://wallstreetcn.com/live/3203707",
-   "transmission_id": "geopolitics",
-   "label": "地缘冲突",
-   "direct_bear": [],
-   "direct_bull": [],
-   "inverse_bull": [],
-   "inverse_bear": [
-    {
-     "sector": "航空",
-     "stocks": [
-      "601021",
-      "000099",
-      "600221",
-      "601111",
-      "900945",
-      "600029",
-      "603885",
-      "600115",
-      "002928",
-      "600009"
-     ]
-    },
-    {
-     "sector": "旅游",
-     "stocks": [
-      "000610"
-     ]
-    }
-   ],
-   "hedge": [],
-   "flow_evidence": {
-    "status": "insufficient",
-    "source": "dc_stock_flow,em_fflow_rank,em_index_flow,em_sector_flow",
-    "trade_date": "2026-10-15",
-    "event_date": "2026-11-22",
     "matched_codes": []
    }
   }
